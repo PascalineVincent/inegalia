@@ -739,6 +739,27 @@
     "href": "seances/biblio.html#pour-préparer-lexposé-individuel",
     "title": "Bibliographie",
     "section": "Pour préparer l’exposé individuel",
-    "text": "Pour préparer l’exposé individuel\nL’exposé porte sur une œuvre culturelle (littérature, cinéma, musique, art) que l’étudiant·e choisit librement et fait valider avant la séance 3.\nStructure suggérée (10 min) :\n\nPrésentation de l’œuvre et de son contexte économique et historique\nAnalyse des inégalités représentées — quelles formes, quelles causes, quels acteurs ?\nLien avec un auteur ou concept du cours\nPositionnement personnel — que vous apprend cette œuvre sur les inégalités aujourd’hui ?\n\nExemples d’œuvres utilisées par d’anciens étudiant·es : Parasite (Bong Joon-ho, 2019) · I, Daniel Blake (Ken Loach, 2016) · Les Misérables (Ladj Ly, 2019) · Atlanta (série, Donald Glover, 2016–2022) · This Is America (Childish Gambino, 2018) · Kehinde Wiley (peinture) · Banksy (art urbain) · Salgado (photographie)"
+    "text": "Pour préparer l’exposé individuel\nL’exposé porte sur une œuvre culturelle (littérature, cinéma, musique, art) que l’étudiant·e choisit librement et fait valider avant la séance 3.\nStructure suggérée (10 min) :\n\nPrésentation de l’œuvre et de son contexte économique et historique\nAnalyse des inégalités représentées — quelles formes, quelles causes, quels acteurs ?\nLien avec un auteur ou concept du cours\nPositionnement personnel — que vous apprend cette œuvre sur les inégalités aujourd’hui ?"
+  },
+  {
+    "objectID": "qcm.html",
+    "href": "qcm.html",
+    "title": "QCM — Inégalités et pensée économique",
+    "section": "",
+    "text": "Ce QCM parcourt les cinq grandes époques du cours. Chaque question est corrigée immédiatement avec une explication contextuelle."
+  },
+  {
+    "objectID": "carte_gini.html",
+    "href": "carte_gini.html",
+    "title": "Carte — Inégalités mondiales",
+    "section": "",
+    "text": "La carte ci-dessous représente l’indice de Gini par pays en 2022. Plus la couleur est foncée, plus les inégalités de revenu sont élevées. Survolez un pays pour voir sa valeur et son interprétation."
+  },
+  {
+    "objectID": "carte_gini.html#discussion-pédagogique",
+    "href": "carte_gini.html#discussion-pédagogique",
+    "title": "Carte — Inégalités mondiales",
+    "section": "Discussion pédagogique",
+    "text": "Discussion pédagogique\nQuelques observations à explorer avec les étudiant·es :\n\nLes pays les plus égalitaires (Gini &lt; 0,30) sont presque tous en Europe du Nord. Pourquoi ? État-providence fort, syndicalisme, fiscalité redistributive — ou géographie/culture ?\nL’Afrique subsaharienne présente des Gini parmi les plus élevés (Namibie : 0,59, Afrique du Sud : 0,63). Dans quelle mesure héritent-ils de la structure coloniale des économies extractives ?\nL’Inde et la Chine (Gini ~0,35–0,38) paraissent modérées — mais ces chiffres mesurent les revenus courants, pas les patrimoines. Avec la richesse, les écarts explosent.\nLes États-Unis (0,41) sont nettement plus inégalitaires que tous leurs voisins européens.\n\n\n\nCode R — reproduire la carte avec ggplot2\n# Version statique reproductible avec ggplot2 + rnaturalearth\n# install.packages(c(\"rnaturalearth\",\"rnaturalearthdata\",\"sf\"))\nlibrary(ggplot2)\nlibrary(dplyr)\n\n# Données Gini (extrait — compléter avec R/data_inegalites.R)\nsource(\"data_inegalites.R\")\n\n\nDonnées chargées : 17 points série longue, 6 pays dans top1_pays\n\n\nCode R — reproduire la carte avec ggplot2\n# Carte avec rnaturalearth :\n# world &lt;- rnaturalearth::ne_countries(scale = \"medium\", returnclass = \"sf\")\n# world_gini &lt;- world |&gt;\n#   left_join(gini_pays_2022, by = c(\"name_long\" = \"pays\"))\n# ggplot(world_gini) +\n#   geom_sf(aes(fill = gini), color = \"white\", size = 0.1) +\n#   scale_fill_gradient(low = \"#D6EAD9\", high = \"#8B1A1A\",\n#                       na.value = \"#E8E0D0\", name = \"Gini\") +\n#   theme_void() +\n#   labs(title = \"Inégalités mondiales — Gini 2022\",\n#        caption = \"Sources : World Bank / WID.world 2023\")"
   }
 ]
