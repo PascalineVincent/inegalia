@@ -1,0 +1,744 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Le voyage",
+    "section": "",
+    "text": "Comment les sociétés ont-elles justifié, mesuré et contesté les inégalités ? De la philosophie grecque aux algorithmes de 2026, six actes pour un seul fil rouge."
+  },
+  {
+    "objectID": "index.html#le-fil-rouge-global",
+    "href": "index.html#le-fil-rouge-global",
+    "title": "Le voyage",
+    "section": "Le fil rouge global",
+    "text": "Le fil rouge global\n\n\nCode\ndf_global &lt;- tibble::tribble(\n  ~annee, ~gini,  ~acte,\n  -350,   0.42,  \"I — Antiquité\",\n   500,   0.39,  \"I — Antiquité\",\n   800,   0.41,  \"II — Moyen Âge\",\n  1350,   0.38,  \"II — Moyen Âge\",  # Après la Peste\n  1450,   0.44,  \"II — Moyen Âge\",\n  1600,   0.47,  \"III — Renaissance\",\n  1750,   0.49,  \"III — Renaissance\",\n  1820,   0.50,  \"IV — XIXe\",\n  1870,   0.56,  \"IV — XIXe\",\n  1910,   0.61,  \"IV — XIXe\",\n  1929,   0.64,  \"V — XXe\",\n  1945,   0.60,  \"V — XXe\",\n  1975,   0.48,  \"V — XXe\",\n  2000,   0.64,  \"VI — XXIe\",\n  2022,   0.63,  \"VI — XXIe\"\n)\n\ncouleurs_actes &lt;- c(\n  \"I — Antiquité\"    = \"#B8860B\",\n  \"II — Moyen Âge\"   = \"#4A3728\",\n  \"III — Renaissance\"= \"#2D5A27\",\n  \"IV — XIXe\"        = \"#4A2040\",\n  \"V — XXe\"          = \"#1A3A5C\",\n  \"VI — XXIe\"        = \"#8B1A1A\"\n)\n\np &lt;- ggplot(df_global, aes(x = annee, y = gini, color = acte,\n                            text = paste0(\n                              \"&lt;b&gt;\", acte, \"&lt;/b&gt;&lt;br&gt;\",\n                              \"Année : \", ifelse(annee &lt; 0, paste0(abs(annee), \" av. J.-C.\"), annee), \"&lt;br&gt;\",\n                              \"Gini estimé : \", gini\n                            ))) +\n  geom_line(linewidth = 1, alpha = .85) +\n  geom_point(size = 3, alpha = .9) +\n  # Annotation : choc de la Peste\n  annotate(\"segment\", x = 1350, xend = 1350, y = .3, yend = .36,\n           linetype = \"dashed\", color = \"#888\", linewidth = .5) +\n  annotate(\"text\", x = 1355, y = .31, label = \"Peste noire\\n→ niveleur\",\n           hjust = 0, size = 2.8, color = \"#666\") +\n  # Annotation : Trente Glorieuses\n  annotate(\"rect\", xmin = 1945, xmax = 1975, ymin = .44, ymax = .66,\n           fill = \"#1A3A5C\", alpha = .07) +\n  annotate(\"text\", x = 1960, y = .44, label = \"Trente\\nGlorieuses\",\n           hjust = .5, size = 2.8, color = \"#1A3A5C\") +\n  scale_color_manual(values = couleurs_actes, name = NULL) +\n  scale_x_continuous(\n    breaks = c(-350, 0, 500, 1000, 1350, 1600, 1800, 1929, 1975, 2022),\n    labels = c(\"350 av.\", \"0\", \"500\", \"1000\", \"1350\", \"1600\", \"1800\",\n               \"1929\", \"1975\", \"2022\")\n  ) +\n  scale_y_continuous(limits = c(.3, .72),\n                     labels = scales::number_format(accuracy = .01)) +\n  labs(x = NULL, y = \"Indice de Gini\",\n       caption = \"Sources : Milanovic, Lindert & Williamson (2011) · WID.world 2023 · estimations\") +\n  theme_minimal(base_size = 12, base_family = \"serif\") +\n  theme(\n    legend.position  = \"bottom\",\n    legend.text      = element_text(size = 9),\n    panel.grid.minor = element_blank(),\n    plot.caption     = element_text(size = 8, color = \"#888\", hjust = 0)\n  )\n\nplotly::ggplotly(p, tooltip = \"text\") |&gt;\n  plotly::layout(legend = list(orientation = \"h\", y = -.2))\n\n\n\n\nGini mondial estimé, –350 av. J.-C. à 2022 · Sources : Milanovic (2011), WID.world\n\n\n\n\n\n\n\n\nLire ce graphique — Le Gini varie de 0 (égalité parfaite) à 1 (inégalité totale). Survolez les points pour les détails. Les données antérieures à 1800 sont des estimations."
+  },
+  {
+    "objectID": "index.html#la-frise-du-voyage",
+    "href": "index.html#la-frise-du-voyage",
+    "title": "Le voyage",
+    "section": "La frise du voyage",
+    "text": "La frise du voyage\n\n\n\n\n\n\n\n— 350 av. J.-C.\n\n\nActe I — L’inégalité comme ordre naturel\n\n\nAristote, Platon, Épicure. La hiérarchie comme évidence philosophique. Sappho interroge la valeur.\n\n\n\n\n\n\n\n\n\n500 — 1400\n\n\nActe II — L’inégalité sacrée\n\n\nLa richesse comme question morale. Dante, Villon, Ibn Khaldoun. La Peste comme niveleur.\n\n\n\n\n\n\n\n\n\n1400 — 1800\n\n\nActe III — L’inégalité comme effet du progrès\n\n\nAdam Smith, la division du travail. Sor Juana, Louise Labé. L’or des Amériques.\n\n\n\n\n\n\n\n\n\nXIXe siècle\n\n\nActe IV — L’inégalité conflictuelle\n\n\nRicardo, Marx. Exploitation structurelle. Desbordes-Valmore, Zola. Naissance du conflit social.\n\n\n\n\n\n\n\n\n\nXXe siècle\n\n\nActe V — L’inégalité régulée\n\n\nKeynes, État-providence. Langston Hughes, Akhmatova. La parenthèse des Trente Glorieuses.\n\n\n\n\n\n\n\n\n\nXXIe siècle\n\n\nActe VI — L’inégalité mesurée et débordante\n\n\nPiketty, mondialisation. Ocean Vuong, Warsan Shire. Tout est mesuré, rien n’est stabilisé."
+  },
+  {
+    "objectID": "index.html#le-journal-de-bord",
+    "href": "index.html#le-journal-de-bord",
+    "title": "Le voyage",
+    "section": "Le journal de bord",
+    "text": "Le journal de bord\n\n« Et si la narration autour d’un voyage temporel permettait de garder des archives du voyageur ? »\n\nLe journal de bord accompagne chaque acte d’une entrée fictive — le regard d’un voyageur qui traverse le temps et note ce qu’il observe : les prix du marché, les corps des pauvres, les arguments des puissants. Poèmes, données brutes, questions sans réponse.\nOuvrir le journal → Accéder aux séances →"
+  },
+  {
+    "objectID": "mnt/user-data/outputs/site_inegalites/seances/index.html",
+    "href": "mnt/user-data/outputs/site_inegalites/seances/index.html",
+    "title": "Séances",
+    "section": "",
+    "text": "Ce syllabus est une proposition ouverte. Chaque enseignant·e partenaire est invité·e à le compléter, adapter, ou enrichir selon son contexte national."
+  },
+  {
+    "objectID": "mnt/user-data/outputs/site_inegalites/seances/index.html#séance-1-pourquoi-faire-de-lhistoire-économique-des-inégalités",
+    "href": "mnt/user-data/outputs/site_inegalites/seances/index.html#séance-1-pourquoi-faire-de-lhistoire-économique-des-inégalités",
+    "title": "Séances",
+    "section": "Séance 1 — Pourquoi faire de l’histoire économique des inégalités ?",
+    "text": "Séance 1 — Pourquoi faire de l’histoire économique des inégalités ?\n\nIdées principales\n\n\n\nL’histoire économique permet de distinguer tendances structurelles et conjonctures : les inégalités actuelles ne sont pas une fatalité, elles ont une épaisseur temporelle.\nLa longue durée comme outil de décentrement : comparer dans le temps et l’espace oblige à relativiser nos catégories analytiques.\nLes inégalités sont multidimensionnelles — revenus, patrimoine, chances, genre, territoire — et toute mesure implique un choix normatif : le Gini n’est pas neutre.\n\n\n\nFil femmes — Séance 1\n\nClaudia Goldin (Nobel 2023) montre que la participation des femmes au marché du travail sur deux siècles suit une courbe en U — un fait invisible aux mesures agrégées standard. Le child penalty (pénalité de maternité) est aujourd’hui le principal facteur d’inégalité salariale entre hommes et femmes.\n\nPropositions pédagogiques\n\nDiscussion inaugurale : pourquoi l’histoire économique plutôt que la seule théorie ? “L’histoire est la seule manière sérieuse de faire de l’économie” — Piketty\nTour de table : chaque étudiant·e estime le Gini de son pays, puis confrontation aux données réelles (wid.world) — la surprise comme point d’entrée\nPrésentation comparée des indicateurs : Gini, Palma, D9/D1 — discussion des limites\nExercice de positionnement normatif : Rawls vs Nozick en petits groupes\n\n\nŒuvres culturelles\n\nPiketty, T. — Une brève histoire de l’égalité (2021)\nSen, A. — L’Idée de justice (2009)\n\nMilanović, B. — Les Inégalités mondiales (2016)\nLewis Hine — photographies d’enfants au travail aux États-Unis (1908–1918)\nSebastião Salgado — Workers (1993)\nGoldin, C. — Career and Family (2021)"
+  },
+  {
+    "objectID": "mnt/user-data/outputs/site_inegalites/seances/index.html#séance-2-les-inégalités-avant-le-capitalisme-industriel",
+    "href": "mnt/user-data/outputs/site_inegalites/seances/index.html#séance-2-les-inégalités-avant-le-capitalisme-industriel",
+    "title": "Séances",
+    "section": "Séance 2 — Les inégalités avant le capitalisme industriel",
+    "text": "Séance 2 — Les inégalités avant le capitalisme industriel\n\nIdées principales\n\n\n\nLes inégalités précèdent le capitalisme : statuts, castes, rente foncière\nChaque société produit des légitimations de ses hiérarchies — religieuses, naturelles ou juridiques\nLa pensée prémoderne ne distingue pas l’économie comme domaine autonome\n\n\n\nFil femmes — Séance 2\n\nJane Marcet (1769–1858) et Harriet Martineau (1802–1876) diffusent Say, Smith et Malthus à des centaines de milliers de lecteurs — invisibles dans les manuels canoniques. La vulgarisation a longtemps été l’espace autorisé aux femmes en économie. Est-ce encore vrai ?\n\nPropositions pédagogiques\n\nLecture d’un extrait du Discours sur l’inégalité de Rousseau (Deuxième partie)\nComparaison : féodalité européenne, castes indiennes, esclavage colonial\nDonnées : estimations Milanovic (2011) sur le Gini des sociétés pré-industrielles\nQuestion comparative : quelle forme d’inégalité prémoderne reste lisible dans votre pays ?\n\n\nŒuvres culturelles\n\nIbn Khaldoun — La Muqaddima (XIVe s.)\nB.R. Ambedkar — Annihilation of Caste (1936)\nSpartacus — Stanley Kubrick (1960)\nJane Marcet — L’économie politique en vingt-deux conversations (1816)"
+  },
+  {
+    "objectID": "mnt/user-data/outputs/site_inegalites/seances/index.html#séance-3-la-révolution-industrielle-et-la-question-sociale",
+    "href": "mnt/user-data/outputs/site_inegalites/seances/index.html#séance-3-la-révolution-industrielle-et-la-question-sociale",
+    "title": "Séances",
+    "section": "Séance 3 — La révolution industrielle et la question sociale",
+    "text": "Séance 3 — La révolution industrielle et la question sociale\n\nIdées principales\n\n\n\nL’industrialisation produit une nouvelle forme d’inégalité : le salariat et l’accumulation du capital\nSmith, Ricardo et Marx s’accordent sur le conflit de répartition ; ils divergent sur ses causes\nLa question sociale européenne est inséparable de l’exploitation coloniale extra-européenne\n\n\n\nFil femmes — Séance 3\n\nRosa Luxemburg (1871–1919) : première femme à produire une œuvre théorique majeure en économie. L’Accumulation du capital (1913) anticipe la demande effective de Keynes et ancre l’impérialisme dans une nécessité économique (manque de débouchés).\nBeatrice Potter Webb (1858–1943) : co-fondatrice de la LSE, pionnière de l’enquête de terrain et de l’économie institutionnaliste.\n\nPropositions pédagogiques\n\nLecture comparée : Ricardo sur les salaires + Capital ch. 25\nExercice : attribuer à chaque auteur (Smith, Ricardo, Marx, Malthus) sa position sur la pauvreté ouvrière\nDébat : la pauvreté est-elle un résultat de la nature (Malthus) ou d’un rapport social (Marx) ?\n\n\nŒuvres culturelles\n\nZola, É. — Germinal (1885)\nChaplin, C. — Modern Times (1936)\nMarx & Engels — Manifeste du Parti communiste (1848) — à lire intégralement\nRosa Luxemburg — L’Accumulation du capital (1913)"
+  },
+  {
+    "objectID": "mnt/user-data/outputs/site_inegalites/seances/index.html#séance-4-le-xxe-siècle-réduction-puis-retour-des-inégalités",
+    "href": "mnt/user-data/outputs/site_inegalites/seances/index.html#séance-4-le-xxe-siècle-réduction-puis-retour-des-inégalités",
+    "title": "Séances",
+    "section": "Séance 4 — Le XXe siècle : réduction puis retour des inégalités",
+    "text": "Séance 4 — Le XXe siècle : réduction puis retour des inégalités\n\nIdées principales\n\n\n\nLa réduction des inégalités (1930–1975) est une parenthèse historique produite par des chocs extérieurs et des choix politiques délibérés — non par une dynamique spontanée du capitalisme\nLe retournement néolibéral (1980–) est documenté dans tous les pays riches\nr &gt; g (Piketty) : la tendance structurelle à l’accumulation patrimoniale s’impose en l’absence de contre-forces\n\n\n\nFil femmes — Séance 4\n\nJoan Robinson (1903–1983) : membre du Cambridge Circus, co-auteure de la révolution keynésienne, pionnière de la concurrence imparfaite (1933). Attendue au Nobel en 1975 — elle ne le reçut jamais.\nDiscussion : les biais de genre dans l’attribution du Nobel économique.\n\nPropositions pédagogiques\n\nVisualisation sur wid.world : part du top 1% dans 4–5 pays sur un siècle\nDébat structuré : taxer le capital est-il légitime ? (Hayek vs Rawls)\nKeynes vs Hayek en 10 minutes : leurs positions sur l’inégalité et la redistribution\n\n\nŒuvres culturelles\n\nGalbraith, J.K. — La Société d’abondance (1958)\nThe Big Short — Adam McKay (2015)\nBruce Springsteen — Born in the USA (1984)\nJoan Robinson — The Economics of Imperfect Competition (1933)"
+  },
+  {
+    "objectID": "mnt/user-data/outputs/site_inegalites/seances/index.html#séance-5-les-inégalités-mondiales-aujourdhui",
+    "href": "mnt/user-data/outputs/site_inegalites/seances/index.html#séance-5-les-inégalités-mondiales-aujourdhui",
+    "title": "Séances",
+    "section": "Séance 5 — Les inégalités mondiales aujourd’hui",
+    "text": "Séance 5 — Les inégalités mondiales aujourd’hui\n\nIdées principales\n\n\n\nLa mondialisation a réduit les inégalités entre pays mais creuse les inégalités au sein des pays riches (courbe de l’éléphant)\nLes inégalités contemporaines sont intersectionnelles : classe, genre, race, territoire\nRéduire les inégalités exige des choix politiques — la question normative ne se résout pas par la seule technique\n\n\n\nFil femmes — Séance 5 (synthèse)\n\nMoins de 20% de femmes professeurs d’économie dans la majorité des pays.\nElinor Ostrom (Nobel 2009) — biens communs et gouvernance climatique.\nEsther Duflo (Nobel 2019) — méthode expérimentale et pauvreté.\nClaudia Goldin (Nobel 2023) — participation féminine au marché du travail.\nQuestion finale : l’économie serait-elle différente si les femmes n’avaient pas été exclues ?\n\nPropositions pédagogiques\n\nPrésentation et discussion de la courbe de l’éléphant (Milanovic, 2016)\n1re heure : exposés individuels des étudiant·es\n2e heure : cours + remise de la lecture commentée\nQuestion de clôture : les inégalités sont-elles solubles dans le capitalisme ?\n\n\nŒuvres culturelles\n\nPiketty, T. — Capital et idéologie (2019)\nDuflo, E. & Banerjee, A. — Économie utile pour des temps difficiles (2019)\nJR — Women are Heroes\nPérivier, H. — L’économie féministe (Presses de Sciences Po, 2020)"
+  },
+  {
+    "objectID": "mnt/user-data/outputs/site_inegalites/seances/index.html#modalités-dévaluation",
+    "href": "mnt/user-data/outputs/site_inegalites/seances/index.html#modalités-dévaluation",
+    "title": "Séances",
+    "section": "Modalités d’évaluation",
+    "text": "Modalités d’évaluation\n\n\nCode\ntibble::tribble(\n  ~Exercice, ~Poids, ~Format, ~Critères,\n  \"Lecture commentée\", \"50%\",\n    \"2–3 pages écrites · Remise fin séance 5\",\n    \"Résumé analytique + mise en perspective + discussion critique ancrée dans le contexte national\",\n  \"Exposé individuel\", \"50%\",\n    \"10 min + 5 min questions · Séance 5 (1re heure)\",\n    \"Présentation d'une œuvre · Analyse des inégalités · Lien avec un auteur du cours · Positionnement\"\n) |&gt;\n  knitr::kable(col.names = c(\"Exercice\", \"Poids\", \"Format\", \"Critères\"))\n\n\n\n\n\n\n\n\n\n\n\nExercice\nPoids\nFormat\nCritères\n\n\n\n\nLecture commentée\n50%\n2–3 pages écrites · Remise fin séance 5\nRésumé analytique + mise en perspective + discussion critique ancrée dans le contexte national\n\n\nExposé individuel\n50%\n10 min + 5 min questions · Séance 5 (1re heure)\nPrésentation d’une œuvre · Analyse des inégalités · Lien avec un auteur du cours · Positionnement\n\n\n\n\n\nTexte commun (lecture commentée) :\nMilanovic, Inégalités mondiales (2016), ch. 1 — La citoyenneté comme rente (~5 pages)\nGrille de notation (/20)\n\n\n\nCritère\nIndicateurs\nPts\n\n\n\n\nCompréhension\nMaîtrise des faits, auteurs et concepts\n5\n\n\nMobilisation théorique\nDialogue avec les auteurs du cours\n6\n\n\nArgumentation critique\nObjection construite, exemples, logique\n5\n\n\nForme & expression\nClarté, structure, respect du format\n4"
+  },
+  {
+    "objectID": "donnees.html",
+    "href": "donnees.html",
+    "title": "Données",
+    "section": "",
+    "text": "Un des graphiques les plus cités dans le débat sur la mondialisation. Il montre la croissance des revenus par percentile mondial entre 1988 et 2008.\n\n\nCode\n# Approximation de la courbe de l'éléphant de Milanovic (2016)\n# Source : Lakner & Milanovic (2013), fig. 1\npercentile &lt;- c(1,5,10,15,20,25,30,35,40,45,50,\n                55,60,65,70,75,80,85,90,95,99,100)\ncroissance  &lt;- c(40,32,28,26,27,30,36,44,50,55,58,\n                 62,64,65,61,54,42,33,20,18,65,85)\n\ndf_elephant &lt;- tibble(percentile = percentile, croissance = croissance)\n\np &lt;- ggplot(df_elephant, aes(x = percentile, y = croissance,\n                              text = paste0(\"Percentile \", percentile, \n                                            \"&lt;br&gt;Croissance : +\", croissance, \"%\"))) +\n  geom_line(color = \"#8B1A1A\", linewidth = 1.2) +\n  geom_ribbon(aes(ymin = 0, ymax = croissance), fill = \"#8B1A1A\", alpha = .12) +\n  # Annotations zones clés\n  annotate(\"text\", x = 50, y = 68, label = \"Classes moyennes\\nasiatiques émergentes\",\n           size = 3, color = \"#2D5A27\", hjust = .5) +\n  annotate(\"text\", x = 82, y = 25, label = \"Classes moyennes\\noccidentales stagnantes\",\n           size = 3, color = \"#1A3A5C\", hjust = .5) +\n  annotate(\"text\", x = 99, y = 92, label = \"Top 1%\\nmondial\",\n           size = 3, color = \"#8B1A1A\", hjust = 1) +\n  geom_point(data = filter(df_elephant, percentile %in% c(50, 80, 99)),\n             aes(x = percentile, y = croissance),\n             color = \"#8B1A1A\", size = 4) +\n  scale_x_continuous(breaks = seq(0, 100, 10),\n                     labels = paste0(seq(0, 100, 10), \"e\")) +\n  scale_y_continuous(labels = function(x) paste0(\"+\", x, \"%\")) +\n  labs(x = \"Percentile de revenus mondiaux\",\n       y = \"Croissance réelle des revenus (1988–2008)\",\n       caption = \"Source : Lakner & Milanovic (2013) · Approximation pédagogique\") +\n  theme_minimal(base_size = 11, base_family = \"serif\") +\n  theme(panel.grid.minor = element_blank())\n\nplotly::ggplotly(p, tooltip = \"text\")\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nLire ce graphique — L’axe x représente les percentiles de revenus dans le monde entier. Les “gagnants” de la mondialisation sont les classes moyennes émergentes (autour du 50e percentile) et le 1% mondial. Les “perdants” relatifs sont les classes moyennes des pays riches (autour du 80e percentile)."
+  },
+  {
+    "objectID": "donnees.html#la-courbe-de-léléphant-milanovic-2016",
+    "href": "donnees.html#la-courbe-de-léléphant-milanovic-2016",
+    "title": "Données",
+    "section": "",
+    "text": "Un des graphiques les plus cités dans le débat sur la mondialisation. Il montre la croissance des revenus par percentile mondial entre 1988 et 2008.\n\n\nCode\n# Approximation de la courbe de l'éléphant de Milanovic (2016)\n# Source : Lakner & Milanovic (2013), fig. 1\npercentile &lt;- c(1,5,10,15,20,25,30,35,40,45,50,\n                55,60,65,70,75,80,85,90,95,99,100)\ncroissance  &lt;- c(40,32,28,26,27,30,36,44,50,55,58,\n                 62,64,65,61,54,42,33,20,18,65,85)\n\ndf_elephant &lt;- tibble(percentile = percentile, croissance = croissance)\n\np &lt;- ggplot(df_elephant, aes(x = percentile, y = croissance,\n                              text = paste0(\"Percentile \", percentile, \n                                            \"&lt;br&gt;Croissance : +\", croissance, \"%\"))) +\n  geom_line(color = \"#8B1A1A\", linewidth = 1.2) +\n  geom_ribbon(aes(ymin = 0, ymax = croissance), fill = \"#8B1A1A\", alpha = .12) +\n  # Annotations zones clés\n  annotate(\"text\", x = 50, y = 68, label = \"Classes moyennes\\nasiatiques émergentes\",\n           size = 3, color = \"#2D5A27\", hjust = .5) +\n  annotate(\"text\", x = 82, y = 25, label = \"Classes moyennes\\noccidentales stagnantes\",\n           size = 3, color = \"#1A3A5C\", hjust = .5) +\n  annotate(\"text\", x = 99, y = 92, label = \"Top 1%\\nmondial\",\n           size = 3, color = \"#8B1A1A\", hjust = 1) +\n  geom_point(data = filter(df_elephant, percentile %in% c(50, 80, 99)),\n             aes(x = percentile, y = croissance),\n             color = \"#8B1A1A\", size = 4) +\n  scale_x_continuous(breaks = seq(0, 100, 10),\n                     labels = paste0(seq(0, 100, 10), \"e\")) +\n  scale_y_continuous(labels = function(x) paste0(\"+\", x, \"%\")) +\n  labs(x = \"Percentile de revenus mondiaux\",\n       y = \"Croissance réelle des revenus (1988–2008)\",\n       caption = \"Source : Lakner & Milanovic (2013) · Approximation pédagogique\") +\n  theme_minimal(base_size = 11, base_family = \"serif\") +\n  theme(panel.grid.minor = element_blank())\n\nplotly::ggplotly(p, tooltip = \"text\")\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nLire ce graphique — L’axe x représente les percentiles de revenus dans le monde entier. Les “gagnants” de la mondialisation sont les classes moyennes émergentes (autour du 50e percentile) et le 1% mondial. Les “perdants” relatifs sont les classes moyennes des pays riches (autour du 80e percentile)."
+  },
+  {
+    "objectID": "donnees.html#part-du-top-1-dans-le-revenu-national-19802022",
+    "href": "donnees.html#part-du-top-1-dans-le-revenu-national-19802022",
+    "title": "Données",
+    "section": "Part du top 1% dans le revenu national (1980–2022)",
+    "text": "Part du top 1% dans le revenu national (1980–2022)\n\n\nCode\ndf_top1 &lt;- tibble::tribble(\n  ~annee, ~pays,         ~part,\n  1980,  \"États-Unis\",   9.5,  1990, \"États-Unis\", 13.0,\n  2000,  \"États-Unis\",  17.5,  2010, \"États-Unis\", 19.0,\n  2022,  \"États-Unis\",  19.4,\n  1980,  \"France\",       7.9,  1990, \"France\",      8.2,\n  2000,  \"France\",       9.0,  2010, \"France\",     10.0,\n  2022,  \"France\",      10.8,\n  1980,  \"Inde\",         6.0,  1990, \"Inde\",        7.5,\n  2000,  \"Inde\",        11.0,  2010, \"Inde\",       20.0,\n  2022,  \"Inde\",        22.6,\n  1980,  \"Brésil\",      22.0,  1990, \"Brésil\",     24.0,\n  2000,  \"Brésil\",      24.5,  2010, \"Brésil\",     25.0,\n  2022,  \"Brésil\",      26.5,\n  1980,  \"Chine\",        5.0,  1990, \"Chine\",       6.0,\n  2000,  \"Chine\",       10.0,  2010, \"Chine\",      13.0,\n  2022,  \"Chine\",       15.2\n)\n\ncouleurs &lt;- c(\"États-Unis\" = \"#8B1A1A\", \"France\" = \"#1A3A5C\",\n              \"Inde\" = \"#B8860B\", \"Brésil\" = \"#2D5A27\", \"Chine\" = \"#4A2040\")\n\np2 &lt;- ggplot(df_top1, aes(x = annee, y = part, color = pays, group = pays,\n                            text = paste0(pays, \" · \", annee,\n                                          \"&lt;br&gt;Top 1% : \", part, \"%\"))) +\n  geom_line(linewidth = 1) +\n  geom_point(size = 2.5) +\n  scale_color_manual(values = couleurs, name = NULL) +\n  scale_y_continuous(labels = function(x) paste0(x, \"%\")) +\n  scale_x_continuous(breaks = c(1980, 1990, 2000, 2010, 2022)) +\n  labs(x = NULL, y = \"Part du revenu national (%)\",\n       caption = \"Source : World Inequality Database (wid.world) 2023\") +\n  theme_minimal(base_size = 11, base_family = \"serif\") +\n  theme(legend.position = \"bottom\", panel.grid.minor = element_blank())\n\nplotly::ggplotly(p2, tooltip = \"text\") |&gt;\n  plotly::layout(legend = list(orientation = \"h\", y = -.2))"
+  },
+  {
+    "objectID": "donnees.html#exercice-gini-estimez-avant-de-regarder",
+    "href": "donnees.html#exercice-gini-estimez-avant-de-regarder",
+    "title": "Données",
+    "section": "Exercice Gini — estimez avant de regarder",
+    "text": "Exercice Gini — estimez avant de regarder\n\n\nCode\ndf_gini &lt;- tibble::tribble(\n  ~pays,           ~gini_2022, ~region,\n  \"Afrique du Sud\",    0.63,  \"Afrique\",\n  \"Brésil\",            0.53,  \"Amériques\",\n  \"États-Unis\",        0.41,  \"Amériques\",\n  \"Chine\",             0.38,  \"Asie\",\n  \"Inde\",              0.35,  \"Asie\",\n  \"Royaume-Uni\",       0.36,  \"Europe\",\n  \"France\",            0.32,  \"Europe\",\n  \"Allemagne\",         0.31,  \"Europe\",\n  \"Japon\",             0.33,  \"Asie\",\n  \"Danemark\",          0.29,  \"Europe\",\n  \"Slovénie\",          0.25,  \"Europe\"\n) |&gt; mutate(pays = forcats::fct_reorder(pays, gini_2022))\n\ncouleurs_reg &lt;- c(\"Afrique\" = \"#B8860B\", \"Amériques\" = \"#8B1A1A\",\n                  \"Asie\" = \"#2D5A27\", \"Europe\" = \"#1A3A5C\")\n\np3 &lt;- ggplot(df_gini, aes(y = pays, x = gini_2022, fill = region,\n                            text = paste0(pays, \"&lt;br&gt;Gini : \", gini_2022,\n                                          \"&lt;br&gt;\", region))) +\n  geom_col(alpha = .8) +\n  geom_vline(xintercept = 0.35, linetype = \"dashed\", color = \"#888\", linewidth = .5) +\n  scale_fill_manual(values = couleurs_reg, name = NULL) +\n  scale_x_continuous(limits = c(0, .7)) +\n  labs(x = \"Indice de Gini (2022)\", y = NULL,\n       caption = \"Source : World Bank / WID.world 2023\") +\n  theme_minimal(base_size = 11, base_family = \"serif\") +\n  theme(legend.position = \"top\", panel.grid.major.y = element_blank())\n\nplotly::ggplotly(p3, tooltip = \"text\")\n\n\n\n\n\n\n\n\n\n\n\n\nAstuceExercice pédagogique\n\n\n\nAvant de regarder le graphique, notez votre estimation pour 3 pays que vous connaissez. Comparez ensuite avec les données réelles. L’écart entre estimation et réalité est souvent le point de départ le plus fécond pour une discussion sur la mesure des inégalités."
+  },
+  {
+    "objectID": "donnees.html#sources-et-ressources",
+    "href": "donnees.html#sources-et-ressources",
+    "title": "Données",
+    "section": "Sources et ressources",
+    "text": "Sources et ressources\n\n\n\nSource\nContenu\nURL\n\n\n\n\nWorld Inequality Database\nPart des top 1%, 10%, revenus et patrimoine\nwid.world\n\n\nOur World in Data\nGini, pauvreté, mobilité sociale\nourworldindata.org\n\n\nWorld Bank Open Data\nIndicateurs comparatifs\ndata.worldbank.org\n\n\nPiketty data\nDonnées du Capital au XXIe siècle\npiketty.pse.ens.fr"
+  },
+  {
+    "objectID": "01_antiquite.html",
+    "href": "01_antiquite.html",
+    "title": "Acte I — L’inégalité comme ordre naturel",
+    "section": "",
+    "text": "Entrée du journal · Athènes, –350 av. J.-C.\n\nJe suis arrivé dans une ville de 300 000 âmes, dont 100 000 esclaves. Personne ne les compte dans les assemblées. Le philosophe que j’ai rencontré m’explique que c’est dans l’ordre des choses — certains naissent pour commander, d’autres pour obéir. Il appelle ça la nature. Moi, j’appelle ça un choix."
+  },
+  {
+    "objectID": "01_antiquite.html#comment-linégalité-est-perçue",
+    "href": "01_antiquite.html#comment-linégalité-est-perçue",
+    "title": "Acte I — L’inégalité comme ordre naturel",
+    "section": "Comment l’inégalité est perçue",
+    "text": "Comment l’inégalité est perçue\nL’inégalité antique est ontologique : elle précède l’économie. Elle n’est pas le résultat d’un système — elle est la condition du système. Aristote distingue l’oikonomia (gestion raisonnable du foyer) de la chrématistique (accumulation sans limite), qu’il condamne comme contre-nature. Paradoxe fondateur : la même philosophie justifie l’esclavage et critique l’avidité."
+  },
+  {
+    "objectID": "01_antiquite.html#comment-elle-est-justifiée",
+    "href": "01_antiquite.html#comment-elle-est-justifiée",
+    "title": "Acte I — L’inégalité comme ordre naturel",
+    "section": "Comment elle est justifiée",
+    "text": "Comment elle est justifiée\n\n\n\n\n\n\n\n\nPenseur\nJustification\nAngle mort\n\n\n\n\nAristote\nHiérarchies naturelles\nL’esclave comme “instrument animé”\n\n\nPlaton\nMythe des métaux\nÉgalité réservée aux gardiens\n\n\nÉpicure\nSobriété volontaire\nNe s’adresse qu’aux hommes libres\n\n\nXénophon\nGestion efficace\nLes femmes comme ressource"
+  },
+  {
+    "objectID": "01_antiquite.html#les-données",
+    "href": "01_antiquite.html#les-données",
+    "title": "Acte I — L’inégalité comme ordre naturel",
+    "section": "Les données",
+    "text": "Les données\n\n\nCode\ndf &lt;- tibble::tribble(\n  ~societe,          ~gini, ~annee,\n  \"Athènes classique\",  0.42, -400,\n  \"Rome républicaine\",  0.43, -100,\n  \"Rome impériale\",     0.49,  100,\n  \"Égypte romaine\",     0.45,  200,\n  \"Byzance\",            0.41,  600\n) |&gt; mutate(societe = forcats::fct_reorder(societe, annee))\n\np &lt;- ggplot(df, aes(x = societe, y = gini,\n                    text = paste0(societe, \"&lt;br&gt;Gini : \", gini,\n                                  \"&lt;br&gt;ca. \", ifelse(annee&lt;0, paste0(abs(annee),\" av.\"), annee)))) +\n  geom_col(fill = \"#8B1A1A\", alpha = .75, width = .6) +\n  geom_hline(yintercept = .40, linetype = \"dashed\", color = \"#B8860B\", linewidth = .5) +\n  annotate(\"text\", x = .7, y = .41, label = \"seuil d'extraction (Milanovic)\",\n           hjust = 0, size = 3, color = \"#B8860B\") +\n  scale_y_continuous(limits = c(0, .65)) +\n  labs(x = NULL, y = \"Gini estimé\",\n       caption = \"Source : Milanovic, Lindert & Williamson (2011)\") +\n  theme_minimal(base_size = 11, base_family = \"serif\") +\n  theme(panel.grid.minor = element_blank(),\n        panel.grid.major.x = element_blank())\n\nplotly::ggplotly(p, tooltip = \"text\")\n\n\n\n\n\n\n\nEstimations de l’indice de Gini dans l’Antiquité. La valeur 0 = égalité parfaite ; 1 = inégalité totale."
+  },
+  {
+    "objectID": "01_antiquite.html#les-voix-poétiques",
+    "href": "01_antiquite.html#les-voix-poétiques",
+    "title": "Acte I — L’inégalité comme ordre naturel",
+    "section": "Les voix poétiques",
+    "text": "Les voix poétiques\n\nCertains disent qu’une armée de cavalerie, d’autres, une armée de fantassins, est la plus belle chose sur cette terre noire. Mais moi, je dis que c’est ce qu’on aime.\n\nSappho, Fragment 16, ca. 600 av. J.-C. — trad. Anne Carson\n\n\nPourquoi Sappho ici ? Son fragment pose une théorie de la valeur radicalement subjective, contre la logique de la force et de l’accumulation. Ce que vaut quelque chose, c’est ce qu’on désire — pas ce qu’on possède.\n\n\nFil rouge — Les inégalités\n\nComment l’inégalité est mesurée à cette époque : elle ne l’est pas. Il n’existe ni statistique, ni enquête, ni indicateur. L’inégalité est visible (corps des esclaves, palais des maîtres) mais non quantifiée. Le Gini que nous calculons rétrospectivement est une reconstruction — nos catégories projetées sur leur monde.\n\n\n\nFil femmes — Antiquité\n\nSappho est la première grande voix poétique féminine connue à théoriser le désir contre la logique économique de la force. Jane Marcet (1769–1858), première vulgarisatrice de l’économie politique, sera son héritière 2 400 ans plus tard — même invisibilité dans les manuels canoniques."
+  },
+  {
+    "objectID": "01_antiquite.html#pour-aller-plus-loin",
+    "href": "01_antiquite.html#pour-aller-plus-loin",
+    "title": "Acte I — L’inégalité comme ordre naturel",
+    "section": "Pour aller plus loin",
+    "text": "Pour aller plus loin\n\nAristote, Politique, Livre I (sur l’oikonomia et la chrématistique)\nMilanovic, B. (2011). The Haves and the Have-Nots — Appendice sur les sociétés pré-industrielles\nCarson, A. (trad.) — If Not, Winter : Fragments of Sappho"
+  },
+  {
+    "objectID": "mnt/user-data/outputs/site_inegalites/journal/index.html",
+    "href": "mnt/user-data/outputs/site_inegalites/journal/index.html",
+    "title": "Journal de bord",
+    "section": "",
+    "text": "Le voyageur ne comprend pas tout ce qu’il voit. C’est pour ça qu’il écrit.\nCe journal est la mémoire sensible du voyage à travers l’histoire économique des inégalités. Chaque entrée correspond à un moment précis — une ville, une année, une rencontre. Le voyageur observe, note des prix, cite des lois, recopie des poèmes. Il pose des questions sans toujours y répondre."
+  },
+  {
+    "objectID": "mnt/user-data/outputs/site_inegalites/journal/index.html#entrée-i-athènes-350-av.-j.-c.",
+    "href": "mnt/user-data/outputs/site_inegalites/journal/index.html#entrée-i-athènes-350-av.-j.-c.",
+    "title": "Journal de bord",
+    "section": "Entrée I — Athènes, –350 av. J.-C.",
+    "text": "Entrée I — Athènes, –350 av. J.-C.\n\n\nJournal de bord · Agora d’Athènes, automne –350\n\nArrivé hier. La ville sent l’huile et le cuir. Sur l’agora, des hommes discutent de justice et d’échange juste — to dikaion. Certains portent des chaînes aux chevilles. On ne les voit pas dans les discussions.\nJ’ai compté : sur dix personnes croisées, trois sont esclaves. Personne ne les compte dans les assemblées.\nLe philosophe que j’ai rencontré ce soir s’appelle Aristote. Il m’explique que l’esclave est un “instrument animé” — un outil qui parle. Quand je lui demande si l’outil souffre, il change de sujet.\nNote économique : Le prix d’un esclave qualifié : 3 à 5 mines d’argent. Le salaire journalier d’un artisan libre : 1 drachme (1/100 mine). L’esclave se rembourse en 300 jours de travail. Après, c’est du profit pur.\nCe que j’emporte : La première question économique n’est pas “comment produit-on la richesse” mais “qui a le droit d’en bénéficier”."
+  },
+  {
+    "objectID": "mnt/user-data/outputs/site_inegalites/journal/index.html#entrée-ii-paris-hiver-1348",
+    "href": "mnt/user-data/outputs/site_inegalites/journal/index.html#entrée-ii-paris-hiver-1348",
+    "title": "Journal de bord",
+    "section": "Entrée II — Paris, hiver 1348",
+    "text": "Entrée II — Paris, hiver 1348\n\n\nJournal de bord · Paris, janvier 1349\n\nLa Peste a tué un tiers de la ville en six mois. Les rues sentent le bûcher. Mais quelque chose d’étrange se passe sur les marchés : les survivants — artisans, paysans — négocient leurs salaires à la hausse.\nLe seigneur du coin est furieux. Il parle d’une ordonnance royale pour bloquer les salaires au niveau d’avant la Peste. La rareté de la main-d’œuvre donne du pouvoir aux travailleurs — et le pouvoir déteste ça.\nJ’ai copié ce poème trouvé sur un mur, attribué à un moine anonyme :\nLes riches ont leurs tours, les pauvres leurs douleurs, Et la terre, elle, ne dit mot.\nNote économique : Gini estimé en Europe, 1300 : 0,44. En 1370, après la Peste : 0,38. La catastrophe a été le plus grand niveleur social de l’histoire médiévale. Personne n’a choisi ce résultat.\nCe que j’emporte : Les inégalités peuvent baisser — mais rarement sans catastrophe ou sans lutte."
+  },
+  {
+    "objectID": "mnt/user-data/outputs/site_inegalites/journal/index.html#entrée-iii-lyon-1555",
+    "href": "mnt/user-data/outputs/site_inegalites/journal/index.html#entrée-iii-lyon-1555",
+    "title": "Journal de bord",
+    "section": "Entrée III — Lyon, 1555",
+    "text": "Entrée III — Lyon, 1555\n\n\nJournal de bord · Lyon, foire de la Saint-Jean, 1555\n\nLyon est la capitale économique du royaume. Les marchands italiens, allemands et flamands se croisent sur les quais. La soie circule, les lettres de change aussi — des bouts de papier qui valent des fortunes. La monnaie, c’est de la confiance matérialisée.\nJ’ai rencontré une femme poète, Louise Labé. Fille d’un cordier enrichi, elle a épousé un riche marchand. Elle écrit sur l’amour, mais aussi sur la valeur — ce qui vaut, ce qui dure, ce qui s’échange sans se vendre.\nMon bien s’en va, et à jamais il dure.\nNote économique : La foire de Lyon voit passer l’équivalent de 50 tonnes d’argent par an en lettres de change. Pendant ce temps, au Potosí (Pérou), des milliers d’Indiens meurent pour extraire l’argent qui alimente ces foires. Les deux faits ne se rencontrent jamais dans les chroniques.\nCe que j’emporte : Le commerce crée de la richesse et de l’invisibilité simultanément."
+  },
+  {
+    "objectID": "mnt/user-data/outputs/site_inegalites/journal/index.html#entrée-iv-manchester-1848",
+    "href": "mnt/user-data/outputs/site_inegalites/journal/index.html#entrée-iv-manchester-1848",
+    "title": "Journal de bord",
+    "section": "Entrée IV — Manchester, 1848",
+    "text": "Entrée IV — Manchester, 1848\n\n\nJournal de bord · Manchester, mars 1848\n\nFumée, bruit de machines, enfants qui travaillent dès six ans. Les usines tournent 14 heures par jour. Les ouvriers rentrent chez eux dans des taudis où dix personnes partagent deux pièces.\nUn homme m’a donné un texte imprimé à la va-vite : Le Manifeste du Parti communiste. Il m’explique que le capitaliste vole deux heures de travail par jour à l’ouvrier — la “plus-value”. Je lui demande si ça peut changer. Il me dit : “Seulement si les ouvriers le décident ensemble.”\nDans une librairie, j’ai trouvé un recueil de Marceline Desbordes-Valmore. Elle écrit depuis le Nord industriel, depuis la misère qu’elle connaît. Sa poésie n’est pas belle comme une fleur — elle est vraie comme une blessure.\nMon travail ? Un loyer. Ma peine ? Un sacrifice.\nNote économique : Salaire hebdomadaire moyen d’un ouvrier textile à Manchester en 1848 : 7 shillings. Loyer d’une chambre insalubre : 2 shillings. Reste pour manger, se chauffer, vivre : 5 shillings pour 6 personnes.\nCe que j’emporte : L’économie industrielle a rendu les inégalités visibles et scandaleuses pour la première fois. C’est une révolution dans les esprits."
+  },
+  {
+    "objectID": "mnt/user-data/outputs/site_inegalites/journal/index.html#entrée-v-new-york-octobre-1929",
+    "href": "mnt/user-data/outputs/site_inegalites/journal/index.html#entrée-v-new-york-octobre-1929",
+    "title": "Journal de bord",
+    "section": "Entrée V — New York, octobre 1929",
+    "text": "Entrée V — New York, octobre 1929\n\n\nJournal de bord · Wall Street, 24 octobre 1929\n\n“Black Thursday.” En quelques heures, des fortunes ont disparu. Des hommes en costume pleurent sur les trottoirs. Mais les vrais perdants ne sont pas ici — ils sont dans les campagnes, dans les usines qui ferment, dans les files d’attente aux soupes populaires.\nJ’ai lu Keynes ce soir dans ma chambre d’hôtel. Il dit que le marché ne se régule pas tout seul — qu’il faut que quelqu’un prenne le relais quand personne ne dépense. Cet “quelqu’un”, c’est l’État. Idée révolutionnaire en 1929.\nLangston Hughes publie ses poèmes dans les journaux noirs de Harlem. Pour les Noirs américains, la crise n’a rien de nouveau : America never was America to me.\nNote économique : Chômage aux États-Unis, 1933 : 25%. Dans les communautés noires : 50%. La crise ne frappe pas au hasard — elle suit les lignes préexistantes des inégalités.\nCe que j’emporte : Une crise révèle toujours la carte des inégalités qu’elle n’a pas créées, seulement amplifiées."
+  },
+  {
+    "objectID": "mnt/user-data/outputs/site_inegalites/journal/index.html#entrée-vi-san-francisco-2026",
+    "href": "mnt/user-data/outputs/site_inegalites/journal/index.html#entrée-vi-san-francisco-2026",
+    "title": "Journal de bord",
+    "section": "Entrée VI — San Francisco, 2026",
+    "text": "Entrée VI — San Francisco, 2026\n\n\nJournal de bord · San Francisco, avril 2026\n\nDeux mondes dans la même rue. D’un côté, les campus des GAFAM — espaces verts, cafétérias gratuites, salaires à six chiffres. De l’autre, les tentes des sans-abri alignées le long de la Highway 101.\nUn livreur Uber m’explique son algorithme. Il travaille 10 heures par jour, gagne 1200 dollars par mois, n’a pas d’assurance maladie. Son patron, c’est une application. Son contremaître, une étoile de notation.\nJ’ai lu Ocean Vuong ce soir. Il écrit sur la solitude dans le capitalisme — le salaire de la beauté est toujours en retard. Je ne sais pas si c’est de l’économie ou de la poésie. Peut-être que la distinction ne tient plus.\nNote économique : En 2026, les 1% les plus riches de Californie possèdent 43% de la richesse de l’État. L’espérance de vie à San Francisco varie de 15 ans entre les quartiers riches et les quartiers pauvres.\nCe que j’emporte : Tout est mesuré. Rien n’est résolu. La question n’est pas de savoir si on peut mesurer les inégalités — c’est de décider ce qu’on fait avec ce qu’on sait.\n\n\n\n\n\n\n\n\nAstucePour les étudiants\n\n\n\nChaque entrée du journal peut servir de point de départ pour l’exposé individuel. Choisissez un moment, un lieu, une voix poétique — et construisez votre propre entrée en liant un poème, une donnée économique, et votre positionnement personnel."
+  },
+  {
+    "objectID": "actes/01_antiquite.html",
+    "href": "actes/01_antiquite.html",
+    "title": "Acte I — L’inégalité comme ordre naturel",
+    "section": "",
+    "text": "Entrée du journal · Athènes, –350 av. J.-C.\n\nJe suis arrivé dans une ville de 300 000 âmes, dont 100 000 esclaves. Personne ne les compte dans les assemblées. Le philosophe que j’ai rencontré m’explique que c’est dans l’ordre des choses — certains naissent pour commander, d’autres pour obéir. Il appelle ça la nature. Moi, j’appelle ça un choix."
+  },
+  {
+    "objectID": "actes/01_antiquite.html#comment-linégalité-est-perçue",
+    "href": "actes/01_antiquite.html#comment-linégalité-est-perçue",
+    "title": "Acte I — L’inégalité comme ordre naturel",
+    "section": "Comment l’inégalité est perçue",
+    "text": "Comment l’inégalité est perçue\nL’inégalité antique est ontologique : elle précède l’économie. Elle n’est pas le résultat d’un système — elle est la condition du système. Aristote distingue l’oikonomia (gestion raisonnable du foyer) de la chrématistique (accumulation sans limite), qu’il condamne comme contre-nature. Paradoxe fondateur : la même philosophie justifie l’esclavage et critique l’avidité."
+  },
+  {
+    "objectID": "actes/01_antiquite.html#comment-elle-est-justifiée",
+    "href": "actes/01_antiquite.html#comment-elle-est-justifiée",
+    "title": "Acte I — L’inégalité comme ordre naturel",
+    "section": "Comment elle est justifiée",
+    "text": "Comment elle est justifiée\n\n\n\n\n\n\n\n\nPenseur\nJustification\nAngle mort\n\n\n\n\nAristote\nHiérarchies naturelles\nL’esclave comme “instrument animé”\n\n\nPlaton\nMythe des métaux\nÉgalité réservée aux gardiens\n\n\nÉpicure\nSobriété volontaire\nNe s’adresse qu’aux hommes libres\n\n\nXénophon\nGestion efficace\nLes femmes comme ressource"
+  },
+  {
+    "objectID": "actes/01_antiquite.html#les-données",
+    "href": "actes/01_antiquite.html#les-données",
+    "title": "Acte I — L’inégalité comme ordre naturel",
+    "section": "Les données",
+    "text": "Les données\n\n\nCode\ndf &lt;- tibble::tribble(\n  ~societe,          ~gini, ~annee,\n  \"Athènes classique\",  0.42, -400,\n  \"Rome républicaine\",  0.43, -100,\n  \"Rome impériale\",     0.49,  100,\n  \"Égypte romaine\",     0.45,  200,\n  \"Byzance\",            0.41,  600\n) |&gt; mutate(societe = forcats::fct_reorder(societe, annee))\n\np &lt;- ggplot(df, aes(x = societe, y = gini,\n                    text = paste0(societe, \"&lt;br&gt;Gini : \", gini,\n                                  \"&lt;br&gt;ca. \", ifelse(annee&lt;0, paste0(abs(annee),\" av.\"), annee)))) +\n  geom_col(fill = \"#8B1A1A\", alpha = .75, width = .6) +\n  geom_hline(yintercept = .40, linetype = \"dashed\", color = \"#B8860B\", linewidth = .5) +\n  annotate(\"text\", x = .7, y = .41, label = \"seuil d'extraction (Milanovic)\",\n           hjust = 0, size = 3, color = \"#B8860B\") +\n  scale_y_continuous(limits = c(0, .65)) +\n  labs(x = NULL, y = \"Gini estimé\",\n       caption = \"Source : Milanovic, Lindert & Williamson (2011)\") +\n  theme_minimal(base_size = 11, base_family = \"serif\") +\n  theme(panel.grid.minor = element_blank(),\n        panel.grid.major.x = element_blank())\n\nplotly::ggplotly(p, tooltip = \"text\")\n\n\n\n\n\n\n\nEstimations de l’indice de Gini dans l’Antiquité. La valeur 0 = égalité parfaite ; 1 = inégalité totale."
+  },
+  {
+    "objectID": "actes/01_antiquite.html#les-voix-poétiques",
+    "href": "actes/01_antiquite.html#les-voix-poétiques",
+    "title": "Acte I — L’inégalité comme ordre naturel",
+    "section": "Les voix poétiques",
+    "text": "Les voix poétiques\n\nCertains disent qu’une armée de cavalerie,\nd’autres, une armée de fantassins,\nest la plus belle chose sur cette terre noire.\nMais moi, je dis que c’est ce qu’on aime.\n\nSappho, Fragment 16, ca. 600 av. J.-C. — trad. Anne Carson\n\n\nPourquoi Sappho ici ? Son fragment pose une théorie de la valeur radicalement subjective, contre la logique de la force et de l’accumulation. Ce que vaut quelque chose, c’est ce qu’on désire — pas ce qu’on possède.\n\n\nFil rouge — Les inégalités\n\nComment l’inégalité est mesurée à cette époque : elle ne l’est pas. Il n’existe ni statistique, ni enquête, ni indicateur. L’inégalité est visible (corps des esclaves, palais des maîtres) mais non quantifiée. Le Gini que nous calculons rétrospectivement est une reconstruction — nos catégories projetées sur leur monde.\n\n\n\nFil femmes — Antiquité\n\nSappho est la première grande voix poétique féminine connue à théoriser le désir contre la logique économique de la force. Jane Marcet (1769–1858), première vulgarisatrice de l’économie politique, sera son héritière 2 400 ans plus tard — même invisibilité dans les manuels canoniques."
+  },
+  {
+    "objectID": "actes/01_antiquite.html#pour-aller-plus-loin",
+    "href": "actes/01_antiquite.html#pour-aller-plus-loin",
+    "title": "Acte I — L’inégalité comme ordre naturel",
+    "section": "Pour aller plus loin",
+    "text": "Pour aller plus loin\n\nAristote, Politique, Livre I (sur l’oikonomia et la chrématistique)\nMilanovic, B. (2011). The Haves and the Have-Nots — Appendice sur les sociétés pré-industrielles\nCarson, A. (trad.) — If Not, Winter : Fragments of Sappho"
+  },
+  {
+    "objectID": "journal/index.html",
+    "href": "journal/index.html",
+    "title": "Journal de bord",
+    "section": "",
+    "text": "Le voyageur ne comprend pas tout ce qu’il voit. C’est pour ça qu’il écrit.\nCe journal est la mémoire sensible du voyage à travers l’histoire économique des inégalités. Chaque entrée correspond à un moment précis — une ville, une année, une rencontre. Le voyageur observe, note des prix, cite des lois, recopie des poèmes. Il pose des questions sans toujours y répondre."
+  },
+  {
+    "objectID": "journal/index.html#entrée-i-athènes-350-av.-j.-c.",
+    "href": "journal/index.html#entrée-i-athènes-350-av.-j.-c.",
+    "title": "Journal de bord",
+    "section": "Entrée I — Athènes, –350 av. J.-C.",
+    "text": "Entrée I — Athènes, –350 av. J.-C.\n\n\nJournal de bord · Agora d’Athènes, automne –350\n\nArrivé hier. La ville sent l’huile et le cuir. Sur l’agora, des hommes discutent de justice et d’échange juste — to dikaion. Certains portent des chaînes aux chevilles. On ne les voit pas dans les discussions.\nJ’ai compté : sur dix personnes croisées, trois sont esclaves. Personne ne les compte dans les assemblées.\nLe philosophe que j’ai rencontré ce soir s’appelle Aristote. Il m’explique que l’esclave est un “instrument animé” — un outil qui parle. Quand je lui demande si l’outil souffre, il change de sujet.\nNote économique : Le prix d’un esclave qualifié : 3 à 5 mines d’argent. Le salaire journalier d’un artisan libre : 1 drachme (1/100 mine). L’esclave se rembourse en 300 jours de travail. Après, c’est du profit pur.\nCe que j’emporte : La première question économique n’est pas “comment produit-on la richesse” mais “qui a le droit d’en bénéficier”."
+  },
+  {
+    "objectID": "journal/index.html#entrée-ii-paris-hiver-1348",
+    "href": "journal/index.html#entrée-ii-paris-hiver-1348",
+    "title": "Journal de bord",
+    "section": "Entrée II — Paris, hiver 1348",
+    "text": "Entrée II — Paris, hiver 1348\n\n\nJournal de bord · Paris, janvier 1349\n\nLa Peste a tué un tiers de la ville en six mois. Les rues sentent le bûcher. Mais quelque chose d’étrange se passe sur les marchés : les survivants — artisans, paysans — négocient leurs salaires à la hausse.\nLe seigneur du coin est furieux. Il parle d’une ordonnance royale pour bloquer les salaires au niveau d’avant la Peste. La rareté de la main-d’œuvre donne du pouvoir aux travailleurs — et le pouvoir déteste ça.\nJ’ai copié ce poème trouvé sur un mur, attribué à un moine anonyme :\nLes riches ont leurs tours, les pauvres leurs douleurs, Et la terre, elle, ne dit mot.\nNote économique : Gini estimé en Europe, 1300 : 0,44. En 1370, après la Peste : 0,38. La catastrophe a été le plus grand niveleur social de l’histoire médiévale. Personne n’a choisi ce résultat.\nCe que j’emporte : Les inégalités peuvent baisser — mais rarement sans catastrophe ou sans lutte."
+  },
+  {
+    "objectID": "journal/index.html#entrée-iii-lyon-1555",
+    "href": "journal/index.html#entrée-iii-lyon-1555",
+    "title": "Journal de bord",
+    "section": "Entrée III — Lyon, 1555",
+    "text": "Entrée III — Lyon, 1555\n\n\nJournal de bord · Lyon, foire de la Saint-Jean, 1555\n\nLyon est la capitale économique du royaume. Les marchands italiens, allemands et flamands se croisent sur les quais. La soie circule, les lettres de change aussi — des bouts de papier qui valent des fortunes. La monnaie, c’est de la confiance matérialisée.\nJ’ai rencontré une femme poète, Louise Labé. Fille d’un cordier enrichi, elle a épousé un riche marchand. Elle écrit sur l’amour, mais aussi sur la valeur — ce qui vaut, ce qui dure, ce qui s’échange sans se vendre.\nMon bien s’en va, et à jamais il dure.\nNote économique : La foire de Lyon voit passer l’équivalent de 50 tonnes d’argent par an en lettres de change. Pendant ce temps, au Potosí (Pérou), des milliers d’Indiens meurent pour extraire l’argent qui alimente ces foires. Les deux faits ne se rencontrent jamais dans les chroniques.\nCe que j’emporte : Le commerce crée de la richesse et de l’invisibilité simultanément."
+  },
+  {
+    "objectID": "journal/index.html#entrée-iv-manchester-1848",
+    "href": "journal/index.html#entrée-iv-manchester-1848",
+    "title": "Journal de bord",
+    "section": "Entrée IV — Manchester, 1848",
+    "text": "Entrée IV — Manchester, 1848\n\n\nJournal de bord · Manchester, mars 1848\n\nFumée, bruit de machines, enfants qui travaillent dès six ans. Les usines tournent 14 heures par jour. Les ouvriers rentrent chez eux dans des taudis où dix personnes partagent deux pièces.\nUn homme m’a donné un texte imprimé à la va-vite : Le Manifeste du Parti communiste. Il m’explique que le capitaliste vole deux heures de travail par jour à l’ouvrier — la “plus-value”. Je lui demande si ça peut changer. Il me dit : “Seulement si les ouvriers le décident ensemble.”\nDans une librairie, j’ai trouvé un recueil de Marceline Desbordes-Valmore. Elle écrit depuis le Nord industriel, depuis la misère qu’elle connaît. Sa poésie n’est pas belle comme une fleur — elle est vraie comme une blessure.\nMon travail ? Un loyer. Ma peine ? Un sacrifice.\nNote économique : Salaire hebdomadaire moyen d’un ouvrier textile à Manchester en 1848 : 7 shillings. Loyer d’une chambre insalubre : 2 shillings. Reste pour manger, se chauffer, vivre : 5 shillings pour 6 personnes.\nCe que j’emporte : L’économie industrielle a rendu les inégalités visibles et scandaleuses pour la première fois. C’est une révolution dans les esprits."
+  },
+  {
+    "objectID": "journal/index.html#entrée-v-new-york-octobre-1929",
+    "href": "journal/index.html#entrée-v-new-york-octobre-1929",
+    "title": "Journal de bord",
+    "section": "Entrée V — New York, octobre 1929",
+    "text": "Entrée V — New York, octobre 1929\n\n\nJournal de bord · Wall Street, 24 octobre 1929\n\n“Black Thursday.” En quelques heures, des fortunes ont disparu. Des hommes en costume pleurent sur les trottoirs. Mais les vrais perdants ne sont pas ici — ils sont dans les campagnes, dans les usines qui ferment, dans les files d’attente aux soupes populaires.\nJ’ai lu Keynes ce soir dans ma chambre d’hôtel. Il dit que le marché ne se régule pas tout seul — qu’il faut que quelqu’un prenne le relais quand personne ne dépense. Cet “quelqu’un”, c’est l’État. Idée révolutionnaire en 1929.\nLangston Hughes publie ses poèmes dans les journaux noirs de Harlem. Pour les Noirs américains, la crise n’a rien de nouveau : America never was America to me.\nNote économique : Chômage aux États-Unis, 1933 : 25%. Dans les communautés noires : 50%. La crise ne frappe pas au hasard — elle suit les lignes préexistantes des inégalités.\nCe que j’emporte : Une crise révèle toujours la carte des inégalités qu’elle n’a pas créées, seulement amplifiées."
+  },
+  {
+    "objectID": "journal/index.html#entrée-vi-san-francisco-2026",
+    "href": "journal/index.html#entrée-vi-san-francisco-2026",
+    "title": "Journal de bord",
+    "section": "Entrée VI — San Francisco, 2026",
+    "text": "Entrée VI — San Francisco, 2026\n\n\nJournal de bord · San Francisco, avril 2026\n\nDeux mondes dans la même rue. D’un côté, les campus des GAFAM — espaces verts, cafétérias gratuites, salaires à six chiffres. De l’autre, les tentes des sans-abri alignées le long de la Highway 101.\nUn livreur Uber m’explique son algorithme. Il travaille 10 heures par jour, gagne 1200 dollars par mois, n’a pas d’assurance maladie. Son patron, c’est une application. Son contremaître, une étoile de notation.\nJ’ai lu Ocean Vuong ce soir. Il écrit sur la solitude dans le capitalisme — le salaire de la beauté est toujours en retard. Je ne sais pas si c’est de l’économie ou de la poésie. Peut-être que la distinction ne tient plus.\nNote économique : En 2026, les 1% les plus riches de Californie possèdent 43% de la richesse de l’État. L’espérance de vie à San Francisco varie de 15 ans entre les quartiers riches et les quartiers pauvres.\nCe que j’emporte : Tout est mesuré. Rien n’est résolu. La question n’est pas de savoir si on peut mesurer les inégalités — c’est de décider ce qu’on fait avec ce qu’on sait.\n\n\n\n\n\n\n\n\nAstucePour les étudiants\n\n\n\nChaque entrée du journal peut servir de point de départ pour l’exposé individuel. Choisissez un moment, un lieu, une voix poétique — et construisez votre propre entrée en liant un poème, une donnée économique, et votre positionnement personnel."
+  },
+  {
+    "objectID": "seances/index.html",
+    "href": "seances/index.html",
+    "title": "Séances",
+    "section": "",
+    "text": "Ce syllabus est une proposition ouverte. Chaque enseignant·e partenaire est invité·e à le compléter, adapter, ou enrichir selon son contexte national."
+  },
+  {
+    "objectID": "seances/index.html#séance-1-pourquoi-faire-de-lhistoire-économique-des-inégalités",
+    "href": "seances/index.html#séance-1-pourquoi-faire-de-lhistoire-économique-des-inégalités",
+    "title": "Séances",
+    "section": "Séance 1 — Pourquoi faire de l’histoire économique des inégalités ?",
+    "text": "Séance 1 — Pourquoi faire de l’histoire économique des inégalités ?\n\nIdées principales\n\n\n\nL’histoire économique permet de distinguer tendances structurelles et conjonctures : les inégalités actuelles ne sont pas une fatalité, elles ont une épaisseur temporelle.\nLa longue durée comme outil de décentrement : comparer dans le temps et l’espace oblige à relativiser nos catégories analytiques.\nLes inégalités sont multidimensionnelles — revenus, patrimoine, chances, genre, territoire — et toute mesure implique un choix normatif : le Gini n’est pas neutre.\n\n\n\nFil femmes — Séance 1\n\nClaudia Goldin (Nobel 2023) montre que la participation des femmes au marché du travail sur deux siècles suit une courbe en U — un fait invisible aux mesures agrégées standard. Le child penalty (pénalité de maternité) est aujourd’hui le principal facteur d’inégalité salariale entre hommes et femmes.\n\nPropositions pédagogiques\n\nDiscussion inaugurale : pourquoi l’histoire économique plutôt que la seule théorie ? “L’histoire est la seule manière sérieuse de faire de l’économie” — Piketty\nTour de table : chaque étudiant·e estime le Gini de son pays, puis confrontation aux données réelles (wid.world) — la surprise comme point d’entrée\nPrésentation comparée des indicateurs : Gini, Palma, D9/D1 — discussion des limites\nExercice de positionnement normatif : Rawls vs Nozick en petits groupes\n\n\nŒuvres culturelles\n\nPiketty, T. — Une brève histoire de l’égalité (2021)\nSen, A. — L’Idée de justice (2009)\n\nMilanović, B. — Les Inégalités mondiales (2016)\nLewis Hine — photographies d’enfants au travail aux États-Unis (1908–1918)\nSebastião Salgado — Workers (1993)\nGoldin, C. — Career and Family (2021)"
+  },
+  {
+    "objectID": "seances/index.html#séance-2-les-inégalités-avant-le-capitalisme-industriel",
+    "href": "seances/index.html#séance-2-les-inégalités-avant-le-capitalisme-industriel",
+    "title": "Séances",
+    "section": "Séance 2 — Les inégalités avant le capitalisme industriel",
+    "text": "Séance 2 — Les inégalités avant le capitalisme industriel\n\nIdées principales\n\n\n\nLes inégalités précèdent le capitalisme : statuts, castes, rente foncière\nChaque société produit des légitimations de ses hiérarchies — religieuses, naturelles ou juridiques\nLa pensée prémoderne ne distingue pas l’économie comme domaine autonome\n\n\n\nFil femmes — Séance 2\n\nJane Marcet (1769–1858) et Harriet Martineau (1802–1876) diffusent Say, Smith et Malthus à des centaines de milliers de lecteurs — invisibles dans les manuels canoniques. La vulgarisation a longtemps été l’espace autorisé aux femmes en économie. Est-ce encore vrai ?\n\nPropositions pédagogiques\n\nLecture d’un extrait du Discours sur l’inégalité de Rousseau (Deuxième partie)\nComparaison : féodalité européenne, castes indiennes, esclavage colonial\nDonnées : estimations Milanovic (2011) sur le Gini des sociétés pré-industrielles\nQuestion comparative : quelle forme d’inégalité prémoderne reste lisible dans votre pays ?\n\n\nŒuvres culturelles\n\nIbn Khaldoun — La Muqaddima (XIVe s.)\nB.R. Ambedkar — Annihilation of Caste (1936)\nSpartacus — Stanley Kubrick (1960)\nJane Marcet — L’économie politique en vingt-deux conversations (1816)"
+  },
+  {
+    "objectID": "seances/index.html#séance-3-la-révolution-industrielle-et-la-question-sociale",
+    "href": "seances/index.html#séance-3-la-révolution-industrielle-et-la-question-sociale",
+    "title": "Séances",
+    "section": "Séance 3 — La révolution industrielle et la question sociale",
+    "text": "Séance 3 — La révolution industrielle et la question sociale\n\nIdées principales\n\n\n\nL’industrialisation produit une nouvelle forme d’inégalité : le salariat et l’accumulation du capital\nSmith, Ricardo et Marx s’accordent sur le conflit de répartition ; ils divergent sur ses causes\nLa question sociale européenne est inséparable de l’exploitation coloniale extra-européenne\n\n\n\nFil femmes — Séance 3\n\nRosa Luxemburg (1871–1919) : première femme à produire une œuvre théorique majeure en économie. L’Accumulation du capital (1913) anticipe la demande effective de Keynes et ancre l’impérialisme dans une nécessité économique (manque de débouchés).\nBeatrice Potter Webb (1858–1943) : co-fondatrice de la LSE, pionnière de l’enquête de terrain et de l’économie institutionnaliste.\n\nPropositions pédagogiques\n\nLecture comparée : Ricardo sur les salaires + Capital ch. 25\nExercice : attribuer à chaque auteur (Smith, Ricardo, Marx, Malthus) sa position sur la pauvreté ouvrière\nDébat : la pauvreté est-elle un résultat de la nature (Malthus) ou d’un rapport social (Marx) ?\n\n\nŒuvres culturelles\n\nZola, É. — Germinal (1885)\nChaplin, C. — Modern Times (1936)\nMarx & Engels — Manifeste du Parti communiste (1848) — à lire intégralement\nRosa Luxemburg — L’Accumulation du capital (1913)"
+  },
+  {
+    "objectID": "seances/index.html#séance-4-le-xxe-siècle-réduction-puis-retour-des-inégalités",
+    "href": "seances/index.html#séance-4-le-xxe-siècle-réduction-puis-retour-des-inégalités",
+    "title": "Séances",
+    "section": "Séance 4 — Le XXe siècle : réduction puis retour des inégalités",
+    "text": "Séance 4 — Le XXe siècle : réduction puis retour des inégalités\n\nIdées principales\n\n\n\nLa réduction des inégalités (1930–1975) est une parenthèse historique produite par des chocs extérieurs et des choix politiques délibérés — non par une dynamique spontanée du capitalisme\nLe retournement néolibéral (1980–) est documenté dans tous les pays riches\nr &gt; g (Piketty) : la tendance structurelle à l’accumulation patrimoniale s’impose en l’absence de contre-forces\n\n\n\nFil femmes — Séance 4\n\nJoan Robinson (1903–1983) : membre du Cambridge Circus, co-auteure de la révolution keynésienne, pionnière de la concurrence imparfaite (1933). Attendue au Nobel en 1975 — elle ne le reçut jamais.\nDiscussion : les biais de genre dans l’attribution du Nobel économique.\n\nPropositions pédagogiques\n\nVisualisation sur wid.world : part du top 1% dans 4–5 pays sur un siècle\nDébat structuré : taxer le capital est-il légitime ? (Hayek vs Rawls)\nKeynes vs Hayek en 10 minutes : leurs positions sur l’inégalité et la redistribution\n\n\nŒuvres culturelles\n\nGalbraith, J.K. — La Société d’abondance (1958)\nThe Big Short — Adam McKay (2015)\nBruce Springsteen — Born in the USA (1984)\nJoan Robinson — The Economics of Imperfect Competition (1933)"
+  },
+  {
+    "objectID": "seances/index.html#séance-5-les-inégalités-mondiales-aujourdhui",
+    "href": "seances/index.html#séance-5-les-inégalités-mondiales-aujourdhui",
+    "title": "Séances",
+    "section": "Séance 5 — Les inégalités mondiales aujourd’hui",
+    "text": "Séance 5 — Les inégalités mondiales aujourd’hui\n\nIdées principales\n\n\n\nLa mondialisation a réduit les inégalités entre pays mais creuse les inégalités au sein des pays riches (courbe de l’éléphant)\nLes inégalités contemporaines sont intersectionnelles : classe, genre, race, territoire\nRéduire les inégalités exige des choix politiques — la question normative ne se résout pas par la seule technique\n\n\n\nFil femmes — Séance 5 (synthèse)\n\nMoins de 20% de femmes professeurs d’économie dans la majorité des pays.\nElinor Ostrom (Nobel 2009) — biens communs et gouvernance climatique.\nEsther Duflo (Nobel 2019) — méthode expérimentale et pauvreté.\nClaudia Goldin (Nobel 2023) — participation féminine au marché du travail.\nQuestion finale : l’économie serait-elle différente si les femmes n’avaient pas été exclues ?\n\nPropositions pédagogiques\n\nPrésentation et discussion de la courbe de l’éléphant (Milanovic, 2016)\n1re heure : exposés individuels des étudiant·es\n2e heure : cours + remise de la lecture commentée\nQuestion de clôture : les inégalités sont-elles solubles dans le capitalisme ?\n\n\nŒuvres culturelles\n\nPiketty, T. — Capital et idéologie (2019)\nDuflo, E. & Banerjee, A. — Économie utile pour des temps difficiles (2019)\nJR — Women are Heroes\nPérivier, H. — L’économie féministe (Presses de Sciences Po, 2020)"
+  },
+  {
+    "objectID": "seances/index.html#modalités-dévaluation",
+    "href": "seances/index.html#modalités-dévaluation",
+    "title": "Séances",
+    "section": "Modalités d’évaluation",
+    "text": "Modalités d’évaluation\n\n\nCode\ntibble::tribble(\n  ~Exercice, ~Poids, ~Format, ~Critères,\n  \"Lecture commentée\", \"50%\",\n    \"2–3 pages écrites · Remise fin séance 5\",\n    \"Résumé analytique + mise en perspective + discussion critique ancrée dans le contexte national\",\n  \"Exposé individuel\", \"50%\",\n    \"10 min + 5 min questions · Séance 5 (1re heure)\",\n    \"Présentation d'une œuvre · Analyse des inégalités · Lien avec un auteur du cours · Positionnement\"\n) |&gt;\n  knitr::kable(col.names = c(\"Exercice\", \"Poids\", \"Format\", \"Critères\"))\n\n\n\n\n\n\n\n\n\n\n\nExercice\nPoids\nFormat\nCritères\n\n\n\n\nLecture commentée\n50%\n2–3 pages écrites · Remise fin séance 5\nRésumé analytique + mise en perspective + discussion critique ancrée dans le contexte national\n\n\nExposé individuel\n50%\n10 min + 5 min questions · Séance 5 (1re heure)\nPrésentation d’une œuvre · Analyse des inégalités · Lien avec un auteur du cours · Positionnement\n\n\n\n\n\nTexte commun (lecture commentée) :\nMilanovic, Inégalités mondiales (2016), ch. 1 — La citoyenneté comme rente (~5 pages)\nGrille de notation (/20)\n\n\n\nCritère\nIndicateurs\nPts\n\n\n\n\nCompréhension\nMaîtrise des faits, auteurs et concepts\n5\n\n\nMobilisation théorique\nDialogue avec les auteurs du cours\n6\n\n\nArgumentation critique\nObjection construite, exemples, logique\n5\n\n\nForme & expression\nClarté, structure, respect du format\n4"
+  },
+  {
+    "objectID": "carnet_test.html",
+    "href": "carnet_test.html",
+    "title": "Journal du voyageur — Inégalités à travers l’histoire",
+    "section": "",
+    "text": "Le voyageur ne comprend pas tout ce qu’il voit. C’est pour ça qu’il écrit.\nCe journal est la mémoire sensible du voyage à travers l’histoire économique des inégalités. Chaque entrée correspond à un moment précis — une ville, une année, une rencontre. Le voyageur observe, note des prix, cite des lois, recopie des poèmes. Il pose des questions sans toujours y répondre."
+  },
+  {
+    "objectID": "styles/carnet_test.html",
+    "href": "styles/carnet_test.html",
+    "title": "Carnet",
+    "section": "",
+    "text": "20 avril 2026\n\nLieu : Archives familiales\nAujourd’hui, j’ai retrouvé ce croquis daté de 1929. Il représente un objet antique découvert lors de fouilles archéologiques. Les détails sont remarquablement précis pour l’époque.\n\n\n\nCroquis d’un objet antique, 1929"
+  },
+  {
+    "objectID": "carnet_test.html#entrée-i-athènes-350-av.-j.-c.",
+    "href": "carnet_test.html#entrée-i-athènes-350-av.-j.-c.",
+    "title": "Journal du voyageur — Inégalités à travers l’histoire",
+    "section": "Entrée I — Athènes, –350 av. J.-C.",
+    "text": "Entrée I — Athènes, –350 av. J.-C.\n\n\nJournal de bord · Agora d’Athènes, automne –350\n\nArrivé hier. La ville sent l’huile et le cuir. Sur l’agora, des hommes discutent de justice et d’échange juste — to dikaion. Certains portent des chaînes aux chevilles. On ne les voit pas dans les discussions.\nJ’ai compté : sur dix personnes croisées, trois sont esclaves. Personne ne les compte dans les assemblées.\nLe philosophe que j’ai rencontré ce soir s’appelle Aristote. Il m’explique que l’esclave est un “instrument animé” — un outil qui parle. Quand je lui demande si l’outil souffre, il change de sujet.\nNote économique : Le prix d’un esclave qualifié : 3 à 5 mines d’argent. Le salaire journalier d’un artisan libre : 1 drachme (1/100 mine). L’esclave se rembourse en 300 jours de travail. Après, c’est du profit pur.\n\n\n\nCroquis de l’Agora, maître et esclave\n\n\nCe que j’emporte : La première question économique n’est pas “comment produit-on la richesse” mais “qui a le droit d’en bénéficier”."
+  },
+  {
+    "objectID": "carnet_test.html#entrée-ii-paris-hiver-1348",
+    "href": "carnet_test.html#entrée-ii-paris-hiver-1348",
+    "title": "Journal du voyageur — Inégalités à travers l’histoire",
+    "section": "Entrée II — Paris, hiver 1348",
+    "text": "Entrée II — Paris, hiver 1348\n\n\nJournal de bord · Paris, janvier 1349\n\nLa Peste a tué un tiers de la ville en six mois. Les rues sentent le bûcher. Mais quelque chose d’étrange se passe sur les marchés : les survivants — artisans, paysans — négocient leurs salaires à la hausse.\nLe seigneur du coin est furieux. Il parle d’une ordonnance royale pour bloquer les salaires au niveau d’avant la Peste. La rareté de la main-d’œuvre donne du pouvoir aux travailleurs — et le pouvoir déteste ça.\n\n\n\nMarché parisien en 1349 : moins de monde, plus de pouvoir aux survivants\n\n\nJ’ai copié ce poème trouvé sur un mur, attribué à un moine anonyme :\nLes riches ont leurs tours, les pauvres leurs douleurs, Et la terre, elle, ne dit mot.\nNote économique : Gini estimé en Europe, 1300 : 0,44. En 1370, après la Peste : 0,38. La catastrophe a été le plus grand niveleur social de l’histoire médiévale. Personne n’a choisi ce résultat.\nCe que j’emporte : Les inégalités peuvent baisser — mais rarement sans catastrophe ou sans lutte."
+  },
+  {
+    "objectID": "carnet_test.html#entrée-iii-lyon-1555",
+    "href": "carnet_test.html#entrée-iii-lyon-1555",
+    "title": "Journal du voyageur — Inégalités à travers l’histoire",
+    "section": "Entrée III — Lyon, 1555",
+    "text": "Entrée III — Lyon, 1555\n\n\nJournal de bord · Lyon, foire de la Saint-Jean, 1555\n\nLyon est la capitale économique du royaume. Les marchands italiens, allemands et flamands se croisent sur les quais. La soie circule, les lettres de change aussi — des bouts de papier qui valent des fortunes. La monnaie, c’est de la confiance matérialisée.\n\n\n\nÉchanges de lettres de change sur les quais de Saône\n\n\nJ’ai rencontré une femme poète, Louise Labé. Fille d’un cordier enrichi, elle a épousé un riche marchand. Elle écrit sur l’amour, mais aussi sur la valeur — ce qui vaut, ce qui dure, ce qui s’échange sans se vendre.\nMon bien s’en va, et à jamais il dure.\nNote économique : La foire de Lyon voit passer l’équivalent de 50 tonnes d’argent par an en lettres de change. Pendant ce temps, au Potosí (Pérou), des milliers d’Indiens meurent pour extraire l’argent qui alimente ces foires. Les deux faits ne se rencontrent jamais dans les chroniques.\nCe que j’emporte : Le commerce crée de la richesse et de l’invisibilité simultanément."
+  },
+  {
+    "objectID": "carnet_test.html#entrée-iv-manchester-1848",
+    "href": "carnet_test.html#entrée-iv-manchester-1848",
+    "title": "Journal du voyageur — Inégalités à travers l’histoire",
+    "section": "Entrée IV — Manchester, 1848",
+    "text": "Entrée IV — Manchester, 1848\n\n\nJournal de bord · Manchester, mars 1848\n\nFumée, bruit de machines, enfants qui travaillent dès six ans. Les usines tournent 14 heures par jour. Les ouvriers rentrent chez eux dans des taudis où dix personnes partagent deux pièces.\n\n\n\nIntérieur d’une manufacture : 60% des ouvriers ont moins de 16 ans\n\n\nUn homme m’a donné un texte imprimé à la va-vite : Le Manifeste du Parti communiste. Il m’explique que le capitaliste vole deux heures de travail par jour à l’ouvrier — la “plus-value”. Je lui demande si ça peut changer. Il me dit : “Seulement si les ouvriers le décident ensemble.”\nDans une librairie, j’ai trouvé un recueil de Marceline Desbordes-Valmore. Elle écrit depuis le Nord industriel, depuis la misère qu’elle connaît. Sa poésie n’est pas belle comme une fleur — elle est vraie comme une blessure.\nMon travail ? Un loyer. Ma peine ? Un sacrifice.\nNote économique : Salaire hebdomadaire moyen d’un ouvrier textile à Manchester en 1848 : 7 shillings. Loyer d’une chambre insalubre : 2 shillings. Reste pour manger, se chauffer, vivre : 5 shillings pour 6 personnes.\nCe que j’emporte : L’économie industrielle a rendu les inégalités visibles et scandaleuses pour la première fois. C’est une révolution dans les esprits."
+  },
+  {
+    "objectID": "carnet_test.html#entrée-v-new-york-octobre-1929",
+    "href": "carnet_test.html#entrée-v-new-york-octobre-1929",
+    "title": "Journal du voyageur — Inégalités à travers l’histoire",
+    "section": "Entrée V — New York, octobre 1929",
+    "text": "Entrée V — New York, octobre 1929\n\n\nJournal de bord · Wall Street, 24 octobre 1929\n\n“Black Thursday.” En quelques heures, des fortunes ont disparu. Des hommes en costume pleurent sur les trottoirs. Mais les vrais perdants ne sont pas ici — ils sont dans les campagnes, dans les usines qui ferment, dans les files d’attente aux soupes populaires.\n\n\n\n24 octobre 1929 : la foule devant la Bourse de New York\n\n\nJ’ai lu Keynes ce soir dans ma chambre d’hôtel. Il dit que le marché ne se régule pas tout seul — qu’il faut que quelqu’un prenne le relais quand personne ne dépense. Cet “quelqu’un”, c’est l’État. Idée révolutionnaire en 1929.\nLangston Hughes publie ses poèmes dans les journaux noirs de Harlem. Pour les Noirs américains, la crise n’a rien de nouveau : America never was America to me.\nNote économique : Chômage aux États-Unis, 1933 : 25%. Dans les communautés noires : 50%. La crise ne frappe pas au hasard — elle suit les lignes préexistantes des inégalités.\nCe que j’emporte : Une crise révèle toujours la carte des inégalités qu’elle n’a pas créées, seulement amplifiées."
+  },
+  {
+    "objectID": "carnet_test.html#entrée-vi-san-francisco-2026",
+    "href": "carnet_test.html#entrée-vi-san-francisco-2026",
+    "title": "Journal du voyageur — Inégalités à travers l’histoire",
+    "section": "Entrée VI — San Francisco, 2026",
+    "text": "Entrée VI — San Francisco, 2026\n\n\nJournal de bord · San Francisco, avril 2026\n\nDeux mondes dans la même rue. D’un côté, les campus des GAFAM — espaces verts, cafétérias gratuites, salaires à six chiffres. De l’autre, les tentes des sans-abri alignées le long de la Highway 101.\n\n\n\nIllustration de la ségrégation\n\n\nUn livreur Uber m’explique son algorithme. Il travaille 10 heures par jour, gagne 1200 dollars par mois, n’a pas d’assurance maladie. Son patron, c’est une application. Son contremaître, une étoile de notation.\nJ’ai lu Ocean Vuong ce soir. Il écrit sur la solitude dans le capitalisme — le salaire de la beauté est toujours en retard. Je ne sais pas si c’est de l’économie ou de la poésie. Peut-être que la distinction ne tient plus.\nNote économique : En 2026, les 1% les plus riches de Californie possèdent 43% de la richesse de l’État. L’espérance de vie à San Francisco varie de 15 ans entre les quartiers riches et les quartiers pauvres.\nCe que j’emporte : Tout est mesuré. Rien n’est résolu. La question n’est pas de savoir si on peut mesurer les inégalités — c’est de décider ce qu’on fait avec ce qu’on sait.\n\n\n\n\n\n\n\n\nAstucePour les étudiants\n\n\n\nChaque entrée du journal peut servir de point de départ pour l’exposé individuel. Choisissez un moment, un lieu, une voix poétique — et construisez votre propre entrée en liant un poème, une donnée économique, et votre positionnement personnel."
+  },
+  {
+    "objectID": "journal/carnet_test.html",
+    "href": "journal/carnet_test.html",
+    "title": "Journal du voyageur — Inégalités à travers l’histoire",
+    "section": "",
+    "text": "Le voyageur ne comprend pas tout ce qu’il voit. C’est pour ça qu’il écrit.\nCe journal est la mémoire sensible du voyage à travers l’histoire économique des inégalités. Chaque entrée correspond à un moment précis — une ville, une année, une rencontre. Le voyageur observe, note des prix, cite des lois, recopie des poèmes. Il pose des questions sans toujours y répondre."
+  },
+  {
+    "objectID": "journal/carnet_test.html#entrée-i-athènes-350-av.-j.-c.",
+    "href": "journal/carnet_test.html#entrée-i-athènes-350-av.-j.-c.",
+    "title": "Journal du voyageur — Inégalités à travers l’histoire",
+    "section": "Entrée I — Athènes, –350 av. J.-C.",
+    "text": "Entrée I — Athènes, –350 av. J.-C.\n\n\nJournal de bord · Agora d’Athènes, automne –350\n\nArrivé hier. La ville sent l’huile et le cuir. Sur l’agora, des hommes discutent de justice et d’échange juste — to dikaion. Certains portent des chaînes aux chevilles. On ne les voit pas dans les discussions.\nJ’ai compté : sur dix personnes croisées, trois sont esclaves. Personne ne les compte dans les assemblées.\nLe philosophe que j’ai rencontré ce soir s’appelle Aristote. Il m’explique que l’esclave est un “instrument animé” — un outil qui parle. Quand je lui demande si l’outil souffre, il change de sujet.\nNote économique : Le prix d’un esclave qualifié : 3 à 5 mines d’argent. Le salaire journalier d’un artisan libre : 1 drachme (1/100 mine). L’esclave se rembourse en 300 jours de travail. Après, c’est du profit pur.\n\n\n\nCroquis de l’Agora, avec esclaves en arrière-plan\n\n\nCe que j’emporte : La première question économique n’est pas “comment produit-on la richesse” mais “qui a le droit d’en bénéficier”."
+  },
+  {
+    "objectID": "journal/carnet_test.html#entrée-ii-paris-hiver-1348",
+    "href": "journal/carnet_test.html#entrée-ii-paris-hiver-1348",
+    "title": "Journal du voyageur — Inégalités à travers l’histoire",
+    "section": "Entrée II — Paris, hiver 1348",
+    "text": "Entrée II — Paris, hiver 1348\n\n\nJournal de bord · Paris, janvier 1349\n\nLa Peste a tué un tiers de la ville en six mois. Les rues sentent le bûcher. Mais quelque chose d’étrange se passe sur les marchés : les survivants — artisans, paysans — négocient leurs salaires à la hausse.\nLe seigneur du coin est furieux. Il parle d’une ordonnance royale pour bloquer les salaires au niveau d’avant la Peste. La rareté de la main-d’œuvre donne du pouvoir aux travailleurs — et le pouvoir déteste ça.\n\n\n\nMarché parisien en 1349 : moins de monde, plus de pouvoir aux survivants\n\n\nJ’ai copié ce poème trouvé sur un mur, attribué à un moine anonyme :\nLes riches ont leurs tours, les pauvres leurs douleurs, Et la terre, elle, ne dit mot.\nNote économique : Gini estimé en Europe, 1300 : 0,44. En 1370, après la Peste : 0,38. La catastrophe a été le plus grand niveleur social de l’histoire médiévale. Personne n’a choisi ce résultat.\nCe que j’emporte : Les inégalités peuvent baisser — mais rarement sans catastrophe ou sans lutte."
+  },
+  {
+    "objectID": "journal/carnet_test.html#entrée-iii-lyon-1555",
+    "href": "journal/carnet_test.html#entrée-iii-lyon-1555",
+    "title": "Journal du voyageur — Inégalités à travers l’histoire",
+    "section": "Entrée III — Lyon, 1555",
+    "text": "Entrée III — Lyon, 1555\n\n\nJournal de bord · Lyon, foire de la Saint-Jean, 1555\n\nLyon est la capitale économique du royaume. Les marchands italiens, allemands et flamands se croisent sur les quais. La soie circule, les lettres de change aussi — des bouts de papier qui valent des fortunes. La monnaie, c’est de la confiance matérialisée.\n\n\n\nÉchanges de lettres de change sur les quais de Saône\n\n\nJ’ai rencontré une femme poète, Louise Labé. Fille d’un cordier enrichi, elle a épousé un riche marchand. Elle écrit sur l’amour, mais aussi sur la valeur — ce qui vaut, ce qui dure, ce qui s’échange sans se vendre.\nMon bien s’en va, et à jamais il dure.\nNote économique : La foire de Lyon voit passer l’équivalent de 50 tonnes d’argent par an en lettres de change. Pendant ce temps, au Potosí (Pérou), des milliers d’Indiens meurent pour extraire l’argent qui alimente ces foires. Les deux faits ne se rencontrent jamais dans les chroniques.\nCe que j’emporte : Le commerce crée de la richesse et de l’invisibilité simultanément."
+  },
+  {
+    "objectID": "journal/carnet_test.html#entrée-iv-manchester-1848",
+    "href": "journal/carnet_test.html#entrée-iv-manchester-1848",
+    "title": "Journal du voyageur — Inégalités à travers l’histoire",
+    "section": "Entrée IV — Manchester, 1848",
+    "text": "Entrée IV — Manchester, 1848\n\n\nJournal de bord · Manchester, mars 1848\n\nFumée, bruit de machines, enfants qui travaillent dès six ans. Les usines tournent 14 heures par jour. Les ouvriers rentrent chez eux dans des taudis où dix personnes partagent deux pièces.\n\n\n\nIntérieur d’une filature : 60% des ouvriers ont moins de 16 ans\n\n\nUn homme m’a donné un texte imprimé à la va-vite : Le Manifeste du Parti communiste. Il m’explique que le capitaliste vole deux heures de travail par jour à l’ouvrier — la “plus-value”. Je lui demande si ça peut changer. Il me dit : “Seulement si les ouvriers le décident ensemble.”\nDans une librairie, j’ai trouvé un recueil de Marceline Desbordes-Valmore. Elle écrit depuis le Nord industriel, depuis la misère qu’elle connaît. Sa poésie n’est pas belle comme une fleur — elle est vraie comme une blessure.\nMon travail ? Un loyer. Ma peine ? Un sacrifice.\nNote économique : Salaire hebdomadaire moyen d’un ouvrier textile à Manchester en 1848 : 7 shillings. Loyer d’une chambre insalubre : 2 shillings. Reste pour manger, se chauffer, vivre : 5 shillings pour 6 personnes.\nCe que j’emporte : L’économie industrielle a rendu les inégalités visibles et scandaleuses pour la première fois. C’est une révolution dans les esprits."
+  },
+  {
+    "objectID": "journal/carnet_test.html#entrée-v-new-york-octobre-1929",
+    "href": "journal/carnet_test.html#entrée-v-new-york-octobre-1929",
+    "title": "Journal du voyageur — Inégalités à travers l’histoire",
+    "section": "Entrée V — New York, octobre 1929",
+    "text": "Entrée V — New York, octobre 1929\n\n\nJournal de bord · Wall Street, 24 octobre 1929\n\n“Black Thursday.” En quelques heures, des fortunes ont disparu. Des hommes en costume pleurent sur les trottoirs. Mais les vrais perdants ne sont pas ici — ils sont dans les campagnes, dans les usines qui ferment, dans les files d’attente aux soupes populaires.\n\n\n\n24 octobre 1929 : la foule devant la Bourse de New York\n\n\nJ’ai lu Keynes ce soir dans ma chambre d’hôtel. Il dit que le marché ne se régule pas tout seul — qu’il faut que quelqu’un prenne le relais quand personne ne dépense. Cet “quelqu’un”, c’est l’État. Idée révolutionnaire en 1929.\nLangston Hughes publie ses poèmes dans les journaux noirs de Harlem. Pour les Noirs américains, la crise n’a rien de nouveau : America never was America to me.\nNote économique : Chômage aux États-Unis, 1933 : 25%. Dans les communautés noires : 50%. La crise ne frappe pas au hasard — elle suit les lignes préexistantes des inégalités.\nCe que j’emporte : Une crise révèle toujours la carte des inégalités qu’elle n’a pas créées, seulement amplifiées."
+  },
+  {
+    "objectID": "journal/carnet_test.html#entrée-vi-san-francisco-2026",
+    "href": "journal/carnet_test.html#entrée-vi-san-francisco-2026",
+    "title": "Journal du voyageur — Inégalités à travers l’histoire",
+    "section": "Entrée VI — San Francisco, 2026",
+    "text": "Entrée VI — San Francisco, 2026\n\n\nJournal de bord · San Francisco, avril 2026\n\nDeux mondes dans la même rue. D’un côté, les campus des GAFAM — espaces verts, cafétérias gratuites, salaires à six chiffres. De l’autre, les tentes des sans-abri alignées le long de la Highway 101.\n\n\n\nIllustration de la ségrégation\n\n\nUn livreur Uber m’explique son algorithme. Il travaille 10 heures par jour, gagne 1200 dollars par mois, n’a pas d’assurance maladie. Son patron, c’est une application. Son contremaître, une étoile de notation.\nJ’ai lu Ocean Vuong ce soir. Il écrit sur la solitude dans le capitalisme — le salaire de la beauté est toujours en retard. Je ne sais pas si c’est de l’économie ou de la poésie. Peut-être que la distinction ne tient plus.\nNote économique : En 2026, les 1% les plus riches de Californie possèdent 43% de la richesse de l’État. L’espérance de vie à San Francisco varie de 15 ans entre les quartiers riches et les quartiers pauvres.\nCe que j’emporte : Tout est mesuré. Rien n’est résolu. La question n’est pas de savoir si on peut mesurer les inégalités — c’est de décider ce qu’on fait avec ce qu’on sait.\n\n\n\n\n\n\n\n\nAstucePour les étudiants\n\n\n\nChaque entrée du journal peut servir de point de départ pour l’exposé individuel. Choisissez un moment, un lieu, une voix poétique — et construisez votre propre entrée en liant un poème, une donnée économique, et votre positionnement personnel."
+  },
+  {
+    "objectID": "seances/donnees.html",
+    "href": "seances/donnees.html",
+    "title": "Données",
+    "section": "",
+    "text": "Un des graphiques les plus cités dans le débat sur la mondialisation. Il montre la croissance des revenus par percentile mondial entre 1988 et 2008.\n\n\nCode\n# Approximation de la courbe de l'éléphant de Milanovic (2016)\n# Source : Lakner & Milanovic (2013), fig. 1\npercentile &lt;- c(1,5,10,15,20,25,30,35,40,45,50,\n                55,60,65,70,75,80,85,90,95,99,100)\ncroissance  &lt;- c(40,32,28,26,27,30,36,44,50,55,58,\n                 62,64,65,61,54,42,33,20,18,65,85)\n\ndf_elephant &lt;- tibble(percentile = percentile, croissance = croissance)\n\np &lt;- ggplot(df_elephant, aes(x = percentile, y = croissance,\n                              text = paste0(\"Percentile \", percentile, \n                                            \"&lt;br&gt;Croissance : +\", croissance, \"%\"))) +\n  geom_line(color = \"#8B1A1A\", linewidth = 1.2) +\n  geom_ribbon(aes(ymin = 0, ymax = croissance), fill = \"#8B1A1A\", alpha = .12) +\n  # Annotations zones clés\n  annotate(\"text\", x = 50, y = 68, label = \"Classes moyennes\\nasiatiques émergentes\",\n           size = 3, color = \"#2D5A27\", hjust = .5) +\n  annotate(\"text\", x = 82, y = 25, label = \"Classes moyennes\\noccidentales stagnantes\",\n           size = 3, color = \"#1A3A5C\", hjust = .5) +\n  annotate(\"text\", x = 99, y = 92, label = \"Top 1%\\nmondial\",\n           size = 3, color = \"#8B1A1A\", hjust = 1) +\n  geom_point(data = filter(df_elephant, percentile %in% c(50, 80, 99)),\n             aes(x = percentile, y = croissance),\n             color = \"#8B1A1A\", size = 4) +\n  scale_x_continuous(breaks = seq(0, 100, 10),\n                     labels = paste0(seq(0, 100, 10), \"e\")) +\n  scale_y_continuous(labels = function(x) paste0(\"+\", x, \"%\")) +\n  labs(x = \"Percentile de revenus mondiaux\",\n       y = \"Croissance réelle des revenus (1988–2008)\",\n       caption = \"Source : Lakner & Milanovic (2013) · Approximation pédagogique\") +\n  theme_minimal(base_size = 11, base_family = \"serif\") +\n  theme(panel.grid.minor = element_blank())\n\nplotly::ggplotly(p, tooltip = \"text\")\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nLire ce graphique — L’axe x représente les percentiles de revenus dans le monde entier. Les “gagnants” de la mondialisation sont les classes moyennes émergentes (autour du 50e percentile) et le 1% mondial. Les “perdants” relatifs sont les classes moyennes des pays riches (autour du 80e percentile)."
+  },
+  {
+    "objectID": "seances/donnees.html#la-courbe-de-léléphant-milanovic-2016",
+    "href": "seances/donnees.html#la-courbe-de-léléphant-milanovic-2016",
+    "title": "Données",
+    "section": "",
+    "text": "Un des graphiques les plus cités dans le débat sur la mondialisation. Il montre la croissance des revenus par percentile mondial entre 1988 et 2008.\n\n\nCode\n# Approximation de la courbe de l'éléphant de Milanovic (2016)\n# Source : Lakner & Milanovic (2013), fig. 1\npercentile &lt;- c(1,5,10,15,20,25,30,35,40,45,50,\n                55,60,65,70,75,80,85,90,95,99,100)\ncroissance  &lt;- c(40,32,28,26,27,30,36,44,50,55,58,\n                 62,64,65,61,54,42,33,20,18,65,85)\n\ndf_elephant &lt;- tibble(percentile = percentile, croissance = croissance)\n\np &lt;- ggplot(df_elephant, aes(x = percentile, y = croissance,\n                              text = paste0(\"Percentile \", percentile, \n                                            \"&lt;br&gt;Croissance : +\", croissance, \"%\"))) +\n  geom_line(color = \"#8B1A1A\", linewidth = 1.2) +\n  geom_ribbon(aes(ymin = 0, ymax = croissance), fill = \"#8B1A1A\", alpha = .12) +\n  # Annotations zones clés\n  annotate(\"text\", x = 50, y = 68, label = \"Classes moyennes\\nasiatiques émergentes\",\n           size = 3, color = \"#2D5A27\", hjust = .5) +\n  annotate(\"text\", x = 82, y = 25, label = \"Classes moyennes\\noccidentales stagnantes\",\n           size = 3, color = \"#1A3A5C\", hjust = .5) +\n  annotate(\"text\", x = 99, y = 92, label = \"Top 1%\\nmondial\",\n           size = 3, color = \"#8B1A1A\", hjust = 1) +\n  geom_point(data = filter(df_elephant, percentile %in% c(50, 80, 99)),\n             aes(x = percentile, y = croissance),\n             color = \"#8B1A1A\", size = 4) +\n  scale_x_continuous(breaks = seq(0, 100, 10),\n                     labels = paste0(seq(0, 100, 10), \"e\")) +\n  scale_y_continuous(labels = function(x) paste0(\"+\", x, \"%\")) +\n  labs(x = \"Percentile de revenus mondiaux\",\n       y = \"Croissance réelle des revenus (1988–2008)\",\n       caption = \"Source : Lakner & Milanovic (2013) · Approximation pédagogique\") +\n  theme_minimal(base_size = 11, base_family = \"serif\") +\n  theme(panel.grid.minor = element_blank())\n\nplotly::ggplotly(p, tooltip = \"text\")\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nLire ce graphique — L’axe x représente les percentiles de revenus dans le monde entier. Les “gagnants” de la mondialisation sont les classes moyennes émergentes (autour du 50e percentile) et le 1% mondial. Les “perdants” relatifs sont les classes moyennes des pays riches (autour du 80e percentile)."
+  },
+  {
+    "objectID": "seances/donnees.html#part-du-top-1-dans-le-revenu-national-19802022",
+    "href": "seances/donnees.html#part-du-top-1-dans-le-revenu-national-19802022",
+    "title": "Données",
+    "section": "Part du top 1% dans le revenu national (1980–2022)",
+    "text": "Part du top 1% dans le revenu national (1980–2022)\n\n\nCode\ndf_top1 &lt;- tibble::tribble(\n  ~annee, ~pays,         ~part,\n  1980,  \"États-Unis\",   9.5,  1990, \"États-Unis\", 13.0,\n  2000,  \"États-Unis\",  17.5,  2010, \"États-Unis\", 19.0,\n  2022,  \"États-Unis\",  19.4,\n  1980,  \"France\",       7.9,  1990, \"France\",      8.2,\n  2000,  \"France\",       9.0,  2010, \"France\",     10.0,\n  2022,  \"France\",      10.8,\n  1980,  \"Inde\",         6.0,  1990, \"Inde\",        7.5,\n  2000,  \"Inde\",        11.0,  2010, \"Inde\",       20.0,\n  2022,  \"Inde\",        22.6,\n  1980,  \"Brésil\",      22.0,  1990, \"Brésil\",     24.0,\n  2000,  \"Brésil\",      24.5,  2010, \"Brésil\",     25.0,\n  2022,  \"Brésil\",      26.5,\n  1980,  \"Chine\",        5.0,  1990, \"Chine\",       6.0,\n  2000,  \"Chine\",       10.0,  2010, \"Chine\",      13.0,\n  2022,  \"Chine\",       15.2\n)\n\ncouleurs &lt;- c(\"États-Unis\" = \"#8B1A1A\", \"France\" = \"#1A3A5C\",\n              \"Inde\" = \"#B8860B\", \"Brésil\" = \"#2D5A27\", \"Chine\" = \"#4A2040\")\n\np2 &lt;- ggplot(df_top1, aes(x = annee, y = part, color = pays, group = pays,\n                            text = paste0(pays, \" · \", annee,\n                                          \"&lt;br&gt;Top 1% : \", part, \"%\"))) +\n  geom_line(linewidth = 1) +\n  geom_point(size = 2.5) +\n  scale_color_manual(values = couleurs, name = NULL) +\n  scale_y_continuous(labels = function(x) paste0(x, \"%\")) +\n  scale_x_continuous(breaks = c(1980, 1990, 2000, 2010, 2022)) +\n  labs(x = NULL, y = \"Part du revenu national (%)\",\n       caption = \"Source : World Inequality Database (wid.world) 2023\") +\n  theme_minimal(base_size = 11, base_family = \"serif\") +\n  theme(legend.position = \"bottom\", panel.grid.minor = element_blank())\n\nplotly::ggplotly(p2, tooltip = \"text\") |&gt;\n  plotly::layout(legend = list(orientation = \"h\", y = -.2))"
+  },
+  {
+    "objectID": "seances/donnees.html#exercice-gini-estimez-avant-de-regarder",
+    "href": "seances/donnees.html#exercice-gini-estimez-avant-de-regarder",
+    "title": "Données",
+    "section": "Exercice Gini — estimez avant de regarder",
+    "text": "Exercice Gini — estimez avant de regarder\n\n\nCode\ndf_gini &lt;- tibble::tribble(\n  ~pays,           ~gini_2022, ~region,\n  \"Afrique du Sud\",    0.63,  \"Afrique\",\n  \"Brésil\",            0.53,  \"Amériques\",\n  \"États-Unis\",        0.41,  \"Amériques\",\n  \"Chine\",             0.38,  \"Asie\",\n  \"Inde\",              0.35,  \"Asie\",\n  \"Royaume-Uni\",       0.36,  \"Europe\",\n  \"France\",            0.32,  \"Europe\",\n  \"Allemagne\",         0.31,  \"Europe\",\n  \"Japon\",             0.33,  \"Asie\",\n  \"Danemark\",          0.29,  \"Europe\",\n  \"Slovénie\",          0.25,  \"Europe\"\n) |&gt; mutate(pays = forcats::fct_reorder(pays, gini_2022))\n\ncouleurs_reg &lt;- c(\"Afrique\" = \"#B8860B\", \"Amériques\" = \"#8B1A1A\",\n                  \"Asie\" = \"#2D5A27\", \"Europe\" = \"#1A3A5C\")\n\np3 &lt;- ggplot(df_gini, aes(y = pays, x = gini_2022, fill = region,\n                            text = paste0(pays, \"&lt;br&gt;Gini : \", gini_2022,\n                                          \"&lt;br&gt;\", region))) +\n  geom_col(alpha = .8) +\n  geom_vline(xintercept = 0.35, linetype = \"dashed\", color = \"#888\", linewidth = .5) +\n  scale_fill_manual(values = couleurs_reg, name = NULL) +\n  scale_x_continuous(limits = c(0, .7)) +\n  labs(x = \"Indice de Gini (2022)\", y = NULL,\n       caption = \"Source : World Bank / WID.world 2023\") +\n  theme_minimal(base_size = 11, base_family = \"serif\") +\n  theme(legend.position = \"top\", panel.grid.major.y = element_blank())\n\nplotly::ggplotly(p3, tooltip = \"text\")\n\n\n\n\n\n\n\n\n\n\n\n\nAstuceExercice pédagogique\n\n\n\nAvant de regarder le graphique, notez votre estimation pour 3 pays que vous connaissez. Comparez ensuite avec les données réelles. L’écart entre estimation et réalité est souvent le point de départ le plus fécond pour une discussion sur la mesure des inégalités."
+  },
+  {
+    "objectID": "seances/donnees.html#sources-et-ressources",
+    "href": "seances/donnees.html#sources-et-ressources",
+    "title": "Données",
+    "section": "Sources et ressources",
+    "text": "Sources et ressources\n\n\n\nSource\nContenu\nURL\n\n\n\n\nWorld Inequality Database\nPart des top 1%, 10%, revenus et patrimoine\nwid.world\n\n\nOur World in Data\nGini, pauvreté, mobilité sociale\nourworldindata.org\n\n\nWorld Bank Open Data\nIndicateurs comparatifs\ndata.worldbank.org\n\n\nPiketty data\nDonnées du Capital au XXIe siècle\npiketty.pse.ens.fr"
+  },
+  {
+    "objectID": "actes/06_contemporain.html",
+    "href": "actes/06_contemporain.html",
+    "title": "Acte VI — L’inégalité mesurée et débordante",
+    "section": "",
+    "text": "Entrée du journal · San Francisco, avril 2026\n\nDeux mondes dans la même rue. D’un côté, les campus des GAFAM — espaces verts, cafétérias gratuites, salaires à six chiffres. De l’autre, les tentes des sans-abri alignées le long de la Highway 101.\nUn livreur Uber m’explique son algorithme. Il travaille 10 heures par jour, gagne 1 200 dollars par mois, n’a pas d’assurance maladie. Son patron, c’est une application. Son contremaître, une étoile de notation.\nJ’ai lu Ocean Vuong ce soir. Il écrit sur la solitude dans le capitalisme — “le salaire de la beauté est toujours en retard”. Je ne sais pas si c’est de l’économie ou de la poésie. Peut-être que la distinction ne tient plus.\nNote : En 2026, les 1% les plus riches de Californie possèdent 43% de la richesse de l’État. L’espérance de vie varie de 15 ans entre les quartiers riches et les quartiers pauvres de la même ville. Tout est mesuré. Rien n’est résolu."
+  },
+  {
+    "objectID": "actes/06_contemporain.html#comment-linégalité-est-perçue",
+    "href": "actes/06_contemporain.html#comment-linégalité-est-perçue",
+    "title": "Acte VI — L’inégalité mesurée et débordante",
+    "section": "Comment l’inégalité est perçue",
+    "text": "Comment l’inégalité est perçue\nLe paradoxe du XXIe siècle : nous n’avons jamais autant mesuré les inégalités (WID.world, Oxfam, OCDE, banques de données gigantesques) et nous n’avons jamais autant peiné à les réduire. La mesure a progressé ; la volonté politique, non.\nPiketty fournit le cadre : r &gt; g — quand le taux de rendement du capital dépasse le taux de croissance, les patrimoines s’accumulent mécaniquement. Ce n’est pas une anomalie — c’est la tendance longue du capitalisme, interrompue seulement par des chocs exceptionnels."
+  },
+  {
+    "objectID": "actes/06_contemporain.html#comment-elle-est-documentée",
+    "href": "actes/06_contemporain.html#comment-elle-est-documentée",
+    "title": "Acte VI — L’inégalité mesurée et débordante",
+    "section": "Comment elle est documentée",
+    "text": "Comment elle est documentée\n\n\n\n\n\n\n\n\nIndicateur\nValeur 2022\nSource\n\n\n\n\nPart du top 1% mondial\n19% du revenu mondial\nWID.world\n\n\nPart des 50% les plus pauvres\n8% du revenu mondial\nWID.world\n\n\nGini mondial\n0,63\nWorld Bank\n\n\nEspérance de vie (écart riche/pauvre, USA)\n14 ans\nJAMA (2016)\n\n\nPart du top 1% dans la richesse mondiale\n43%\nCredit Suisse (2022)"
+  },
+  {
+    "objectID": "actes/06_contemporain.html#les-données",
+    "href": "actes/06_contemporain.html#les-données",
+    "title": "Acte VI — L’inégalité mesurée et débordante",
+    "section": "Les données",
+    "text": "Les données\n\n\nCode\ndf &lt;- tibble::tribble(\n  ~annee, ~pays,         ~part,\n  1980, \"États-Unis\", 9.5,   1990, \"États-Unis\", 13.0,\n  2000, \"États-Unis\", 17.5,  2010, \"États-Unis\", 19.0,\n  2022, \"États-Unis\", 19.4,\n  1980, \"France\",     7.9,   1990, \"France\",      8.2,\n  2000, \"France\",     9.0,   2010, \"France\",     10.0,\n  2022, \"France\",    10.8,\n  1980, \"Inde\",       6.0,   1990, \"Inde\",        7.5,\n  2000, \"Inde\",      11.0,   2010, \"Inde\",       20.0,\n  2022, \"Inde\",      22.6,\n  1980, \"Brésil\",   22.0,    1990, \"Brésil\",     24.0,\n  2000, \"Brésil\",   24.5,    2010, \"Brésil\",     25.0,\n  2022, \"Brésil\",   26.5,\n  1980, \"Chine\",     5.0,    1990, \"Chine\",       6.0,\n  2000, \"Chine\",    10.0,    2010, \"Chine\",      13.0,\n  2022, \"Chine\",    15.2\n)\n\npal &lt;- c(\"États-Unis\"=\"#8B1A1A\",\"France\"=\"#1A3A5C\",\n         \"Inde\"=\"#B8860B\",\"Brésil\"=\"#2D5A27\",\"Chine\"=\"#4A2040\")\n\np &lt;- ggplot(df, aes(x=annee, y=part, color=pays, group=pays,\n                    text=paste0(pays,\" · \",annee,\n                                \"&lt;br&gt;Top 1% : \",part,\"%\"))) +\n  geom_line(linewidth=1) + geom_point(size=2.5) +\n  scale_color_manual(values=pal, name=NULL) +\n  scale_y_continuous(labels=function(x) paste0(x,\"%\")) +\n  scale_x_continuous(breaks=c(1980,1990,2000,2010,2022)) +\n  labs(x=NULL, y=\"Part du revenu national (%)\",\n       caption=\"Source : World Inequality Database (wid.world) 2023\") +\n  theme_minimal(base_size=11, base_family=\"serif\") +\n  theme(legend.position=\"bottom\", panel.grid.minor=element_blank())\n\nplotly::ggplotly(p, tooltip=\"text\") |&gt;\n  plotly::layout(legend=list(orientation=\"h\", y=-.2))\n\n\n\n\n\n\n\n\nCode\n# Courbe de l'éléphant avec zoom sur 2000-2020 (Milanovic 2nd génération)\npct &lt;- c(1,5,10,20,30,40,50,60,70,80,90,95,99,100)\ng2  &lt;- c(25,22,18,22,32,41,52,58,61,45,28,20,68,80)  # 1998-2008 (approx)\n\ndf_el &lt;- tibble(percentile=pct, croissance=g2)\n\np3 &lt;- ggplot(df_el, aes(x=percentile, y=croissance,\n                         text=paste0(\"Percentile \",percentile,\n                                     \"&lt;br&gt;Croissance : \",\n                                     ifelse(croissance&gt;=0,\"+\",\"\"),\n                                     croissance,\"%\"))) +\n  geom_line(color=\"#8B1A1A\", linewidth=1.2) +\n  geom_ribbon(aes(ymin=0, ymax=pmax(croissance,0)), fill=\"#8B1A1A\", alpha=.1) +\n  geom_hline(yintercept=0, linewidth=.4, color=\"#888\") +\n  annotate(\"text\", x=50, y=62, label=\"Classes moyennes\\nAsie émergente\",\n           size=2.8, color=\"#2D5A27\") +\n  annotate(\"text\", x=83, y=22, label=\"Classes moyennes\\noccidentales\",\n           size=2.8, color=\"#1A3A5C\") +\n  annotate(\"text\", x=99, y=86, label=\"Top 1%\",\n           size=2.8, color=\"#8B1A1A\", hjust=1) +\n  scale_x_continuous(breaks=seq(0,100,10), labels=paste0(seq(0,100,10),\"e\")) +\n  scale_y_continuous(labels=function(x) paste0(ifelse(x&gt;=0,\"+\",\"\"),x,\"%\")) +\n  labs(x=\"Percentile de revenus mondiaux\",\n       y=\"Croissance du revenu réel (1988–2008)\",\n       caption=\"Source : Lakner & Milanovic (2013) — approximation pédagogique\") +\n  theme_minimal(base_size=11, base_family=\"serif\") +\n  theme(panel.grid.minor=element_blank())\n\nplotly::ggplotly(p3, tooltip=\"text\")"
+  },
+  {
+    "objectID": "actes/06_contemporain.html#les-voix-poétiques",
+    "href": "actes/06_contemporain.html#les-voix-poétiques",
+    "title": "Acte VI — L’inégalité mesurée et débordante",
+    "section": "Les voix poétiques",
+    "text": "Les voix poétiques\n\nMon patron, c’est une appli. Elle me dit : « Course à 3 €, tu prends ? » Je prends. Elle me dit : « Trop lent », et me vire. Je n’ai pas de patron. J’ai un geôlier en silicone.\n\nInspiré d’un livreur Uber, 2024 (adaptation)\n\n\n\nno one leaves home unless home is the mouth of a shark. you only run for the border when you see the whole city running as well.\nPersonne ne quitte son pays à moins que son pays ne soit une gueule de requin. On ne court vers la frontière que quand on voit toute la ville courir aussi.\n\nWarsan Shire, Home (extrait), 2011\n\n\n\nWe are the ones who were not meant to survive. And yet here we are. We have survived the theft of our lands, our children, our languages.\nNous sommes ceux qui n’étaient pas censés survivre. Et pourtant nous voilà. Nous avons survécu au vol de nos terres, de nos enfants, de nos langues.\n\nJoy Harjo, For Calling the Spirit Back (extrait), 2012\n\n\n\nJe suis la reine de la polyvalence. Le matin, je gère. L’après-midi, j’optimise. Le soir, je déstresse avec une application.\nMon contrat dit que je suis libre. Mon agenda dit que je suis disponible. Mon compte en banque dit que je suis précaire. Mais ma prime de bien-être dit que tout va bien.\n\nEmmanuelle Pireyre, Féerie générale (adaptation), Prix Médicis 2012\n\n\n\n\nFil rouge — Les inégalités\n\nLe paradoxe contemporain : les inégalités sont mieux documentées que jamais (WID.world, Piketty, Oxfam) et pourtant elles continuent de croître. La mondialisation a réduit les inégalités entre pays (la Chine et l’Inde ont rattrapé une partie de leur retard) mais a creusé les inégalités au sein des pays riches. La question normative n’est pas technique — c’est un choix politique. Les outils existent (fiscalité progressive, impôt sur le capital, régulation). La question est : qui décide de les utiliser ?\n\n\n\nFil femmes — XXIe siècle (synthèse)\n\nElinor Ostrom (Nobel 2009) : biens communs et gouvernance — ni privatisation ni étatisation, une troisième voie empirique. Première femme à recevoir le Nobel d’économie.\nEsther Duflo (Nobel 2019) : méthode expérimentale appliquée à la pauvreté. Les “essais randomisés contrôlés” comme outil de lutte contre la pauvreté.\nClaudia Goldin (Nobel 2023) : child penalty — la maternité comme principal facteur d’inégalité salariale persistante.\nQuestion finale : l’économie serait-elle différente si les femmes n’avaient pas été exclues pendant deux siècles ? Ostrom, Duflo et Goldin refondent chacune un champ — c’est une réponse partielle."
+  },
+  {
+    "objectID": "actes/06_contemporain.html#pour-aller-plus-loin",
+    "href": "actes/06_contemporain.html#pour-aller-plus-loin",
+    "title": "Acte VI — L’inégalité mesurée et débordante",
+    "section": "Pour aller plus loin",
+    "text": "Pour aller plus loin\n\nPiketty, T. (2013). Le Capital au XXIe siècle — ch. 10 (l’inégalité du capital)\nPiketty, T. (2019). Capital et idéologie — ch. 1 (les régimes inégalitaires)\nMilanovic, B. (2016). Inégalités mondiales — ch. 3 (la courbe de l’éléphant)\nDuflo, E. & Banerjee, A. (2019). Économie utile pour des temps difficiles\nZuboff, S. (2019). The Age of Surveillance Capitalism\nShire, W. (2011). Teaching My Mother How to Give Birth\nHarjo, J. (2012). Crazy Brave\nPireyre, E. (2012). Féerie générale (Éditions de l’Olivier)\nWorld Inequality Report 2022 — wir2022.wid.world"
+  },
+  {
+    "objectID": "actes/04_industrie.html",
+    "href": "actes/04_industrie.html",
+    "title": "Acte IV — L’inégalité conflictuelle",
+    "section": "",
+    "text": "Entrée du journal · Manchester, mars 1848\n\nFumée, bruit de machines, enfants qui travaillent dès six ans. Les usines tournent 14 heures par jour. Les ouvriers rentrent chez eux dans des taudis où dix personnes partagent deux pièces.\nUn homme m’a donné un texte imprimé à la va-vite : Le Manifeste du Parti communiste. Il m’explique que le capitaliste vole deux heures de travail par jour à l’ouvrier — la “plus-value”. Je lui demande si ça peut changer. Il me dit : “Seulement si les ouvriers le décident ensemble.”\nNote économique : Salaire hebdomadaire moyen d’un ouvrier textile à Manchester en 1848 : 7 shillings. Loyer d’une chambre insalubre : 2 shillings. Reste pour manger, se chauffer, vivre : 5 shillings pour 6 personnes. L’économie industrielle a rendu les inégalités visibles et scandaleuses pour la première fois."
+  },
+  {
+    "objectID": "actes/04_industrie.html#comment-linégalité-est-perçue",
+    "href": "actes/04_industrie.html#comment-linégalité-est-perçue",
+    "title": "Acte IV — L’inégalité conflictuelle",
+    "section": "Comment l’inégalité est perçue",
+    "text": "Comment l’inégalité est perçue\nAu XIXe siècle, l’inégalité cesse d’être invisible. Elle s’entasse dans les villes, elle sort des cheminées d’usines, elle remplit les hôpitaux et les hospices. Pour la première fois, elle est mesurée — ou du moins tentée : enquêtes ouvrières, recensements, statistiques de mortalité.\nEt pour la première fois, elle est frontalement contestée comme système. Marx ne dit pas que la pauvreté est triste — il dit qu’elle est produite, organisée, nécessaire au fonctionnement du capitalisme."
+  },
+  {
+    "objectID": "actes/04_industrie.html#comment-elle-est-justifiée-et-contestée",
+    "href": "actes/04_industrie.html#comment-elle-est-justifiée-et-contestée",
+    "title": "Acte IV — L’inégalité conflictuelle",
+    "section": "Comment elle est justifiée (et contestée)",
+    "text": "Comment elle est justifiée (et contestée)\n\n\n\n\n\n\n\n\nAuteur\nPosition\nArgument central\n\n\n\n\nRicardo\nInévitable\nLoi d’airain : les salaires tendent vers la subsistance\n\n\nMalthus\nNaturelle\nTrop d’enfants chez les pauvres\n\n\nMarx\nProduite\nLa plus-value : vol légalisé du travail\n\n\nEngels\nDocumentée\nLa Situation de la classe laborieuse en Angleterre (1845)\n\n\nZola\nVisible\nLa littérature comme enquête sociale"
+  },
+  {
+    "objectID": "actes/04_industrie.html#les-données",
+    "href": "actes/04_industrie.html#les-données",
+    "title": "Acte IV — L’inégalité conflictuelle",
+    "section": "Les données",
+    "text": "Les données\n\n\nCode\ndf_ind &lt;- tibble::tribble(\n  ~annee, ~gini_uk, ~gini_france, ~event,\n  1800,   0.50,     0.52,         \"\",\n  1820,   0.52,     0.54,         \"Début industrialisation FR\",\n  1840,   0.55,     0.56,         \"\",\n  1850,   0.57,     0.57,         \"Révolutions 1848\",\n  1867,   0.59,     0.58,         \"Le Capital (Marx)\",\n  1880,   0.61,     0.59,         \"\",\n  1900,   0.62,     0.58,         \"\",\n  1910,   0.63,     0.58,         \"Veille WWI\"\n)\n\np &lt;- ggplot(df_ind) +\n  geom_line(aes(x = annee, y = gini_uk,\n                text = paste0(\"Royaume-Uni · \", annee,\n                              \"&lt;br&gt;Gini : \", gini_uk)),\n            color = \"#8B1A1A\", linewidth = 1.1) +\n  geom_line(aes(x = annee, y = gini_france,\n                text = paste0(\"France · \", annee,\n                              \"&lt;br&gt;Gini : \", gini_france)),\n            color = \"#1A3A5C\", linewidth = 1.1, linetype = \"dashed\") +\n  geom_point(aes(x = annee, y = gini_uk), color = \"#8B1A1A\", size = 2.5) +\n  geom_point(aes(x = annee, y = gini_france), color = \"#1A3A5C\", size = 2.5) +\n  annotate(\"text\", x = 1870, y = .605, label = \"Royaume-Uni\",\n           color = \"#8B1A1A\", size = 3, hjust = 0) +\n  annotate(\"text\", x = 1870, y = .576, label = \"France\",\n           color = \"#1A3A5C\", size = 3, hjust = 0) +\n  scale_x_continuous(breaks = seq(1800, 1910, 20)) +\n  scale_y_continuous(limits = c(.47, .67)) +\n  labs(x = NULL, y = \"Gini estimé\",\n       caption = \"Sources : Morrisson & Snyder (2000) · Lindert & Williamson (1983) · estimations\") +\n  theme_minimal(base_size = 11, base_family = \"serif\") +\n  theme(panel.grid.minor = element_blank())\n\nplotly::ggplotly(p, tooltip = \"text\")\n\n\n\n\n\n\n\n\nCode\ndf_sp &lt;- tibble::tribble(\n  ~annee, ~salaire_idx, ~part_profits,\n  1760,   100,          22,\n  1780,    98,          24,\n  1800,   105,          27,\n  1820,   110,          31,\n  1840,   118,          35,\n  1860,   135,          36,\n  1880,   160,          33,\n  1900,   195,          30\n)\n\np2 &lt;- ggplot(df_sp, aes(x = annee)) +\n  geom_col(aes(y = part_profits,\n               text = paste0(annee, \"&lt;br&gt;Part des profits : \", part_profits, \"%\")),\n           fill = \"#4A2040\", alpha = .7, width = 12) +\n  geom_line(aes(y = salaire_idx / 4,\n                text = paste0(annee, \"&lt;br&gt;Salaire réel (idx) : \", salaire_idx)),\n            color = \"#1A3A5C\", linewidth = 1.2) +\n  geom_point(aes(y = salaire_idx / 4), color = \"#1A3A5C\", size = 2.5) +\n  scale_y_continuous(\n    name = \"Part des profits dans le PIB (%)\",\n    sec.axis = sec_axis(~ . * 4, name = \"Indice du salaire réel (base 100 = 1760)\")\n  ) +\n  scale_x_continuous(breaks = seq(1760, 1900, 20)) +\n  labs(x = NULL,\n       caption = \"Sources : Clark (2005) · Allen (2009) · données UK approximatives\") +\n  theme_minimal(base_size = 11, base_family = \"serif\") +\n  theme(panel.grid.minor = element_blank(),\n        axis.title.y.right = element_text(color = \"#1A3A5C\"),\n        axis.title.y.left  = element_text(color = \"#4A2040\"))\n\nplotly::ggplotly(p2, tooltip = \"text\")\n\n\n\n\n\n\n\nLes salaires réels augmentent sur le siècle, mais les profits aussi. L’écart absolu se creuse."
+  },
+  {
+    "objectID": "actes/04_industrie.html#les-voix-poétiques",
+    "href": "actes/04_industrie.html#les-voix-poétiques",
+    "title": "Acte IV — L’inégalité conflictuelle",
+    "section": "Les voix poétiques",
+    "text": "Les voix poétiques\n\nJe fabrique des montres. Je n’en ai jamais possédé. Je tisse de la soie. Je porte des haillons. Je construis des palais. Je vis dans un taudis. Le patron dit : « C’est la vie. » Moi, je dis : c’est la mort.\n\nAnonyme ouvrier, adapté d’enquêtes sociales du XIXe siècle\n\n\n\nN’écris pas. Je suis triste, et je voudrais m’éteindre. Les beaux étés sans toi, c’est la nuit sans flambeau. Mon bien s’en va. Quelqu’un en garde le bénéfice. Mon travail ? Un loyer. Ma peine ? Un sacrifice.\n\nMarceline Desbordes-Valmore, Les Séparés (adaptation), 1833\n\n\n\n\nFil rouge — Les inégalités\n\nLa grande nouveauté du XIXe siècle : l’inégalité devient mesurable et contestable. Elle n’est plus naturelle ni divine — elle est le résultat d’un système. Marx ne dit pas que les pauvres souffrent (tout le monde le sait) — il dit que leur souffrance est nécessaire au profit des riches. C’est un saut conceptuel majeur dans l’histoire de la pensée économique.\n\n\n\nFil femmes — XIXe siècle\n\nMarceline Desbordes-Valmore (1786–1859) : la seule poétesse citée par Verlaine dans Les Poètes maudits. Née à Douai, fille de peintre ruiné, elle vécut dans la misère du Nord industriel. Ses Pleurs (1833) portent la douleur concrète des femmes qui travaillent dans les manufactures.\nRosa Luxemburg (1871–1919) : L’Accumulation du capital (1913) — première femme à produire une œuvre théorique majeure en économie. Elle montre que le capitalisme a besoin de marchés extérieurs (colonies) pour écouler ses surplus — l’impérialisme comme nécessité économique, non comme simple cupidité.\nBeatrice Potter Webb (1858–1943) : co-fondatrice de la London School of Economics. Industrial Democracy (1897) — pionnière de l’enquête de terrain et de l’économie institutionnaliste."
+  },
+  {
+    "objectID": "actes/04_industrie.html#pour-aller-plus-loin",
+    "href": "actes/04_industrie.html#pour-aller-plus-loin",
+    "title": "Acte IV — L’inégalité conflictuelle",
+    "section": "Pour aller plus loin",
+    "text": "Pour aller plus loin\n\nMarx, K. (1867). Le Capital, Livre I, ch. 25 (« La loi générale de l’accumulation capitaliste »)\nMarx, K. & Engels, F. (1848). Manifeste du Parti communiste — à lire intégralement\nEngels, F. (1845). La Situation de la classe laborieuse en Angleterre\nZola, É. (1885). Germinal\nAllen, R.C. (2009). Engels’ Pause — article sur la stagnation des salaires"
+  },
+  {
+    "objectID": "actes/02_feodal.html",
+    "href": "actes/02_feodal.html",
+    "title": "Acte II — L’inégalité sacrée",
+    "section": "",
+    "text": "Entrée du journal · Paris, janvier 1349\n\nLa Peste a tué un tiers de la ville en six mois. Les rues sentent le bûcher. Mais quelque chose d’étrange se passe sur les marchés : les survivants négocient leurs salaires à la hausse. Le seigneur du coin est furieux. Il parle d’une ordonnance royale pour bloquer les salaires au niveau d’avant la Peste. La rareté de la main-d’œuvre donne du pouvoir aux travailleurs — et le pouvoir déteste ça.\nNote économique : Gini estimé en Europe, 1300 : 0,44. En 1370, après la Peste : 0,38. La catastrophe a été le plus grand niveleur social de l’histoire médiévale. Personne n’a choisi ce résultat."
+  },
+  {
+    "objectID": "actes/02_feodal.html#comment-linégalité-est-perçue",
+    "href": "actes/02_feodal.html#comment-linégalité-est-perçue",
+    "title": "Acte II — L’inégalité sacrée",
+    "section": "Comment l’inégalité est perçue",
+    "text": "Comment l’inégalité est perçue\nL’inégalité médiévale est théologique : elle est voulue par Dieu. La société des trois ordres — ceux qui prient (oratores), ceux qui combattent (bellatores), ceux qui travaillent (laboratores) — est présentée comme un reflet de l’ordre divin. Contester sa place dans cette hiérarchie, c’est contester Dieu lui-même.\nPourtant la poésie, de Dante aux goliards vagabonds, fissure sans cesse cet ordre. François Villon écrit depuis les geôles de Paris. Ibn Khaldoun, de l’autre côté de la Méditerranée, forge la première théorie des cycles économiques liés aux inégalités."
+  },
+  {
+    "objectID": "actes/02_feodal.html#comment-elle-est-justifiée",
+    "href": "actes/02_feodal.html#comment-elle-est-justifiée",
+    "title": "Acte II — L’inégalité sacrée",
+    "section": "Comment elle est justifiée",
+    "text": "Comment elle est justifiée\n\n\n\n\n\n\n\n\nPenseur\nJustification\nLimite reconnue\n\n\n\n\nThomas d’Aquin\nLe « prix juste » comme ordre divin\nQui fixe ce prix ? Les puissants\n\n\nGilles de Rome\nHiérarchies naturelles héritées d’Aristote\nLégitime l’aristocratie de naissance\n\n\nIbn Khaldoun\nCycles : cohésion → richesse → déclin\nAnalyse, ne justifie pas\n\n\nChristine de Pizan\nDignité des femmes dans l’ordre existant\nAccepte la hiérarchie tout en la critiquant"
+  },
+  {
+    "objectID": "actes/02_feodal.html#les-données",
+    "href": "actes/02_feodal.html#les-données",
+    "title": "Acte II — L’inégalité sacrée",
+    "section": "Les données",
+    "text": "Les données\n\n\nCode\ndf &lt;- tibble::tribble(\n  ~societe,          ~gini, ~annee, ~note,\n  \"Angleterre\",      0.43,  1290,  \"Avant la Peste\",\n  \"Florence\",        0.79,  1427,  \"Catasto fiscal\",\n  \"Castille\",        0.52,  1400,  \"Estimé\",\n  \"Proche-Orient\",   0.50,  1375,  \"Estimé\",\n  \"Europe (moy.)\",   0.38,  1370,  \"Après la Peste — creux historique\"\n) |&gt; mutate(societe = forcats::fct_reorder(societe, gini))\n\np &lt;- ggplot(df, aes(y = societe, x = gini, fill = (annee &gt; 1340),\n                    text = paste0(societe, \" · \", annee,\n                                  \"&lt;br&gt;Gini : \", gini,\n                                  \"&lt;br&gt;\", note))) +\n  geom_col(alpha = .8, width = .6) +\n  geom_vline(xintercept = 0.40, linetype = \"dashed\",\n             color = \"#B8860B\", linewidth = .5) +\n  scale_fill_manual(values = c(\"TRUE\" = \"#8B1A1A\", \"FALSE\" = \"#4A2040\"),\n                    labels = c(\"TRUE\" = \"Après 1340\", \"FALSE\" = \"Avant 1340\"),\n                    name = NULL) +\n  annotate(\"text\", x = 0.41, y = .6, label = \"seuil d'extraction\",\n           hjust = 0, size = 2.8, color = \"#B8860B\") +\n  labs(x = \"Gini estimé\", y = NULL,\n       caption = \"Sources : Milanovic, Lindert & Williamson (2011) · Van Zanden (2009)\") +\n  theme_minimal(base_size = 11, base_family = \"serif\") +\n  theme(panel.grid.major.y = element_blank(), legend.position = \"top\")\n\nplotly::ggplotly(p, tooltip = \"text\")\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nFlorence 1427 atteint un Gini de 0,79 — plus inégalitaire que n’importe quelle société contemporaine mesurée. Ce chiffre repose sur le catasto, registre fiscal de la République florentine : premier ancêtre de nos déclarations d’impôt."
+  },
+  {
+    "objectID": "actes/02_feodal.html#les-voix-poétiques",
+    "href": "actes/02_feodal.html#les-voix-poétiques",
+    "title": "Acte II — L’inégalité sacrée",
+    "section": "Les voix poétiques",
+    "text": "Les voix poétiques\n\nFrères humains qui après nous vivez, N’ayez les cœurs contre nous endurcis, Car, si pitié de nous pauvres avez, Dieu en aura plus tôt de vous mercis.\nVous nous voyez ci attachés cinq, six : De notre mal personne ne s’en rie ; Mais priez Dieu que tous nous veuille absoudre !\n\nFrançois Villon, Ballade des pendus, ca. 1462\n\n\nPourquoi Villon ici ? Ce poème est une requête économique autant que spirituelle. Les pendus sont des pauvres — leur appel à la fraternité anticipe de trois siècles le vocabulaire de l’égalité révolutionnaire.\n\nJe suis né sur cette terre, Et sur cette terre je mourrai. Le blé que je sème n’est pas mien, Le pain que je mange est compté. Mon seigneur dit : « C’est la loi de Dieu. » Mais Dieu, Lui, ne mange pas mon pain.\n\nAnonyme paysan, XIIIe siècle (adaptation)\n\n\n\n\nFil rouge — Les inégalités\n\nLe paradoxe de la Peste : la catastrophe démographique (–30% de population) est le seul grand niveleur social du Moyen Âge. La rareté de la main-d’œuvre fait monter les salaires réels — et les seigneurs répondent par des lois de blocage. Les inégalités peuvent baisser. Rarement sans catastrophe ou sans lutte.\n\n\n\nFil femmes — Moyen Âge\n\nChristine de Pizan (1364–ca. 1430) : première femme de lettres professionnelle en Europe occidentale. Dans La Cité des Dames (1405), elle imagine une cité gouvernée par des femmes illustres — réponse directe aux discours misogynes des clercs sur la « nature inférieure » des femmes. Son travail est aussi une réflexion économique sur la valeur du travail domestique et intellectuel féminin, systématiquement invisible dans les comptabilités médiévales."
+  },
+  {
+    "objectID": "actes/02_feodal.html#pour-aller-plus-loin",
+    "href": "actes/02_feodal.html#pour-aller-plus-loin",
+    "title": "Acte II — L’inégalité sacrée",
+    "section": "Pour aller plus loin",
+    "text": "Pour aller plus loin\n\nIbn Khaldoun, Al-Muqaddima (1377) — trad. Vincent Monteil (Sindbad)\nDuby, G. — Les Trois Ordres ou l’Imaginaire du féodalisme (1978)\nVan Zanden, J.L. — The Long Road to the Industrial Revolution (2009)\nVillon, F. — Poésies (éd. Gallimard Folio)"
+  },
+  {
+    "objectID": "actes/03_renaissance.html",
+    "href": "actes/03_renaissance.html",
+    "title": "Acte III — L’inégalité comme effet du progrès",
+    "section": "",
+    "text": "Entrée du journal · Lyon, foire de la Saint-Jean, 1555\n\nLyon est la capitale économique du royaume. Les marchands italiens, allemands et flamands se croisent sur les quais. La soie circule, les lettres de change aussi — des bouts de papier qui valent des fortunes. La monnaie, c’est de la confiance matérialisée.\nJ’ai rencontré une femme poète, Louise Labé. Fille d’un cordier enrichi, elle a épousé un riche marchand. Elle écrit sur l’amour, mais aussi sur la valeur — ce qui vaut, ce qui dure, ce qui s’échange sans se vendre.\nNote économique : La foire de Lyon voit passer l’équivalent de 50 tonnes d’argent par an en lettres de change. Pendant ce temps, au Potosí (Pérou), des milliers d’Indiens meurent pour extraire l’argent qui alimente ces foires. Les deux faits ne se rencontrent jamais dans les chroniques."
+  },
+  {
+    "objectID": "actes/03_renaissance.html#comment-linégalité-est-perçue",
+    "href": "actes/03_renaissance.html#comment-linégalité-est-perçue",
+    "title": "Acte III — L’inégalité comme effet du progrès",
+    "section": "Comment l’inégalité est perçue",
+    "text": "Comment l’inégalité est perçue\nDu mercantilisme aux Lumières, l’inégalité change de justification : elle n’est plus divine, elle devient économique. Elle est l’effet naturel du commerce, de la division du travail, du progrès. Adam Smith ne la nie pas — il affirme qu’elle est le moteur de la croissance.\nMais sous les théories circulent des réalités invisibles : 12 millions d’Africains déportés, des paysans chassés de leurs terres par les enclosures, des enfants dans les manufactures. La poésie les nomme quand l’économie politique les efface."
+  },
+  {
+    "objectID": "actes/03_renaissance.html#comment-elle-est-justifiée",
+    "href": "actes/03_renaissance.html#comment-elle-est-justifiée",
+    "title": "Acte III — L’inégalité comme effet du progrès",
+    "section": "Comment elle est justifiée",
+    "text": "Comment elle est justifiée\n\n\n\n\n\n\n\n\nÉpoque\nDoctrine\nJustification des inégalités\n\n\n\n\n1450–1700\nMercantilisme\nL’or comme richesse nationale, colonies comme ressources\n\n\n1650–1750\nPhysiocrates\nLa terre crée la valeur ; la noblesse terrienne « stimule »\n\n\n1776\nAdam Smith\nLa « main invisible » : l’égoïsme individuel sert le bien commun\n\n\n1798\nMalthus\nLa pauvreté comme loi biologique (trop d’enfants)\n\n\n1817\nRicardo\nLa « loi d’airain » : les salaires ne peuvent durablement monter"
+  },
+  {
+    "objectID": "actes/03_renaissance.html#les-données",
+    "href": "actes/03_renaissance.html#les-données",
+    "title": "Acte III — L’inégalité comme effet du progrès",
+    "section": "Les données",
+    "text": "Les données\n\n\nCode\ndf &lt;- tibble::tribble(\n  ~annee, ~gini_europe, ~evenement,\n  1400,   0.44, \"\",\n  1500,   0.46, \"Grandes découvertes\",\n  1600,   0.48, \"Mercantilisme\",\n  1700,   0.50, \"Enclosures (Angleterre)\",\n  1750,   0.51, \"Physiocrates\",\n  1780,   0.52, \"Veille de la Révolution\",\n  1820,   0.50, \"Post-Révolution\"\n)\n\np &lt;- ggplot(df, aes(x = annee, y = gini_europe,\n                    text = paste0(\"ca. \", annee,\n                                  \"&lt;br&gt;Gini Europe : \", gini_europe,\n                                  ifelse(evenement != \"\", paste0(\"&lt;br&gt;\", evenement), \"\")))) +\n  geom_line(color = \"#2D5A27\", linewidth = 1.1) +\n  geom_point(color = \"#2D5A27\", size = 3) +\n  geom_point(data = filter(df, evenement != \"\"),\n             aes(x = annee, y = gini_europe),\n             color = \"#8B1A1A\", size = 4, shape = 21,\n             fill = \"white\", stroke = 1.5) +\n  scale_y_continuous(limits = c(.38, .58)) +\n  scale_x_continuous(breaks = seq(1400, 1820, 50)) +\n  labs(x = NULL, y = \"Gini estimé (Europe occidentale)\",\n       caption = \"Sources : Van Zanden (2009) · Milanovic et al. (2011) · estimations\") +\n  theme_minimal(base_size = 11, base_family = \"serif\") +\n  theme(panel.grid.minor = element_blank())\n\nplotly::ggplotly(p, tooltip = \"text\")"
+  },
+  {
+    "objectID": "actes/03_renaissance.html#les-voix-poétiques",
+    "href": "actes/03_renaissance.html#les-voix-poétiques",
+    "title": "Acte III — L’inégalité comme effet du progrès",
+    "section": "Les voix poétiques",
+    "text": "Les voix poétiques\n\nJe vis, je meurs ; je me brûle et me noie ; J’ai chaud extrême en endurant froidure. Mon bien s’en va, et à jamais il dure ; Tout en un coup je sèche et je verdoie.\n\nLouise Labé, Sonnet VIII, Lyon, 1555\n\n\nPourquoi Labé ici ? Mon bien s’en va, et à jamais il dure — cette contradiction n’est pas seulement amoureuse. Elle dit quelque chose sur la valeur dans une économie marchande : ce qui circule se perd, ce qui reste immobile dure. Labé écrit depuis le cœur du capitalisme commercial lyonnais.\n\nVous qui accusez la femme sans raison D’une faute que vous causez vous-mêmes : Vous dépensez l’or des Indes pour vos parures Tandis qu’elles meurent de faim à vos portes.\n\nSor Juana Inés de la Cruz, Hombres necios (extrait), ca. 1690 — trad. libre\n\n\n\nDans chaque cri de chaque homme, Dans chaque pleur de chaque enfant, Dans chaque voix, dans chaque interdit, J’entends les chaînes forgées dans l’esprit.\n\nWilliam Blake, London (extrait), 1794 — trad. libre\n\n\n\n\nFil rouge — Les inégalités\n\nLe grand paradoxe des Lumières : les théories qui promettent la liberté universelle (Smith, Rousseau) sont contemporaines de l’apogée de la traite négrière et de l’accumulation coloniale. L’universalisme des Lumières exclut concrètement les femmes, les esclaves, les colonisés. La « main invisible » est plus visible pour certains que pour d’autres.\n\n\n\nFil femmes — Renaissance et Lumières\n\nOlympe de Gouges (1748–1793) : Déclaration des Droits de la Femme et de la Citoyenne (1791). Son argument est économique autant que politique — si la femme paye des impôts, si elle travaille, si elle produit, pourquoi n’aurait-elle pas voix au chapitre ? Guillotinée en 1793.\nAnna Laetitia Barbauld (1743–1825) : poétesse et économiste informelle. The Rights of Woman (1795) pose la question que Smith ne pose pas : qui paie le prix du pain quand le marché « s’équilibre » ?\nHarriet Martineau (1802–1876) : vulgarise Malthus, Ricardo et Smith pour un public populaire dans ses Illustrations of Political Economy (1832–34). Vendues à 10 000 exemplaires par livraison — plus que tout économiste de son temps. Absente des manuels d’histoire de la pensée économique."
+  },
+  {
+    "objectID": "actes/03_renaissance.html#pour-aller-plus-loin",
+    "href": "actes/03_renaissance.html#pour-aller-plus-loin",
+    "title": "Acte III — L’inégalité comme effet du progrès",
+    "section": "Pour aller plus loin",
+    "text": "Pour aller plus loin\n\nSmith, A. (1776). La Richesse des nations, Livre I (division du travail)\nMalthus, T.R. (1798). Essai sur le principe de population\nLabé, L. (1555). Œuvres poétiques (éd. Gallimard Poésie)\nMartineau, H. (1832). Illustrations of Political Economy\nBeckert, S. (2014). Empire of Cotton — sur l’économie cotonnière et l’esclavage"
+  },
+  {
+    "objectID": "actes/05_regulation.html",
+    "href": "actes/05_regulation.html",
+    "title": "Acte V — L’inégalité régulée",
+    "section": "",
+    "text": "Entrée du journal · New York, 24 octobre 1929\n\n“Black Thursday.” En quelques heures, des fortunes ont disparu. Des hommes en costume pleurent sur les trottoirs. Mais les vrais perdants ne sont pas ici — ils sont dans les campagnes, dans les usines qui ferment, dans les files d’attente aux soupes populaires.\nJ’ai lu Keynes ce soir dans ma chambre d’hôtel. Il dit que le marché ne se régule pas tout seul — qu’il faut que quelqu’un prenne le relais quand personne ne dépense. Cet “quelqu’un”, c’est l’État. Idée révolutionnaire en 1929.\nLangston Hughes publie ses poèmes dans les journaux noirs de Harlem. Pour les Noirs américains, la crise n’a rien de nouveau : “America never was America to me.”\nNote : Chômage aux États-Unis en 1933 : 25%. Dans les communautés noires : 50%. La crise ne frappe pas au hasard — elle suit les lignes préexistantes des inégalités."
+  },
+  {
+    "objectID": "actes/05_regulation.html#comment-linégalité-est-perçue",
+    "href": "actes/05_regulation.html#comment-linégalité-est-perçue",
+    "title": "Acte V — L’inégalité régulée",
+    "section": "Comment l’inégalité est perçue",
+    "text": "Comment l’inégalité est perçue\nLe XXe siècle est paradoxal : c’est à la fois le siècle des plus grandes catastrophes produites par les inégalités (guerres, nazisme, Goulag) et le siècle où les sociétés occidentales réduisent le plus les inégalités — non par vertu, mais sous la pression des chocs extérieurs et des luttes sociales.\nLa parenthèse des Trente Glorieuses (1945–1975) est historiquement exceptionnelle. Elle résulte d’une conjonction rare : destruction des patrimoines par les guerres, fiscalité progressive, syndicalisme puissant, État-providence, et croissance rapide. Aucun de ces facteurs n’était “naturel”."
+  },
+  {
+    "objectID": "actes/05_regulation.html#comment-elle-est-justifiée-combattue-réduite",
+    "href": "actes/05_regulation.html#comment-elle-est-justifiée-combattue-réduite",
+    "title": "Acte V — L’inégalité régulée",
+    "section": "Comment elle est justifiée, combattue, réduite",
+    "text": "Comment elle est justifiée, combattue, réduite\n\n\n\n\n\n\n\n\nPériode\nRégime\nDynamique des inégalités\n\n\n\n\n1910–1929\nLibéralisme classique\nHausse (record historique en 1929)\n\n\n1929–1945\nCrises + guerres\nChute (destruction des patrimoines)\n\n\n1945–1975\nÉtat-providence keynésien\nRéduction délibérée (fiscalité, droits sociaux)\n\n\n1975–1980\nStagflation\nTension — prélude au tournant néolibéral"
+  },
+  {
+    "objectID": "actes/05_regulation.html#les-données",
+    "href": "actes/05_regulation.html#les-données",
+    "title": "Acte V — L’inégalité régulée",
+    "section": "Les données",
+    "text": "Les données\n\n\nCode\ndf &lt;- tibble::tribble(\n  ~annee, ~usa,  ~france, ~suede, ~event,\n  1910,   0.61,  0.58,    0.55,   \"\",\n  1920,   0.62,  0.57,    0.53,   \"\",\n  1929,   0.64,  0.59,    0.54,   \"Krach Wall Street\",\n  1938,   0.57,  0.55,    0.50,   \"\",\n  1945,   0.53,  0.50,    0.46,   \"Fin WWII\",\n  1950,   0.52,  0.49,    0.44,   \"\",\n  1960,   0.50,  0.46,    0.40,   \"\",\n  1970,   0.49,  0.43,    0.37,   \"\",\n  1975,   0.48,  0.41,    0.35,   \"Creux — pic égalité\",\n  1980,   0.50,  0.42,    0.38,   \"Tournant néolibéral\"\n)\n\np &lt;- ggplot(df) +\n  geom_line(aes(x = annee, y = usa,\n                text = paste0(\"États-Unis · \", annee, \"&lt;br&gt;Gini : \", usa)),\n            color = \"#8B1A1A\", linewidth = 1) +\n  geom_line(aes(x = annee, y = france,\n                text = paste0(\"France · \", annee, \"&lt;br&gt;Gini : \", france)),\n            color = \"#1A3A5C\", linewidth = 1, linetype = \"dashed\") +\n  geom_line(aes(x = annee, y = suede,\n                text = paste0(\"Suède · \", annee, \"&lt;br&gt;Gini : \", suede)),\n            color = \"#2D5A27\", linewidth = 1, linetype = \"dotted\") +\n  geom_rect(aes(xmin = 1945, xmax = 1975, ymin = .32, ymax = .67),\n            fill = \"#1A3A5C\", alpha = .06, inherit.aes = FALSE) +\n  annotate(\"text\", x = 1960, y = .33, label = \"Trente Glorieuses\",\n           color = \"#1A3A5C\", size = 3, hjust = .5) +\n  annotate(\"text\", x = 1982, y = .51, label = \"USA\",  color = \"#8B1A1A\", size = 3) +\n  annotate(\"text\", x = 1982, y = .43, label = \"FR\",   color = \"#1A3A5C\", size = 3) +\n  annotate(\"text\", x = 1982, y = .385, label = \"SE\",  color = \"#2D5A27\", size = 3) +\n  scale_x_continuous(breaks = seq(1910, 1980, 10)) +\n  scale_y_continuous(limits = c(.32, .67)) +\n  labs(x = NULL, y = \"Gini estimé\",\n       caption = \"Sources : WID.world · Morrisson & Snyder (2000) · Atkinson & Piketty (2010)\") +\n  theme_minimal(base_size = 11, base_family = \"serif\") +\n  theme(panel.grid.minor = element_blank())\n\nplotly::ggplotly(p, tooltip = \"text\")\n\n\n\n\n\n\n\n\nCode\ndf2 &lt;- tibble::tribble(\n  ~annee, ~usa,  ~france, ~uk,\n  1910,   18.0,  20.0,    19.0,\n  1929,   22.0,  21.0,    20.0,\n  1938,   17.0,  18.0,    17.0,\n  1950,   13.0,  13.0,    12.0,\n  1960,   11.5,  10.0,    10.5,\n  1970,   10.0,   9.0,     9.5,\n  1975,    9.0,   8.5,     8.0,\n  1980,    9.5,   8.0,     9.0\n)\n\np2 &lt;- ggplot(df2) +\n  geom_line(aes(x = annee, y = usa,\n                text = paste0(\"États-Unis · \", annee, \"&lt;br&gt;Top 1% : \", usa, \"%\")),\n            color = \"#8B1A1A\", linewidth = 1) +\n  geom_line(aes(x = annee, y = france,\n                text = paste0(\"France · \", annee, \"&lt;br&gt;Top 1% : \", france, \"%\")),\n            color = \"#1A3A5C\", linewidth = 1, linetype = \"dashed\") +\n  geom_line(aes(x = annee, y = uk,\n                text = paste0(\"Royaume-Uni · \", annee, \"&lt;br&gt;Top 1% : \", uk, \"%\")),\n            color = \"#4A2040\", linewidth = 1, linetype = \"dotted\") +\n  annotate(\"text\", x = 1931, y = 22.5, label = \"Record 1929\",\n           color = \"#888\", size = 2.8) +\n  scale_x_continuous(breaks = seq(1910, 1980, 10)) +\n  scale_y_continuous(labels = function(x) paste0(x, \"%\")) +\n  labs(x = NULL, y = \"Part du revenu national (%)\",\n       caption = \"Source : WID.world 2023\") +\n  theme_minimal(base_size = 11, base_family = \"serif\") +\n  theme(panel.grid.minor = element_blank())\n\nplotly::ggplotly(p2, tooltip = \"text\")"
+  },
+  {
+    "objectID": "actes/05_regulation.html#les-voix-poétiques",
+    "href": "actes/05_regulation.html#les-voix-poétiques",
+    "title": "Acte V — L’inégalité régulée",
+    "section": "Les voix poétiques",
+    "text": "Les voix poétiques\n\nLet America be America again. Let it be the dream it used to be. (America never was America to me.)\nYet I’m the one who dreamt our basic dream In the Old World while still a serf of kings, Who dreamt a dream so strong, so brave, so true, That even yet its mighty daring sings.\n\nLangston Hughes, Let America Be America Again (extrait), 1936\n\n\n\nDevant cette souffrance, les montagnes se courbent, Le grand fleuve cesse de couler, Mais les portes des prisons sont solides Et derrière elles les « trous à condamnés ».\nPour quelqu’un souffle l’air frais du soir, Pour quelqu’un le coucher de soleil s’égaie — Nous ne savons rien, nous sommes pareilles, Nous entendons partout le cliquetis odieux des clés.\n\nAnna Akhmatova, Requiem — Dédicace (extrait), 1935–1940 · trad. Paul Valet\n\n\nPourquoi Akhmatova ici ? Requiem documente les purges staliniennes — rappel que toute économie d’État peut devenir une machine d’exclusion et de mort. L’État-providence keynésien et le Goulag stalinien sont contemporains : l’intervention de l’État n’est pas neutre, elle dépend de qui gouverne et pour qui.\n\n\nFil rouge — Les inégalités\n\nLa thèse de Piketty sur le XXe siècle : la réduction des inégalités entre 1930 et 1975 n’est pas le résultat d’une évolution naturelle du capitalisme. Elle résulte de chocs exceptionnels (deux guerres mondiales qui détruisent les patrimoines) et de choix politiques délibérés (fiscalité progressive jusqu’à 90%, État-providence, syndicalisation). En l’absence de ces contre-forces, la tendance structurelle r &gt; g reprend le dessus.\n\n\n\nFil femmes — XXe siècle\n\nJoan Robinson (1903–1983) : membre du Cambridge Circus, co-auteure de la révolution keynésienne. The Economics of Imperfect Competition (1933) reformule la théorie néoclassique de la valeur. Attendue au Nobel en 1975 — elle ne le reçut jamais. Son collègue masculin John Hicks le reçut pour des travaux comparables.\nClaudia Goldin (Nobel 2023) montre que la participation des femmes au marché du travail suit une courbe en U sur deux siècles : élevée dans l’économie pré-industrielle, effondrée à l’ère industrielle (le foyer comme “sphère séparée”), puis remontée progressivement au XXe siècle — mais avec un child penalty persistant."
+  },
+  {
+    "objectID": "actes/05_regulation.html#pour-aller-plus-loin",
+    "href": "actes/05_regulation.html#pour-aller-plus-loin",
+    "title": "Acte V — L’inégalité régulée",
+    "section": "Pour aller plus loin",
+    "text": "Pour aller plus loin\n\nKeynes, J.M. (1936). Théorie générale de l’emploi, de l’intérêt et de la monnaie\nPiketty, T. (2013). Le Capital au XXIe siècle, ch. 2 (« La croissance — illusions et réalités »)\nAtkinson, A.B. & Piketty, T. (dir.) (2007). Top Incomes over the Twentieth Century\nAkhmatova, A. (trad. Paul Valet). Requiem\nHughes, L. Collected Poems (Knopf, 1994)"
+  },
+  {
+    "objectID": "seances/biblio.html",
+    "href": "seances/biblio.html",
+    "title": "Bibliographie",
+    "section": "",
+    "text": "Piketty, T. (2013). Le Capital au XXIe siècle. Seuil. — La référence centrale : données sur deux siècles, thèse r &gt; g.\nPiketty, T. (2019). Capital et idéologie. Seuil. — Extension mondiale et historique.\nPiketty, T. (2021). Une brève histoire de l’égalité. Seuil. — Version accessible, optimiste.\nMilanovic, B. (2016). Inégalités mondiales. La Découverte. — Courbe de l’éléphant, citoyenneté comme rente.\nMilanovic, B. (2019). Capitalisme sans rival. La Découverte. — Deux modèles : capitalisme libéral vs. capitalisme d’État.\nAtkinson, A. (2015). Inégalités : que faire ? Seuil. — 15 propositions concrètes.\n\n\n\n\n\nSen, A. (1992). Repenser l’inégalité. Seuil. — L’approche par les capabilités.\nRawls, J. (1971). A Theory of Justice. Harvard UP. — Le principe de différence.\nNozick, R. (1974). Anarchy, State and Utopia. Basic Books. — La réponse libérale à Rawls.\nStiglitz, J. (2012). Le Prix de l’inégalité. Les Liens qui Libèrent. — Économie politique des inégalités.\n\n\n\n\n\nDuflo, E. & Banerjee, A. (2019). Économie utile pour des temps difficiles. Seuil.\nDuflo, E. & Banerjee, A. (2007). Repenser la pauvreté. Seuil.\nDeaton, A. (2013). La Grande Évasion. PUF. — Santé, richesse et inégalités mondiales."
+  },
+  {
+    "objectID": "seances/biblio.html#ouvrages-fondamentaux",
+    "href": "seances/biblio.html#ouvrages-fondamentaux",
+    "title": "Bibliographie",
+    "section": "",
+    "text": "Piketty, T. (2013). Le Capital au XXIe siècle. Seuil. — La référence centrale : données sur deux siècles, thèse r &gt; g.\nPiketty, T. (2019). Capital et idéologie. Seuil. — Extension mondiale et historique.\nPiketty, T. (2021). Une brève histoire de l’égalité. Seuil. — Version accessible, optimiste.\nMilanovic, B. (2016). Inégalités mondiales. La Découverte. — Courbe de l’éléphant, citoyenneté comme rente.\nMilanovic, B. (2019). Capitalisme sans rival. La Découverte. — Deux modèles : capitalisme libéral vs. capitalisme d’État.\nAtkinson, A. (2015). Inégalités : que faire ? Seuil. — 15 propositions concrètes.\n\n\n\n\n\nSen, A. (1992). Repenser l’inégalité. Seuil. — L’approche par les capabilités.\nRawls, J. (1971). A Theory of Justice. Harvard UP. — Le principe de différence.\nNozick, R. (1974). Anarchy, State and Utopia. Basic Books. — La réponse libérale à Rawls.\nStiglitz, J. (2012). Le Prix de l’inégalité. Les Liens qui Libèrent. — Économie politique des inégalités.\n\n\n\n\n\nDuflo, E. & Banerjee, A. (2019). Économie utile pour des temps difficiles. Seuil.\nDuflo, E. & Banerjee, A. (2007). Repenser la pauvreté. Seuil.\nDeaton, A. (2013). La Grande Évasion. PUF. — Santé, richesse et inégalités mondiales."
+  },
+  {
+    "objectID": "seances/biblio.html#textes-classiques-extraits-recommandés",
+    "href": "seances/biblio.html#textes-classiques-extraits-recommandés",
+    "title": "Bibliographie",
+    "section": "Textes classiques (extraits recommandés)",
+    "text": "Textes classiques (extraits recommandés)\n\n\n\n\n\n\n\n\nAuteur\nTexte\nExtrait suggéré\n\n\n\n\nAristote\nPolitique, Livre I\nSur l’oikonomia et la chrématistique\n\n\nIbn Khaldoun\nAl-Muqaddima (1377)\nThéorie des cycles et du déclin par les inégalités\n\n\nRousseau\nDiscours sur l’inégalité (1755)\nDeuxième partie\n\n\nSmith, A.\nLa Richesse des nations (1776)\nLivre I ch. 8 : salaires\n\n\nMalthus, T.R.\nEssai sur le principe de population (1798)\nCh. 1–2\n\n\nRicardo, D.\nPrincipes (1817)\nCh. 5 : salaires\n\n\nMarx, K. & Engels, F.\nManifeste du PC (1848)\nIntégral (~40 pages)\n\n\nMarx, K.\nLe Capital, Livre I (1867)\nCh. 25 : loi générale de l’accumulation"
+  },
+  {
+    "objectID": "seances/biblio.html#fil-femmes-références-spécifiques",
+    "href": "seances/biblio.html#fil-femmes-références-spécifiques",
+    "title": "Bibliographie",
+    "section": "Fil femmes — références spécifiques",
+    "text": "Fil femmes — références spécifiques\n\n\nÉconomistes femmes — bibliographie\n\n\nPionnières (XVIIIe–XIXe siècles)\n\nMarcet, J. (1816). Conversations on Political Economy — premier manuel populaire d’économie.\nMartineau, H. (1832–34). Illustrations of Political Economy — vulgarisation de Smith, Ricardo, Malthus pour 10 000 lecteurs/livraison.\nWebb, B.P. (1897). Industrial Democracy (avec Sidney Webb) — pionnière de l’enquête de terrain.\n\n\n\nXXe siècle\n\nLuxemburg, R. (1913). L’Accumulation du capital — impérialisme comme nécessité économique.\nRobinson, J. (1933). The Economics of Imperfect Competition — réforme de la théorie néoclassique.\nRobinson, J. (1956). The Accumulation of Capital — théorie post-keynésienne de la croissance.\n\n\n\nXXIe siècle\n\nOstrom, E. (1990). Governing the Commons — biens communs, Nobel 2009.\nGoldin, C. (2021). Career and Family — histoire longue des inégalités de genre au travail. Nobel 2023.\nDuflo, E. (2010). Le développement humain — méthode expérimentale, Nobel 2019.\nPérivier, H. (2020). L’économie féministe. Presses de Sciences Po — synthèse accessible.\nRaworth, K. (2017). Doughnut Economics — repenser les indicateurs de bien-être."
+  },
+  {
+    "objectID": "seances/biblio.html#littérature-et-arts-œuvres-culturelles-par-séance",
+    "href": "seances/biblio.html#littérature-et-arts-œuvres-culturelles-par-séance",
+    "title": "Bibliographie",
+    "section": "Littérature et arts — œuvres culturelles par séance",
+    "text": "Littérature et arts — œuvres culturelles par séance\n\nAntiquité (Séance 2)\n\nIbn Khaldoun — La Muqaddima (XIVe s.)\nB.R. Ambedkar — Annihilation of Caste (1936)\nKubrick, S. — Spartacus (1960)\nSappho — Fragments (trad. Anne Carson, If Not, Winter)\n\n\n\nXIXe siècle (Séance 3)\n\nZola, É. — Germinal (1885)\nChaplin, C. — Modern Times (1936)\nDickens, C. — Oliver Twist (1837)\nDesbordes-Valmore, M. — Les Pleurs (1833)\n\n\n\nXXe siècle (Séance 4)\n\nGalbraith, J.K. — La Société d’abondance (1958)\nMcKay, A. — The Big Short (2015)\nSpringsteen, B. — Born in the USA (1984)\nHughes, L. — Let America Be America Again (1936)\nAkhmatova, A. — Requiem (1935–1940, publ. 1963)\n\n\n\nContemporain (Séance 5)\n\nPiketty, T. — Capital et idéologie (2019)\nJR — Women are Heroes (installation photographique)\nShire, W. — Home (2011)\nHarjo, J. — Crazy Brave (2012)\nVuong, O. — On Earth We’re Briefly Gorgeous (2019)\nPireyre, E. — Féerie générale (2012, Prix Médicis)"
+  },
+  {
+    "objectID": "seances/biblio.html#données-en-ligne",
+    "href": "seances/biblio.html#données-en-ligne",
+    "title": "Bibliographie",
+    "section": "Données en ligne",
+    "text": "Données en ligne\n\n\n\nSource\nContenu\nURL\n\n\n\n\nWorld Inequality Database\nPart des top 1%, 10%, revenus et patrimoine par pays et période\nwid.world\n\n\nOur World in Data\nGini, pauvreté, mobilité sociale, santé\nourworldindata.org/inequality\n\n\nWorld Bank Open Data\nIndicateurs de développement, Gini officiel\ndata.worldbank.org\n\n\nDonnées Piketty\nCapital au XXIe siècle — séries longues\npiketty.pse.ens.fr\n\n\nOCDE.Stat\nInégalités dans les pays membres\nstats.oecd.org\n\n\nWorld Inequality Report\nRapport annuel WID\nwir2022.wid.world"
+  },
+  {
+    "objectID": "seances/biblio.html#pour-préparer-lexposé-individuel",
+    "href": "seances/biblio.html#pour-préparer-lexposé-individuel",
+    "title": "Bibliographie",
+    "section": "Pour préparer l’exposé individuel",
+    "text": "Pour préparer l’exposé individuel\nL’exposé porte sur une œuvre culturelle (littérature, cinéma, musique, art) que l’étudiant·e choisit librement et fait valider avant la séance 3.\nStructure suggérée (10 min) :\n\nPrésentation de l’œuvre et de son contexte économique et historique\nAnalyse des inégalités représentées — quelles formes, quelles causes, quels acteurs ?\nLien avec un auteur ou concept du cours\nPositionnement personnel — que vous apprend cette œuvre sur les inégalités aujourd’hui ?\n\nExemples d’œuvres utilisées par d’anciens étudiant·es : Parasite (Bong Joon-ho, 2019) · I, Daniel Blake (Ken Loach, 2016) · Les Misérables (Ladj Ly, 2019) · Atlanta (série, Donald Glover, 2016–2022) · This Is America (Childish Gambino, 2018) · Kehinde Wiley (peinture) · Banksy (art urbain) · Salgado (photographie)"
+  }
+]

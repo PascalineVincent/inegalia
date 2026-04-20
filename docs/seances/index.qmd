@@ -1,0 +1,241 @@
+---
+title: "Séances"
+subtitle: "Cours hybride 10H · Public international · Inégalités : histoire et pensée économique"
+---
+
+```{r setup, include=FALSE}
+library(dplyr); library(knitr)
+```
+
+::: {.lead}
+Ce syllabus est une **proposition ouverte**. Chaque enseignant·e partenaire 
+est invité·e à le compléter, adapter, ou enrichir selon son contexte national.
+:::
+
+---
+
+## Séance 1 — Pourquoi faire de l'histoire économique des inégalités ?
+
+::: {.seance-header}
+**Idées principales**
+:::
+::: {.seance-body}
+- L'histoire économique permet de distinguer tendances structurelles et conjonctures : 
+  les inégalités actuelles **ne sont pas une fatalité**, elles ont une épaisseur temporelle.
+- La longue durée comme outil de décentrement : comparer dans le temps et l'espace 
+  oblige à relativiser nos catégories analytiques.
+- Les inégalités sont **multidimensionnelles** — revenus, patrimoine, chances, genre, territoire —
+  et toute mesure implique un choix normatif : le Gini n'est pas neutre.
+
+::: {.fil-femmes}
+::: {.fil-femmes-label}
+Fil femmes — Séance 1
+:::
+**Claudia Goldin** (Nobel 2023) montre que la participation des femmes au marché du travail 
+sur deux siècles suit une courbe en U — un fait *invisible* aux mesures agrégées standard.
+Le *child penalty* (pénalité de maternité) est aujourd'hui le principal facteur 
+d'inégalité salariale entre hommes et femmes.
+:::
+
+**Propositions pédagogiques**
+
+- Discussion inaugurale : pourquoi l'histoire économique plutôt que la seule théorie ? 
+  *"L'histoire est la seule manière sérieuse de faire de l'économie"* — Piketty
+- Tour de table : chaque étudiant·e **estime le Gini** de son pays, 
+  puis confrontation aux données réelles ([wid.world](https://wid.world)) — 
+  la surprise comme point d'entrée
+- Présentation comparée des indicateurs : Gini, Palma, D9/D1 — discussion des limites
+- Exercice de positionnement normatif : **Rawls vs Nozick** en petits groupes
+:::
+
+**Œuvres culturelles**
+
+- Piketty, T. — *Une brève histoire de l'égalité* (2021)
+- Sen, A. — *L'Idée de justice* (2009)  
+- Milanović, B. — *Les Inégalités mondiales* (2016)
+- Lewis Hine — photographies d'enfants au travail aux États-Unis (1908–1918)
+- Sebastião Salgado — *Workers* (1993)
+- Goldin, C. — *Career and Family* (2021)
+
+---
+
+## Séance 2 — Les inégalités avant le capitalisme industriel
+
+::: {.seance-header}
+**Idées principales**
+:::
+::: {.seance-body}
+- Les inégalités **précèdent le capitalisme** : statuts, castes, rente foncière
+- Chaque société produit des légitimations de ses hiérarchies — religieuses, naturelles ou juridiques
+- La pensée prémoderne ne distingue pas l'économie comme domaine autonome
+
+::: {.fil-femmes}
+::: {.fil-femmes-label}
+Fil femmes — Séance 2
+:::
+**Jane Marcet** (1769–1858) et **Harriet Martineau** (1802–1876) diffusent 
+Say, Smith et Malthus à des centaines de milliers de lecteurs — 
+invisibles dans les manuels canoniques. La vulgarisation a longtemps été 
+*l'espace autorisé* aux femmes en économie. Est-ce encore vrai ?
+:::
+
+**Propositions pédagogiques**
+
+- Lecture d'un extrait du *Discours sur l'inégalité* de Rousseau (Deuxième partie)
+- Comparaison : féodalité européenne, castes indiennes, esclavage colonial
+- Données : estimations Milanovic (2011) sur le Gini des sociétés pré-industrielles
+- Question comparative : quelle forme d'inégalité prémoderne reste lisible dans votre pays ?
+:::
+
+**Œuvres culturelles**
+
+- Ibn Khaldoun — *La Muqaddima* (XIVe s.)
+- B.R. Ambedkar — *Annihilation of Caste* (1936)
+- *Spartacus* — Stanley Kubrick (1960)
+- Jane Marcet — *L'économie politique en vingt-deux conversations* (1816)
+
+---
+
+## Séance 3 — La révolution industrielle et la question sociale
+
+::: {.seance-header}
+**Idées principales**
+:::
+::: {.seance-body}
+- L'industrialisation produit une nouvelle forme d'inégalité : le salariat et l'accumulation du capital
+- Smith, Ricardo et Marx s'accordent sur le conflit de répartition ; ils divergent sur ses causes
+- La question sociale européenne est **inséparable** de l'exploitation coloniale extra-européenne
+
+::: {.fil-femmes}
+::: {.fil-femmes-label}
+Fil femmes — Séance 3
+:::
+**Rosa Luxemburg** (1871–1919) : première femme à produire une œuvre théorique majeure 
+en économie. *L'Accumulation du capital* (1913) anticipe la demande effective de Keynes 
+et ancre l'impérialisme dans une nécessité économique (manque de débouchés).  
+**Beatrice Potter Webb** (1858–1943) : co-fondatrice de la LSE, 
+pionnière de l'enquête de terrain et de l'économie institutionnaliste.
+:::
+
+**Propositions pédagogiques**
+
+- Lecture comparée : Ricardo sur les salaires + *Capital* ch. 25
+- Exercice : attribuer à chaque auteur (Smith, Ricardo, Marx, Malthus) 
+  sa position sur la pauvreté ouvrière
+- Débat : la pauvreté est-elle un résultat de la nature (Malthus) ou d'un rapport social (Marx) ?
+:::
+
+**Œuvres culturelles**
+
+- Zola, É. — *Germinal* (1885)
+- Chaplin, C. — *Modern Times* (1936)
+- Marx & Engels — *Manifeste du Parti communiste* (1848) — à lire intégralement
+- Rosa Luxemburg — *L'Accumulation du capital* (1913)
+
+---
+
+## Séance 4 — Le XXe siècle : réduction puis retour des inégalités
+
+::: {.seance-header}
+**Idées principales**
+:::
+::: {.seance-body}
+- La réduction des inégalités (1930–1975) est une **parenthèse historique** 
+  produite par des chocs extérieurs et des choix politiques délibérés — 
+  non par une dynamique spontanée du capitalisme
+- Le retournement néolibéral (1980–) est documenté dans tous les pays riches
+- *r > g* (Piketty) : la tendance structurelle à l'accumulation patrimoniale 
+  s'impose en l'absence de contre-forces
+
+::: {.fil-femmes}
+::: {.fil-femmes-label}
+Fil femmes — Séance 4
+:::
+**Joan Robinson** (1903–1983) : membre du Cambridge Circus, 
+co-auteure de la révolution keynésienne, pionnière de la concurrence imparfaite (1933). 
+Attendue au Nobel en 1975 — elle ne le reçut jamais.  
+Discussion : les biais de genre dans l'attribution du Nobel économique.
+:::
+
+**Propositions pédagogiques**
+
+- Visualisation sur [wid.world](https://wid.world) : part du top 1% dans 4–5 pays sur un siècle
+- Débat structuré : taxer le capital est-il légitime ? (Hayek vs Rawls)
+- Keynes vs Hayek en 10 minutes : leurs positions sur l'inégalité et la redistribution
+:::
+
+**Œuvres culturelles**
+
+- Galbraith, J.K. — *La Société d'abondance* (1958)
+- *The Big Short* — Adam McKay (2015)
+- Bruce Springsteen — *Born in the USA* (1984)
+- Joan Robinson — *The Economics of Imperfect Competition* (1933)
+
+---
+
+## Séance 5 — Les inégalités mondiales aujourd'hui
+
+::: {.seance-header}
+**Idées principales**
+:::
+::: {.seance-body}
+- La mondialisation a réduit les inégalités **entre pays** 
+  mais creuse les inégalités **au sein** des pays riches (courbe de l'éléphant)
+- Les inégalités contemporaines sont **intersectionnelles** : classe, genre, race, territoire
+- Réduire les inégalités exige des choix politiques — la question normative 
+  ne se résout pas par la seule technique
+
+::: {.fil-femmes}
+::: {.fil-femmes-label}
+Fil femmes — Séance 5 (synthèse)
+:::
+Moins de 20% de femmes professeurs d'économie dans la majorité des pays.  
+**Elinor Ostrom** (Nobel 2009) — biens communs et gouvernance climatique.  
+**Esther Duflo** (Nobel 2019) — méthode expérimentale et pauvreté.  
+**Claudia Goldin** (Nobel 2023) — participation féminine au marché du travail.  
+*Question finale :* l'économie serait-elle différente si les femmes n'avaient pas été exclues ?
+:::
+
+**Propositions pédagogiques**
+
+- Présentation et discussion de la **courbe de l'éléphant** (Milanovic, 2016)
+- 1re heure : exposés individuels des étudiant·es
+- 2e heure : cours + remise de la lecture commentée
+- Question de clôture : les inégalités sont-elles solubles dans le capitalisme ?
+:::
+
+**Œuvres culturelles**
+
+- Piketty, T. — *Capital et idéologie* (2019)
+- Duflo, E. & Banerjee, A. — *Économie utile pour des temps difficiles* (2019)
+- JR — *Women are Heroes*
+- Périvier, H. — *L'économie féministe* (Presses de Sciences Po, 2020)
+
+---
+
+## Modalités d'évaluation
+
+```{r eval-table}
+tibble::tribble(
+  ~Exercice, ~Poids, ~Format, ~Critères,
+  "Lecture commentée", "50%",
+    "2–3 pages écrites · Remise fin séance 5",
+    "Résumé analytique + mise en perspective + discussion critique ancrée dans le contexte national",
+  "Exposé individuel", "50%",
+    "10 min + 5 min questions · Séance 5 (1re heure)",
+    "Présentation d'une œuvre · Analyse des inégalités · Lien avec un auteur du cours · Positionnement"
+) |>
+  knitr::kable(col.names = c("Exercice", "Poids", "Format", "Critères"))
+```
+
+**Texte commun (lecture commentée) :**  
+Milanovic, *Inégalités mondiales* (2016), ch. 1 — *La citoyenneté comme rente* (~5 pages)
+
+**Grille de notation (/20)**
+
+| Critère | Indicateurs | Pts |
+|---------|------------|-----|
+| Compréhension | Maîtrise des faits, auteurs et concepts | 5 |
+| Mobilisation théorique | Dialogue avec les auteurs du cours | 6 |
+| Argumentation critique | Objection construite, exemples, logique | 5 |
+| Forme & expression | Clarté, structure, respect du format | 4 |
