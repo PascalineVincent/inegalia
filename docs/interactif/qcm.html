@@ -76,7 +76,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-1be5c2823cd0ffd99ff792b0b47bb09b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-0c0074f213270ad5f847a94a21060a2d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -127,6 +127,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../avant_voyage.html"> 
+<span class="menu-text">Avant le voyage</span></a>
+  </li>  
   <li class="nav-item">
     <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Le voyage</span></a>
@@ -425,6 +429,170 @@ buildQ();
 
 
 </main> <!-- /main -->
+<style>
+#widget-decision,[data-acte]{--wd-pri:#2A3240;--wd-acc:#E8A830;--wd-bord:#C8D4E0;--wd-vert:#1E6B4A;--wd-texte:#2A3240;--wd-bg:#EFF2F6;--wd-muted:#5A6A7A;font-family:'EB Garamond',Georgia,serif;margin:2.5rem 0}
+.wd-card{border:.5px solid var(--wd-bord);border-radius:10px;background:white;overflow:hidden;box-shadow:0 1px 4px rgba(42,50,64,.06)}
+.wd-header{background:var(--wd-pri);color:#C8D4E0;padding:.75rem 1.25rem;display:flex;align-items:center;gap:.75rem}
+.wd-avatar{width:36px;height:36px;border-radius:50%;background:var(--wd-acc);display:flex;align-items:center;justify-content:center;font-size:15px;color:#2A3240;flex-shrink:0;font-weight:600}
+.wd-guide-name{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--wd-acc);font-family:sans-serif}
+.wd-parole{font-size:.9rem;font-style:italic;color:#C8D4E0;margin-top:2px}
+.wd-body{padding:1.25rem}
+.wd-lieu{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--wd-acc);font-family:sans-serif;margin-bottom:.5rem}
+.wd-dilemme{font-size:1rem;line-height:1.55;color:var(--wd-texte);margin-bottom:1.2rem;font-weight:500}
+.wd-opts{display:flex;flex-direction:column;gap:.5rem}
+.wd-opt{display:flex;align-items:flex-start;gap:.75rem;border:.5px solid var(--wd-bord);border-radius:8px;padding:.75rem 1rem;cursor:pointer;background:white;text-align:left;font-family:'EB Garamond',Georgia,serif;font-size:.92rem;color:var(--wd-texte);line-height:1.45;transition:border-color .15s,background .15s;width:100%}
+.wd-opt:hover:not(:disabled){background:var(--wd-bg);border-color:var(--wd-acc)}
+.wd-opt:disabled{cursor:default}
+.wd-opt-label{font-family:sans-serif;font-size:.67rem;text-transform:uppercase;letter-spacing:.07em;color:var(--wd-muted);flex-shrink:0;padding-top:2px;min-width:90px}
+.wd-opt.chosen{border-color:var(--wd-pri)!important;background:#EFF2F6!important}
+.wd-opt.chosen .wd-opt-label{color:var(--wd-pri)}
+.wd-echo{margin-top:1rem;border-left:3px solid var(--wd-vert);padding:.7rem 1rem;background:#EAF4EE;border-radius:0 6px 6px 0;font-size:.88rem;line-height:1.55;color:#144D32;display:none}
+.wd-echo.visible{display:block}
+.wd-echo-label{font-family:sans-serif;font-size:.67rem;text-transform:uppercase;letter-spacing:.08em;color:var(--wd-vert);margin-bottom:.35rem;font-weight:600}
+.wd-footer{border-top:.5px solid var(--wd-bord);padding:.65rem 1.25rem;display:flex;align-items:center;justify-content:space-between;font-family:sans-serif;font-size:.75rem;color:var(--wd-muted);background:#F7F9FB}
+.wd-status{display:flex;align-items:center;gap:.4rem}
+.wd-dot{width:7px;height:7px;border-radius:50%;background:var(--wd-bord);transition:background .3s}
+.wd-dot.done{background:var(--wd-vert)}
+.wd-change{background:none;border:none;color:var(--wd-pri);cursor:pointer;font-size:.75rem;font-family:sans-serif;text-decoration:underline;display:none}
+.wd-change.visible{display:inline}
+
+.wd-nav{display:flex;align-items:center;justify-content:space-between;margin:1.5rem 0 2rem;font-family:'EB Garamond',Georgia,serif;gap:1rem}
+.wd-nav-prev,.wd-nav-next{display:flex;align-items:center;gap:.5rem;padding:.6rem 1.1rem;border:.5px solid var(--wd-bord);border-radius:8px;background:white;color:var(--wd-texte);text-decoration:none;font-size:.9rem;transition:border-color .15s,background .15s;white-space:nowrap}
+.wd-nav-prev:hover,.wd-nav-next:hover{background:var(--wd-bg);border-color:var(--wd-acc);color:var(--wd-texte);text-decoration:none}
+.wd-nav-next{background:var(--wd-pri);color:#EFF2F6;border-color:var(--wd-pri)}
+.wd-nav-next:hover{background:#1C2435;border-color:#1C2435;color:#EFF2F6}
+.wd-nav-arrow{font-size:1rem;line-height:1}
+.wd-nav-label{display:flex;flex-direction:column;line-height:1.2}
+.wd-nav-label-hint{font-family:sans-serif;font-size:.65rem;text-transform:uppercase;letter-spacing:.07em;opacity:.65;margin-bottom:1px}
+.wd-nav-progress{font-family:sans-serif;font-size:.72rem;color:var(--wd-muted);text-align:center;flex-shrink:0}
+.wd-nav-pips{display:flex;gap:5px;justify-content:center;margin-top:4px}
+.wd-nav-pip{width:8px;height:8px;border-radius:50%;background:var(--wd-bord);transition:background .3s}
+.wd-nav-pip.done{background:var(--wd-vert)}
+.wd-nav-pip.current{background:var(--wd-acc)}
+</style>
+
+<script>
+(function(){
+  const KEY='voyage_inegalites_decisions';
+  function load(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return{}}}
+  function save(acte,choice,label,echo){const a=load();a['acte_'+acte]={choice,label,echo,ts:Date.now()};localStorage.setItem(KEY,JSON.stringify(a))}
+
+  function init(root){
+    if(root.classList.contains('wd-root'))return;
+    const d=root.dataset;
+    const ex=load()['acte_'+d.acte];
+    root.classList.add('wd-root');
+    root.innerHTML=`
+      <div class="wd-card">
+        <div class="wd-header">
+          <div class="wd-avatar">✦</div>
+          <div>
+            <div class="wd-guide-name">${d.guide}</div>
+            <div class="wd-parole">${d.parole}</div>
+          </div>
+        </div>
+        <div class="wd-body">
+          <div class="wd-lieu">${d.titre}</div>
+          <div class="wd-dilemme">${d.dilemme}</div>
+          <div class="wd-opts">
+            <button class="wd-opt${ex&&ex.choice==='a'?' chosen':''}" data-choice="a"${ex?' disabled':''}>
+              <span class="wd-opt-label">${d.labelA}</span><span>${d.optA}</span>
+            </button>
+            <button class="wd-opt${ex&&ex.choice==='b'?' chosen':''}" data-choice="b"${ex?' disabled':''}>
+              <span class="wd-opt-label">${d.labelB}</span><span>${d.optB}</span>
+            </button>
+            <button class="wd-opt${ex&&ex.choice==='c'?' chosen':''}" data-choice="c"${ex?' disabled':''}>
+              <span class="wd-opt-label">${d.labelC}</span><span>${d.optC}</span>
+            </button>
+          </div>
+          <div class="wd-echo${ex?' visible':''}" id="wd-echo-${d.acte}">
+            <div class="wd-echo-label">Résonance historique</div>
+            <span id="wd-echo-text-${d.acte}">${ex?ex.echo:''}</span>
+          </div>
+        </div>
+        <div class="wd-footer">
+          <div class="wd-status">
+            <div class="wd-dot${ex?' done':''}" id="wd-dot-${d.acte}"></div>
+            <span id="wd-status-txt-${d.acte}">${ex?'Décision enregistrée dans le journal':'En attente de ta décision'}</span>
+          </div>
+          <button class="wd-change${ex?' visible':''}" id="wd-change-${d.acte}">Modifier</button>
+        </div>
+      </div>`;
+
+    root.querySelectorAll('.wd-opt').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        const choice=this.dataset.choice;
+        const label=d['label'+choice.toUpperCase()];
+        const echo=d['echo'+choice.toUpperCase()];
+        save(d.acte,choice,label,echo);
+        root.querySelectorAll('.wd-opt').forEach(function(b){b.disabled=true;b.classList.remove('chosen')});
+        this.classList.add('chosen');
+        document.getElementById('wd-echo-text-'+d.acte).textContent=echo;
+        document.getElementById('wd-echo-'+d.acte).classList.add('visible');
+        document.getElementById('wd-dot-'+d.acte).classList.add('done');
+        document.getElementById('wd-status-txt-'+d.acte).textContent='Décision enregistrée dans le journal';
+        const cb=document.getElementById('wd-change-'+d.acte);
+        if(cb)cb.classList.add('visible');
+      });
+    });
+
+    const cb=document.getElementById('wd-change-'+d.acte);
+    if(cb)cb.addEventListener('click',function(){
+      root.querySelectorAll('.wd-opt').forEach(function(b){b.disabled=false;b.classList.remove('chosen')});
+      document.getElementById('wd-echo-'+d.acte).classList.remove('visible');
+      document.getElementById('wd-dot-'+d.acte).classList.remove('done');
+      document.getElementById('wd-status-txt-'+d.acte).textContent='En attente de ta décision';
+      this.classList.remove('visible');
+      const a=load();delete a['acte_'+d.acte];localStorage.setItem(KEY,JSON.stringify(a));
+    });
+  }
+
+  function initAll(){
+    document.querySelectorAll('[data-acte]').forEach(function(el){
+      if(el.dataset.acte)init(el);
+    });
+    injectNav();
+  }
+
+  const ACTES=[
+    {n:1,titre:'Antiquité',href:'01_antiquite.html'},
+    {n:2,titre:'Moyen Âge',href:'02_feodal.html'},
+    {n:3,titre:'Renaissance',href:'03_renaissance.html'},
+    {n:4,titre:'XIXe siècle',href:'04_industrie.html'},
+    {n:5,titre:'XXe siècle',href:'05_regulation.html'},
+    {n:6,titre:'XXIe siècle',href:'06_contemporain.html'}
+  ];
+
+  function injectNav(){
+    const widget=document.querySelector('[data-acte]');
+    if(!widget)return;
+    const acte=parseInt(widget.dataset.acte);
+    if(!acte||acte<1||acte>6)return;
+    const decisions=load();
+    const prev=acte>1?ACTES[acte-2]:null;
+    const next=acte<6?ACTES[acte]:null;
+    const isLast=acte===6;
+    const pips=ACTES.map(function(a){
+      const done=!!decisions['acte_'+a.n];
+      const current=a.n===acte;
+      return'<div class="wd-nav-pip'+(current?' current':done?' done':'')+'"></div>';
+    }).join('');
+    const prevBtn=prev
+      ?`<a class="wd-nav-prev" href="${prev.href}"><span class="wd-nav-arrow">←</span><span class="wd-nav-label"><span class="wd-nav-label-hint">Acte précédent</span>${prev.titre}</span></a>`
+      :`<a class="wd-nav-prev" href="../index.html"><span class="wd-nav-arrow">←</span><span class="wd-nav-label"><span class="wd-nav-label-hint">Retour</span>Le voyage</span></a>`;
+    const nextBtn=isLast
+      ?`<a class="wd-nav-next" href="../interactif/epilogue.html"><span class="wd-nav-label" style="text-align:right"><span class="wd-nav-label-hint">Fin du voyage</span>Mon épilogue →</span></a>`
+      :`<a class="wd-nav-next" href="${next.href}"><span class="wd-nav-label" style="text-align:right"><span class="wd-nav-label-hint">Acte suivant</span>${next.titre}</span><span class="wd-nav-arrow">→</span></a>`;
+    const nav=document.createElement('div');
+    nav.className='wd-nav';
+    nav.innerHTML=prevBtn+`<div class="wd-nav-progress"><div>Acte ${acte} / 6</div><div class="wd-nav-pips">${pips}</div></div>`+nextBtn;
+    widget.parentNode.insertBefore(nav,widget.nextSibling);
+  }
+
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initAll)}
+  else{initAll()}
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
