@@ -181,9 +181,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../carnet_test.html"> 
+    <a class="nav-link" href="../journal/carnet_test.html"> 
 <span class="menu-text">Journal de bord</span></a>
   </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-interactif" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Interactif</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-interactif">    
+        <li>
+    <a class="dropdown-item" href="../interactif/qcm.html">
+ <span class="dropdown-text">QCM — auto-évaluation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../interactif/carte_gini.html">
+ <span class="dropdown-text">Carte — Gini mondial</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../interactif/ma_progression.html">
+ <span class="dropdown-text">Ma progression</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../interactif/epilogue.html">
+ <span class="dropdown-text">Épilogue</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-cours" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Cours</span>
@@ -205,6 +228,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../apropos.html"> 
+<span class="menu-text">À propos</span></a>
+  </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/votre-compte/inegalites-histoire"> <i class="bi bi-github" role="img">
 </i> 
@@ -356,8 +383,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>plotly<span class="sc">::</span><span class="fu">ggplotly</span>(p, <span class="at">tooltip =</span> <span class="st">"text"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-c7af42a63475c641ab14" style="width:100%;height:361px;"></div>
-<script type="application/json" data-for="htmlwidget-c7af42a63475c641ab14">{"x":{"data":[{"x":[1800,null,1820,null,1840,null,1850,null,1867,null,1880,null,1900,null,1910],"y":[0.5,null,0.52000000000000002,null,0.55000000000000004,null,0.56999999999999995,null,0.58999999999999997,null,0.60999999999999999,null,0.62,null,0.63],"text":["Royaume-Uni · 1800<br>Gini : 0.5",null,"Royaume-Uni · 1820<br>Gini : 0.52",null,"Royaume-Uni · 1840<br>Gini : 0.55",null,"Royaume-Uni · 1850<br>Gini : 0.57",null,"Royaume-Uni · 1867<br>Gini : 0.59",null,"Royaume-Uni · 1880<br>Gini : 0.61",null,"Royaume-Uni · 1900<br>Gini : 0.62",null,"Royaume-Uni · 1910<br>Gini : 0.63"],"type":"scatter","mode":"lines","line":{"width":4.1574803149606305,"color":"rgba(139,26,26,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1800,null,1820,null,1840,null,1850,null,1867,null,1880,null,1900,null,1910],"y":[0.52000000000000002,null,0.54000000000000004,null,0.56000000000000005,null,0.56999999999999995,null,0.57999999999999996,null,0.58999999999999997,null,0.57999999999999996,null,0.57999999999999996],"text":["France · 1800<br>Gini : 0.52",null,"France · 1820<br>Gini : 0.54",null,"France · 1840<br>Gini : 0.56",null,"France · 1850<br>Gini : 0.57",null,"France · 1867<br>Gini : 0.58",null,"France · 1880<br>Gini : 0.59",null,"France · 1900<br>Gini : 0.58",null,"France · 1910<br>Gini : 0.58"],"type":"scatter","mode":"lines","line":{"width":4.1574803149606305,"color":"rgba(26,58,92,1)","dash":"dash"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1800,1820,1840,1850,1867,1880,1900,1910],"y":[0.5,0.52000000000000002,0.55000000000000004,0.56999999999999995,0.58999999999999997,0.60999999999999999,0.62,0.63],"text":"","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(139,26,26,1)","opacity":1,"size":9.4488188976377963,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(139,26,26,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1800,1820,1840,1850,1867,1880,1900,1910],"y":[0.52000000000000002,0.54000000000000004,0.56000000000000005,0.56999999999999995,0.57999999999999996,0.58999999999999997,0.57999999999999996,0.57999999999999996],"text":"","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(26,58,92,1)","opacity":1,"size":9.4488188976377963,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(26,58,92,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1870],"y":[0.60499999999999998],"text":"Royaume-Uni","hovertext":"","textfont":{"size":11.338582677165356,"color":"rgba(139,26,26,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1870],"y":[0.57599999999999996],"text":"France","hovertext":"","textfont":{"size":11.338582677165356,"color":"rgba(26,58,92,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":22.648401826484022,"l":48.949771689497723},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[1794.5,1915.5],"tickmode":"array","ticktext":["1800","1820","1840","1860","1880","1900"],"tickvals":[1800,1820,1840,1860,1880,1900],"categoryorder":"array","categoryarray":["1800","1820","1840","1860","1880","1900"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.45999999999999996,0.68000000000000005],"tickmode":"array","ticktext":["0.50","0.55","0.60","0.65"],"tickvals":[0.5,0.55000000000000004,0.60000000000000009,0.65000000000000002],"categoryorder":"array","categoryarray":["0.50","0.55","0.60","0.65"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Gini estimé","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"serif","size":11.68949771689498}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"18984f8b7cc":{"x":{},"y":{},"text":{},"type":"scatter"},"189839df2750":{"x":{},"y":{},"text":{}},"189857711368":{"x":{},"y":{}},"189819603d0d":{"x":{},"y":{}},"189847bc4338":{"x":{},"y":{}},"1898481935ad":{"x":{},"y":{}}},"cur_data":"18984f8b7cc","visdat":{"18984f8b7cc":["function (y) ","x"],"189839df2750":["function (y) ","x"],"189857711368":["function (y) ","x"],"189819603d0d":["function (y) ","x"],"189847bc4338":["function (y) ","x"],"1898481935ad":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-72ad152e3c7555efac32" style="width:100%;height:361px;"></div>
+<script type="application/json" data-for="htmlwidget-72ad152e3c7555efac32">{"x":{"data":[{"x":[1800,null,1820,null,1840,null,1850,null,1867,null,1880,null,1900,null,1910],"y":[0.5,null,0.52000000000000002,null,0.55000000000000004,null,0.56999999999999995,null,0.58999999999999997,null,0.60999999999999999,null,0.62,null,0.63],"text":["Royaume-Uni · 1800<br>Gini : 0.5",null,"Royaume-Uni · 1820<br>Gini : 0.52",null,"Royaume-Uni · 1840<br>Gini : 0.55",null,"Royaume-Uni · 1850<br>Gini : 0.57",null,"Royaume-Uni · 1867<br>Gini : 0.59",null,"Royaume-Uni · 1880<br>Gini : 0.61",null,"Royaume-Uni · 1900<br>Gini : 0.62",null,"Royaume-Uni · 1910<br>Gini : 0.63"],"type":"scatter","mode":"lines","line":{"width":4.1574803149606305,"color":"rgba(139,26,26,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1800,null,1820,null,1840,null,1850,null,1867,null,1880,null,1900,null,1910],"y":[0.52000000000000002,null,0.54000000000000004,null,0.56000000000000005,null,0.56999999999999995,null,0.57999999999999996,null,0.58999999999999997,null,0.57999999999999996,null,0.57999999999999996],"text":["France · 1800<br>Gini : 0.52",null,"France · 1820<br>Gini : 0.54",null,"France · 1840<br>Gini : 0.56",null,"France · 1850<br>Gini : 0.57",null,"France · 1867<br>Gini : 0.58",null,"France · 1880<br>Gini : 0.59",null,"France · 1900<br>Gini : 0.58",null,"France · 1910<br>Gini : 0.58"],"type":"scatter","mode":"lines","line":{"width":4.1574803149606305,"color":"rgba(26,58,92,1)","dash":"dash"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1800,1820,1840,1850,1867,1880,1900,1910],"y":[0.5,0.52000000000000002,0.55000000000000004,0.56999999999999995,0.58999999999999997,0.60999999999999999,0.62,0.63],"text":"","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(139,26,26,1)","opacity":1,"size":9.4488188976377963,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(139,26,26,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1800,1820,1840,1850,1867,1880,1900,1910],"y":[0.52000000000000002,0.54000000000000004,0.56000000000000005,0.56999999999999995,0.57999999999999996,0.58999999999999997,0.57999999999999996,0.57999999999999996],"text":"","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(26,58,92,1)","opacity":1,"size":9.4488188976377963,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(26,58,92,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1870],"y":[0.60499999999999998],"text":"Royaume-Uni","hovertext":"","textfont":{"size":11.338582677165356,"color":"rgba(139,26,26,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1870],"y":[0.57599999999999996],"text":"France","hovertext":"","textfont":{"size":11.338582677165356,"color":"rgba(26,58,92,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":22.648401826484022,"l":48.949771689497723},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[1794.5,1915.5],"tickmode":"array","ticktext":["1800","1820","1840","1860","1880","1900"],"tickvals":[1800,1820,1840,1860,1880,1900],"categoryorder":"array","categoryarray":["1800","1820","1840","1860","1880","1900"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.45999999999999996,0.68000000000000005],"tickmode":"array","ticktext":["0.50","0.55","0.60","0.65"],"tickvals":[0.5,0.55000000000000004,0.60000000000000009,0.65000000000000002],"categoryorder":"array","categoryarray":["0.50","0.55","0.60","0.65"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Gini estimé","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"serif","size":11.68949771689498}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"3df850a8591b":{"x":{},"y":{},"text":{},"type":"scatter"},"3df816d37167":{"x":{},"y":{},"text":{}},"3df81ba74f5e":{"x":{},"y":{}},"3df83b83452b":{"x":{},"y":{}},"3df8521d30f7":{"x":{},"y":{}},"3df8390451fd":{"x":{},"y":{}}},"cur_data":"3df850a8591b","visdat":{"3df850a8591b":["function (y) ","x"],"3df816d37167":["function (y) ","x"],"3df81ba74f5e":["function (y) ","x"],"3df83b83452b":["function (y) ","x"],"3df8521d30f7":["function (y) ","x"],"3df8390451fd":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="cell">
@@ -398,8 +425,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>plotly<span class="sc">::</span><span class="fu">ggplotly</span>(p2, <span class="at">tooltip =</span> <span class="st">"text"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-667d4c384b20266d0073" style="width:100%;height:361px;"></div>
-<script type="application/json" data-for="htmlwidget-667d4c384b20266d0073">{"x":{"data":[{"orientation":"v","width":[12,12,12,12,12,12,12,12],"base":[0,0,0,0,0,0,0,0],"x":[1760,1780,1800,1820,1840,1860,1880,1900],"y":[22,24,27,31,35,36,33,30],"text":["1760<br>Part des profits : 22%","1780<br>Part des profits : 24%","1800<br>Part des profits : 27%","1820<br>Part des profits : 31%","1840<br>Part des profits : 35%","1860<br>Part des profits : 36%","1880<br>Part des profits : 33%","1900<br>Part des profits : 30%"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(74,32,64,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1760,null,1780,null,1800,null,1820,null,1840,null,1860,null,1880,null,1900],"y":[25,null,24.5,null,26.25,null,27.5,null,29.5,null,33.75,null,40,null,48.75],"text":["1760<br>Salaire réel (idx) : 100",null,"1780<br>Salaire réel (idx) : 98",null,"1800<br>Salaire réel (idx) : 105",null,"1820<br>Salaire réel (idx) : 110",null,"1840<br>Salaire réel (idx) : 118",null,"1860<br>Salaire réel (idx) : 135",null,"1880<br>Salaire réel (idx) : 160",null,"1900<br>Salaire réel (idx) : 195"],"type":"scatter","mode":"lines","line":{"width":4.5354330708661417,"color":"rgba(26,58,92,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1760,1780,1800,1820,1840,1860,1880,1900],"y":[25,24.5,26.25,27.5,29.5,33.75,40,48.75],"text":"","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(26,58,92,1)","opacity":1,"size":9.4488188976377963,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(26,58,92,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":22.648401826484022,"l":37.260273972602747},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[1746.4000000000001,1913.5999999999999],"tickmode":"array","ticktext":["1760","1780","1800","1820","1840","1860","1880","1900"],"tickvals":[1760,1780,1800,1820,1840,1860,1880,1900],"categoryorder":"array","categoryarray":["1760","1780","1800","1820","1840","1860","1880","1900"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-2.4375,51.1875],"tickmode":"array","ticktext":["0","10","20","30","40","50"],"tickvals":[0,10,20,30,40,50],"categoryorder":"array","categoryarray":["0","10","20","30","40","50"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Part des profits dans le PIB (%)","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"serif","size":11.68949771689498}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"189816b74947":{"x":{},"y":{},"text":{},"type":"bar"},"189825ef711b":{"x":{},"y":{},"text":{}},"1898719e79af":{"x":{},"y":{}}},"cur_data":"189816b74947","visdat":{"189816b74947":["function (y) ","x"],"189825ef711b":["function (y) ","x"],"1898719e79af":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-d5da30cd0feccaf1f28f" style="width:100%;height:361px;"></div>
+<script type="application/json" data-for="htmlwidget-d5da30cd0feccaf1f28f">{"x":{"data":[{"orientation":"v","width":[12,12,12,12,12,12,12,12],"base":[0,0,0,0,0,0,0,0],"x":[1760,1780,1800,1820,1840,1860,1880,1900],"y":[22,24,27,31,35,36,33,30],"text":["1760<br>Part des profits : 22%","1780<br>Part des profits : 24%","1800<br>Part des profits : 27%","1820<br>Part des profits : 31%","1840<br>Part des profits : 35%","1860<br>Part des profits : 36%","1880<br>Part des profits : 33%","1900<br>Part des profits : 30%"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(74,32,64,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1760,null,1780,null,1800,null,1820,null,1840,null,1860,null,1880,null,1900],"y":[25,null,24.5,null,26.25,null,27.5,null,29.5,null,33.75,null,40,null,48.75],"text":["1760<br>Salaire réel (idx) : 100",null,"1780<br>Salaire réel (idx) : 98",null,"1800<br>Salaire réel (idx) : 105",null,"1820<br>Salaire réel (idx) : 110",null,"1840<br>Salaire réel (idx) : 118",null,"1860<br>Salaire réel (idx) : 135",null,"1880<br>Salaire réel (idx) : 160",null,"1900<br>Salaire réel (idx) : 195"],"type":"scatter","mode":"lines","line":{"width":4.5354330708661417,"color":"rgba(26,58,92,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1760,1780,1800,1820,1840,1860,1880,1900],"y":[25,24.5,26.25,27.5,29.5,33.75,40,48.75],"text":"","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(26,58,92,1)","opacity":1,"size":9.4488188976377963,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(26,58,92,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":22.648401826484022,"l":37.260273972602747},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[1746.4000000000001,1913.5999999999999],"tickmode":"array","ticktext":["1760","1780","1800","1820","1840","1860","1880","1900"],"tickvals":[1760,1780,1800,1820,1840,1860,1880,1900],"categoryorder":"array","categoryarray":["1760","1780","1800","1820","1840","1860","1880","1900"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-2.4375,51.1875],"tickmode":"array","ticktext":["0","10","20","30","40","50"],"tickvals":[0,10,20,30,40,50],"categoryorder":"array","categoryarray":["0","10","20","30","40","50"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Part des profits dans le PIB (%)","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"serif","size":11.68949771689498}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"3df834724a61":{"x":{},"y":{},"text":{},"type":"bar"},"3df8589128f9":{"x":{},"y":{},"text":{}},"3df8460e654":{"x":{},"y":{}}},"cur_data":"3df834724a61","visdat":{"3df834724a61":["function (y) ","x"],"3df8589128f9":["function (y) ","x"],"3df8460e654":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="plot-caption">
@@ -444,6 +471,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Zola, É. (1885). <em>Germinal</em></li>
 <li>Allen, R.C. (2009). <em>Engels’ Pause</em> — article sur la stagnation des salaires</li>
 </ul>
+<div id="widget-decision" data-acte="4" data-titre="Manchester, mars 1848" data-guide="Thomas, voyageur dans le temps" data-parole="J'ai vu les usines. J'ai lu le Manifeste. On me demande ce que je pense faire." data-dilemme="Tu es un ouvrier qualifié à Manchester en 1848. Tu gagnes assez pour survivre — mais juste. On te propose de rejoindre une coalition syndicale illégale. Que choisis-tu ?" data-opt-a="Tu refuses. Le progrès industriel finira par profiter à tous. Les inégalités actuelles sont temporaires — le marché s'autorégule." data-opt-b="Tu rejoins le syndicat mais pour négocier des améliorations concrètes (salaires, heures), pas pour renverser le système." data-opt-c="Tu rejoins le mouvement et milites pour une transformation radicale des rapports de propriété. Le problème est structurel, pas conjoncturel." data-label-a="Libéral confiant" data-label-b="Syndicaliste réformiste" data-label-c="Révolutionnaire" data-echo-a="Tu partages la foi libérale dans le progrès spontané. Ricardo avant toi, puis les néoclassiques après, défendront cette vision — mais les données du XIXe siècle la contredisent sévèrement." data-echo-b="C'est la voie qui triomphera : syndicats, conventions collectives, État-providence. Le réformisme battra le révolutionnarisme en Europe occidentale au XXe siècle." data-echo-c="Tu rejoins Marx et Engels. La révolution ouvrière aura lieu — mais à l'Est, pas en Angleterre, et avec des résultats très différents de ce que Marx anticipait.">
+
+</div>
 
 
 <!-- -->
@@ -451,6 +481,120 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 
 </main> <!-- /main -->
+<style>
+#widget-decision,[data-acte]{--wd-rouge:#8B1A1A;--wd-or:#B8860B;--wd-bord:#D4C5A9;--wd-vert:#2D5A27;--wd-texte:#2C2C2A;--wd-muted:#666;font-family:'EB Garamond',Georgia,serif;margin:2.5rem 0}
+.wd-card{border:.5px solid var(--wd-bord);border-radius:10px;background:white;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.wd-header{background:var(--wd-texte);color:#F5F0E8;padding:.75rem 1.25rem;display:flex;align-items:center;gap:.75rem}
+.wd-avatar{width:36px;height:36px;border-radius:50%;background:var(--wd-or);display:flex;align-items:center;justify-content:center;font-size:15px;color:white;flex-shrink:0}
+.wd-guide-name{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--wd-or);font-family:sans-serif}
+.wd-parole{font-size:.9rem;font-style:italic;color:#E8DFD0;margin-top:2px}
+.wd-body{padding:1.25rem}
+.wd-lieu{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--wd-or);font-family:sans-serif;margin-bottom:.5rem}
+.wd-dilemme{font-size:1rem;line-height:1.55;color:var(--wd-texte);margin-bottom:1.2rem;font-weight:500}
+.wd-opts{display:flex;flex-direction:column;gap:.5rem}
+.wd-opt{display:flex;align-items:flex-start;gap:.75rem;border:.5px solid var(--wd-bord);border-radius:8px;padding:.75rem 1rem;cursor:pointer;background:white;text-align:left;font-family:'EB Garamond',Georgia,serif;font-size:.92rem;color:var(--wd-texte);line-height:1.45;transition:border-color .15s,background .15s;width:100%}
+.wd-opt:hover:not(:disabled){background:#F5F0E8;border-color:var(--wd-or)}
+.wd-opt:disabled{cursor:default}
+.wd-opt-label{font-family:sans-serif;font-size:.67rem;text-transform:uppercase;letter-spacing:.07em;color:var(--wd-muted);flex-shrink:0;padding-top:2px;min-width:90px}
+.wd-opt.chosen{border-color:var(--wd-rouge)!important;background:#FDF5F5!important}
+.wd-opt.chosen .wd-opt-label{color:var(--wd-rouge)}
+.wd-echo{margin-top:1rem;border-left:3px solid var(--wd-vert);padding:.7rem 1rem;background:#F2F8EE;border-radius:0 6px 6px 0;font-size:.88rem;line-height:1.55;color:#27500A;display:none}
+.wd-echo.visible{display:block}
+.wd-echo-label{font-family:sans-serif;font-size:.67rem;text-transform:uppercase;letter-spacing:.08em;color:var(--wd-vert);margin-bottom:.35rem;font-weight:600}
+.wd-footer{border-top:.5px solid var(--wd-bord);padding:.65rem 1.25rem;display:flex;align-items:center;justify-content:space-between;font-family:sans-serif;font-size:.75rem;color:var(--wd-muted);background:#FAFAF8}
+.wd-status{display:flex;align-items:center;gap:.4rem}
+.wd-dot{width:7px;height:7px;border-radius:50%;background:var(--wd-bord);transition:background .3s}
+.wd-dot.done{background:var(--wd-vert)}
+.wd-change{background:none;border:none;color:var(--wd-rouge);cursor:pointer;font-size:.75rem;font-family:sans-serif;text-decoration:underline;display:none}
+.wd-change.visible{display:inline}
+</style>
+
+<script>
+(function(){
+  const KEY='voyage_inegalites_decisions';
+  function load(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return{}}}
+  function save(acte,choice,label,echo){const a=load();a['acte_'+acte]={choice,label,echo,ts:Date.now()};localStorage.setItem(KEY,JSON.stringify(a))}
+
+  function init(root){
+    if(root.classList.contains('wd-root'))return;
+    const d=root.dataset;
+    const ex=load()['acte_'+d.acte];
+    root.classList.add('wd-root');
+    root.innerHTML=`
+      <div class="wd-card">
+        <div class="wd-header">
+          <div class="wd-avatar">✦</div>
+          <div>
+            <div class="wd-guide-name">${d.guide}</div>
+            <div class="wd-parole">${d.parole}</div>
+          </div>
+        </div>
+        <div class="wd-body">
+          <div class="wd-lieu">${d.titre}</div>
+          <div class="wd-dilemme">${d.dilemme}</div>
+          <div class="wd-opts">
+            <button class="wd-opt${ex&&ex.choice==='a'?' chosen':''}" data-choice="a"${ex?' disabled':''}>
+              <span class="wd-opt-label">${d.labelA}</span><span>${d.optA}</span>
+            </button>
+            <button class="wd-opt${ex&&ex.choice==='b'?' chosen':''}" data-choice="b"${ex?' disabled':''}>
+              <span class="wd-opt-label">${d.labelB}</span><span>${d.optB}</span>
+            </button>
+            <button class="wd-opt${ex&&ex.choice==='c'?' chosen':''}" data-choice="c"${ex?' disabled':''}>
+              <span class="wd-opt-label">${d.labelC}</span><span>${d.optC}</span>
+            </button>
+          </div>
+          <div class="wd-echo${ex?' visible':''}" id="wd-echo-${d.acte}">
+            <div class="wd-echo-label">Résonance historique</div>
+            <span id="wd-echo-text-${d.acte}">${ex?ex.echo:''}</span>
+          </div>
+        </div>
+        <div class="wd-footer">
+          <div class="wd-status">
+            <div class="wd-dot${ex?' done':''}" id="wd-dot-${d.acte}"></div>
+            <span id="wd-status-txt-${d.acte}">${ex?'Décision enregistrée dans le journal':'En attente de ta décision'}</span>
+          </div>
+          <button class="wd-change${ex?' visible':''}" id="wd-change-${d.acte}">Modifier</button>
+        </div>
+      </div>`;
+
+    root.querySelectorAll('.wd-opt').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        const choice=this.dataset.choice;
+        const label=d['label'+choice.toUpperCase()];
+        const echo=d['echo'+choice.toUpperCase()];
+        save(d.acte,choice,label,echo);
+        root.querySelectorAll('.wd-opt').forEach(function(b){b.disabled=true;b.classList.remove('chosen')});
+        this.classList.add('chosen');
+        document.getElementById('wd-echo-text-'+d.acte).textContent=echo;
+        document.getElementById('wd-echo-'+d.acte).classList.add('visible');
+        document.getElementById('wd-dot-'+d.acte).classList.add('done');
+        document.getElementById('wd-status-txt-'+d.acte).textContent='Décision enregistrée dans le journal';
+        const cb=document.getElementById('wd-change-'+d.acte);
+        if(cb)cb.classList.add('visible');
+      });
+    });
+
+    const cb=document.getElementById('wd-change-'+d.acte);
+    if(cb)cb.addEventListener('click',function(){
+      root.querySelectorAll('.wd-opt').forEach(function(b){b.disabled=false;b.classList.remove('chosen')});
+      document.getElementById('wd-echo-'+d.acte).classList.remove('visible');
+      document.getElementById('wd-dot-'+d.acte).classList.remove('done');
+      document.getElementById('wd-status-txt-'+d.acte).textContent='En attente de ta décision';
+      this.classList.remove('visible');
+      const a=load();delete a['acte_'+d.acte];localStorage.setItem(KEY,JSON.stringify(a));
+    });
+  }
+
+  function initAll(){
+    document.querySelectorAll('[data-acte]').forEach(function(el){
+      if(el.dataset.acte)init(el);
+    });
+  }
+
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initAll)}
+  else{initAll()}
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1092,7 +1236,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-188"><a href="#cb3-188" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Marx, K. &amp; Engels, F. (1848). *Manifeste du Parti communiste* — à lire intégralement</span>
 <span id="cb3-189"><a href="#cb3-189" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Engels, F. (1845). *La Situation de la classe laborieuse en Angleterre*</span>
 <span id="cb3-190"><a href="#cb3-190" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Zola, É. (1885). *Germinal*</span>
-<span id="cb3-191"><a href="#cb3-191" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Allen, R.C. (2009). *Engels' Pause* — article sur la stagnation des salaires</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb3-191"><a href="#cb3-191" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Allen, R.C. (2009). *Engels' Pause* — article sur la stagnation des salaires</span>
+<span id="cb3-192"><a href="#cb3-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-193"><a href="#cb3-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-194"><a href="#cb3-194" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb3-195"><a href="#cb3-195" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div id="widget-decision"</span></span>
+<span id="cb3-196"><a href="#cb3-196" aria-hidden="true" tabindex="-1"></a><span class="in">     data-acte="4"</span></span>
+<span id="cb3-197"><a href="#cb3-197" aria-hidden="true" tabindex="-1"></a><span class="in">     data-titre="Manchester, mars 1848"</span></span>
+<span id="cb3-198"><a href="#cb3-198" aria-hidden="true" tabindex="-1"></a><span class="in">     data-guide="Thomas, voyageur dans le temps"</span></span>
+<span id="cb3-199"><a href="#cb3-199" aria-hidden="true" tabindex="-1"></a><span class="in">     data-parole="J'ai vu les usines. J'ai lu le Manifeste. On me demande ce que je pense faire."</span></span>
+<span id="cb3-200"><a href="#cb3-200" aria-hidden="true" tabindex="-1"></a><span class="in">     data-dilemme="Tu es un ouvrier qualifié à Manchester en 1848. Tu gagnes assez pour survivre — mais juste. On te propose de rejoindre une coalition syndicale illégale. Que choisis-tu ?"</span></span>
+<span id="cb3-201"><a href="#cb3-201" aria-hidden="true" tabindex="-1"></a><span class="in">     data-opt-a="Tu refuses. Le progrès industriel finira par profiter à tous. Les inégalités actuelles sont temporaires — le marché s'autorégule."</span></span>
+<span id="cb3-202"><a href="#cb3-202" aria-hidden="true" tabindex="-1"></a><span class="in">     data-opt-b="Tu rejoins le syndicat mais pour négocier des améliorations concrètes (salaires, heures), pas pour renverser le système."</span></span>
+<span id="cb3-203"><a href="#cb3-203" aria-hidden="true" tabindex="-1"></a><span class="in">     data-opt-c="Tu rejoins le mouvement et milites pour une transformation radicale des rapports de propriété. Le problème est structurel, pas conjoncturel."</span></span>
+<span id="cb3-204"><a href="#cb3-204" aria-hidden="true" tabindex="-1"></a><span class="in">     data-label-a="Libéral confiant"</span></span>
+<span id="cb3-205"><a href="#cb3-205" aria-hidden="true" tabindex="-1"></a><span class="in">     data-label-b="Syndicaliste réformiste"</span></span>
+<span id="cb3-206"><a href="#cb3-206" aria-hidden="true" tabindex="-1"></a><span class="in">     data-label-c="Révolutionnaire"</span></span>
+<span id="cb3-207"><a href="#cb3-207" aria-hidden="true" tabindex="-1"></a><span class="in">     data-echo-a="Tu partages la foi libérale dans le progrès spontané. Ricardo avant toi, puis les néoclassiques après, défendront cette vision — mais les données du XIXe siècle la contredisent sévèrement."</span></span>
+<span id="cb3-208"><a href="#cb3-208" aria-hidden="true" tabindex="-1"></a><span class="in">     data-echo-b="C'est la voie qui triomphera : syndicats, conventions collectives, État-providence. Le réformisme battra le révolutionnarisme en Europe occidentale au XXe siècle."</span></span>
+<span id="cb3-209"><a href="#cb3-209" aria-hidden="true" tabindex="-1"></a><span class="in">     data-echo-c="Tu rejoins Marx et Engels. La révolution ouvrière aura lieu — mais à l'Est, pas en Angleterre, et avec des résultats très différents de ce que Marx anticipait."</span></span>
+<span id="cb3-210"><a href="#cb3-210" aria-hidden="true" tabindex="-1"></a><span class="in">&gt;&lt;/div&gt;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -1101,8 +1264,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Cours hybride 10H · Public international</p>
 </div>   
     <div class="nav-footer-center">
-      &nbsp;
-    </div>
+<p>Conçu avec l’assistance de Claude (Anthropic) · <a href="apropos.qmd">À propos</a></p>
+</div>
     <div class="nav-footer-right">
 <p>Données · <a href="https://wid.world">wid.world</a></p>
 </div>

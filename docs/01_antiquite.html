@@ -124,7 +124,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<link rel="stylesheet" href="styles/carnet.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -160,31 +159,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">I — Antiquité</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./actes/02_feodal.qmd">
+    <a class="dropdown-item" href="./actes/02_feodal.html">
  <span class="dropdown-text">II — Moyen Âge</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./actes/03_renaissance.qmd">
+    <a class="dropdown-item" href="./actes/03_renaissance.html">
  <span class="dropdown-text">III — Renaissance</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./actes/04_industrie.qmd">
+    <a class="dropdown-item" href="./actes/04_industrie.html">
  <span class="dropdown-text">IV — XIXe siècle</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./actes/05_regulation.qmd">
+    <a class="dropdown-item" href="./actes/05_regulation.html">
  <span class="dropdown-text">V — XXe siècle</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./actes/06_contemporain.qmd">
+    <a class="dropdown-item" href="./actes/06_contemporain.html">
  <span class="dropdown-text">VI — XXIe siècle</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./carnet_test.html"> 
+    <a class="nav-link" href="./journal/carnet_test.html"> 
 <span class="menu-text">Journal de bord</span></a>
   </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-interactif" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Interactif</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-interactif">    
+        <li>
+    <a class="dropdown-item" href="./interactif/qcm.html">
+ <span class="dropdown-text">QCM — auto-évaluation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./interactif/carte_gini.html">
+ <span class="dropdown-text">Carte — Gini mondial</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./interactif/ma_progression.html">
+ <span class="dropdown-text">Ma progression</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./interactif/epilogue.html">
+ <span class="dropdown-text">Épilogue</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-cours" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Cours</span>
@@ -195,17 +217,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Séances</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./seances/donnees.qmd">
+    <a class="dropdown-item" href="./seances/donnees.html">
  <span class="dropdown-text">Données</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./seances/biblio.qmd">
+    <a class="dropdown-item" href="./seances/biblio.html">
  <span class="dropdown-text">Bibliographie</span></a>
   </li>  
     </ul>
   </li>
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./apropos.html"> 
+<span class="menu-text">À propos</span></a>
+  </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/votre-compte/inegalites-histoire"> <i class="bi bi-github" role="img">
 </i> 
@@ -338,8 +364,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>plotly<span class="sc">::</span><span class="fu">ggplotly</span>(p, <span class="at">tooltip =</span> <span class="st">"text"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-7d5c5bfe848186fa32ff" style="width:100%;height:361px;"></div>
-<script type="application/json" data-for="htmlwidget-7d5c5bfe848186fa32ff">{"x":{"data":[{"orientation":"v","width":[0.60000000000000009,0.59999999999999987,0.59999999999999964,0.59999999999999964,0.59999999999999964],"base":[0,0,0,0,0],"x":[1,2,3,4,5],"y":[0.41999999999999998,0.42999999999999999,0.48999999999999999,0.45000000000000001,0.40999999999999998],"text":["Athènes classique<br>Gini : 0.42<br>ca. 400 av.","Rome républicaine<br>Gini : 0.43<br>ca. 100 av.","Rome impériale<br>Gini : 0.49<br>ca. 100","Égypte romaine<br>Gini : 0.45<br>ca. 200","Byzance<br>Gini : 0.41<br>ca. 600"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(139,26,26,0.75)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.40000000000000002,5.5999999999999996],"y":[0.40000000000000002,0.40000000000000002],"text":"","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(184,134,11,1)","dash":"dash"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.69999999999999996],"y":[0.40999999999999998],"text":"seuil d'extraction (Milanovic)","hovertext":"","textfont":{"size":11.338582677165356,"color":"rgba(184,134,11,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":22.648401826484022,"l":43.105022831050235},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,5.5999999999999996],"tickmode":"array","ticktext":["Athènes classique","Rome républicaine","Rome impériale","Égypte romaine","Byzance"],"tickvals":[1,2,3,4,5],"categoryorder":"array","categoryarray":["Athènes classique","Rome républicaine","Rome impériale","Égypte romaine","Byzance"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.032500000000000001,0.6825],"tickmode":"array","ticktext":["0.0","0.2","0.4","0.6"],"tickvals":[0,0.20000000000000001,0.40000000000000002,0.60000000000000009],"categoryorder":"array","categoryarray":["0.0","0.2","0.4","0.6"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Gini estimé","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"serif","size":11.68949771689498}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"1fa03e7ee0a":{"x":{},"y":{},"text":{},"type":"bar"},"1fa05c2f5652":{"yintercept":{}},"1fa029635e33":{"x":{},"y":{}}},"cur_data":"1fa03e7ee0a","visdat":{"1fa03e7ee0a":["function (y) ","x"],"1fa05c2f5652":["function (y) ","x"],"1fa029635e33":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-07bcfc7d2501845198c3" style="width:100%;height:361px;"></div>
+<script type="application/json" data-for="htmlwidget-07bcfc7d2501845198c3">{"x":{"data":[{"orientation":"v","width":[0.60000000000000009,0.59999999999999987,0.59999999999999964,0.59999999999999964,0.59999999999999964],"base":[0,0,0,0,0],"x":[1,2,3,4,5],"y":[0.41999999999999998,0.42999999999999999,0.48999999999999999,0.45000000000000001,0.40999999999999998],"text":["Athènes classique<br>Gini : 0.42<br>ca. 400 av.","Rome républicaine<br>Gini : 0.43<br>ca. 100 av.","Rome impériale<br>Gini : 0.49<br>ca. 100","Égypte romaine<br>Gini : 0.45<br>ca. 200","Byzance<br>Gini : 0.41<br>ca. 600"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(139,26,26,0.75)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.40000000000000002,5.5999999999999996],"y":[0.40000000000000002,0.40000000000000002],"text":"","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(184,134,11,1)","dash":"dash"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.69999999999999996],"y":[0.40999999999999998],"text":"seuil d'extraction (Milanovic)","hovertext":"","textfont":{"size":11.338582677165356,"color":"rgba(184,134,11,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":22.648401826484022,"l":43.105022831050235},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,5.5999999999999996],"tickmode":"array","ticktext":["Athènes classique","Rome républicaine","Rome impériale","Égypte romaine","Byzance"],"tickvals":[1,2,3,4,5],"categoryorder":"array","categoryarray":["Athènes classique","Rome républicaine","Rome impériale","Égypte romaine","Byzance"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.032500000000000001,0.6825],"tickmode":"array","ticktext":["0.0","0.2","0.4","0.6"],"tickvals":[0,0.20000000000000001,0.40000000000000002,0.60000000000000009],"categoryorder":"array","categoryarray":["0.0","0.2","0.4","0.6"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Gini estimé","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"serif","size":11.68949771689498}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"85c46904fc1":{"x":{},"y":{},"text":{},"type":"bar"},"85c5b60155e":{"yintercept":{}},"85c19845ca0":{"x":{},"y":{}}},"cur_data":"85c46904fc1","visdat":{"85c46904fc1":["function (y) ","x"],"85c5b60155e":["function (y) ","x"],"85c19845ca0":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="plot-caption">
@@ -953,8 +979,8 @@ Sappho, <em>Fragment 16</em>, ca. 600 av. J.-C. — trad. Anne Carson
 <p>Cours hybride 10H · Public international</p>
 </div>   
     <div class="nav-footer-center">
-      &nbsp;
-    </div>
+<p>Conçu avec l’assistance de Claude (Anthropic) · <a href="./apropos.html">À propos</a></p>
+</div>
     <div class="nav-footer-right">
 <p>Données · <a href="https://wid.world">wid.world</a></p>
 </div>

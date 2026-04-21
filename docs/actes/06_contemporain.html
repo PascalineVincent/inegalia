@@ -181,9 +181,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../carnet_test.html"> 
+    <a class="nav-link" href="../journal/carnet_test.html"> 
 <span class="menu-text">Journal de bord</span></a>
   </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-interactif" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Interactif</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-interactif">    
+        <li>
+    <a class="dropdown-item" href="../interactif/qcm.html">
+ <span class="dropdown-text">QCM — auto-évaluation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../interactif/carte_gini.html">
+ <span class="dropdown-text">Carte — Gini mondial</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../interactif/ma_progression.html">
+ <span class="dropdown-text">Ma progression</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../interactif/epilogue.html">
+ <span class="dropdown-text">Épilogue</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-cours" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Cours</span>
@@ -205,6 +228,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../apropos.html"> 
+<span class="menu-text">À propos</span></a>
+  </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/votre-compte/inegalites-histoire"> <i class="bi bi-github" role="img">
 </i> 
@@ -358,8 +385,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  plotly<span class="sc">::</span><span class="fu">layout</span>(<span class="at">legend=</span><span class="fu">list</span>(<span class="at">orientation=</span><span class="st">"h"</span>, <span class="at">y=</span><span class="sc">-</span>.<span class="dv">2</span>))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-9b17a18abef5d8630c9f" style="width:100%;height:361px;"></div>
-<script type="application/json" data-for="htmlwidget-9b17a18abef5d8630c9f">{"x":{"data":[{"x":[1980,1990,2000,2010,2022],"y":[22,24,24.5,25,26.5],"text":["Brésil · 1980<br>Top 1% : 22%","Brésil · 1990<br>Top 1% : 24%","Brésil · 2000<br>Top 1% : 24.5%","Brésil · 2010<br>Top 1% : 25%","Brésil · 2022<br>Top 1% : 26.5%"],"type":"scatter","mode":"lines+markers","line":{"width":3.7795275590551185,"color":"rgba(45,90,39,1)","dash":"solid"},"hoveron":"points","name":"Brésil","legendgroup":"Brésil","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(45,90,39,1)","opacity":1,"size":9.4488188976377963,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(45,90,39,1)"}},"frame":null},{"x":[1980,1990,2000,2010,2022],"y":[5,6,10,13,15.199999999999999],"text":["Chine · 1980<br>Top 1% : 5%","Chine · 1990<br>Top 1% : 6%","Chine · 2000<br>Top 1% : 10%","Chine · 2010<br>Top 1% : 13%","Chine · 2022<br>Top 1% : 15.2%"],"type":"scatter","mode":"lines+markers","line":{"width":3.7795275590551185,"color":"rgba(74,32,64,1)","dash":"solid"},"hoveron":"points","name":"Chine","legendgroup":"Chine","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(74,32,64,1)","opacity":1,"size":9.4488188976377963,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(74,32,64,1)"}},"frame":null},{"x":[1980,1990,2000,2010,2022],"y":[9.5,13,17.5,19,19.399999999999999],"text":["États-Unis · 1980<br>Top 1% : 9.5%","États-Unis · 1990<br>Top 1% : 13%","États-Unis · 2000<br>Top 1% : 17.5%","États-Unis · 2010<br>Top 1% : 19%","États-Unis · 2022<br>Top 1% : 19.4%"],"type":"scatter","mode":"lines+markers","line":{"width":3.7795275590551185,"color":"rgba(139,26,26,1)","dash":"solid"},"hoveron":"points","name":"États-Unis","legendgroup":"États-Unis","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(139,26,26,1)","opacity":1,"size":9.4488188976377963,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(139,26,26,1)"}},"frame":null},{"x":[1980,1990,2000,2010,2022],"y":[7.9000000000000004,8.1999999999999993,9,10,10.800000000000001],"text":["France · 1980<br>Top 1% : 7.9%","France · 1990<br>Top 1% : 8.2%","France · 2000<br>Top 1% : 9%","France · 2010<br>Top 1% : 10%","France · 2022<br>Top 1% : 10.8%"],"type":"scatter","mode":"lines+markers","line":{"width":3.7795275590551185,"color":"rgba(26,58,92,1)","dash":"solid"},"hoveron":"points","name":"France","legendgroup":"France","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(26,58,92,1)","opacity":1,"size":9.4488188976377963,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(26,58,92,1)"}},"frame":null},{"x":[1980,1990,2000,2010,2022],"y":[6,7.5,11,20,22.600000000000001],"text":["Inde · 1980<br>Top 1% : 6%","Inde · 1990<br>Top 1% : 7.5%","Inde · 2000<br>Top 1% : 11%","Inde · 2010<br>Top 1% : 20%","Inde · 2022<br>Top 1% : 22.6%"],"type":"scatter","mode":"lines+markers","line":{"width":3.7795275590551185,"color":"rgba(184,134,11,1)","dash":"solid"},"hoveron":"points","name":"Inde","legendgroup":"Inde","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(184,134,11,1)","opacity":1,"size":9.4488188976377963,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(184,134,11,1)"}},"frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":22.648401826484022,"l":43.105022831050235},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[1977.9000000000001,2024.0999999999999],"tickmode":"array","ticktext":["1980","1990","2000","2010","2022"],"tickvals":[1980,1990,2000,2010,2022],"categoryorder":"array","categoryarray":["1980","1990","2000","2010","2022"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[3.9249999999999998,27.574999999999999],"tickmode":"array","ticktext":["5%","10%","15%","20%","25%"],"tickvals":[5,10,15,20,25],"categoryorder":"array","categoryarray":["5%","10%","15%","20%","25%"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Part du revenu national (%)","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"serif","size":11.68949771689498},"orientation":"h","x":0.5,"y":-0.20000000000000001,"xanchor":"center","yanchor":"top","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"ca8343a44ed":{"x":{},"y":{},"colour":{},"text":{},"type":"scatter"},"ca8d217d9":{"x":{},"y":{},"colour":{},"text":{}}},"cur_data":"ca8343a44ed","visdat":{"ca8343a44ed":["function (y) ","x"],"ca8d217d9":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-b908a74e4382c20fa5a0" style="width:100%;height:361px;"></div>
+<script type="application/json" data-for="htmlwidget-b908a74e4382c20fa5a0">{"x":{"data":[{"x":[1980,1990,2000,2010,2022],"y":[22,24,24.5,25,26.5],"text":["Brésil · 1980<br>Top 1% : 22%","Brésil · 1990<br>Top 1% : 24%","Brésil · 2000<br>Top 1% : 24.5%","Brésil · 2010<br>Top 1% : 25%","Brésil · 2022<br>Top 1% : 26.5%"],"type":"scatter","mode":"lines+markers","line":{"width":3.7795275590551185,"color":"rgba(45,90,39,1)","dash":"solid"},"hoveron":"points","name":"Brésil","legendgroup":"Brésil","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(45,90,39,1)","opacity":1,"size":9.4488188976377963,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(45,90,39,1)"}},"frame":null},{"x":[1980,1990,2000,2010,2022],"y":[5,6,10,13,15.199999999999999],"text":["Chine · 1980<br>Top 1% : 5%","Chine · 1990<br>Top 1% : 6%","Chine · 2000<br>Top 1% : 10%","Chine · 2010<br>Top 1% : 13%","Chine · 2022<br>Top 1% : 15.2%"],"type":"scatter","mode":"lines+markers","line":{"width":3.7795275590551185,"color":"rgba(74,32,64,1)","dash":"solid"},"hoveron":"points","name":"Chine","legendgroup":"Chine","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(74,32,64,1)","opacity":1,"size":9.4488188976377963,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(74,32,64,1)"}},"frame":null},{"x":[1980,1990,2000,2010,2022],"y":[9.5,13,17.5,19,19.399999999999999],"text":["États-Unis · 1980<br>Top 1% : 9.5%","États-Unis · 1990<br>Top 1% : 13%","États-Unis · 2000<br>Top 1% : 17.5%","États-Unis · 2010<br>Top 1% : 19%","États-Unis · 2022<br>Top 1% : 19.4%"],"type":"scatter","mode":"lines+markers","line":{"width":3.7795275590551185,"color":"rgba(139,26,26,1)","dash":"solid"},"hoveron":"points","name":"États-Unis","legendgroup":"États-Unis","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(139,26,26,1)","opacity":1,"size":9.4488188976377963,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(139,26,26,1)"}},"frame":null},{"x":[1980,1990,2000,2010,2022],"y":[7.9000000000000004,8.1999999999999993,9,10,10.800000000000001],"text":["France · 1980<br>Top 1% : 7.9%","France · 1990<br>Top 1% : 8.2%","France · 2000<br>Top 1% : 9%","France · 2010<br>Top 1% : 10%","France · 2022<br>Top 1% : 10.8%"],"type":"scatter","mode":"lines+markers","line":{"width":3.7795275590551185,"color":"rgba(26,58,92,1)","dash":"solid"},"hoveron":"points","name":"France","legendgroup":"France","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(26,58,92,1)","opacity":1,"size":9.4488188976377963,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(26,58,92,1)"}},"frame":null},{"x":[1980,1990,2000,2010,2022],"y":[6,7.5,11,20,22.600000000000001],"text":["Inde · 1980<br>Top 1% : 6%","Inde · 1990<br>Top 1% : 7.5%","Inde · 2000<br>Top 1% : 11%","Inde · 2010<br>Top 1% : 20%","Inde · 2022<br>Top 1% : 22.6%"],"type":"scatter","mode":"lines+markers","line":{"width":3.7795275590551185,"color":"rgba(184,134,11,1)","dash":"solid"},"hoveron":"points","name":"Inde","legendgroup":"Inde","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(184,134,11,1)","opacity":1,"size":9.4488188976377963,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(184,134,11,1)"}},"frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":22.648401826484022,"l":43.105022831050235},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[1977.9000000000001,2024.0999999999999],"tickmode":"array","ticktext":["1980","1990","2000","2010","2022"],"tickvals":[1980,1990,2000,2010,2022],"categoryorder":"array","categoryarray":["1980","1990","2000","2010","2022"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[3.9249999999999998,27.574999999999999],"tickmode":"array","ticktext":["5%","10%","15%","20%","25%"],"tickvals":[5,10,15,20,25],"categoryorder":"array","categoryarray":["5%","10%","15%","20%","25%"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Part du revenu national (%)","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"serif","size":11.68949771689498},"orientation":"h","x":0.5,"y":-0.20000000000000001,"xanchor":"center","yanchor":"top","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"1bd812f02e8":{"x":{},"y":{},"colour":{},"text":{},"type":"scatter"},"1bd869c1d1b":{"x":{},"y":{},"colour":{},"text":{}}},"cur_data":"1bd812f02e8","visdat":{"1bd812f02e8":["function (y) ","x"],"1bd869c1d1b":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="cell">
@@ -396,8 +423,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>plotly<span class="sc">::</span><span class="fu">ggplotly</span>(p3, <span class="at">tooltip=</span><span class="st">"text"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-1ccfce899df63496943b" style="width:100%;height:361px;"></div>
-<script type="application/json" data-for="htmlwidget-1ccfce899df63496943b">{"x":{"data":[{"x":[1,null,10,null,100,null,20,null,30,null,40,null,5,null,50,null,60,null,70,null,80,null,90,null,95,null,99],"y":[25,null,18,null,80,null,22,null,32,null,41,null,22,null,52,null,58,null,61,null,45,null,28,null,20,null,68],"text":["Percentile 1<br>Croissance : +25%",null,"Percentile 10<br>Croissance : +18%",null,"Percentile 100<br>Croissance : +80%",null,"Percentile 20<br>Croissance : +22%",null,"Percentile 30<br>Croissance : +32%",null,"Percentile 40<br>Croissance : +41%",null,"Percentile 5<br>Croissance : +22%",null,"Percentile 50<br>Croissance : +52%",null,"Percentile 60<br>Croissance : +58%",null,"Percentile 70<br>Croissance : +61%",null,"Percentile 80<br>Croissance : +45%",null,"Percentile 90<br>Croissance : +28%",null,"Percentile 95<br>Croissance : +20%",null,"Percentile 99<br>Croissance : +68%"],"type":"scatter","mode":"lines","line":{"width":4.5354330708661417,"color":"rgba(139,26,26,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1,1,1,null,10,10,10,null,100,100,100,100,null,20,20,20,null,30,30,30,null,40,40,40,null,5,5,5,null,50,50,50,null,60,60,60,null,70,70,70,null,80,80,80,null,90,90,90,null,95,95,95,null,99,99,99],"y":[0,25,0,null,0,18,0,null,0,0,80,0,null,0,22,0,null,0,32,0,null,0,41,0,null,0,22,0,null,0,52,0,null,0,58,0,null,0,61,0,null,0,45,0,null,0,28,0,null,0,20,0,null,0,68,0],"text":["Percentile 1<br>Croissance : +25%","Percentile 1<br>Croissance : +25%","Percentile 1<br>Croissance : +25%",null,"Percentile 10<br>Croissance : +18%","Percentile 10<br>Croissance : +18%","Percentile 10<br>Croissance : +18%",null,"Percentile 100<br>Croissance : +80%","Percentile 100<br>Croissance : +80%","Percentile 100<br>Croissance : +80%","Percentile 100<br>Croissance : +80%",null,"Percentile 20<br>Croissance : +22%","Percentile 20<br>Croissance : +22%","Percentile 20<br>Croissance : +22%",null,"Percentile 30<br>Croissance : +32%","Percentile 30<br>Croissance : +32%","Percentile 30<br>Croissance : +32%",null,"Percentile 40<br>Croissance : +41%","Percentile 40<br>Croissance : +41%","Percentile 40<br>Croissance : +41%",null,"Percentile 5<br>Croissance : +22%","Percentile 5<br>Croissance : +22%","Percentile 5<br>Croissance : +22%",null,"Percentile 50<br>Croissance : +52%","Percentile 50<br>Croissance : +52%","Percentile 50<br>Croissance : +52%",null,"Percentile 60<br>Croissance : +58%","Percentile 60<br>Croissance : +58%","Percentile 60<br>Croissance : +58%",null,"Percentile 70<br>Croissance : +61%","Percentile 70<br>Croissance : +61%","Percentile 70<br>Croissance : +61%",null,"Percentile 80<br>Croissance : +45%","Percentile 80<br>Croissance : +45%","Percentile 80<br>Croissance : +45%",null,"Percentile 90<br>Croissance : +28%","Percentile 90<br>Croissance : +28%","Percentile 90<br>Croissance : +28%",null,"Percentile 95<br>Croissance : +20%","Percentile 95<br>Croissance : +20%","Percentile 95<br>Croissance : +20%",null,"Percentile 99<br>Croissance : +68%","Percentile 99<br>Croissance : +68%","Percentile 99<br>Croissance : +68%"],"type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(139,26,26,0.1)","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[-3.9500000000000002,104.95],"y":[0,0],"text":"","type":"scatter","mode":"lines","line":{"width":1.5118110236220474,"color":"rgba(136,136,136,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[50],"y":[62],"text":"Classes moyennes<br />Asie émergente","hovertext":"","textfont":{"size":10.58267716535433,"color":"rgba(45,90,39,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[83],"y":[22],"text":"Classes moyennes<br />occidentales","hovertext":"","textfont":{"size":10.58267716535433,"color":"rgba(26,58,92,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[99],"y":[86],"text":"Top 1%","hovertext":"","textfont":{"size":10.58267716535433,"color":"rgba(139,26,26,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":37.260273972602747,"l":48.949771689497723},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-3.9500000000000002,104.95],"tickmode":"array","ticktext":["0e","10e","20e","30e","40e","50e","60e","70e","80e","90e","100e"],"tickvals":[-4.4408920985006262e-16,10,20,30.000000000000004,40,50,59.999999999999993,70,80,90,100],"categoryorder":"array","categoryarray":["0e","10e","20e","30e","40e","50e","60e","70e","80e","90e","100e"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"Percentile de revenus mondiaux","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-4.2999999999999998,90.299999999999997],"tickmode":"array","ticktext":["+0%","+25%","+50%","+75%"],"tickvals":[0,25,49.999999999999993,75],"categoryorder":"array","categoryarray":["+0%","+25%","+50%","+75%"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Croissance du revenu réel (1988–2008)","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"serif","size":11.68949771689498}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"ca838f55e74":{"x":{},"y":{},"text":{},"type":"scatter"},"ca860f759e":{"x":{},"y":{},"text":{},"ymin":{},"ymax":{}},"ca8438434f0":{"yintercept":{}},"ca813464a2":{"x":{},"y":{}},"ca85ee3ad0":{"x":{},"y":{}},"ca845eb4b21":{"x":{},"y":{}}},"cur_data":"ca838f55e74","visdat":{"ca838f55e74":["function (y) ","x"],"ca860f759e":["function (y) ","x"],"ca8438434f0":["function (y) ","x"],"ca813464a2":["function (y) ","x"],"ca85ee3ad0":["function (y) ","x"],"ca845eb4b21":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-712aea578466b77af329" style="width:100%;height:361px;"></div>
+<script type="application/json" data-for="htmlwidget-712aea578466b77af329">{"x":{"data":[{"x":[1,null,10,null,100,null,20,null,30,null,40,null,5,null,50,null,60,null,70,null,80,null,90,null,95,null,99],"y":[25,null,18,null,80,null,22,null,32,null,41,null,22,null,52,null,58,null,61,null,45,null,28,null,20,null,68],"text":["Percentile 1<br>Croissance : +25%",null,"Percentile 10<br>Croissance : +18%",null,"Percentile 100<br>Croissance : +80%",null,"Percentile 20<br>Croissance : +22%",null,"Percentile 30<br>Croissance : +32%",null,"Percentile 40<br>Croissance : +41%",null,"Percentile 5<br>Croissance : +22%",null,"Percentile 50<br>Croissance : +52%",null,"Percentile 60<br>Croissance : +58%",null,"Percentile 70<br>Croissance : +61%",null,"Percentile 80<br>Croissance : +45%",null,"Percentile 90<br>Croissance : +28%",null,"Percentile 95<br>Croissance : +20%",null,"Percentile 99<br>Croissance : +68%"],"type":"scatter","mode":"lines","line":{"width":4.5354330708661417,"color":"rgba(139,26,26,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1,1,1,null,10,10,10,null,100,100,100,100,null,20,20,20,null,30,30,30,null,40,40,40,null,5,5,5,null,50,50,50,null,60,60,60,null,70,70,70,null,80,80,80,null,90,90,90,null,95,95,95,null,99,99,99],"y":[0,25,0,null,0,18,0,null,0,0,80,0,null,0,22,0,null,0,32,0,null,0,41,0,null,0,22,0,null,0,52,0,null,0,58,0,null,0,61,0,null,0,45,0,null,0,28,0,null,0,20,0,null,0,68,0],"text":["Percentile 1<br>Croissance : +25%","Percentile 1<br>Croissance : +25%","Percentile 1<br>Croissance : +25%",null,"Percentile 10<br>Croissance : +18%","Percentile 10<br>Croissance : +18%","Percentile 10<br>Croissance : +18%",null,"Percentile 100<br>Croissance : +80%","Percentile 100<br>Croissance : +80%","Percentile 100<br>Croissance : +80%","Percentile 100<br>Croissance : +80%",null,"Percentile 20<br>Croissance : +22%","Percentile 20<br>Croissance : +22%","Percentile 20<br>Croissance : +22%",null,"Percentile 30<br>Croissance : +32%","Percentile 30<br>Croissance : +32%","Percentile 30<br>Croissance : +32%",null,"Percentile 40<br>Croissance : +41%","Percentile 40<br>Croissance : +41%","Percentile 40<br>Croissance : +41%",null,"Percentile 5<br>Croissance : +22%","Percentile 5<br>Croissance : +22%","Percentile 5<br>Croissance : +22%",null,"Percentile 50<br>Croissance : +52%","Percentile 50<br>Croissance : +52%","Percentile 50<br>Croissance : +52%",null,"Percentile 60<br>Croissance : +58%","Percentile 60<br>Croissance : +58%","Percentile 60<br>Croissance : +58%",null,"Percentile 70<br>Croissance : +61%","Percentile 70<br>Croissance : +61%","Percentile 70<br>Croissance : +61%",null,"Percentile 80<br>Croissance : +45%","Percentile 80<br>Croissance : +45%","Percentile 80<br>Croissance : +45%",null,"Percentile 90<br>Croissance : +28%","Percentile 90<br>Croissance : +28%","Percentile 90<br>Croissance : +28%",null,"Percentile 95<br>Croissance : +20%","Percentile 95<br>Croissance : +20%","Percentile 95<br>Croissance : +20%",null,"Percentile 99<br>Croissance : +68%","Percentile 99<br>Croissance : +68%","Percentile 99<br>Croissance : +68%"],"type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(139,26,26,0.1)","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[-3.9500000000000002,104.95],"y":[0,0],"text":"","type":"scatter","mode":"lines","line":{"width":1.5118110236220474,"color":"rgba(136,136,136,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[50],"y":[62],"text":"Classes moyennes<br />Asie émergente","hovertext":"","textfont":{"size":10.58267716535433,"color":"rgba(45,90,39,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[83],"y":[22],"text":"Classes moyennes<br />occidentales","hovertext":"","textfont":{"size":10.58267716535433,"color":"rgba(26,58,92,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[99],"y":[86],"text":"Top 1%","hovertext":"","textfont":{"size":10.58267716535433,"color":"rgba(139,26,26,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":37.260273972602747,"l":48.949771689497723},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-3.9500000000000002,104.95],"tickmode":"array","ticktext":["0e","10e","20e","30e","40e","50e","60e","70e","80e","90e","100e"],"tickvals":[-4.4408920985006262e-16,10,20,30.000000000000004,40,50,59.999999999999993,70,80,90,100],"categoryorder":"array","categoryarray":["0e","10e","20e","30e","40e","50e","60e","70e","80e","90e","100e"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"Percentile de revenus mondiaux","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-4.2999999999999998,90.299999999999997],"tickmode":"array","ticktext":["+0%","+25%","+50%","+75%"],"tickvals":[0,25,49.999999999999993,75],"categoryorder":"array","categoryarray":["+0%","+25%","+50%","+75%"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Croissance du revenu réel (1988–2008)","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"serif","size":11.68949771689498}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"1bd81a4866fc":{"x":{},"y":{},"text":{},"type":"scatter"},"1bd86165178b":{"x":{},"y":{},"text":{},"ymin":{},"ymax":{}},"1bd8702573a1":{"yintercept":{}},"1bd86036a52":{"x":{},"y":{}},"1bd855364e85":{"x":{},"y":{}},"1bd870566e97":{"x":{},"y":{}}},"cur_data":"1bd81a4866fc","visdat":{"1bd81a4866fc":["function (y) ","x"],"1bd86165178b":["function (y) ","x"],"1bd8702573a1":["function (y) ","x"],"1bd86036a52":["function (y) ","x"],"1bd855364e85":["function (y) ","x"],"1bd870566e97":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -459,6 +486,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Pireyre, E. (2012). <em>Féerie générale</em> (Éditions de l’Olivier)</li>
 <li>World Inequality Report 2022 — <a href="https://wir2022.wid.world">wir2022.wid.world</a></li>
 </ul>
+<div id="widget-decision" data-acte="6" data-titre="San Francisco / Paris, 2026" data-guide="Thomas, voyageur dans le temps" data-parole="J'arrive au XXIe siècle. Tout est mesuré. Rien n'est résolu. C'est ma dernière décision dans ce voyage." data-dilemme="Tu es économiste en 2026. Les données montrent que r > g (Piketty) : les patrimoines s'accumulent plus vite que les économies ne croissent. Quelle est ta prescription ?" data-opt-a="La croissance et l'innovation résoudront les inégalités à terme. Le numérique démocratise l'accès. Priorité : libérer les marchés et innover." data-opt-b="Il faut des politiques redistributives fortes (impôt progressif, services publics) mais dans le cadre du capitalisme existant. Piketty a raison sur le diagnostic." data-opt-c="Les outils de mesure ont progressé mais les cadres conceptuels sont dépassés. Il faut repenser ce qu'on mesure : bien-être, temps libre, soins, nature — pas seulement le PIB." data-label-a="Tech-optimiste" data-label-b="Pikettyen" data-label-c="Post-croissance" data-echo-a="Tu rejoins les économistes de la Silicon Valley et les théoriciens de la croissance endogène. Les données de 2000-2026 ne soutiennent pas l'hypothèse de réduction automatique : les inégalités ont continué de croître." data-echo-b="Tu es dans la ligne directe de Keynes → État-providence → Piketty. Cette tradition réformiste est dominante dans les institutions internationales (FMI, OCDE) depuis les années 2010." data-echo-c="Tu rejoins Kate Raworth (économie du donut), Tim Jackson (prospérité sans croissance), et les économistes féministes. Ce courant reste marginal dans les institutions mais croît rapidement dans les universités."></div>
 
 
 <!-- -->
@@ -466,6 +494,120 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 
 </main> <!-- /main -->
+<style>
+#widget-decision,[data-acte]{--wd-rouge:#8B1A1A;--wd-or:#B8860B;--wd-bord:#D4C5A9;--wd-vert:#2D5A27;--wd-texte:#2C2C2A;--wd-muted:#666;font-family:'EB Garamond',Georgia,serif;margin:2.5rem 0}
+.wd-card{border:.5px solid var(--wd-bord);border-radius:10px;background:white;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.wd-header{background:var(--wd-texte);color:#F5F0E8;padding:.75rem 1.25rem;display:flex;align-items:center;gap:.75rem}
+.wd-avatar{width:36px;height:36px;border-radius:50%;background:var(--wd-or);display:flex;align-items:center;justify-content:center;font-size:15px;color:white;flex-shrink:0}
+.wd-guide-name{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--wd-or);font-family:sans-serif}
+.wd-parole{font-size:.9rem;font-style:italic;color:#E8DFD0;margin-top:2px}
+.wd-body{padding:1.25rem}
+.wd-lieu{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--wd-or);font-family:sans-serif;margin-bottom:.5rem}
+.wd-dilemme{font-size:1rem;line-height:1.55;color:var(--wd-texte);margin-bottom:1.2rem;font-weight:500}
+.wd-opts{display:flex;flex-direction:column;gap:.5rem}
+.wd-opt{display:flex;align-items:flex-start;gap:.75rem;border:.5px solid var(--wd-bord);border-radius:8px;padding:.75rem 1rem;cursor:pointer;background:white;text-align:left;font-family:'EB Garamond',Georgia,serif;font-size:.92rem;color:var(--wd-texte);line-height:1.45;transition:border-color .15s,background .15s;width:100%}
+.wd-opt:hover:not(:disabled){background:#F5F0E8;border-color:var(--wd-or)}
+.wd-opt:disabled{cursor:default}
+.wd-opt-label{font-family:sans-serif;font-size:.67rem;text-transform:uppercase;letter-spacing:.07em;color:var(--wd-muted);flex-shrink:0;padding-top:2px;min-width:90px}
+.wd-opt.chosen{border-color:var(--wd-rouge)!important;background:#FDF5F5!important}
+.wd-opt.chosen .wd-opt-label{color:var(--wd-rouge)}
+.wd-echo{margin-top:1rem;border-left:3px solid var(--wd-vert);padding:.7rem 1rem;background:#F2F8EE;border-radius:0 6px 6px 0;font-size:.88rem;line-height:1.55;color:#27500A;display:none}
+.wd-echo.visible{display:block}
+.wd-echo-label{font-family:sans-serif;font-size:.67rem;text-transform:uppercase;letter-spacing:.08em;color:var(--wd-vert);margin-bottom:.35rem;font-weight:600}
+.wd-footer{border-top:.5px solid var(--wd-bord);padding:.65rem 1.25rem;display:flex;align-items:center;justify-content:space-between;font-family:sans-serif;font-size:.75rem;color:var(--wd-muted);background:#FAFAF8}
+.wd-status{display:flex;align-items:center;gap:.4rem}
+.wd-dot{width:7px;height:7px;border-radius:50%;background:var(--wd-bord);transition:background .3s}
+.wd-dot.done{background:var(--wd-vert)}
+.wd-change{background:none;border:none;color:var(--wd-rouge);cursor:pointer;font-size:.75rem;font-family:sans-serif;text-decoration:underline;display:none}
+.wd-change.visible{display:inline}
+</style>
+
+<script>
+(function(){
+  const KEY='voyage_inegalites_decisions';
+  function load(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return{}}}
+  function save(acte,choice,label,echo){const a=load();a['acte_'+acte]={choice,label,echo,ts:Date.now()};localStorage.setItem(KEY,JSON.stringify(a))}
+
+  function init(root){
+    if(root.classList.contains('wd-root'))return;
+    const d=root.dataset;
+    const ex=load()['acte_'+d.acte];
+    root.classList.add('wd-root');
+    root.innerHTML=`
+      <div class="wd-card">
+        <div class="wd-header">
+          <div class="wd-avatar">✦</div>
+          <div>
+            <div class="wd-guide-name">${d.guide}</div>
+            <div class="wd-parole">${d.parole}</div>
+          </div>
+        </div>
+        <div class="wd-body">
+          <div class="wd-lieu">${d.titre}</div>
+          <div class="wd-dilemme">${d.dilemme}</div>
+          <div class="wd-opts">
+            <button class="wd-opt${ex&&ex.choice==='a'?' chosen':''}" data-choice="a"${ex?' disabled':''}>
+              <span class="wd-opt-label">${d.labelA}</span><span>${d.optA}</span>
+            </button>
+            <button class="wd-opt${ex&&ex.choice==='b'?' chosen':''}" data-choice="b"${ex?' disabled':''}>
+              <span class="wd-opt-label">${d.labelB}</span><span>${d.optB}</span>
+            </button>
+            <button class="wd-opt${ex&&ex.choice==='c'?' chosen':''}" data-choice="c"${ex?' disabled':''}>
+              <span class="wd-opt-label">${d.labelC}</span><span>${d.optC}</span>
+            </button>
+          </div>
+          <div class="wd-echo${ex?' visible':''}" id="wd-echo-${d.acte}">
+            <div class="wd-echo-label">Résonance historique</div>
+            <span id="wd-echo-text-${d.acte}">${ex?ex.echo:''}</span>
+          </div>
+        </div>
+        <div class="wd-footer">
+          <div class="wd-status">
+            <div class="wd-dot${ex?' done':''}" id="wd-dot-${d.acte}"></div>
+            <span id="wd-status-txt-${d.acte}">${ex?'Décision enregistrée dans le journal':'En attente de ta décision'}</span>
+          </div>
+          <button class="wd-change${ex?' visible':''}" id="wd-change-${d.acte}">Modifier</button>
+        </div>
+      </div>`;
+
+    root.querySelectorAll('.wd-opt').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        const choice=this.dataset.choice;
+        const label=d['label'+choice.toUpperCase()];
+        const echo=d['echo'+choice.toUpperCase()];
+        save(d.acte,choice,label,echo);
+        root.querySelectorAll('.wd-opt').forEach(function(b){b.disabled=true;b.classList.remove('chosen')});
+        this.classList.add('chosen');
+        document.getElementById('wd-echo-text-'+d.acte).textContent=echo;
+        document.getElementById('wd-echo-'+d.acte).classList.add('visible');
+        document.getElementById('wd-dot-'+d.acte).classList.add('done');
+        document.getElementById('wd-status-txt-'+d.acte).textContent='Décision enregistrée dans le journal';
+        const cb=document.getElementById('wd-change-'+d.acte);
+        if(cb)cb.classList.add('visible');
+      });
+    });
+
+    const cb=document.getElementById('wd-change-'+d.acte);
+    if(cb)cb.addEventListener('click',function(){
+      root.querySelectorAll('.wd-opt').forEach(function(b){b.disabled=false;b.classList.remove('chosen')});
+      document.getElementById('wd-echo-'+d.acte).classList.remove('visible');
+      document.getElementById('wd-dot-'+d.acte).classList.remove('done');
+      document.getElementById('wd-status-txt-'+d.acte).textContent='En attente de ta décision';
+      this.classList.remove('visible');
+      const a=load();delete a['acte_'+d.acte];localStorage.setItem(KEY,JSON.stringify(a));
+    });
+  }
+
+  function initAll(){
+    document.querySelectorAll('[data-acte]').forEach(function(el){
+      if(el.dataset.acte)init(el);
+    });
+  }
+
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initAll)}
+  else{initAll()}
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1147,7 +1289,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-228"><a href="#cb3-228" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Shire, W. (2011). *Teaching My Mother How to Give Birth*</span>
 <span id="cb3-229"><a href="#cb3-229" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Harjo, J. (2012). *Crazy Brave*</span>
 <span id="cb3-230"><a href="#cb3-230" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Pireyre, E. (2012). *Féerie générale* (Éditions de l'Olivier)</span>
-<span id="cb3-231"><a href="#cb3-231" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>World Inequality Report 2022 — <span class="co">[</span><span class="ot">wir2022.wid.world</span><span class="co">](https://wir2022.wid.world)</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb3-231"><a href="#cb3-231" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>World Inequality Report 2022 — <span class="co">[</span><span class="ot">wir2022.wid.world</span><span class="co">](https://wir2022.wid.world)</span></span>
+<span id="cb3-232"><a href="#cb3-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-233"><a href="#cb3-233" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb3-234"><a href="#cb3-234" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div id="widget-decision"</span></span>
+<span id="cb3-235"><a href="#cb3-235" aria-hidden="true" tabindex="-1"></a><span class="in">     data-acte="6"</span></span>
+<span id="cb3-236"><a href="#cb3-236" aria-hidden="true" tabindex="-1"></a><span class="in">     data-titre="San Francisco / Paris, 2026"</span></span>
+<span id="cb3-237"><a href="#cb3-237" aria-hidden="true" tabindex="-1"></a><span class="in">     data-guide="Thomas, voyageur dans le temps"</span></span>
+<span id="cb3-238"><a href="#cb3-238" aria-hidden="true" tabindex="-1"></a><span class="in">     data-parole="J'arrive au XXIe siècle. Tout est mesuré. Rien n'est résolu. C'est ma dernière décision dans ce voyage."</span></span>
+<span id="cb3-239"><a href="#cb3-239" aria-hidden="true" tabindex="-1"></a><span class="in">     data-dilemme="Tu es économiste en 2026. Les données montrent que r &gt; g (Piketty) : les patrimoines s'accumulent plus vite que les économies ne croissent. Quelle est ta prescription ?"</span></span>
+<span id="cb3-240"><a href="#cb3-240" aria-hidden="true" tabindex="-1"></a><span class="in">     data-opt-a="La croissance et l'innovation résoudront les inégalités à terme. Le numérique démocratise l'accès. Priorité : libérer les marchés et innover."</span></span>
+<span id="cb3-241"><a href="#cb3-241" aria-hidden="true" tabindex="-1"></a><span class="in">     data-opt-b="Il faut des politiques redistributives fortes (impôt progressif, services publics) mais dans le cadre du capitalisme existant. Piketty a raison sur le diagnostic."</span></span>
+<span id="cb3-242"><a href="#cb3-242" aria-hidden="true" tabindex="-1"></a><span class="in">     data-opt-c="Les outils de mesure ont progressé mais les cadres conceptuels sont dépassés. Il faut repenser ce qu'on mesure : bien-être, temps libre, soins, nature — pas seulement le PIB."</span></span>
+<span id="cb3-243"><a href="#cb3-243" aria-hidden="true" tabindex="-1"></a><span class="in">     data-label-a="Tech-optimiste"</span></span>
+<span id="cb3-244"><a href="#cb3-244" aria-hidden="true" tabindex="-1"></a><span class="in">     data-label-b="Pikettyen"</span></span>
+<span id="cb3-245"><a href="#cb3-245" aria-hidden="true" tabindex="-1"></a><span class="in">     data-label-c="Post-croissance"</span></span>
+<span id="cb3-246"><a href="#cb3-246" aria-hidden="true" tabindex="-1"></a><span class="in">     data-echo-a="Tu rejoins les économistes de la Silicon Valley et les théoriciens de la croissance endogène. Les données de 2000-2026 ne soutiennent pas l'hypothèse de réduction automatique : les inégalités ont continué de croître."</span></span>
+<span id="cb3-247"><a href="#cb3-247" aria-hidden="true" tabindex="-1"></a><span class="in">     data-echo-b="Tu es dans la ligne directe de Keynes → État-providence → Piketty. Cette tradition réformiste est dominante dans les institutions internationales (FMI, OCDE) depuis les années 2010."</span></span>
+<span id="cb3-248"><a href="#cb3-248" aria-hidden="true" tabindex="-1"></a><span class="in">     data-echo-c="Tu rejoins Kate Raworth (économie du donut), Tim Jackson (prospérité sans croissance), et les économistes féministes. Ce courant reste marginal dans les institutions mais croît rapidement dans les universités."</span></span>
+<span id="cb3-249"><a href="#cb3-249" aria-hidden="true" tabindex="-1"></a><span class="in">&gt;&lt;/div&gt;</span></span>
+<span id="cb3-250"><a href="#cb3-250" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -1156,8 +1317,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Cours hybride 10H · Public international</p>
 </div>   
     <div class="nav-footer-center">
-      &nbsp;
-    </div>
+<p>Conçu avec l’assistance de Claude (Anthropic) · <a href="apropos.qmd">À propos</a></p>
+</div>
     <div class="nav-footer-right">
 <p>Données · <a href="https://wid.world">wid.world</a></p>
 </div>

@@ -1,0 +1,120 @@
+/* ============================================================
+   decision.css — Styles du widget de décision
+   À placer dans inegalites/styles/decision.css
+   ============================================================ */
+
+#widget-decision, .wd-root {
+  --wd-rouge: #8B1A1A;
+  --wd-or: #B8860B;
+  --wd-bord: #D4C5A9;
+  --wd-vert: #2D5A27;
+  --wd-texte: #2C2C2A;
+  --wd-muted: #666;
+  font-family: 'EB Garamond', Georgia, serif;
+  margin: 2.5rem 0;
+}
+.wd-card {
+  border: 0.5px solid var(--wd-bord);
+  border-radius: 10px;
+  background: white;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,.04);
+}
+.wd-header {
+  background: var(--wd-texte);
+  color: #F5F0E8;
+  padding: .75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+.wd-avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--wd-or);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; color: white; flex-shrink: 0;
+}
+.wd-guide-name {
+  font-size: .72rem; text-transform: uppercase;
+  letter-spacing: .08em; color: var(--wd-or);
+  font-family: sans-serif;
+}
+.wd-parole {
+  font-size: .9rem; font-style: italic;
+  color: #E8DFD0; margin-top: 2px;
+}
+.wd-body { padding: 1.25rem; }
+.wd-lieu {
+  font-size: .7rem; text-transform: uppercase;
+  letter-spacing: .1em; color: var(--wd-or);
+  font-family: sans-serif; margin-bottom: .5rem;
+}
+.wd-dilemme {
+  font-size: 1rem; line-height: 1.55;
+  color: var(--wd-texte); margin-bottom: 1.2rem; font-weight: 500;
+}
+.wd-opts { display: flex; flex-direction: column; gap: .5rem; }
+.wd-opt {
+  display: flex; align-items: flex-start; gap: .75rem;
+  border: 0.5px solid var(--wd-bord);
+  border-radius: 8px;
+  padding: .75rem 1rem;
+  cursor: pointer;
+  background: white;
+  text-align: left;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: .92rem;
+  color: var(--wd-texte);
+  line-height: 1.45;
+  transition: border-color .15s, background .15s;
+  width: 100%;
+}
+.wd-opt:hover:not(:disabled) { background: #F5F0E8; border-color: var(--wd-or); }
+.wd-opt:disabled { cursor: default; }
+.wd-opt-label {
+  font-family: sans-serif; font-size: .67rem;
+  text-transform: uppercase; letter-spacing: .07em;
+  color: var(--wd-muted); flex-shrink: 0;
+  padding-top: 2px; min-width: 90px;
+}
+.wd-opt.chosen { border-color: var(--wd-rouge) !important; background: #FDF5F5 !important; }
+.wd-opt.chosen .wd-opt-label { color: var(--wd-rouge); }
+.wd-echo {
+  margin-top: 1rem;
+  border-left: 3px solid var(--wd-vert);
+  padding: .7rem 1rem;
+  background: #F2F8EE;
+  border-radius: 0 6px 6px 0;
+  font-size: .88rem;
+  line-height: 1.55;
+  color: #27500A;
+  display: none;
+}
+.wd-echo.visible { display: block; }
+.wd-echo-label {
+  font-family: sans-serif; font-size: .67rem;
+  text-transform: uppercase; letter-spacing: .08em;
+  color: var(--wd-vert); margin-bottom: .35rem; font-weight: 600;
+}
+.wd-footer {
+  border-top: 0.5px solid var(--wd-bord);
+  padding: .65rem 1.25rem;
+  display: flex; align-items: center; justify-content: space-between;
+  font-family: sans-serif; font-size: .75rem; color: var(--wd-muted);
+  background: #FAFAF8;
+}
+.wd-status { display: flex; align-items: center; gap: .4rem; }
+.wd-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%; background: var(--wd-bord);
+  transition: background .3s;
+}
+.wd-dot.done { background: var(--wd-vert); }
+.wd-change {
+  background: none; border: none;
+  color: var(--wd-rouge); cursor: pointer;
+  font-size: .75rem; font-family: sans-serif;
+  text-decoration: underline; display: none;
+}
+.wd-change.visible { display: inline; }

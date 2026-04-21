@@ -181,9 +181,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../carnet_test.html"> 
+    <a class="nav-link" href="../journal/carnet_test.html"> 
 <span class="menu-text">Journal de bord</span></a>
   </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-interactif" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Interactif</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-interactif">    
+        <li>
+    <a class="dropdown-item" href="../interactif/qcm.html">
+ <span class="dropdown-text">QCM — auto-évaluation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../interactif/carte_gini.html">
+ <span class="dropdown-text">Carte — Gini mondial</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../interactif/ma_progression.html">
+ <span class="dropdown-text">Ma progression</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../interactif/epilogue.html">
+ <span class="dropdown-text">Épilogue</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-cours" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Cours</span>
@@ -205,6 +228,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../apropos.html"> 
+<span class="menu-text">À propos</span></a>
+  </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/votre-compte/inegalites-histoire"> <i class="bi bi-github" role="img">
 </i> 
@@ -350,8 +377,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>plotly<span class="sc">::</span><span class="fu">ggplotly</span>(p, <span class="at">tooltip =</span> <span class="st">"text"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-2e0a7b2ffd58de31417d" style="width:100%;height:361px;"></div>
-<script type="application/json" data-for="htmlwidget-2e0a7b2ffd58de31417d">{"x":{"data":[{"x":[1400,null,1500,null,1600,null,1700,null,1750,null,1780,null,1820],"y":[0.44,null,0.46000000000000002,null,0.47999999999999998,null,0.5,null,0.51000000000000001,null,0.52000000000000002,null,0.5],"text":["ca. 1400<br>Gini Europe : 0.44",null,"ca. 1500<br>Gini Europe : 0.46<br>Grandes découvertes",null,"ca. 1600<br>Gini Europe : 0.48<br>Mercantilisme",null,"ca. 1700<br>Gini Europe : 0.5<br>Enclosures (Angleterre)",null,"ca. 1750<br>Gini Europe : 0.51<br>Physiocrates",null,"ca. 1780<br>Gini Europe : 0.52<br>Veille de la Révolution",null,"ca. 1820<br>Gini Europe : 0.5<br>Post-Révolution"],"type":"scatter","mode":"lines","line":{"width":4.1574803149606305,"color":"rgba(45,90,39,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1400,1500,1600,1700,1750,1780,1820],"y":[0.44,0.46000000000000002,0.47999999999999998,0.5,0.51000000000000001,0.52000000000000002,0.5],"text":["ca. 1400<br>Gini Europe : 0.44","ca. 1500<br>Gini Europe : 0.46<br>Grandes découvertes","ca. 1600<br>Gini Europe : 0.48<br>Mercantilisme","ca. 1700<br>Gini Europe : 0.5<br>Enclosures (Angleterre)","ca. 1750<br>Gini Europe : 0.51<br>Physiocrates","ca. 1780<br>Gini Europe : 0.52<br>Veille de la Révolution","ca. 1820<br>Gini Europe : 0.5<br>Post-Révolution"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(45,90,39,1)","opacity":1,"size":11.338582677165356,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(45,90,39,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1500,1600,1700,1750,1780,1820],"y":[0.46000000000000002,0.47999999999999998,0.5,0.51000000000000001,0.52000000000000002,0.5],"text":["ca. 1500<br>Gini Europe : 0.46<br>Grandes découvertes","ca. 1600<br>Gini Europe : 0.48<br>Mercantilisme","ca. 1700<br>Gini Europe : 0.5<br>Enclosures (Angleterre)","ca. 1750<br>Gini Europe : 0.51<br>Physiocrates","ca. 1780<br>Gini Europe : 0.52<br>Veille de la Révolution","ca. 1820<br>Gini Europe : 0.5<br>Post-Révolution"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(255,255,255,1)","opacity":1,"size":15.118110236220474,"symbol":"circle","line":{"width":5.6692913385826778,"color":"rgba(139,26,26,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":22.648401826484022,"l":48.949771689497723},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[1379,1841],"tickmode":"array","ticktext":["1400","1450","1500","1550","1600","1650","1700","1750","1800"],"tickvals":[1400,1450,1500,1550,1600,1650,1700,1750,1800],"categoryorder":"array","categoryarray":["1400","1450","1500","1550","1600","1650","1700","1750","1800"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.37,0.58999999999999997],"tickmode":"array","ticktext":["0.40","0.45","0.50","0.55"],"tickvals":[0.40000000000000002,0.45000000000000007,0.5,0.55000000000000004],"categoryorder":"array","categoryarray":["0.40","0.45","0.50","0.55"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Gini estimé (Europe occidentale)","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"serif","size":11.68949771689498}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"3b70529f49fd":{"x":{},"y":{},"text":{},"type":"scatter"},"3b70ce56dd7":{"x":{},"y":{},"text":{}},"3b701fee5512":{"x":{},"y":{},"text":{}}},"cur_data":"3b70529f49fd","visdat":{"3b70529f49fd":["function (y) ","x"],"3b70ce56dd7":["function (y) ","x"],"3b701fee5512":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-878dc2bef50956196aed" style="width:100%;height:361px;"></div>
+<script type="application/json" data-for="htmlwidget-878dc2bef50956196aed">{"x":{"data":[{"x":[1400,null,1500,null,1600,null,1700,null,1750,null,1780,null,1820],"y":[0.44,null,0.46000000000000002,null,0.47999999999999998,null,0.5,null,0.51000000000000001,null,0.52000000000000002,null,0.5],"text":["ca. 1400<br>Gini Europe : 0.44",null,"ca. 1500<br>Gini Europe : 0.46<br>Grandes découvertes",null,"ca. 1600<br>Gini Europe : 0.48<br>Mercantilisme",null,"ca. 1700<br>Gini Europe : 0.5<br>Enclosures (Angleterre)",null,"ca. 1750<br>Gini Europe : 0.51<br>Physiocrates",null,"ca. 1780<br>Gini Europe : 0.52<br>Veille de la Révolution",null,"ca. 1820<br>Gini Europe : 0.5<br>Post-Révolution"],"type":"scatter","mode":"lines","line":{"width":4.1574803149606305,"color":"rgba(45,90,39,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1400,1500,1600,1700,1750,1780,1820],"y":[0.44,0.46000000000000002,0.47999999999999998,0.5,0.51000000000000001,0.52000000000000002,0.5],"text":["ca. 1400<br>Gini Europe : 0.44","ca. 1500<br>Gini Europe : 0.46<br>Grandes découvertes","ca. 1600<br>Gini Europe : 0.48<br>Mercantilisme","ca. 1700<br>Gini Europe : 0.5<br>Enclosures (Angleterre)","ca. 1750<br>Gini Europe : 0.51<br>Physiocrates","ca. 1780<br>Gini Europe : 0.52<br>Veille de la Révolution","ca. 1820<br>Gini Europe : 0.5<br>Post-Révolution"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(45,90,39,1)","opacity":1,"size":11.338582677165356,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(45,90,39,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1500,1600,1700,1750,1780,1820],"y":[0.46000000000000002,0.47999999999999998,0.5,0.51000000000000001,0.52000000000000002,0.5],"text":["ca. 1500<br>Gini Europe : 0.46<br>Grandes découvertes","ca. 1600<br>Gini Europe : 0.48<br>Mercantilisme","ca. 1700<br>Gini Europe : 0.5<br>Enclosures (Angleterre)","ca. 1750<br>Gini Europe : 0.51<br>Physiocrates","ca. 1780<br>Gini Europe : 0.52<br>Veille de la Révolution","ca. 1820<br>Gini Europe : 0.5<br>Post-Révolution"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(255,255,255,1)","opacity":1,"size":15.118110236220474,"symbol":"circle","line":{"width":5.6692913385826778,"color":"rgba(139,26,26,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":22.648401826484022,"l":48.949771689497723},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[1379,1841],"tickmode":"array","ticktext":["1400","1450","1500","1550","1600","1650","1700","1750","1800"],"tickvals":[1400,1450,1500,1550,1600,1650,1700,1750,1800],"categoryorder":"array","categoryarray":["1400","1450","1500","1550","1600","1650","1700","1750","1800"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.37,0.58999999999999997],"tickmode":"array","ticktext":["0.40","0.45","0.50","0.55"],"tickvals":[0.40000000000000002,0.45000000000000007,0.5,0.55000000000000004],"categoryorder":"array","categoryarray":["0.40","0.45","0.50","0.55"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Gini estimé (Europe occidentale)","font":{"color":"rgba(0,0,0,1)","family":"serif","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"serif","size":11.68949771689498}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"5601b9d33a6":{"x":{},"y":{},"text":{},"type":"scatter"},"560a0f6fb2":{"x":{},"y":{},"text":{}},"56076e420f2":{"x":{},"y":{},"text":{}}},"cur_data":"5601b9d33a6","visdat":{"5601b9d33a6":["function (y) ","x"],"560a0f6fb2":["function (y) ","x"],"56076e420f2":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -400,6 +427,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Martineau, H. (1832). <em>Illustrations of Political Economy</em></li>
 <li>Beckert, S. (2014). <em>Empire of Cotton</em> — sur l’économie cotonnière et l’esclavage</li>
 </ul>
+<div id="widget-decision" data-acte="3" data-titre="Lyon, foire de la Saint-Jean, 1555" data-guide="Thomas, voyageur dans le temps" data-parole="Les marchands s'enrichissent sur les lettres de change. Loin d'ici, au Potosí, des hommes meurent pour l'argent qui circule ici. Je dois choisir ma place." data-dilemme="Tu es un marchand lyonnais prospère. Ton enrichissement repose sur les réseaux commerciaux — mais aussi sur l'argent extrait par le travail forcé au Pérou. Comment penses-tu ta fortune ?" data-opt-a="Le commerce est le moteur du progrès. Les lois du marché s'appliquent à tous. La distance géographique des sources de richesse ne te concerne pas." data-opt-b="Tu reconnais le problème, mais tu n'y peux rien seul. Tu tentes de limiter tes activités les plus douteuses sans renoncer à ta place dans le système." data-opt-c="La richesse que tu accumules est construite sur une violence invisible. Tu commences à tenir des comptes doubles — économie officielle et coûts humains cachés." data-label-a="Libéral classique" data-label-b="Réformiste modéré" data-label-c="Critique systémique" data-echo-a="Tu préfigures Adam Smith et la pensée libérale classique : le marché comme ordre spontané, les effets négatifs comme 'externalités' hors du calcul économique." data-echo-b="Tu ressembles à beaucoup de réformateurs du XVIIIe siècle : conscience des problèmes, réforme à la marge. Keynes aura une posture similaire face au capitalisme." data-echo-c="Tu anticipes de plusieurs siècles la comptabilité sociale et les théories décoloniales. La richesse de l'Europe sera analysée en lien avec l'extraction coloniale par Walter Rodney (1972).">
+
+</div>
 
 
 <!-- -->
@@ -407,6 +437,120 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 
 </main> <!-- /main -->
+<style>
+#widget-decision,[data-acte]{--wd-rouge:#8B1A1A;--wd-or:#B8860B;--wd-bord:#D4C5A9;--wd-vert:#2D5A27;--wd-texte:#2C2C2A;--wd-muted:#666;font-family:'EB Garamond',Georgia,serif;margin:2.5rem 0}
+.wd-card{border:.5px solid var(--wd-bord);border-radius:10px;background:white;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.wd-header{background:var(--wd-texte);color:#F5F0E8;padding:.75rem 1.25rem;display:flex;align-items:center;gap:.75rem}
+.wd-avatar{width:36px;height:36px;border-radius:50%;background:var(--wd-or);display:flex;align-items:center;justify-content:center;font-size:15px;color:white;flex-shrink:0}
+.wd-guide-name{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--wd-or);font-family:sans-serif}
+.wd-parole{font-size:.9rem;font-style:italic;color:#E8DFD0;margin-top:2px}
+.wd-body{padding:1.25rem}
+.wd-lieu{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--wd-or);font-family:sans-serif;margin-bottom:.5rem}
+.wd-dilemme{font-size:1rem;line-height:1.55;color:var(--wd-texte);margin-bottom:1.2rem;font-weight:500}
+.wd-opts{display:flex;flex-direction:column;gap:.5rem}
+.wd-opt{display:flex;align-items:flex-start;gap:.75rem;border:.5px solid var(--wd-bord);border-radius:8px;padding:.75rem 1rem;cursor:pointer;background:white;text-align:left;font-family:'EB Garamond',Georgia,serif;font-size:.92rem;color:var(--wd-texte);line-height:1.45;transition:border-color .15s,background .15s;width:100%}
+.wd-opt:hover:not(:disabled){background:#F5F0E8;border-color:var(--wd-or)}
+.wd-opt:disabled{cursor:default}
+.wd-opt-label{font-family:sans-serif;font-size:.67rem;text-transform:uppercase;letter-spacing:.07em;color:var(--wd-muted);flex-shrink:0;padding-top:2px;min-width:90px}
+.wd-opt.chosen{border-color:var(--wd-rouge)!important;background:#FDF5F5!important}
+.wd-opt.chosen .wd-opt-label{color:var(--wd-rouge)}
+.wd-echo{margin-top:1rem;border-left:3px solid var(--wd-vert);padding:.7rem 1rem;background:#F2F8EE;border-radius:0 6px 6px 0;font-size:.88rem;line-height:1.55;color:#27500A;display:none}
+.wd-echo.visible{display:block}
+.wd-echo-label{font-family:sans-serif;font-size:.67rem;text-transform:uppercase;letter-spacing:.08em;color:var(--wd-vert);margin-bottom:.35rem;font-weight:600}
+.wd-footer{border-top:.5px solid var(--wd-bord);padding:.65rem 1.25rem;display:flex;align-items:center;justify-content:space-between;font-family:sans-serif;font-size:.75rem;color:var(--wd-muted);background:#FAFAF8}
+.wd-status{display:flex;align-items:center;gap:.4rem}
+.wd-dot{width:7px;height:7px;border-radius:50%;background:var(--wd-bord);transition:background .3s}
+.wd-dot.done{background:var(--wd-vert)}
+.wd-change{background:none;border:none;color:var(--wd-rouge);cursor:pointer;font-size:.75rem;font-family:sans-serif;text-decoration:underline;display:none}
+.wd-change.visible{display:inline}
+</style>
+
+<script>
+(function(){
+  const KEY='voyage_inegalites_decisions';
+  function load(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return{}}}
+  function save(acte,choice,label,echo){const a=load();a['acte_'+acte]={choice,label,echo,ts:Date.now()};localStorage.setItem(KEY,JSON.stringify(a))}
+
+  function init(root){
+    if(root.classList.contains('wd-root'))return;
+    const d=root.dataset;
+    const ex=load()['acte_'+d.acte];
+    root.classList.add('wd-root');
+    root.innerHTML=`
+      <div class="wd-card">
+        <div class="wd-header">
+          <div class="wd-avatar">✦</div>
+          <div>
+            <div class="wd-guide-name">${d.guide}</div>
+            <div class="wd-parole">${d.parole}</div>
+          </div>
+        </div>
+        <div class="wd-body">
+          <div class="wd-lieu">${d.titre}</div>
+          <div class="wd-dilemme">${d.dilemme}</div>
+          <div class="wd-opts">
+            <button class="wd-opt${ex&&ex.choice==='a'?' chosen':''}" data-choice="a"${ex?' disabled':''}>
+              <span class="wd-opt-label">${d.labelA}</span><span>${d.optA}</span>
+            </button>
+            <button class="wd-opt${ex&&ex.choice==='b'?' chosen':''}" data-choice="b"${ex?' disabled':''}>
+              <span class="wd-opt-label">${d.labelB}</span><span>${d.optB}</span>
+            </button>
+            <button class="wd-opt${ex&&ex.choice==='c'?' chosen':''}" data-choice="c"${ex?' disabled':''}>
+              <span class="wd-opt-label">${d.labelC}</span><span>${d.optC}</span>
+            </button>
+          </div>
+          <div class="wd-echo${ex?' visible':''}" id="wd-echo-${d.acte}">
+            <div class="wd-echo-label">Résonance historique</div>
+            <span id="wd-echo-text-${d.acte}">${ex?ex.echo:''}</span>
+          </div>
+        </div>
+        <div class="wd-footer">
+          <div class="wd-status">
+            <div class="wd-dot${ex?' done':''}" id="wd-dot-${d.acte}"></div>
+            <span id="wd-status-txt-${d.acte}">${ex?'Décision enregistrée dans le journal':'En attente de ta décision'}</span>
+          </div>
+          <button class="wd-change${ex?' visible':''}" id="wd-change-${d.acte}">Modifier</button>
+        </div>
+      </div>`;
+
+    root.querySelectorAll('.wd-opt').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        const choice=this.dataset.choice;
+        const label=d['label'+choice.toUpperCase()];
+        const echo=d['echo'+choice.toUpperCase()];
+        save(d.acte,choice,label,echo);
+        root.querySelectorAll('.wd-opt').forEach(function(b){b.disabled=true;b.classList.remove('chosen')});
+        this.classList.add('chosen');
+        document.getElementById('wd-echo-text-'+d.acte).textContent=echo;
+        document.getElementById('wd-echo-'+d.acte).classList.add('visible');
+        document.getElementById('wd-dot-'+d.acte).classList.add('done');
+        document.getElementById('wd-status-txt-'+d.acte).textContent='Décision enregistrée dans le journal';
+        const cb=document.getElementById('wd-change-'+d.acte);
+        if(cb)cb.classList.add('visible');
+      });
+    });
+
+    const cb=document.getElementById('wd-change-'+d.acte);
+    if(cb)cb.addEventListener('click',function(){
+      root.querySelectorAll('.wd-opt').forEach(function(b){b.disabled=false;b.classList.remove('chosen')});
+      document.getElementById('wd-echo-'+d.acte).classList.remove('visible');
+      document.getElementById('wd-dot-'+d.acte).classList.remove('done');
+      document.getElementById('wd-status-txt-'+d.acte).textContent='En attente de ta décision';
+      this.classList.remove('visible');
+      const a=load();delete a['acte_'+d.acte];localStorage.setItem(KEY,JSON.stringify(a));
+    });
+  }
+
+  function initAll(){
+    document.querySelectorAll('[data-acte]').forEach(function(el){
+      if(el.dataset.acte)init(el);
+    });
+  }
+
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initAll)}
+  else{initAll()}
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1018,7 +1162,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Malthus, T.R. (1798). *Essai sur le principe de population*</span>
 <span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Labé, L. (1555). *Œuvres poétiques* (éd. Gallimard Poésie)</span>
 <span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Martineau, H. (1832). *Illustrations of Political Economy*</span>
-<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Beckert, S. (2014). *Empire of Cotton* — sur l'économie cotonnière et l'esclavage</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Beckert, S. (2014). *Empire of Cotton* — sur l'économie cotonnière et l'esclavage</span>
+<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div id="widget-decision"</span></span>
+<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a><span class="in">     data-acte="3"</span></span>
+<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a><span class="in">     data-titre="Lyon, foire de la Saint-Jean, 1555"</span></span>
+<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a><span class="in">     data-guide="Thomas, voyageur dans le temps"</span></span>
+<span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a><span class="in">     data-parole="Les marchands s'enrichissent sur les lettres de change. Loin d'ici, au Potosí, des hommes meurent pour l'argent qui circule ici. Je dois choisir ma place."</span></span>
+<span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a><span class="in">     data-dilemme="Tu es un marchand lyonnais prospère. Ton enrichissement repose sur les réseaux commerciaux — mais aussi sur l'argent extrait par le travail forcé au Pérou. Comment penses-tu ta fortune ?"</span></span>
+<span id="cb2-171"><a href="#cb2-171" aria-hidden="true" tabindex="-1"></a><span class="in">     data-opt-a="Le commerce est le moteur du progrès. Les lois du marché s'appliquent à tous. La distance géographique des sources de richesse ne te concerne pas."</span></span>
+<span id="cb2-172"><a href="#cb2-172" aria-hidden="true" tabindex="-1"></a><span class="in">     data-opt-b="Tu reconnais le problème, mais tu n'y peux rien seul. Tu tentes de limiter tes activités les plus douteuses sans renoncer à ta place dans le système."</span></span>
+<span id="cb2-173"><a href="#cb2-173" aria-hidden="true" tabindex="-1"></a><span class="in">     data-opt-c="La richesse que tu accumules est construite sur une violence invisible. Tu commences à tenir des comptes doubles — économie officielle et coûts humains cachés."</span></span>
+<span id="cb2-174"><a href="#cb2-174" aria-hidden="true" tabindex="-1"></a><span class="in">     data-label-a="Libéral classique"</span></span>
+<span id="cb2-175"><a href="#cb2-175" aria-hidden="true" tabindex="-1"></a><span class="in">     data-label-b="Réformiste modéré"</span></span>
+<span id="cb2-176"><a href="#cb2-176" aria-hidden="true" tabindex="-1"></a><span class="in">     data-label-c="Critique systémique"</span></span>
+<span id="cb2-177"><a href="#cb2-177" aria-hidden="true" tabindex="-1"></a><span class="in">     data-echo-a="Tu préfigures Adam Smith et la pensée libérale classique : le marché comme ordre spontané, les effets négatifs comme 'externalités' hors du calcul économique."</span></span>
+<span id="cb2-178"><a href="#cb2-178" aria-hidden="true" tabindex="-1"></a><span class="in">     data-echo-b="Tu ressembles à beaucoup de réformateurs du XVIIIe siècle : conscience des problèmes, réforme à la marge. Keynes aura une posture similaire face au capitalisme."</span></span>
+<span id="cb2-179"><a href="#cb2-179" aria-hidden="true" tabindex="-1"></a><span class="in">     data-echo-c="Tu anticipes de plusieurs siècles la comptabilité sociale et les théories décoloniales. La richesse de l'Europe sera analysée en lien avec l'extraction coloniale par Walter Rodney (1972)."</span></span>
+<span id="cb2-180"><a href="#cb2-180" aria-hidden="true" tabindex="-1"></a><span class="in">&gt;&lt;/div&gt;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -1027,8 +1190,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Cours hybride 10H · Public international</p>
 </div>   
     <div class="nav-footer-center">
-      &nbsp;
-    </div>
+<p>Conçu avec l’assistance de Claude (Anthropic) · <a href="apropos.qmd">À propos</a></p>
+</div>
     <div class="nav-footer-right">
 <p>Données · <a href="https://wid.world">wid.world</a></p>
 </div>

@@ -242,7 +242,7 @@
     "href": "actes/01_antiquite.html#pour-aller-plus-loin",
     "title": "Acte I — L’inégalité comme ordre naturel",
     "section": "Pour aller plus loin",
-    "text": "Pour aller plus loin\n\nAristote, Politique, Livre I (sur l’oikonomia et la chrématistique)\nMilanovic, B. (2011). The Haves and the Have-Nots — Appendice sur les sociétés pré-industrielles\nCarson, A. (trad.) — If Not, Winter : Fragments of Sappho"
+    "text": "Pour aller plus loin\n\nAristote, Politique, Livre I (sur l’oikonomia et la chrématistique)\nMilanovic, B. (2011). The Haves and the Have-Nots — Appendice sur les sociétés pré-industrielles\nCarson, A. (trad.) — If Not, Winter : Fragments of Sappho\n\n\n\n\n\n``"
   },
   {
     "objectID": "journal/index.html",
@@ -676,7 +676,7 @@
     "href": "actes/05_regulation.html#les-données",
     "title": "Acte V — L’inégalité régulée",
     "section": "Les données",
-    "text": "Les données\n\n\nCode\ndf &lt;- tibble::tribble(\n  ~annee, ~usa,  ~france, ~suede, ~event,\n  1910,   0.61,  0.58,    0.55,   \"\",\n  1920,   0.62,  0.57,    0.53,   \"\",\n  1929,   0.64,  0.59,    0.54,   \"Krach Wall Street\",\n  1938,   0.57,  0.55,    0.50,   \"\",\n  1945,   0.53,  0.50,    0.46,   \"Fin WWII\",\n  1950,   0.52,  0.49,    0.44,   \"\",\n  1960,   0.50,  0.46,    0.40,   \"\",\n  1970,   0.49,  0.43,    0.37,   \"\",\n  1975,   0.48,  0.41,    0.35,   \"Creux — pic égalité\",\n  1980,   0.50,  0.42,    0.38,   \"Tournant néolibéral\"\n)\n\np &lt;- ggplot(df) +\n  geom_line(aes(x = annee, y = usa,\n                text = paste0(\"États-Unis · \", annee, \"&lt;br&gt;Gini : \", usa)),\n            color = \"#8B1A1A\", linewidth = 1) +\n  geom_line(aes(x = annee, y = france,\n                text = paste0(\"France · \", annee, \"&lt;br&gt;Gini : \", france)),\n            color = \"#1A3A5C\", linewidth = 1, linetype = \"dashed\") +\n  geom_line(aes(x = annee, y = suede,\n                text = paste0(\"Suède · \", annee, \"&lt;br&gt;Gini : \", suede)),\n            color = \"#2D5A27\", linewidth = 1, linetype = \"dotted\") +\n  geom_rect(aes(xmin = 1945, xmax = 1975, ymin = .32, ymax = .67),\n            fill = \"#1A3A5C\", alpha = .06, inherit.aes = FALSE) +\n  annotate(\"text\", x = 1960, y = .33, label = \"Trente Glorieuses\",\n           color = \"#1A3A5C\", size = 3, hjust = .5) +\n  annotate(\"text\", x = 1982, y = .51, label = \"USA\",  color = \"#8B1A1A\", size = 3) +\n  annotate(\"text\", x = 1982, y = .43, label = \"FR\",   color = \"#1A3A5C\", size = 3) +\n  annotate(\"text\", x = 1982, y = .385, label = \"SE\",  color = \"#2D5A27\", size = 3) +\n  scale_x_continuous(breaks = seq(1910, 1980, 10)) +\n  scale_y_continuous(limits = c(.32, .67)) +\n  labs(x = NULL, y = \"Gini estimé\",\n       caption = \"Sources : WID.world · Morrisson & Snyder (2000) · Atkinson & Piketty (2010)\") +\n  theme_minimal(base_size = 11, base_family = \"serif\") +\n  theme(panel.grid.minor = element_blank())\n\nplotly::ggplotly(p, tooltip = \"text\")\n\n\n\n\n\n\n\n\nCode\ndf2 &lt;- tibble::tribble(\n  ~annee, ~usa,  ~france, ~uk,\n  1910,   18.0,  20.0,    19.0,\n  1929,   22.0,  21.0,    20.0,\n  1938,   17.0,  18.0,    17.0,\n  1950,   13.0,  13.0,    12.0,\n  1960,   11.5,  10.0,    10.5,\n  1970,   10.0,   9.0,     9.5,\n  1975,    9.0,   8.5,     8.0,\n  1980,    9.5,   8.0,     9.0\n)\n\np2 &lt;- ggplot(df2) +\n  geom_line(aes(x = annee, y = usa,\n                text = paste0(\"États-Unis · \", annee, \"&lt;br&gt;Top 1% : \", usa, \"%\")),\n            color = \"#8B1A1A\", linewidth = 1) +\n  geom_line(aes(x = annee, y = france,\n                text = paste0(\"France · \", annee, \"&lt;br&gt;Top 1% : \", france, \"%\")),\n            color = \"#1A3A5C\", linewidth = 1, linetype = \"dashed\") +\n  geom_line(aes(x = annee, y = uk,\n                text = paste0(\"Royaume-Uni · \", annee, \"&lt;br&gt;Top 1% : \", uk, \"%\")),\n            color = \"#4A2040\", linewidth = 1, linetype = \"dotted\") +\n  annotate(\"text\", x = 1931, y = 22.5, label = \"Record 1929\",\n           color = \"#888\", size = 2.8) +\n  scale_x_continuous(breaks = seq(1910, 1980, 10)) +\n  scale_y_continuous(labels = function(x) paste0(x, \"%\")) +\n  labs(x = NULL, y = \"Part du revenu national (%)\",\n       caption = \"Source : WID.world 2023\") +\n  theme_minimal(base_size = 11, base_family = \"serif\") +\n  theme(panel.grid.minor = element_blank())\n\nplotly::ggplotly(p2, tooltip = \"text\")"
+    "text": "Les données\n\n\nCode\nlibrary(tidyr)\n\ndf_wide &lt;- tibble::tribble(\n  ~annee, ~usa,  ~france, ~suede,\n  1910,   0.61,  0.58,    0.55,\n  1920,   0.62,  0.57,    0.53,\n  1929,   0.64,  0.59,    0.54,\n  1938,   0.57,  0.55,    0.50,\n  1945,   0.53,  0.50,    0.46,\n  1950,   0.52,  0.49,    0.44,\n  1960,   0.50,  0.46,    0.40,\n  1970,   0.49,  0.43,    0.37,\n  1975,   0.48,  0.41,    0.35,\n  1980,   0.50,  0.42,    0.38\n)\n\ndf &lt;- df_wide |&gt;\n  tidyr::pivot_longer(-annee, names_to = \"pays\", values_to = \"gini\") |&gt;\n  dplyr::mutate(\n    pays_label = dplyr::case_when(\n      pays == \"usa\"    ~ \"États-Unis\",\n      pays == \"france\" ~ \"France\",\n      pays == \"suede\"  ~ \"Suède\"\n    ),\n    tooltip = paste0(pays_label, \" · \", annee, \"&lt;br&gt;Gini : \", gini)\n  )\n\ncouleurs &lt;- c(\"usa\" = \"#8B1A1A\", \"france\" = \"#1A3A5C\", \"suede\" = \"#2D5A27\")\nlabels   &lt;- c(\"usa\" = \"États-Unis\", \"france\" = \"France\", \"suede\" = \"Suède\")\n\np &lt;- ggplot(df, aes(x = annee, y = gini, color = pays,\n                    linetype = pays, group = pays, text = tooltip)) +\n  annotate(\"rect\", xmin = 1945, xmax = 1975, ymin = .32, ymax = .67,\n           fill = \"#1A3A5C\", alpha = .06) +\n  annotate(\"text\", x = 1960, y = .33, label = \"Trente Glorieuses\",\n           color = \"#1A3A5C\", size = 3, hjust = .5) +\n  geom_line(linewidth = 1) +\n  geom_point(size = 2) +\n  scale_color_manual(values = couleurs, labels = labels, name = NULL) +\n  scale_linetype_manual(values = c(\"usa\" = \"solid\", \"france\" = \"dashed\", \"suede\" = \"dotted\"),\n                        labels = labels, name = NULL) +\n  scale_x_continuous(breaks = seq(1910, 1980, 10)) +\n  scale_y_continuous(limits = c(.32, .67)) +\n  labs(x = NULL, y = \"Gini estimé\",\n       caption = \"Sources : WID.world · Morrisson & Snyder (2000) · Atkinson & Piketty (2010)\") +\n  theme_minimal(base_size = 11, base_family = \"serif\") +\n  theme(panel.grid.minor = element_blank(), legend.position = \"top\")\n\nplotly::ggplotly(p, tooltip = \"text\") |&gt;\n  plotly::layout(legend = list(orientation = \"h\", x = 0, y = 1.1))\n\n\n\n\n\n\n\n\nCode\ndf2_wide &lt;- tibble::tribble(\n  ~annee, ~usa,  ~france, ~uk,\n  1910,   18.0,  20.0,    19.0,\n  1929,   22.0,  21.0,    20.0,\n  1938,   17.0,  18.0,    17.0,\n  1950,   13.0,  13.0,    12.0,\n  1960,   11.5,  10.0,    10.5,\n  1970,   10.0,   9.0,     9.5,\n  1975,    9.0,   8.5,     8.0,\n  1980,    9.5,   8.0,     9.0\n)\n\ndf2 &lt;- df2_wide |&gt;\n  tidyr::pivot_longer(-annee, names_to = \"pays\", values_to = \"top1\") |&gt;\n  dplyr::mutate(\n    pays_label = dplyr::case_when(\n      pays == \"usa\"    ~ \"États-Unis\",\n      pays == \"france\" ~ \"France\",\n      pays == \"uk\"     ~ \"Royaume-Uni\"\n    ),\n    tooltip = paste0(pays_label, \" · \", annee, \"&lt;br&gt;Top 1% : \", top1, \"%\")\n  )\n\ncouleurs2 &lt;- c(\"usa\" = \"#8B1A1A\", \"france\" = \"#1A3A5C\", \"uk\" = \"#4A2040\")\nlabels2   &lt;- c(\"usa\" = \"États-Unis\", \"france\" = \"France\", \"uk\" = \"Royaume-Uni\")\n\np2 &lt;- ggplot(df2, aes(x = annee, y = top1, color = pays,\n                      linetype = pays, group = pays, text = tooltip)) +\n  annotate(\"text\", x = 1931, y = 22.5, label = \"Record 1929\",\n           color = \"#888\", size = 2.8) +\n  geom_line(linewidth = 1) +\n  geom_point(size = 2) +\n  scale_color_manual(values = couleurs2, labels = labels2, name = NULL) +\n  scale_linetype_manual(values = c(\"usa\" = \"solid\", \"france\" = \"dashed\", \"uk\" = \"dotted\"),\n                        labels = labels2, name = NULL) +\n  scale_x_continuous(breaks = seq(1910, 1980, 10)) +\n  scale_y_continuous(labels = function(x) paste0(x, \"%\")) +\n  labs(x = NULL, y = \"Part du revenu national (%)\",\n       caption = \"Source : WID.world 2023\") +\n  theme_minimal(base_size = 11, base_family = \"serif\") +\n  theme(panel.grid.minor = element_blank(), legend.position = \"top\")\n\nplotly::ggplotly(p2, tooltip = \"text\") |&gt;\n  plotly::layout(legend = list(orientation = \"h\", x = 0, y = 1.1))"
   },
   {
     "objectID": "actes/05_regulation.html#les-voix-poétiques",
@@ -761,5 +761,117 @@
     "title": "Carte — Inégalités mondiales",
     "section": "Discussion pédagogique",
     "text": "Discussion pédagogique\nQuelques observations à explorer avec les étudiant·es :\n\nLes pays les plus égalitaires (Gini &lt; 0,30) sont presque tous en Europe du Nord. Pourquoi ? État-providence fort, syndicalisme, fiscalité redistributive — ou géographie/culture ?\nL’Afrique subsaharienne présente des Gini parmi les plus élevés (Namibie : 0,59, Afrique du Sud : 0,63). Dans quelle mesure héritent-ils de la structure coloniale des économies extractives ?\nL’Inde et la Chine (Gini ~0,35–0,38) paraissent modérées — mais ces chiffres mesurent les revenus courants, pas les patrimoines. Avec la richesse, les écarts explosent.\nLes États-Unis (0,41) sont nettement plus inégalitaires que tous leurs voisins européens.\n\n\n\nCode R — reproduire la carte avec ggplot2\n# Version statique reproductible avec ggplot2 + rnaturalearth\n# install.packages(c(\"rnaturalearth\",\"rnaturalearthdata\",\"sf\"))\nlibrary(ggplot2)\nlibrary(dplyr)\n\n# Données Gini (extrait — compléter avec R/data_inegalites.R)\nsource(\"data_inegalites.R\")\n\n\nDonnées chargées : 17 points série longue, 6 pays dans top1_pays\n\n\nCode R — reproduire la carte avec ggplot2\n# Carte avec rnaturalearth :\n# world &lt;- rnaturalearth::ne_countries(scale = \"medium\", returnclass = \"sf\")\n# world_gini &lt;- world |&gt;\n#   left_join(gini_pays_2022, by = c(\"name_long\" = \"pays\"))\n# ggplot(world_gini) +\n#   geom_sf(aes(fill = gini), color = \"white\", size = 0.1) +\n#   scale_fill_gradient(low = \"#D6EAD9\", high = \"#8B1A1A\",\n#                       na.value = \"#E8E0D0\", name = \"Gini\") +\n#   theme_void() +\n#   labs(title = \"Inégalités mondiales — Gini 2022\",\n#        caption = \"Sources : World Bank / WID.world 2023\")"
+  },
+  {
+    "objectID": "apropos.html",
+    "href": "apropos.html",
+    "title": "À propos",
+    "section": "",
+    "text": "Ce site accompagne un cours hybride de 10 heures sur l’histoire économique des inégalités, destiné à un public international. Il propose une narration en six actes — de l’Antiquité au XXIe siècle — articulée autour d’un fil conducteur : comment les sociétés ont justifié, mesuré et contesté les inégalités.\nLe parti pris est double : croiser la pensée économique avec la poésie mondiale, et maintenir visible tout au long du parcours un fil femmes — les économistes et poètes femmes systématiquement absentes des manuels canoniques."
+  },
+  {
+    "objectID": "apropos.html#ce-projet",
+    "href": "apropos.html#ce-projet",
+    "title": "À propos",
+    "section": "",
+    "text": "Ce site accompagne un cours hybride de 10 heures sur l’histoire économique des inégalités, destiné à un public international. Il propose une narration en six actes — de l’Antiquité au XXIe siècle — articulée autour d’un fil conducteur : comment les sociétés ont justifié, mesuré et contesté les inégalités.\nLe parti pris est double : croiser la pensée économique avec la poésie mondiale, et maintenir visible tout au long du parcours un fil femmes — les économistes et poètes femmes systématiquement absentes des manuels canoniques."
+  },
+  {
+    "objectID": "apropos.html#rôle-de-lintelligence-artificielle",
+    "href": "apropos.html#rôle-de-lintelligence-artificielle",
+    "title": "À propos",
+    "section": "Rôle de l’intelligence artificielle",
+    "text": "Rôle de l’intelligence artificielle\n\n\n\n\n\n\nImportantTransparence sur l’usage de l’IA\n\n\n\nCe site a été conçu en collaboration avec Claude (Anthropic), un assistant fondé sur un grand modèle de langage (LLM). Cette mention est volontaire et fait partie intégrante de la démarche pédagogique.\n\n\n\nCe que l’IA a produit\nL’IA a contribué à la rédaction, à la structuration et au code de ce site :\n\nRédaction des introductions de chapitres et des notices de contexte économique\nSélection et mise en forme des extraits poétiques\nRédaction des entrées du journal de bord (textes fictifs assumés comme tels)\nÉcriture du code R/Quarto (graphiques, QCM, carte choroplèthe)\nOrganisation de la bibliographie et du syllabus\nReformulation et synthèse à partir de sources fournies par l’auteure\n\n\n\nCe que l’IA n’a pas fait\n\nLes choix pédagogiques — la structure en six actes, le fil rouge des inégalités, le fil femmes, l’idée du journal de bord : ce sont des décisions de l’auteure.\nLa vérification des sources — toutes les données et références ont été contrôlées par l’auteure avant publication. L’IA produit parfois des erreurs factuelles ; aucune donnée n’a été acceptée sans vérification.\nLe jugement critique — les analyses, les rapprochements entre économie et poésie, les choix normatifs sur ce qui mérite d’être enseigné : ils relèvent de l’auteure.\nLes textes poétiques originaux — les poèmes cités sont des œuvres authentiques. Les « adaptations » et « extraits inspirés » sont clairement identifiés comme tels dans chaque page.\n\n\n\nComment travailler avec l’IA : ce que ce projet enseigne\nL’usage de l’IA dans ce cours n’est pas seulement un outil de production — c’est aussi un objet d’apprentissage. Les étudiant·es sont invité·es à réfléchir à :\n\nLa différence entre générer un texte et en être responsable\nLa nécessité de vérifier, critiquer et reformuler les productions de l’IA\nLes biais potentiels des LLM (surreprésentation de certaines traditions, invisibilisation de certaines voix — en particulier féminines et non-occidentales)\nLa question de l’attribution : quand on travaille avec une IA, qui est l’auteur·e ?\n\n\n\n\n\n\n\nAstucePour les étudiant·es\n\n\n\nSi vous utilisez un outil d’IA pour votre exposé ou votre lecture commentée, mentionnez-le explicitement dans votre rendu et précisez comment vous l’avez utilisé. La transparence est une compétence académique à part entière."
+  },
+  {
+    "objectID": "apropos.html#les-données",
+    "href": "apropos.html#les-données",
+    "title": "À propos",
+    "section": "Les données",
+    "text": "Les données\nLes données statistiques proviennent de sources académiques ouvertes :\n\n\n\nSource\nUsage\n\n\n\n\nWorld Inequality Database\nPart du top 1%, séries longues\n\n\nWorld Bank Open Data\nGini par pays, 2022\n\n\nOur World in Data\nVisualisations comparatives\n\n\nMilanovic, Lindert & Williamson (2011)\nEstimations Gini sociétés pré-industrielles\n\n\nPiketty (2013, 2019)\nSéries historiques patrimoine et revenus\n\n\nGoldin (2021)\nInégalités de genre sur le marché du travail\n\n\n\nLes données antérieures à 1800 sont des estimations avec des marges d’incertitude importantes — elles sont utilisées à des fins pédagogiques et non comme vérités établies."
+  },
+  {
+    "objectID": "apropos.html#droits-et-réutilisation",
+    "href": "apropos.html#droits-et-réutilisation",
+    "title": "À propos",
+    "section": "Droits et réutilisation",
+    "text": "Droits et réutilisation\nLes textes de présentation et le code source de ce site sont publiés sous licence CC BY 4.0 — vous pouvez les réutiliser, adapter et partager en citant la source.\nLes extraits poétiques restent soumis aux droits de leurs auteurs et traducteurs respectifs. Les poèmes en domaine public sont signalés comme tels. Les extraits contemporains sont cités dans le cadre du droit de courte citation à des fins pédagogiques non commerciales."
+  },
+  {
+    "objectID": "apropos.html#contact",
+    "href": "apropos.html#contact",
+    "title": "À propos",
+    "section": "Contact",
+    "text": "Contact\nPour toute question sur le contenu pédagogique, les données ou l’usage de l’IA dans ce projet, vous pouvez contacter l’auteure via l’institution partenaire.\nCe site est un document vivant — les retours des enseignant·es partenaires sont intégrés au fil des sessions."
+  },
+  {
+    "objectID": "interactif/carte_gini.html",
+    "href": "interactif/carte_gini.html",
+    "title": "Carte — Inégalités mondiales",
+    "section": "",
+    "text": "La carte ci-dessous représente l’indice de Gini par pays en 2022. Plus la couleur est foncée, plus les inégalités de revenu sont élevées. Survolez un pays pour voir sa valeur et son interprétation."
+  },
+  {
+    "objectID": "interactif/carte_gini.html#discussion-pédagogique",
+    "href": "interactif/carte_gini.html#discussion-pédagogique",
+    "title": "Carte — Inégalités mondiales",
+    "section": "Discussion pédagogique",
+    "text": "Discussion pédagogique\nQuelques observations à explorer avec les étudiant·es :\n\nLes pays les plus égalitaires (Gini &lt; 0,30) sont presque tous en Europe du Nord. Pourquoi ? État-providence fort, syndicalisme, fiscalité redistributive — ou géographie/culture ?\nL’Afrique subsaharienne présente des Gini parmi les plus élevés (Namibie : 0,59, Afrique du Sud : 0,63). Dans quelle mesure héritent-ils de la structure coloniale des économies extractives ?\nL’Inde et la Chine (Gini ~0,35–0,38) paraissent modérées — mais ces chiffres mesurent les revenus courants, pas les patrimoines. Avec la richesse, les écarts explosent.\nLes États-Unis (0,41) sont nettement plus inégalitaires que tous leurs voisins européens.\n\n\n\nCode R — reproduire la carte avec ggplot2\n# Version statique reproductible avec ggplot2 + rnaturalearth\n# install.packages(c(\"rnaturalearth\",\"rnaturalearthdata\",\"sf\"))\nlibrary(ggplot2)\nlibrary(dplyr)\n\n# Données Gini (extrait — compléter avec R/data_inegalites.R)\nsource(\"../data_inegalites.R\")\n\n\nDonnées chargées : 17 points série longue, 6 pays dans top1_pays\n\n\nCode R — reproduire la carte avec ggplot2\n# Carte avec rnaturalearth :\n# world &lt;- rnaturalearth::ne_countries(scale = \"medium\", returnclass = \"sf\")\n# world_gini &lt;- world |&gt;\n#   left_join(gini_pays_2022, by = c(\"name_long\" = \"pays\"))\n# ggplot(world_gini) +\n#   geom_sf(aes(fill = gini), color = \"white\", size = 0.1) +\n#   scale_fill_gradient(low = \"#D6EAD9\", high = \"#8B1A1A\",\n#                       na.value = \"#E8E0D0\", name = \"Gini\") +\n#   theme_void() +\n#   labs(title = \"Inégalités mondiales — Gini 2022\",\n#        caption = \"Sources : World Bank / WID.world 2023\")"
+  },
+  {
+    "objectID": "interactif/qcm.html",
+    "href": "interactif/qcm.html",
+    "title": "QCM — Inégalités et pensée économique",
+    "section": "",
+    "text": "Ce QCM parcourt les cinq grandes époques du cours. Chaque question est corrigée immédiatement avec une explication contextuelle."
+  },
+  {
+    "objectID": "interactif/epilogue.html",
+    "href": "interactif/epilogue.html",
+    "title": "Épilogue — Ton profil économique",
+    "section": "",
+    "text": "✦\n    L'épilogue se débloque après les 6 actes\n    Tu as pris 0 décision(s) sur 6.Poursuis le voyage pour débloquer ton profil complet.\n    Voir ma progression\n  \n\n  \n    \n    ✦  Générer mon épilogue personnalisé\n    \n      Le voyageur écrit son rapport final\n    \n    \n      \n        Ton profil économique à travers les âges\n        \n      \n      \n      \n        Généré à partir de tes 6 décisions · Powered by Claude (Anthropic)\n        Regénérer"
+  },
+  {
+    "objectID": "interactif/ma_progression.html",
+    "href": "interactif/ma_progression.html",
+    "title": "Mon voyage — Progression & Profil",
+    "section": "",
+    "text": "0 / 6Actes parcourus\n  0Décisions prises\n  –Tendance dominante\n\n\n\n  \n\n\n\n  \n\n\n\n  Ton profil de pensée économique"
+  },
+  {
+    "objectID": "actes/01_antiquite.html#comment-linégalité-est-perçue-1",
+    "href": "actes/01_antiquite.html#comment-linégalité-est-perçue-1",
+    "title": "Acte I — L’inégalité comme ordre naturel",
+    "section": "Comment l’inégalité est perçue",
+    "text": "Comment l’inégalité est perçue\nL’inégalité antique est ontologique : elle précède l’économie. Elle n’est pas le résultat d’un système — elle est la condition du système. Aristote distingue l’oikonomia (gestion raisonnable du foyer) de la chrématistique (accumulation sans limite), qu’il condamne comme contre-nature. Paradoxe fondateur : la même philosophie justifie l’esclavage et critique l’avidité."
+  },
+  {
+    "objectID": "actes/01_antiquite.html#comment-elle-est-justifiée-1",
+    "href": "actes/01_antiquite.html#comment-elle-est-justifiée-1",
+    "title": "Acte I — L’inégalité comme ordre naturel",
+    "section": "Comment elle est justifiée",
+    "text": "Comment elle est justifiée\n\n\n\n\n\n\n\n\nPenseur\nJustification\nAngle mort\n\n\n\n\nAristote\nHiérarchies naturelles\nL’esclave comme “instrument animé”\n\n\nPlaton\nMythe des métaux\nÉgalité réservée aux gardiens\n\n\nÉpicure\nSobriété volontaire\nNe s’adresse qu’aux hommes libres\n\n\nXénophon\nGestion efficace\nLes femmes comme ressource"
+  },
+  {
+    "objectID": "actes/01_antiquite.html#les-données-1",
+    "href": "actes/01_antiquite.html#les-données-1",
+    "title": "Acte I — L’inégalité comme ordre naturel",
+    "section": "Les données",
+    "text": "Les données\ndf &lt;- tibble::tribble(\n  ~societe,          ~gini, ~annee,\n  \"Athènes classique\",  0.42, -400,\n  \"Rome républicaine\",  0.43, -100,\n  \"Rome impériale\",     0.49,  100,\n  \"Égypte romaine\",     0.45,  200,\n  \"Byzance\",            0.41,  600\n) |&gt; mutate(societe = forcats::fct_reorder(societe, annee))\n\np &lt;- ggplot(df, aes(x = societe, y = gini,\n                    text = paste0(societe, \"&lt;br&gt;Gini : \", gini,\n                                  \"&lt;br&gt;ca. \", ifelse(annee&lt;0, paste0(abs(annee),\" av.\"), annee)))) +\n  geom_col(fill = \"#8B1A1A\", alpha = .75, width = .6) +\n  geom_hline(yintercept = .40, linetype = \"dashed\", color = \"#B8860B\", linewidth = .5) +\n  annotate(\"text\", x = .7, y = .41, label = \"seuil d'extraction (Milanovic)\",\n           hjust = 0, size = 3, color = \"#B8860B\") +\n  scale_y_continuous(limits = c(0, .65)) +\n  labs(x = NULL, y = \"Gini estimé\",\n       caption = \"Source : Milanovic, Lindert & Williamson (2011)\") +\n  theme_minimal(base_size = 11, base_family = \"serif\") +\n  theme(panel.grid.minor = element_blank(),\n        panel.grid.major.x = element_blank())\n\nplotly::ggplotly(p, tooltip = \"text\")\n\nEstimations de l’indice de Gini dans l’Antiquité. La valeur 0 = égalité parfaite ; 1 = inégalité totale."
+  },
+  {
+    "objectID": "actes/01_antiquite.html#les-voix-poétiques-1",
+    "href": "actes/01_antiquite.html#les-voix-poétiques-1",
+    "title": "Acte I — L’inégalité comme ordre naturel",
+    "section": "Les voix poétiques",
+    "text": "Les voix poétiques\n\nCertains disent qu’une armée de cavalerie,\nd’autres, une armée de fantassins,\nest la plus belle chose sur cette terre noire.\nMais moi, je dis que c’est ce qu’on aime.\n\nSappho, Fragment 16, ca. 600 av. J.-C. — trad. Anne Carson\n\n\nPourquoi Sappho ici ? Son fragment pose une théorie de la valeur radicalement subjective, contre la logique de la force et de l’accumulation. Ce que vaut quelque chose, c’est ce qu’on désire — pas ce qu’on possède.\n\n\nFil rouge — Les inégalités\n\nComment l’inégalité est mesurée à cette époque : elle ne l’est pas. Il n’existe ni statistique, ni enquête, ni indicateur. L’inégalité est visible (corps des esclaves, palais des maîtres) mais non quantifiée. Le Gini que nous calculons rétrospectivement est une reconstruction — nos catégories projetées sur leur monde.\n\n\n\nFil femmes — Antiquité\n\nSappho est la première grande voix poétique féminine connue à théoriser le désir contre la logique économique de la force. Jane Marcet (1769–1858), première vulgarisatrice de l’économie politique, sera son héritière 2 400 ans plus tard — même invisibilité dans les manuels canoniques."
+  },
+  {
+    "objectID": "actes/01_antiquite.html#pour-aller-plus-loin-1",
+    "href": "actes/01_antiquite.html#pour-aller-plus-loin-1",
+    "title": "Acte I — L’inégalité comme ordre naturel",
+    "section": "Pour aller plus loin",
+    "text": "Pour aller plus loin\n\nAristote, Politique, Livre I (sur l’oikonomia et la chrématistique)\nMilanovic, B. (2011). The Haves and the Have-Nots — Appendice sur les sociétés pré-industrielles\nCarson, A. (trad.) — If Not, Winter : Fragments of Sappho\n\n\n```{=html}\n\n\n\n:::"
   }
 ]

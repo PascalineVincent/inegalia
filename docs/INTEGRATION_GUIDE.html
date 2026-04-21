@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>integration_guide – Inégalités — Histoire économique</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./images/favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-1be5c2823cd0ffd99ff792b0b47bb09b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Inégalités — Histoire économique</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Le voyage</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-les-6-actes" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Les 6 actes</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-les-6-actes">    
+        <li>
+    <a class="dropdown-item" href="./actes/01_antiquite.html">
+ <span class="dropdown-text">I — Antiquité</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./actes/02_feodal.html">
+ <span class="dropdown-text">II — Moyen Âge</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./actes/03_renaissance.html">
+ <span class="dropdown-text">III — Renaissance</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./actes/04_industrie.html">
+ <span class="dropdown-text">IV — XIXe siècle</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./actes/05_regulation.html">
+ <span class="dropdown-text">V — XXe siècle</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./actes/06_contemporain.html">
+ <span class="dropdown-text">VI — XXIe siècle</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./journal/carnet_test.html"> 
+<span class="menu-text">Journal de bord</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-interactif" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Interactif</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-interactif">    
+        <li>
+    <a class="dropdown-item" href="./interactif/qcm.html">
+ <span class="dropdown-text">QCM — auto-évaluation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./interactif/carte_gini.html">
+ <span class="dropdown-text">Carte — Gini mondial</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./interactif/ma_progression.html">
+ <span class="dropdown-text">Ma progression</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./interactif/epilogue.html">
+ <span class="dropdown-text">Épilogue</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-cours" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Cours</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-cours">    
+        <li>
+    <a class="dropdown-item" href="./seances/index.html">
+ <span class="dropdown-text">Séances</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./seances/donnees.html">
+ <span class="dropdown-text">Données</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./seances/biblio.html">
+ <span class="dropdown-text">Bibliographie</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./apropos.html"> 
+<span class="menu-text">À propos</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/votre-compte/inegalites-histoire"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#guide-dintégration-les-4-nouvelles-couches" id="toc-guide-dintégration-les-4-nouvelles-couches" class="nav-link active" data-scroll-target="#guide-dintégration-les-4-nouvelles-couches">Guide d’intégration — Les 4 nouvelles couches</a>
+  <ul class="collapse">
+  <li><a href="#fichiers-à-ajouter-au-projet" id="toc-fichiers-à-ajouter-au-projet" class="nav-link" data-scroll-target="#fichiers-à-ajouter-au-projet">Fichiers à ajouter au projet</a></li>
+  <li><a href="#les-6-blocs-de-décision-à-coller-à-la-fin-de-chaque-acte" id="toc-les-6-blocs-de-décision-à-coller-à-la-fin-de-chaque-acte" class="nav-link" data-scroll-target="#les-6-blocs-de-décision-à-coller-à-la-fin-de-chaque-acte">Les 6 blocs de décision — à coller à la fin de chaque acte</a>
+  <ul class="collapse">
+  <li><a href="#acte-i-actes01_antiquite.qmd" id="toc-acte-i-actes01_antiquite.qmd" class="nav-link" data-scroll-target="#acte-i-actes01_antiquite.qmd">ACTE I — actes/01_antiquite.qmd</a></li>
+  <li><a href="#acte-ii-actes02_feodal.qmd" id="toc-acte-ii-actes02_feodal.qmd" class="nav-link" data-scroll-target="#acte-ii-actes02_feodal.qmd">ACTE II — actes/02_feodal.qmd</a></li>
+  <li><a href="#acte-iii-actes03_renaissance.qmd" id="toc-acte-iii-actes03_renaissance.qmd" class="nav-link" data-scroll-target="#acte-iii-actes03_renaissance.qmd">ACTE III — actes/03_renaissance.qmd</a></li>
+  <li><a href="#acte-iv-actes04_industrie.qmd" id="toc-acte-iv-actes04_industrie.qmd" class="nav-link" data-scroll-target="#acte-iv-actes04_industrie.qmd">ACTE IV — actes/04_industrie.qmd</a></li>
+  <li><a href="#acte-v-actes05_regulation.qmd" id="toc-acte-v-actes05_regulation.qmd" class="nav-link" data-scroll-target="#acte-v-actes05_regulation.qmd">ACTE V — actes/05_regulation.qmd</a></li>
+  <li><a href="#acte-vi-actes06_contemporain.qmd" id="toc-acte-vi-actes06_contemporain.qmd" class="nav-link" data-scroll-target="#acte-vi-actes06_contemporain.qmd">ACTE VI — actes/06_contemporain.qmd</a></li>
+  </ul></li>
+  <li><a href="#comment-intégrer-le-bloc-script-une-seule-fois" id="toc-comment-intégrer-le-bloc-script-une-seule-fois" class="nav-link" data-scroll-target="#comment-intégrer-le-bloc-script-une-seule-fois">Comment intégrer le bloc script une seule fois</a>
+  <ul class="collapse">
+  <li><a href="#option-a-fichier-js-externe-recommandé" id="toc-option-a-fichier-js-externe-recommandé" class="nav-link" data-scroll-target="#option-a-fichier-js-externe-recommandé">Option A — Fichier JS externe (recommandé)</a></li>
+  <li><a href="#option-b-include-quarto" id="toc-option-b-include-quarto" class="nav-link" data-scroll-target="#option-b-include-quarto">Option B — Include Quarto</a></li>
+  </ul></li>
+  <li><a href="#navigation-ajouter-dans-_quarto.yml" id="toc-navigation-ajouter-dans-_quarto.yml" class="nav-link" data-scroll-target="#navigation-ajouter-dans-_quarto.yml">Navigation — ajouter dans _quarto.yml</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7"></h1></header><div class="quarto-title-block"><div class="quarto-title-tools-only"><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+
+
+
+
+<section id="guide-dintégration-les-4-nouvelles-couches" class="level1">
+<h1>Guide d’intégration — Les 4 nouvelles couches</h1>
+<section id="fichiers-à-ajouter-au-projet" class="level2">
+<h2 class="anchored" data-anchor-id="fichiers-à-ajouter-au-projet">Fichiers à ajouter au projet</h2>
+<p>Copier les 3 fichiers suivants dans ton projet :</p>
+<pre><code>inegalites/
+├── interactif/
+│   ├── carte_gini.qmd      ← existant
+│   ├── qcm.qmd             ← existant
+│   ├── ma_progression.qmd  ← NOUVEAU ✦
+│   └── epilogue.qmd        ← NOUVEAU ✦</code></pre>
+<p>Et ajouter dans <code>_quarto.yml</code>, dans le menu “Interactif” :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Ma progression"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">href</span><span class="kw">:</span><span class="at"> interactif/ma_progression.qmd</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Épilogue"</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">href</span><span class="kw">:</span><span class="at"> interactif/epilogue.qmd</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="les-6-blocs-de-décision-à-coller-à-la-fin-de-chaque-acte" class="level2">
+<h2 class="anchored" data-anchor-id="les-6-blocs-de-décision-à-coller-à-la-fin-de-chaque-acte">Les 6 blocs de décision — à coller à la fin de chaque acte</h2>
+<p>Chaque bloc est un chunk <code>{=html}</code> à placer <strong>après la section “Pour aller plus loin”</strong> de chaque fichier actes/0X_xxxxx.qmd.</p>
+<hr>
+<section id="acte-i-actes01_antiquite.qmd" class="level3">
+<h3 class="anchored" data-anchor-id="acte-i-actes01_antiquite.qmd">ACTE I — actes/01_antiquite.qmd</h3>
+<div id="widget-decision" data-acte="1" data-titre="Athènes, –350 av. J.-C." data-guide="Thomas, voyageur dans le temps" data-parole="Aristote m'a demandé ce que je pensais de l'esclavage. Je dois répondre." data-dilemme="Tu es un philosophe influent à Athènes. Un citoyen te demande si l'esclavage est juste et si la richesse doit être limitée. Quelle est ta posture ?" data-opt-a="L'ordre est naturel : certains naissent pour commander, d'autres pour obéir. Les hiérarchies sont dans la nature des choses." data-opt-b="L'accumulation sans limite est néfaste pour la cité. Il faut des règles sur la richesse — mais les hiérarchies peuvent subsister." data-opt-c="La valeur n'est pas dans la force ni la naissance, mais dans ce qu'on désire et crée. Toute hiérarchie est un choix politique, pas une nécessité." data-label-a="Aristotélicien" data-label-b="Réformiste" data-label-c="Subversif" data-echo-a="Tu rejoins la pensée dominante. L'inégalité comme ordre naturel justifiera l'esclavage pendant deux millénaires — et réapparaîtra dans les théories des hiérarchies naturelles du XIXe siècle." data-echo-b="Tu anticipes les critiques médiévales du profit excessif. Ibn Khaldoun et Thomas d'Aquin penseront comme toi : des inégalités tolérables, mais des limites nécessaires." data-echo-c="Tu es proche de Sappho et de sa théorie subjective de la valeur. Cette intuition reviendra avec les marginalistes au XIXe siècle — et avec les féministes économiques au XXe."></div>
+<!-- Coller ici le bloc <style> et <script> du widget — voir decision_widget_standalone.html -->
+<hr>
+</section>
+<section id="acte-ii-actes02_feodal.qmd" class="level3">
+<h3 class="anchored" data-anchor-id="acte-ii-actes02_feodal.qmd">ACTE II — actes/02_feodal.qmd</h3>
+<div id="widget-decision" data-acte="2" data-titre="Paris, hiver 1349" data-guide="Thomas, voyageur dans le temps" data-parole="La Peste a tout bouleversé. Les survivants négocient. Que fais-je de ce pouvoir inattendu ?" data-dilemme="Tu es un artisan survivant de la Peste noire. Tes services sont rares, donc précieux. Le seigneur veut bloquer les salaires par ordonnance. Que fais-tu ?" data-opt-a="Tu acceptes l'ordonnance royale. L'ordre social et la paix valent plus que ton salaire. Dieu a établi les hiérarchies." data-opt-b="Tu négocie discrètement avec le seigneur pour un salaire légèrement supérieur, sans affrontement direct." data-opt-c="Tu t'organises avec les autres artisans pour refuser collectivement l'ordonnance. La rareté vous donne un levier — il faut l'utiliser." data-label-a="Conservateur" data-label-b="Pragmatique" data-label-c="Collectiviste" data-echo-a="Ta posture reflète la résignation médiévale dominante. Les ordonnances comme le Statute of Labourers (1351) triompheront à court terme — mais la pression salariale persistera." data-echo-b="C'est la stratégie réelle de beaucoup d'artisans : contournement plutôt qu'affrontement. Efficace à court terme, invisible dans l'histoire." data-echo-c="Tu anticipes les coalitions ouvrières du XIXe siècle. La solidarité comme outil économique — Marx en fera une théorie deux siècles plus tard."></div>
+<hr>
+</section>
+<section id="acte-iii-actes03_renaissance.qmd" class="level3">
+<h3 class="anchored" data-anchor-id="acte-iii-actes03_renaissance.qmd">ACTE III — actes/03_renaissance.qmd</h3>
+<div id="widget-decision" data-acte="3" data-titre="Lyon, foire de la Saint-Jean, 1555" data-guide="Thomas, voyageur dans le temps" data-parole="Les marchands s'enrichissent sur les lettres de change. Loin d'ici, au Potosí, des hommes meurent pour l'argent qui circule ici. Je dois choisir ma place." data-dilemme="Tu es un marchand lyonnais prospère. Ton enrichissement repose sur les réseaux commerciaux — mais aussi sur l'argent extrait par le travail forcé au Pérou. Comment penses-tu ta fortune ?" data-opt-a="Le commerce est le moteur du progrès. Les lois du marché s'appliquent à tous. La distance géographique des sources de richesse ne te concerne pas." data-opt-b="Tu reconnais le problème, mais tu n'y peux rien seul. Tu tentes de limiter tes activités les plus douteuses sans renoncer à ta place dans le système." data-opt-c="La richesse que tu accumules est construite sur une violence invisible. Tu commences à tenir des comptes doubles — économie officielle et coûts humains cachés." data-label-a="Libéral classique" data-label-b="Réformiste modéré" data-label-c="Critique systémique" data-echo-a="Tu préfigures Adam Smith et la pensée libérale classique : le marché comme ordre spontané, les effets négatifs comme 'externalités' hors du calcul économique." data-echo-b="Tu ressembles à beaucoup de réformateurs du XVIIIe siècle : conscience des problèmes, réforme à la marge. Keynes aura une posture similaire face au capitalisme." data-echo-c="Tu anticipes de plusieurs siècles la comptabilité sociale et les théories décoloniales. La richesse de l'Europe sera analysée en lien avec l'extraction coloniale par Walter Rodney (1972)."></div>
+<hr>
+</section>
+<section id="acte-iv-actes04_industrie.qmd" class="level3">
+<h3 class="anchored" data-anchor-id="acte-iv-actes04_industrie.qmd">ACTE IV — actes/04_industrie.qmd</h3>
+<div id="widget-decision" data-acte="4" data-titre="Manchester, mars 1848" data-guide="Thomas, voyageur dans le temps" data-parole="J'ai vu les usines. J'ai lu le Manifeste. On me demande ce que je pense faire." data-dilemme="Tu es un ouvrier qualifié à Manchester en 1848. Tu gagnes assez pour survivre — mais juste. On te propose de rejoindre une coalition syndicale illégale. Que choisis-tu ?" data-opt-a="Tu refuses. Le progrès industriel finira par profiter à tous. Les inégalités actuelles sont temporaires — le marché s'autorégule." data-opt-b="Tu rejoins le syndicat mais pour négocier des améliorations concrètes (salaires, heures), pas pour renverser le système." data-opt-c="Tu rejoins le mouvement et milites pour une transformation radicale des rapports de propriété. Le problème est structurel, pas conjoncturel." data-label-a="Libéral confiant" data-label-b="Syndicaliste réformiste" data-label-c="Révolutionnaire" data-echo-a="Tu partages la foi libérale dans le progrès spontané. Ricardo avant toi, puis les néoclassiques après, défendront cette vision — mais les données du XIXe siècle la contredisent sévèrement." data-echo-b="C'est la voie qui triomphera : syndicats, conventions collectives, État-providence. Le réformisme battra le révolutionnarisme en Europe occidentale au XXe siècle." data-echo-c="Tu rejoins Marx et Engels. La révolution ouvrière aura lieu — mais à l'Est, pas en Angleterre, et avec des résultats très différents de ce que Marx anticipait."></div>
+<hr>
+</section>
+<section id="acte-v-actes05_regulation.qmd" class="level3">
+<h3 class="anchored" data-anchor-id="acte-v-actes05_regulation.qmd">ACTE V — actes/05_regulation.qmd</h3>
+<div id="widget-decision" data-acte="5" data-titre="New York / Washington, 1933" data-guide="Thomas, voyageur dans le temps" data-parole="Roosevelt propose le New Deal. Ses conseillers débattent encore. On me demande mon avis sur l'ampleur de l'intervention." data-dilemme="Tu es un économiste conseillant Roosevelt après le krach de 1929. Le chômage atteint 25%. Quelle est ton approche ?" data-opt-a="L'État doit intervenir massivement et rapidement — dépenses publiques, emplois directs, régulation bancaire forte. Le marché ne peut pas se réguler seul en crise." data-opt-b="Une intervention limitée et temporaire, ciblée sur les plus vulnérables, sans remettre en question la structure du marché à long terme." data-opt-c="La crise révèle que le capitalisme est structurellement instable. Il faut aller au-delà du New Deal : propriété collective des secteurs clés, redistribution forte." data-label-a="Keynésien" data-label-b="Libéral pragmatique" data-label-c="Social-démocrate radical" data-echo-a="Tu es Keynes. Ton approche sera appliquée par Roosevelt et deviendra le fondement de l'État-providence occidental. Les Trente Glorieuses (1945-1975) lui donneront raison — jusqu'à ce que stagflation ne fragilise ce modèle." data-echo-b="Tu ressembles aux économistes libéraux modérés comme Friedman jeune. L'intervention minimale sera réhabilitée dans les années 1980 par Thatcher et Reagan." data-echo-c="Tu préfigures les économistes scandinaves et la social-démocratie européenne. Les pays qui iront le plus loin dans cette direction (Suède, Danemark) obtiendront les Gini les plus bas du XXe siècle."></div>
+<hr>
+</section>
+<section id="acte-vi-actes06_contemporain.qmd" class="level3">
+<h3 class="anchored" data-anchor-id="acte-vi-actes06_contemporain.qmd">ACTE VI — actes/06_contemporain.qmd</h3>
+<div id="widget-decision" data-acte="6" data-titre="San Francisco / Paris, 2026" data-guide="Thomas, voyageur dans le temps" data-parole="J'arrive au XXIe siècle. Tout est mesuré. Rien n'est résolu. C'est ma dernière décision dans ce voyage." data-dilemme="Tu es économiste en 2026. Les données montrent que r > g (Piketty) : les patrimoines s'accumulent plus vite que les économies ne croissent. Quelle est ta prescription ?" data-opt-a="La croissance et l'innovation résoudront les inégalités à terme. Le numérique démocratise l'accès. Priorité : libérer les marchés et innover." data-opt-b="Il faut des politiques redistributives fortes (impôt progressif, services publics) mais dans le cadre du capitalisme existant. Piketty a raison sur le diagnostic." data-opt-c="Les outils de mesure ont progressé mais les cadres conceptuels sont dépassés. Il faut repenser ce qu'on mesure : bien-être, temps libre, soins, nature — pas seulement le PIB." data-label-a="Tech-optimiste" data-label-b="Pikettyen" data-label-c="Post-croissance" data-echo-a="Tu rejoins les économistes de la Silicon Valley et les théoriciens de la croissance endogène. Les données de 2000-2026 ne soutiennent pas l'hypothèse de réduction automatique : les inégalités ont continué de croître." data-echo-b="Tu es dans la ligne directe de Keynes → État-providence → Piketty. Cette tradition réformiste est dominante dans les institutions internationales (FMI, OCDE) depuis les années 2010." data-echo-c="Tu rejoins Kate Raworth (économie du donut), Tim Jackson (prospérité sans croissance), et les économistes féministes. Ce courant reste marginal dans les institutions mais croît rapidement dans les universités."></div>
+<hr>
+</section>
+</section>
+<section id="comment-intégrer-le-bloc-script-une-seule-fois" class="level2">
+<h2 class="anchored" data-anchor-id="comment-intégrer-le-bloc-script-une-seule-fois">Comment intégrer le bloc script une seule fois</h2>
+<p>Pour éviter de répéter le CSS et le JS dans chaque acte, deux options :</p>
+<section id="option-a-fichier-js-externe-recommandé" class="level3">
+<h3 class="anchored" data-anchor-id="option-a-fichier-js-externe-recommandé">Option A — Fichier JS externe (recommandé)</h3>
+<p>Créer <code>docs/js/decision.js</code> avec le contenu du <code>&lt;script&gt;</code> du widget, et dans chaque acte ajouter :</p>
+<link rel="stylesheet" href="../styles/decision.css">
+<script src="../js/decision.js"></script>
+</section>
+<section id="option-b-include-quarto" class="level3">
+<h3 class="anchored" data-anchor-id="option-b-include-quarto">Option B — Include Quarto</h3>
+<p>Dans <code>_quarto.yml</code>, ajouter :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">include-after-body</span><span class="kw">:</span><span class="at"> </span><span class="st">"includes/decision_widget.html"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Et créer <code>includes/decision_widget.html</code> avec le CSS + JS du widget.</p>
+<hr>
+</section>
+</section>
+<section id="navigation-ajouter-dans-_quarto.yml" class="level2">
+<h2 class="anchored" data-anchor-id="navigation-ajouter-dans-_quarto.yml">Navigation — ajouter dans _quarto.yml</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">navbar</span><span class="kw">:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">left</span><span class="kw">:</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">    ...</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Interactif"</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">menu</span><span class="kw">:</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"QCM — auto-évaluation"</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">href</span><span class="kw">:</span><span class="at"> interactif/qcm.qmd</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Carte — Gini mondial"</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">href</span><span class="kw">:</span><span class="at"> interactif/carte_gini.qmd</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Ma progression"</span><span class="co">        # ← NOUVEAU</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">href</span><span class="kw">:</span><span class="at"> interactif/ma_progression.qmd</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Mon épilogue"</span><span class="co">          # ← NOUVEAU</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">href</span><span class="kw">:</span><span class="at"> interactif/epilogue.qmd</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+
+
+<!-- -->
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Guide d'intégration — Les 4 nouvelles couches</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Fichiers à ajouter au projet</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>Copier les 3 fichiers suivants dans ton projet :</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="in">inegalites/</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="in">├── interactif/</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── carte_gini.qmd      ← existant</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── qcm.qmd             ← existant</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── ma_progression.qmd  ← NOUVEAU ✦</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── epilogue.qmd        ← NOUVEAU ✦</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>Et ajouter dans <span class="in">`_quarto.yml`</span>, dans le menu "Interactif" :</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Ma progression"</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">href</span><span class="kw">:</span><span class="at"> interactif/ma_progression.qmd</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Épilogue"</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">href</span><span class="kw">:</span><span class="at"> interactif/epilogue.qmd</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="fu">## Les 6 blocs de décision — à coller à la fin de chaque acte</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>Chaque bloc est un chunk <span class="in">`{=html}`</span> à placer **après la section "Pour aller plus loin"**</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>de chaque fichier actes/0X_xxxxx.qmd.</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="fu">### ACTE I — actes/01_antiquite.qmd</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div id="widget-decision"</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="in">     data-acte="1"</span></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="in">     data-titre="Athènes, –350 av. J.-C."</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="in">     data-guide="Thomas, voyageur dans le temps"</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="in">     data-parole="Aristote m'a demandé ce que je pensais de l'esclavage. Je dois répondre."</span></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a><span class="in">     data-dilemme="Tu es un philosophe influent à Athènes. Un citoyen te demande si l'esclavage est juste et si la richesse doit être limitée. Quelle est ta posture ?"</span></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a><span class="in">     data-opt-a="L'ordre est naturel : certains naissent pour commander, d'autres pour obéir. Les hiérarchies sont dans la nature des choses."</span></span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a><span class="in">     data-opt-b="L'accumulation sans limite est néfaste pour la cité. Il faut des règles sur la richesse — mais les hiérarchies peuvent subsister."</span></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a><span class="in">     data-opt-c="La valeur n'est pas dans la force ni la naissance, mais dans ce qu'on désire et crée. Toute hiérarchie est un choix politique, pas une nécessité."</span></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a><span class="in">     data-label-a="Aristotélicien"</span></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a><span class="in">     data-label-b="Réformiste"</span></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a><span class="in">     data-label-c="Subversif"</span></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a><span class="in">     data-echo-a="Tu rejoins la pensée dominante. L'inégalité comme ordre naturel justifiera l'esclavage pendant deux millénaires — et réapparaîtra dans les théories des hiérarchies naturelles du XIXe siècle."</span></span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a><span class="in">     data-echo-b="Tu anticipes les critiques médiévales du profit excessif. Ibn Khaldoun et Thomas d'Aquin penseront comme toi : des inégalités tolérables, mais des limites nécessaires."</span></span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a><span class="in">     data-echo-c="Tu es proche de Sappho et de sa théorie subjective de la valeur. Cette intuition reviendra avec les marginalistes au XIXe siècle — et avec les féministes économiques au XXe."</span></span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a><span class="in">&gt;&lt;/div&gt;</span></span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;!-- Coller ici le bloc &lt;style&gt; et &lt;script&gt; du widget — voir decision_widget_standalone.html --&gt;</span></span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a><span class="fu">### ACTE II — actes/02_feodal.qmd</span></span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div id="widget-decision"</span></span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a><span class="in">     data-acte="2"</span></span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a><span class="in">     data-titre="Paris, hiver 1349"</span></span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a><span class="in">     data-guide="Thomas, voyageur dans le temps"</span></span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a><span class="in">     data-parole="La Peste a tout bouleversé. Les survivants négocient. Que fais-je de ce pouvoir inattendu ?"</span></span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a><span class="in">     data-dilemme="Tu es un artisan survivant de la Peste noire. Tes services sont rares, donc précieux. Le seigneur veut bloquer les salaires par ordonnance. Que fais-tu ?"</span></span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a><span class="in">     data-opt-a="Tu acceptes l'ordonnance royale. L'ordre social et la paix valent plus que ton salaire. Dieu a établi les hiérarchies."</span></span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a><span class="in">     data-opt-b="Tu négocie discrètement avec le seigneur pour un salaire légèrement supérieur, sans affrontement direct."</span></span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a><span class="in">     data-opt-c="Tu t'organises avec les autres artisans pour refuser collectivement l'ordonnance. La rareté vous donne un levier — il faut l'utiliser."</span></span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a><span class="in">     data-label-a="Conservateur"</span></span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a><span class="in">     data-label-b="Pragmatique"</span></span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a><span class="in">     data-label-c="Collectiviste"</span></span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a><span class="in">     data-echo-a="Ta posture reflète la résignation médiévale dominante. Les ordonnances comme le Statute of Labourers (1351) triompheront à court terme — mais la pression salariale persistera."</span></span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a><span class="in">     data-echo-b="C'est la stratégie réelle de beaucoup d'artisans : contournement plutôt qu'affrontement. Efficace à court terme, invisible dans l'histoire."</span></span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a><span class="in">     data-echo-c="Tu anticipes les coalitions ouvrières du XIXe siècle. La solidarité comme outil économique — Marx en fera une théorie deux siècles plus tard."</span></span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a><span class="in">&gt;&lt;/div&gt;</span></span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a><span class="fu">### ACTE III — actes/03_renaissance.qmd</span></span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div id="widget-decision"</span></span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a><span class="in">     data-acte="3"</span></span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a><span class="in">     data-titre="Lyon, foire de la Saint-Jean, 1555"</span></span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a><span class="in">     data-guide="Thomas, voyageur dans le temps"</span></span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a><span class="in">     data-parole="Les marchands s'enrichissent sur les lettres de change. Loin d'ici, au Potosí, des hommes meurent pour l'argent qui circule ici. Je dois choisir ma place."</span></span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a><span class="in">     data-dilemme="Tu es un marchand lyonnais prospère. Ton enrichissement repose sur les réseaux commerciaux — mais aussi sur l'argent extrait par le travail forcé au Pérou. Comment penses-tu ta fortune ?"</span></span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a><span class="in">     data-opt-a="Le commerce est le moteur du progrès. Les lois du marché s'appliquent à tous. La distance géographique des sources de richesse ne te concerne pas."</span></span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a><span class="in">     data-opt-b="Tu reconnais le problème, mais tu n'y peux rien seul. Tu tentes de limiter tes activités les plus douteuses sans renoncer à ta place dans le système."</span></span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a><span class="in">     data-opt-c="La richesse que tu accumules est construite sur une violence invisible. Tu commences à tenir des comptes doubles — économie officielle et coûts humains cachés."</span></span>
+<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a><span class="in">     data-label-a="Libéral classique"</span></span>
+<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a><span class="in">     data-label-b="Réformiste modéré"</span></span>
+<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a><span class="in">     data-label-c="Critique systémique"</span></span>
+<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a><span class="in">     data-echo-a="Tu préfigures Adam Smith et la pensée libérale classique : le marché comme ordre spontané, les effets négatifs comme 'externalités' hors du calcul économique."</span></span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a><span class="in">     data-echo-b="Tu ressembles à beaucoup de réformateurs du XVIIIe siècle : conscience des problèmes, réforme à la marge. Keynes aura une posture similaire face au capitalisme."</span></span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a><span class="in">     data-echo-c="Tu anticipes de plusieurs siècles la comptabilité sociale et les théories décoloniales. La richesse de l'Europe sera analysée en lien avec l'extraction coloniale par Walter Rodney (1972)."</span></span>
+<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a><span class="in">&gt;&lt;/div&gt;</span></span>
+<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a><span class="fu">### ACTE IV — actes/04_industrie.qmd</span></span>
+<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div id="widget-decision"</span></span>
+<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a><span class="in">     data-acte="4"</span></span>
+<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a><span class="in">     data-titre="Manchester, mars 1848"</span></span>
+<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a><span class="in">     data-guide="Thomas, voyageur dans le temps"</span></span>
+<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a><span class="in">     data-parole="J'ai vu les usines. J'ai lu le Manifeste. On me demande ce que je pense faire."</span></span>
+<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a><span class="in">     data-dilemme="Tu es un ouvrier qualifié à Manchester en 1848. Tu gagnes assez pour survivre — mais juste. On te propose de rejoindre une coalition syndicale illégale. Que choisis-tu ?"</span></span>
+<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a><span class="in">     data-opt-a="Tu refuses. Le progrès industriel finira par profiter à tous. Les inégalités actuelles sont temporaires — le marché s'autorégule."</span></span>
+<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a><span class="in">     data-opt-b="Tu rejoins le syndicat mais pour négocier des améliorations concrètes (salaires, heures), pas pour renverser le système."</span></span>
+<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a><span class="in">     data-opt-c="Tu rejoins le mouvement et milites pour une transformation radicale des rapports de propriété. Le problème est structurel, pas conjoncturel."</span></span>
+<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a><span class="in">     data-label-a="Libéral confiant"</span></span>
+<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a><span class="in">     data-label-b="Syndicaliste réformiste"</span></span>
+<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a><span class="in">     data-label-c="Révolutionnaire"</span></span>
+<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a><span class="in">     data-echo-a="Tu partages la foi libérale dans le progrès spontané. Ricardo avant toi, puis les néoclassiques après, défendront cette vision — mais les données du XIXe siècle la contredisent sévèrement."</span></span>
+<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a><span class="in">     data-echo-b="C'est la voie qui triomphera : syndicats, conventions collectives, État-providence. Le réformisme battra le révolutionnarisme en Europe occidentale au XXe siècle."</span></span>
+<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a><span class="in">     data-echo-c="Tu rejoins Marx et Engels. La révolution ouvrière aura lieu — mais à l'Est, pas en Angleterre, et avec des résultats très différents de ce que Marx anticipait."</span></span>
+<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a><span class="in">&gt;&lt;/div&gt;</span></span>
+<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb5-126"><a href="#cb5-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-127"><a href="#cb5-127" aria-hidden="true" tabindex="-1"></a><span class="fu">### ACTE V — actes/05_regulation.qmd</span></span>
+<span id="cb5-128"><a href="#cb5-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-129"><a href="#cb5-129" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb5-130"><a href="#cb5-130" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div id="widget-decision"</span></span>
+<span id="cb5-131"><a href="#cb5-131" aria-hidden="true" tabindex="-1"></a><span class="in">     data-acte="5"</span></span>
+<span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a><span class="in">     data-titre="New York / Washington, 1933"</span></span>
+<span id="cb5-133"><a href="#cb5-133" aria-hidden="true" tabindex="-1"></a><span class="in">     data-guide="Thomas, voyageur dans le temps"</span></span>
+<span id="cb5-134"><a href="#cb5-134" aria-hidden="true" tabindex="-1"></a><span class="in">     data-parole="Roosevelt propose le New Deal. Ses conseillers débattent encore. On me demande mon avis sur l'ampleur de l'intervention."</span></span>
+<span id="cb5-135"><a href="#cb5-135" aria-hidden="true" tabindex="-1"></a><span class="in">     data-dilemme="Tu es un économiste conseillant Roosevelt après le krach de 1929. Le chômage atteint 25%. Quelle est ton approche ?"</span></span>
+<span id="cb5-136"><a href="#cb5-136" aria-hidden="true" tabindex="-1"></a><span class="in">     data-opt-a="L'État doit intervenir massivement et rapidement — dépenses publiques, emplois directs, régulation bancaire forte. Le marché ne peut pas se réguler seul en crise."</span></span>
+<span id="cb5-137"><a href="#cb5-137" aria-hidden="true" tabindex="-1"></a><span class="in">     data-opt-b="Une intervention limitée et temporaire, ciblée sur les plus vulnérables, sans remettre en question la structure du marché à long terme."</span></span>
+<span id="cb5-138"><a href="#cb5-138" aria-hidden="true" tabindex="-1"></a><span class="in">     data-opt-c="La crise révèle que le capitalisme est structurellement instable. Il faut aller au-delà du New Deal : propriété collective des secteurs clés, redistribution forte."</span></span>
+<span id="cb5-139"><a href="#cb5-139" aria-hidden="true" tabindex="-1"></a><span class="in">     data-label-a="Keynésien"</span></span>
+<span id="cb5-140"><a href="#cb5-140" aria-hidden="true" tabindex="-1"></a><span class="in">     data-label-b="Libéral pragmatique"</span></span>
+<span id="cb5-141"><a href="#cb5-141" aria-hidden="true" tabindex="-1"></a><span class="in">     data-label-c="Social-démocrate radical"</span></span>
+<span id="cb5-142"><a href="#cb5-142" aria-hidden="true" tabindex="-1"></a><span class="in">     data-echo-a="Tu es Keynes. Ton approche sera appliquée par Roosevelt et deviendra le fondement de l'État-providence occidental. Les Trente Glorieuses (1945-1975) lui donneront raison — jusqu'à ce que stagflation ne fragilise ce modèle."</span></span>
+<span id="cb5-143"><a href="#cb5-143" aria-hidden="true" tabindex="-1"></a><span class="in">     data-echo-b="Tu ressembles aux économistes libéraux modérés comme Friedman jeune. L'intervention minimale sera réhabilitée dans les années 1980 par Thatcher et Reagan."</span></span>
+<span id="cb5-144"><a href="#cb5-144" aria-hidden="true" tabindex="-1"></a><span class="in">     data-echo-c="Tu préfigures les économistes scandinaves et la social-démocratie européenne. Les pays qui iront le plus loin dans cette direction (Suède, Danemark) obtiendront les Gini les plus bas du XXe siècle."</span></span>
+<span id="cb5-145"><a href="#cb5-145" aria-hidden="true" tabindex="-1"></a><span class="in">&gt;&lt;/div&gt;</span></span>
+<span id="cb5-146"><a href="#cb5-146" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-147"><a href="#cb5-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-148"><a href="#cb5-148" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb5-149"><a href="#cb5-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-150"><a href="#cb5-150" aria-hidden="true" tabindex="-1"></a><span class="fu">### ACTE VI — actes/06_contemporain.qmd</span></span>
+<span id="cb5-151"><a href="#cb5-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-152"><a href="#cb5-152" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb5-153"><a href="#cb5-153" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div id="widget-decision"</span></span>
+<span id="cb5-154"><a href="#cb5-154" aria-hidden="true" tabindex="-1"></a><span class="in">     data-acte="6"</span></span>
+<span id="cb5-155"><a href="#cb5-155" aria-hidden="true" tabindex="-1"></a><span class="in">     data-titre="San Francisco / Paris, 2026"</span></span>
+<span id="cb5-156"><a href="#cb5-156" aria-hidden="true" tabindex="-1"></a><span class="in">     data-guide="Thomas, voyageur dans le temps"</span></span>
+<span id="cb5-157"><a href="#cb5-157" aria-hidden="true" tabindex="-1"></a><span class="in">     data-parole="J'arrive au XXIe siècle. Tout est mesuré. Rien n'est résolu. C'est ma dernière décision dans ce voyage."</span></span>
+<span id="cb5-158"><a href="#cb5-158" aria-hidden="true" tabindex="-1"></a><span class="in">     data-dilemme="Tu es économiste en 2026. Les données montrent que r &gt; g (Piketty) : les patrimoines s'accumulent plus vite que les économies ne croissent. Quelle est ta prescription ?"</span></span>
+<span id="cb5-159"><a href="#cb5-159" aria-hidden="true" tabindex="-1"></a><span class="in">     data-opt-a="La croissance et l'innovation résoudront les inégalités à terme. Le numérique démocratise l'accès. Priorité : libérer les marchés et innover."</span></span>
+<span id="cb5-160"><a href="#cb5-160" aria-hidden="true" tabindex="-1"></a><span class="in">     data-opt-b="Il faut des politiques redistributives fortes (impôt progressif, services publics) mais dans le cadre du capitalisme existant. Piketty a raison sur le diagnostic."</span></span>
+<span id="cb5-161"><a href="#cb5-161" aria-hidden="true" tabindex="-1"></a><span class="in">     data-opt-c="Les outils de mesure ont progressé mais les cadres conceptuels sont dépassés. Il faut repenser ce qu'on mesure : bien-être, temps libre, soins, nature — pas seulement le PIB."</span></span>
+<span id="cb5-162"><a href="#cb5-162" aria-hidden="true" tabindex="-1"></a><span class="in">     data-label-a="Tech-optimiste"</span></span>
+<span id="cb5-163"><a href="#cb5-163" aria-hidden="true" tabindex="-1"></a><span class="in">     data-label-b="Pikettyen"</span></span>
+<span id="cb5-164"><a href="#cb5-164" aria-hidden="true" tabindex="-1"></a><span class="in">     data-label-c="Post-croissance"</span></span>
+<span id="cb5-165"><a href="#cb5-165" aria-hidden="true" tabindex="-1"></a><span class="in">     data-echo-a="Tu rejoins les économistes de la Silicon Valley et les théoriciens de la croissance endogène. Les données de 2000-2026 ne soutiennent pas l'hypothèse de réduction automatique : les inégalités ont continué de croître."</span></span>
+<span id="cb5-166"><a href="#cb5-166" aria-hidden="true" tabindex="-1"></a><span class="in">     data-echo-b="Tu es dans la ligne directe de Keynes → État-providence → Piketty. Cette tradition réformiste est dominante dans les institutions internationales (FMI, OCDE) depuis les années 2010."</span></span>
+<span id="cb5-167"><a href="#cb5-167" aria-hidden="true" tabindex="-1"></a><span class="in">     data-echo-c="Tu rejoins Kate Raworth (économie du donut), Tim Jackson (prospérité sans croissance), et les économistes féministes. Ce courant reste marginal dans les institutions mais croît rapidement dans les universités."</span></span>
+<span id="cb5-168"><a href="#cb5-168" aria-hidden="true" tabindex="-1"></a><span class="in">&gt;&lt;/div&gt;</span></span>
+<span id="cb5-169"><a href="#cb5-169" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-170"><a href="#cb5-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-171"><a href="#cb5-171" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb5-172"><a href="#cb5-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-173"><a href="#cb5-173" aria-hidden="true" tabindex="-1"></a><span class="fu">## Comment intégrer le bloc script une seule fois</span></span>
+<span id="cb5-174"><a href="#cb5-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-175"><a href="#cb5-175" aria-hidden="true" tabindex="-1"></a>Pour éviter de répéter le CSS et le JS dans chaque acte, deux options :</span>
+<span id="cb5-176"><a href="#cb5-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-177"><a href="#cb5-177" aria-hidden="true" tabindex="-1"></a><span class="fu">### Option A — Fichier JS externe (recommandé)</span></span>
+<span id="cb5-178"><a href="#cb5-178" aria-hidden="true" tabindex="-1"></a>Créer <span class="in">`docs/js/decision.js`</span> avec le contenu du <span class="in">`&lt;script&gt;`</span> du widget,</span>
+<span id="cb5-179"><a href="#cb5-179" aria-hidden="true" tabindex="-1"></a>et dans chaque acte ajouter :</span>
+<span id="cb5-180"><a href="#cb5-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-181"><a href="#cb5-181" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb5-182"><a href="#cb5-182" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;link rel="stylesheet" href="../styles/decision.css"&gt;</span></span>
+<span id="cb5-183"><a href="#cb5-183" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;script src="../js/decision.js"&gt;&lt;/script&gt;</span></span>
+<span id="cb5-184"><a href="#cb5-184" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-185"><a href="#cb5-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-186"><a href="#cb5-186" aria-hidden="true" tabindex="-1"></a><span class="fu">### Option B — Include Quarto</span></span>
+<span id="cb5-187"><a href="#cb5-187" aria-hidden="true" tabindex="-1"></a>Dans <span class="in">`_quarto.yml`</span>, ajouter :</span>
+<span id="cb5-188"><a href="#cb5-188" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb5-189"><a href="#cb5-189" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb5-190"><a href="#cb5-190" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb5-191"><a href="#cb5-191" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">include-after-body</span><span class="kw">:</span><span class="at"> </span><span class="st">"includes/decision_widget.html"</span></span>
+<span id="cb5-192"><a href="#cb5-192" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-193"><a href="#cb5-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-194"><a href="#cb5-194" aria-hidden="true" tabindex="-1"></a>Et créer <span class="in">`includes/decision_widget.html`</span> avec le CSS + JS du widget.</span>
+<span id="cb5-195"><a href="#cb5-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-196"><a href="#cb5-196" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb5-197"><a href="#cb5-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-198"><a href="#cb5-198" aria-hidden="true" tabindex="-1"></a><span class="fu">## Navigation — ajouter dans _quarto.yml</span></span>
+<span id="cb5-199"><a href="#cb5-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-200"><a href="#cb5-200" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb5-201"><a href="#cb5-201" aria-hidden="true" tabindex="-1"></a><span class="fu">navbar</span><span class="kw">:</span></span>
+<span id="cb5-202"><a href="#cb5-202" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">left</span><span class="kw">:</span></span>
+<span id="cb5-203"><a href="#cb5-203" aria-hidden="true" tabindex="-1"></a><span class="at">    </span>...</span>
+<span id="cb5-204"><a href="#cb5-204" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Interactif"</span></span>
+<span id="cb5-205"><a href="#cb5-205" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">menu</span><span class="kw">:</span></span>
+<span id="cb5-206"><a href="#cb5-206" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"QCM — auto-évaluation"</span></span>
+<span id="cb5-207"><a href="#cb5-207" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">href</span><span class="kw">:</span><span class="at"> interactif/qcm.qmd</span></span>
+<span id="cb5-208"><a href="#cb5-208" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Carte — Gini mondial"</span></span>
+<span id="cb5-209"><a href="#cb5-209" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">href</span><span class="kw">:</span><span class="at"> interactif/carte_gini.qmd</span></span>
+<span id="cb5-210"><a href="#cb5-210" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Ma progression"</span><span class="co">        # ← NOUVEAU</span></span>
+<span id="cb5-211"><a href="#cb5-211" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">href</span><span class="kw">:</span><span class="at"> interactif/ma_progression.qmd</span></span>
+<span id="cb5-212"><a href="#cb5-212" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Mon épilogue"</span><span class="co">          # ← NOUVEAU</span></span>
+<span id="cb5-213"><a href="#cb5-213" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">href</span><span class="kw">:</span><span class="at"> interactif/epilogue.qmd</span></span>
+<span id="cb5-214"><a href="#cb5-214" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Cours hybride 10H · Public international</p>
+</div>   
+    <div class="nav-footer-center">
+<p>Conçu avec l’assistance de Claude (Anthropic) · <a href="./apropos.html">À propos</a></p>
+</div>
+    <div class="nav-footer-right">
+<p>Données · <a href="https://wid.world">wid.world</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
