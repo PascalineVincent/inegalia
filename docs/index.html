@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Le voyage – Inégalités — Histoire économique</title>
+<title>Inégalités – Inégalités — Histoire économique</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -104,24 +104,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Recherche"
   }
 }</script>
-<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
-
-<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-
-<script src="site_libs/plotly-binding-4.12.0/plotly.js"></script>
-
-<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
-
-<script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
-
-<link href="site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
-
-<script src="site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
-
-<link href="site_libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
-
-<script src="site_libs/plotly-main-2.25.2/plotly-latest.min.js"></script>
-
 
 
 </head>
@@ -258,8 +240,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Le voyage</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Montrer tout le code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Cacher tout le code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">Voir les sources</a></li></ul></div></div>
-<p class="subtitle lead">Histoire économique des inégalités — de l’Antiquité au XXIe siècle</p>
+<div class="quarto-title-block"><div><h1 class="title">Inégalités</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -276,214 +257,227 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="lead">
-<p><em>Comment les sociétés ont-elles justifié, mesuré et contesté les inégalités ?</em> De la philosophie grecque aux algorithmes de 2026, six actes pour un seul fil rouge.</p>
-</div>
-<hr>
-<section id="le-fil-rouge-global" class="level2">
-<h2 class="anchored" data-anchor-id="le-fil-rouge-global">Le fil rouge global</h2>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df_global <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>annee, <span class="sc">~</span>gini,  <span class="sc">~</span>acte,</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span><span class="dv">350</span>,   <span class="fl">0.42</span>,  <span class="st">"I — Antiquité"</span>,</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>   <span class="dv">500</span>,   <span class="fl">0.39</span>,  <span class="st">"I — Antiquité"</span>,</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>   <span class="dv">800</span>,   <span class="fl">0.41</span>,  <span class="st">"II — Moyen Âge"</span>,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1350</span>,   <span class="fl">0.38</span>,  <span class="st">"II — Moyen Âge"</span>,  <span class="co"># Après la Peste</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1450</span>,   <span class="fl">0.44</span>,  <span class="st">"II — Moyen Âge"</span>,</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1600</span>,   <span class="fl">0.47</span>,  <span class="st">"III — Renaissance"</span>,</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1750</span>,   <span class="fl">0.49</span>,  <span class="st">"III — Renaissance"</span>,</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1820</span>,   <span class="fl">0.50</span>,  <span class="st">"IV — XIXe"</span>,</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1870</span>,   <span class="fl">0.56</span>,  <span class="st">"IV — XIXe"</span>,</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1910</span>,   <span class="fl">0.61</span>,  <span class="st">"IV — XIXe"</span>,</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1929</span>,   <span class="fl">0.64</span>,  <span class="st">"V — XXe"</span>,</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1945</span>,   <span class="fl">0.60</span>,  <span class="st">"V — XXe"</span>,</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1975</span>,   <span class="fl">0.48</span>,  <span class="st">"V — XXe"</span>,</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2000</span>,   <span class="fl">0.64</span>,  <span class="st">"VI — XXIe"</span>,</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2022</span>,   <span class="fl">0.63</span>,  <span class="st">"VI — XXIe"</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>couleurs_actes <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="st">"I — Antiquité"</span>    <span class="ot">=</span> <span class="st">"#B8860B"</span>,</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="st">"II — Moyen Âge"</span>   <span class="ot">=</span> <span class="st">"#4A3728"</span>,</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="st">"III — Renaissance"</span><span class="ot">=</span> <span class="st">"#2D5A27"</span>,</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="st">"IV — XIXe"</span>        <span class="ot">=</span> <span class="st">"#4A2040"</span>,</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="st">"V — XXe"</span>          <span class="ot">=</span> <span class="st">"#1A3A5C"</span>,</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="st">"VI — XXIe"</span>        <span class="ot">=</span> <span class="st">"#8B1A1A"</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df_global, <span class="fu">aes</span>(<span class="at">x =</span> annee, <span class="at">y =</span> gini, <span class="at">color =</span> acte,</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>                            <span class="at">text =</span> <span class="fu">paste0</span>(</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"&lt;b&gt;"</span>, acte, <span class="st">"&lt;/b&gt;&lt;br&gt;"</span>,</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"Année : "</span>, <span class="fu">ifelse</span>(annee <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="fu">paste0</span>(<span class="fu">abs</span>(annee), <span class="st">" av. J.-C."</span>), annee), <span class="st">"&lt;br&gt;"</span>,</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"Gini estimé : "</span>, gini</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>                            ))) <span class="sc">+</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">alpha =</span> .<span class="dv">85</span>) <span class="sc">+</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> .<span class="dv">9</span>) <span class="sc">+</span></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Annotation : choc de la Peste</span></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="dv">1350</span>, <span class="at">xend =</span> <span class="dv">1350</span>, <span class="at">y =</span> .<span class="dv">3</span>, <span class="at">yend =</span> .<span class="dv">36</span>,</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>           <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"#888"</span>, <span class="at">linewidth =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">1355</span>, <span class="at">y =</span> .<span class="dv">31</span>, <span class="at">label =</span> <span class="st">"Peste noire</span><span class="sc">\n</span><span class="st">→ niveleur"</span>,</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>           <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="fl">2.8</span>, <span class="at">color =</span> <span class="st">"#666"</span>) <span class="sc">+</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Annotation : Trente Glorieuses</span></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"rect"</span>, <span class="at">xmin =</span> <span class="dv">1945</span>, <span class="at">xmax =</span> <span class="dv">1975</span>, <span class="at">ymin =</span> .<span class="dv">44</span>, <span class="at">ymax =</span> .<span class="dv">66</span>,</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> <span class="st">"#1A3A5C"</span>, <span class="at">alpha =</span> .<span class="dv">07</span>) <span class="sc">+</span></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">1960</span>, <span class="at">y =</span> .<span class="dv">44</span>, <span class="at">label =</span> <span class="st">"Trente</span><span class="sc">\n</span><span class="st">Glorieuses"</span>,</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>           <span class="at">hjust =</span> .<span class="dv">5</span>, <span class="at">size =</span> <span class="fl">2.8</span>, <span class="at">color =</span> <span class="st">"#1A3A5C"</span>) <span class="sc">+</span></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> couleurs_actes, <span class="at">name =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">350</span>, <span class="dv">0</span>, <span class="dv">500</span>, <span class="dv">1000</span>, <span class="dv">1350</span>, <span class="dv">1600</span>, <span class="dv">1800</span>, <span class="dv">1929</span>, <span class="dv">1975</span>, <span class="dv">2022</span>),</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"350 av."</span>, <span class="st">"0"</span>, <span class="st">"500"</span>, <span class="st">"1000"</span>, <span class="st">"1350"</span>, <span class="st">"1600"</span>, <span class="st">"1800"</span>,</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>               <span class="st">"1929"</span>, <span class="st">"1975"</span>, <span class="st">"2022"</span>)</span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(.<span class="dv">3</span>, .<span class="dv">72</span>),</span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">number_format</span>(<span class="at">accuracy =</span> .<span class="dv">01</span>)) <span class="sc">+</span></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Indice de Gini"</span>,</span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Sources : Milanovic, Lindert &amp; Williamson (2011) · WID.world 2023 · estimations"</span>) <span class="sc">+</span></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>, <span class="at">base_family =</span> <span class="st">"serif"</span>) <span class="sc">+</span></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position  =</span> <span class="st">"bottom"</span>,</span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.text      =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">9</span>),</span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.caption     =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>, <span class="at">color =</span> <span class="st">"#888"</span>, <span class="at">hjust =</span> <span class="dv">0</span>)</span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>plotly<span class="sc">::</span><span class="fu">ggplotly</span>(p, <span class="at">tooltip =</span> <span class="st">"text"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>  plotly<span class="sc">::</span><span class="fu">layout</span>(<span class="at">legend =</span> <span class="fu">list</span>(<span class="at">orientation =</span> <span class="st">"h"</span>, <span class="at">y =</span> <span class="sc">-</span>.<span class="dv">2</span>))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-0a497f132425e05a2668" style="width:100%;height:361px;"></div>
-<script type="application/json" data-for="htmlwidget-0a497f132425e05a2668">{"x":{"data":[{"x":[-350,null,500],"y":[0.41999999999999998,null,0.39000000000000001],"text":["<b>I — Antiquité<\/b><br>Année : 350 av. J.-C.<br>Gini estimé : 0.42",null,"<b>I — Antiquité<\/b><br>Année : 500<br>Gini estimé : 0.39"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(184,134,11,0.85)","dash":"solid"},"hoveron":"points","name":"I — Antiquité","legendgroup":"I — Antiquité","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1350,null,1450,null,800],"y":[0.38,null,0.44,null,0.40999999999999998],"text":["<b>II — Moyen Âge<\/b><br>Année : 1350<br>Gini estimé : 0.38",null,"<b>II — Moyen Âge<\/b><br>Année : 1450<br>Gini estimé : 0.44",null,"<b>II — Moyen Âge<\/b><br>Année : 800<br>Gini estimé : 0.41"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(74,55,40,0.85)","dash":"solid"},"hoveron":"points","name":"II — Moyen Âge","legendgroup":"II — Moyen Âge","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1600,null,1750],"y":[0.46999999999999997,null,0.48999999999999999],"text":["<b>III — Renaissance<\/b><br>Année : 1600<br>Gini estimé : 0.47",null,"<b>III — Renaissance<\/b><br>Année : 1750<br>Gini estimé : 0.49"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(45,90,39,0.85)","dash":"solid"},"hoveron":"points","name":"III — Renaissance","legendgroup":"III — Renaissance","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1820,null,1870,null,1910],"y":[0.5,null,0.56000000000000005,null,0.60999999999999999],"text":["<b>IV — XIXe<\/b><br>Année : 1820<br>Gini estimé : 0.5",null,"<b>IV — XIXe<\/b><br>Année : 1870<br>Gini estimé : 0.56",null,"<b>IV — XIXe<\/b><br>Année : 1910<br>Gini estimé : 0.61"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(74,32,64,0.85)","dash":"solid"},"hoveron":"points","name":"IV — XIXe","legendgroup":"IV — XIXe","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1929,null,1945,null,1975],"y":[0.64000000000000001,null,0.59999999999999998,null,0.47999999999999998],"text":["<b>V — XXe<\/b><br>Année : 1929<br>Gini estimé : 0.64",null,"<b>V — XXe<\/b><br>Année : 1945<br>Gini estimé : 0.6",null,"<b>V — XXe<\/b><br>Année : 1975<br>Gini estimé : 0.48"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(26,58,92,0.85)","dash":"solid"},"hoveron":"points","name":"V — XXe","legendgroup":"V — XXe","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2000,null,2022],"y":[0.64000000000000001,null,0.63],"text":["<b>VI — XXIe<\/b><br>Année : 2000<br>Gini estimé : 0.64",null,"<b>VI — XXIe<\/b><br>Année : 2022<br>Gini estimé : 0.63"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(139,26,26,0.85)","dash":"solid"},"hoveron":"points","name":"VI — XXIe","legendgroup":"VI — XXIe","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[-350,500],"y":[0.41999999999999998,0.39000000000000001],"text":["<b>I — Antiquité<\/b><br>Année : 350 av. J.-C.<br>Gini estimé : 0.42","<b>I — Antiquité<\/b><br>Année : 500<br>Gini estimé : 0.39"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(184,134,11,1)","opacity":0.90000000000000002,"size":11.338582677165356,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(184,134,11,1)"}},"hoveron":"points","name":"I — Antiquité","legendgroup":"I — Antiquité","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[800,1350,1450],"y":[0.40999999999999998,0.38,0.44],"text":["<b>II — Moyen Âge<\/b><br>Année : 800<br>Gini estimé : 0.41","<b>II — Moyen Âge<\/b><br>Année : 1350<br>Gini estimé : 0.38","<b>II — Moyen Âge<\/b><br>Année : 1450<br>Gini estimé : 0.44"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(74,55,40,1)","opacity":0.90000000000000002,"size":11.338582677165356,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(74,55,40,1)"}},"hoveron":"points","name":"II — Moyen Âge","legendgroup":"II — Moyen Âge","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1600,1750],"y":[0.46999999999999997,0.48999999999999999],"text":["<b>III — Renaissance<\/b><br>Année : 1600<br>Gini estimé : 0.47","<b>III — Renaissance<\/b><br>Année : 1750<br>Gini estimé : 0.49"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(45,90,39,1)","opacity":0.90000000000000002,"size":11.338582677165356,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(45,90,39,1)"}},"hoveron":"points","name":"III — Renaissance","legendgroup":"III — Renaissance","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1820,1870,1910],"y":[0.5,0.56000000000000005,0.60999999999999999],"text":["<b>IV — XIXe<\/b><br>Année : 1820<br>Gini estimé : 0.5","<b>IV — XIXe<\/b><br>Année : 1870<br>Gini estimé : 0.56","<b>IV — XIXe<\/b><br>Année : 1910<br>Gini estimé : 0.61"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(74,32,64,1)","opacity":0.90000000000000002,"size":11.338582677165356,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(74,32,64,1)"}},"hoveron":"points","name":"IV — XIXe","legendgroup":"IV — XIXe","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1929,1945,1975],"y":[0.64000000000000001,0.59999999999999998,0.47999999999999998],"text":["<b>V — XXe<\/b><br>Année : 1929<br>Gini estimé : 0.64","<b>V — XXe<\/b><br>Année : 1945<br>Gini estimé : 0.6","<b>V — XXe<\/b><br>Année : 1975<br>Gini estimé : 0.48"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(26,58,92,1)","opacity":0.90000000000000002,"size":11.338582677165356,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(26,58,92,1)"}},"hoveron":"points","name":"V — XXe","legendgroup":"V — XXe","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2000,2022],"y":[0.64000000000000001,0.63],"text":["<b>VI — XXIe<\/b><br>Année : 2000<br>Gini estimé : 0.64","<b>VI — XXIe<\/b><br>Année : 2022<br>Gini estimé : 0.63"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(139,26,26,1)","opacity":0.90000000000000002,"size":11.338582677165356,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(139,26,26,1)"}},"hoveron":"points","name":"VI — XXIe","legendgroup":"VI — XXIe","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1350,1350],"y":[0.29999999999999999,0.35999999999999999],"text":"","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(136,136,136,1)","dash":"dash"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1355],"y":[0.31],"text":"Peste noire<br />→ niveleur","hovertext":"","textfont":{"size":10.58267716535433,"color":"rgba(102,102,102,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1945,1945,1975,1975,1945],"y":[0.44,0.66000000000000003,0.66000000000000003,0.44,0.44],"text":"","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(26,58,92,0.07)","hoveron":"fills","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1960],"y":[0.44],"text":"Trente<br />Glorieuses","hovertext":"","textfont":{"size":10.58267716535433,"color":"rgba(26,58,92,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.970112079701121,"r":7.9701120797011216,"b":24.707347447073481,"l":53.399750933997524},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.940224159402243},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-468.60000000000002,2140.5999999999999],"tickmode":"array","ticktext":["350 av.","0","500","1000","1350","1600","1800","1929","1975","2022"],"tickvals":[-350,0,500,999.99999999999989,1350,1600,1800,1929,1975,2022],"categoryorder":"array","categoryarray":["350 av.","0","500","1000","1350","1600","1800","1929","1975","2022"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.9850560398505608,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.72455564360919278,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.940224159402243}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.27899999999999997,0.74099999999999999],"tickmode":"array","ticktext":["0.30","0.40","0.50","0.60","0.70"],"tickvals":[0.30000000000000004,0.40000000000000002,0.5,0.60000000000000009,0.70000000000000007],"categoryorder":"array","categoryarray":["0.30","0.40","0.50","0.60","0.70"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.9850560398505608,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.72455564360919278,"zeroline":false,"anchor":"x","title":{"text":"Indice de Gini","font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.940224159402243}},"hoverformat":".2f"},"shapes":[],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"serif","size":11.955168119551683},"orientation":"h","x":0.5,"y":-0.20000000000000001,"xanchor":"center","yanchor":"top","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.940224159402243}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"1ffc2bd948a":{"x":{},"y":{},"colour":{},"text":{},"type":"scatter"},"1ffc26d06ea2":{"x":{},"y":{},"colour":{},"text":{}},"1ffc302d71b4":{"x":{},"xend":{},"y":{},"yend":{}},"1ffc671833b7":{"x":{},"y":{}},"1ffc77675fdd":{"xmin":{},"xmax":{},"ymin":{},"ymax":{}},"1ffc3b5a1bf1":{"x":{},"y":{}}},"cur_data":"1ffc2bd948a","visdat":{"1ffc2bd948a":["function (y) ","x"],"1ffc26d06ea2":["function (y) ","x"],"1ffc302d71b4":["function (y) ","x"],"1ffc671833b7":["function (y) ","x"],"1ffc77675fdd":["function (y) ","x"],"1ffc3b5a1bf1":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
-<p>Gini mondial estimé, –350 av. J.-C. à 2022 · Sources : Milanovic (2011), WID.world</p>
-</div>
-</div>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><strong>Lire ce graphique</strong> — Le Gini varie de 0 (égalité parfaite) à 1 (inégalité totale). Survolez les points pour les détails. Les données antérieures à 1800 sont des estimations.</p>
-</div>
-</div>
-</div>
-<hr>
-</section>
-<section id="la-frise-du-voyage" class="level2">
-<h2 class="anchored" data-anchor-id="la-frise-du-voyage">La frise du voyage</h2>
-<div class="timeline">
-<div class="timeline-item">
-<div class="timeline-dot">
+<style>
+.idx-root{
+  --pri:#2A3240;--acc:#E8A830;--bord:#C8D4E0;--bg:#EFF2F6;--muted:#5A6A7A;
+  font-family:'EB Garamond',Georgia,serif;
+  max-width:860px;margin:0 auto;padding:2rem 1rem 4rem;
+}
+
+/* Hero */
+.idx-hero{text-align:center;padding:3rem 0 2.5rem;border-bottom:.5px solid var(--bord);margin-bottom:2.5rem}
+.idx-eyebrow{font-family:sans-serif;font-size:.72rem;text-transform:uppercase;letter-spacing:.14em;color:var(--acc);margin-bottom:1rem}
+.idx-title{font-size:clamp(2rem,5vw,3.2rem);font-weight:500;color:var(--pri);line-height:1.15;margin:0 0 1rem}
+.idx-title em{font-style:normal;color:var(--acc)}
+.idx-sub{font-size:1.08rem;color:var(--muted);line-height:1.65;max-width:540px;margin:0 auto 2rem}
+.idx-cta{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--pri);color:#EFF2F6;
+  padding:.7rem 1.5rem;border-radius:8px;
+  font-family:'EB Garamond',Georgia,serif;font-size:1rem;
+  text-decoration:none;transition:background .15s;
+}
+.idx-cta:hover{background:#1C2435;color:#EFF2F6;text-decoration:none}
+.idx-cta-arrow{font-size:1.1rem}
+
+/* Sections */
+.idx-section-label{
+  font-family:sans-serif;font-size:.68rem;text-transform:uppercase;
+  letter-spacing:.12em;color:var(--acc);margin:0 0 1rem;
+}
+
+/* Grille principale */
+.idx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:2.5rem}
+
+.idx-card{
+  border:.5px solid var(--bord);border-radius:10px;
+  background:white;padding:1.1rem 1.25rem;
+  text-decoration:none;color:var(--pri);
+  display:flex;flex-direction:column;gap:.35rem;
+  transition:border-color .15s,box-shadow .15s;
+  position:relative;overflow:hidden;
+}
+.idx-card:hover{border-color:var(--acc);box-shadow:0 3px 12px rgba(42,50,64,.08);text-decoration:none;color:var(--pri)}
+.idx-card-icon{font-size:1.4rem;margin-bottom:.2rem;line-height:1}
+.idx-card-title{font-size:1rem;font-weight:500;line-height:1.3;color:var(--pri)}
+.idx-card-desc{font-size:.83rem;color:var(--muted);line-height:1.45}
+.idx-card-tag{
+  font-family:sans-serif;font-size:.62rem;text-transform:uppercase;
+  letter-spacing:.07em;color:var(--acc);margin-top:.2rem;
+}
+.idx-card.featured{border-color:var(--acc);background:#FDFAF3}
+.idx-card.featured::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--acc);
+}
+
+/* Grille actes */
+.idx-actes{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-bottom:2.5rem}
+.idx-acte{
+  border:.5px solid var(--bord);border-radius:8px;
+  background:white;padding:.85rem 1rem;
+  text-decoration:none;color:var(--pri);
+  display:flex;align-items:flex-start;gap:.75rem;
+  transition:border-color .15s,background .15s;
+}
+.idx-acte:hover{border-color:var(--acc);background:var(--bg);text-decoration:none;color:var(--pri)}
+.idx-acte-num{
+  font-family:sans-serif;font-size:.68rem;font-weight:600;
+  color:white;background:var(--pri);
+  width:22px;height:22px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-top:1px;
+}
+.idx-acte-body{}
+.idx-acte-epoch{font-family:sans-serif;font-size:.62rem;text-transform:uppercase;letter-spacing:.07em;color:var(--acc);margin-bottom:2px}
+.idx-acte-title{font-size:.88rem;line-height:1.35;color:var(--pri)}
+
+/* Séparateur */
+.idx-sep{border:none;border-top:.5px solid var(--bord);margin:2rem 0}
+
+/* Footer note */
+.idx-footnote{font-family:sans-serif;font-size:.72rem;color:var(--muted);text-align:center;margin-top:2rem;line-height:1.6}
+
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.idx-hero{animation:fadeUp .5s ease both}
+.idx-grid .idx-card:nth-child(1){animation:fadeUp .5s .1s ease both}
+.idx-grid .idx-card:nth-child(2){animation:fadeUp .5s .15s ease both}
+.idx-grid .idx-card:nth-child(3){animation:fadeUp .5s .2s ease both}
+.idx-grid .idx-card:nth-child(4){animation:fadeUp .5s .25s ease both}
+</style>
+
+<div class="idx-root">
+
+  <div class="idx-hero">
+    <div class="idx-eyebrow">Cours d'histoire économique · 10 heures</div>
+    <h1 class="idx-title">Les inégalités,<br>de <em>l'Antiquité</em> à aujourd'hui</h1>
+    <p class="idx-sub">Comment les sociétés ont-elles justifié, mesuré et contesté les inégalités ?
+    Six actes, vingt-cinq siècles, un fil rouge.</p>
+    <a class="idx-cta" href="./avant_voyage.html">
+      Commencer par le diagnostic
+      <span class="idx-cta-arrow">→</span>
+    </a>
+  </div>
+
+  <!-- Entrées principales -->
+  <div class="idx-section-label">Par où commencer</div>
+  <div class="idx-grid">
+    <a class="idx-card featured" href="./avant_voyage.html">
+      <div class="idx-card-icon">◈</div>
+      <div class="idx-card-title">Avant le voyage</div>
+      <div class="idx-card-desc">Diagnostic d'entrée — connaissances, intuitions, positionnement. 8 questions, 10 min.</div>
+      <div class="idx-card-tag">À faire en premier</div>
+    </a>
+    <a class="idx-card" href="./journal/carnet_test.html">
+      <div class="idx-card-icon">✦</div>
+      <div class="idx-card-title">Journal de bord</div>
+      <div class="idx-card-desc">Les entrées du voyageur Thomas — une par époque, entre données brutes et poésie.</div>
+      <div class="idx-card-tag">Narration</div>
+    </a>
+    <a class="idx-card" href="./interactif/ma_progression.html">
+      <div class="idx-card-icon">◎</div>
+      <div class="idx-card-title">Ma progression</div>
+      <div class="idx-card-desc">Ligne du temps vivante — actes parcourus, décisions prises, profil émergent.</div>
+      <div class="idx-card-tag">Interactif</div>
+    </a>
+    <a class="idx-card" href="./interactif/epilogue.html">
+      <div class="idx-card-icon">❧</div>
+      <div class="idx-card-title">Mon épilogue</div>
+      <div class="idx-card-desc">Synthèse personnalisée générée après les 6 actes — tradition de pensée, tensions, lectures.</div>
+      <div class="idx-card-tag">Débloqué après l'Acte VI</div>
+    </a>
+  </div>
+
+  <hr class="idx-sep">
+
+  <!-- Les 6 actes -->
+  <div class="idx-section-label">Les 6 actes du voyage</div>
+  <div class="idx-actes">
+    <a class="idx-acte" href="./actes/01_antiquite.html">
+      <div class="idx-acte-num">I</div>
+      <div class="idx-acte-body">
+        <div class="idx-acte-epoch">–350 av. J.-C. → 500</div>
+        <div class="idx-acte-title">L'inégalité comme ordre naturel</div>
+      </div>
+    </a>
+    <a class="idx-acte" href="./actes/02_feodal.html">
+      <div class="idx-acte-num">II</div>
+      <div class="idx-acte-body">
+        <div class="idx-acte-epoch">500 → 1400</div>
+        <div class="idx-acte-title">L'inégalité sacrée</div>
+      </div>
+    </a>
+    <a class="idx-acte" href="./actes/03_renaissance.html">
+      <div class="idx-acte-num">III</div>
+      <div class="idx-acte-body">
+        <div class="idx-acte-epoch">1400 → 1800</div>
+        <div class="idx-acte-title">L'inégalité comme effet du progrès</div>
+      </div>
+    </a>
+    <a class="idx-acte" href="./actes/04_industrie.html">
+      <div class="idx-acte-num">IV</div>
+      <div class="idx-acte-body">
+        <div class="idx-acte-epoch">XIXe siècle</div>
+        <div class="idx-acte-title">L'inégalité conflictuelle</div>
+      </div>
+    </a>
+    <a class="idx-acte" href="./actes/05_regulation.html">
+      <div class="idx-acte-num">V</div>
+      <div class="idx-acte-body">
+        <div class="idx-acte-epoch">XXe siècle</div>
+        <div class="idx-acte-title">L'inégalité régulée</div>
+      </div>
+    </a>
+    <a class="idx-acte" href="./actes/06_contemporain.html">
+      <div class="idx-acte-num">VI</div>
+      <div class="idx-acte-body">
+        <div class="idx-acte-epoch">XXIe siècle</div>
+        <div class="idx-acte-title">L'inégalité mesurée et débordante</div>
+      </div>
+    </a>
+  </div>
+
+  <hr class="idx-sep">
+
+  <!-- Ressources -->
+  <div class="idx-section-label">Ressources complémentaires</div>
+  <div class="idx-grid">
+    <a class="idx-card" href="./interactif/qcm.html">
+      <div class="idx-card-icon">≡</div>
+      <div class="idx-card-title">QCM — auto-évaluation</div>
+      <div class="idx-card-desc">5 questions, une par époque. Corrigées immédiatement avec contexte historique.</div>
+      <div class="idx-card-tag">Évaluation</div>
+    </a>
+    <a class="idx-card" href="./interactif/carte_gini.html">
+      <div class="idx-card-icon">⊕</div>
+      <div class="idx-card-title">Carte Gini mondiale</div>
+      <div class="idx-card-desc">Inégalités par pays, données WID.world. Exploration interactive.</div>
+      <div class="idx-card-tag">Données</div>
+    </a>
+    <a class="idx-card" href="./seances/index.html">
+      <div class="idx-card-icon">◻</div>
+      <div class="idx-card-title">Séances du cours</div>
+      <div class="idx-card-desc">Structure pédagogique, objectifs, ressources par séance.</div>
+      <div class="idx-card-tag">Enseignant</div>
+    </a>
+    <a class="idx-card" href="./seances/biblio.html">
+      <div class="idx-card-icon">◇</div>
+      <div class="idx-card-title">Bibliographie</div>
+      <div class="idx-card-desc">Références académiques, littéraires et culturelles du cours.</div>
+      <div class="idx-card-tag">Lectures</div>
+    </a>
+  </div>
+
+  <div class="idx-footnote">
+    Cours hybride 10H · Public international · Données WID.world · 
+    Conçu avec l'assistance de Claude (Anthropic)
+  </div>
 
 </div>
-<div class="timeline-card">
-<div class="timeline-epoch">
-<p>— 350 av. J.-C.</p>
-</div>
-<div class="timeline-title">
-<p><a href="./actes/01_antiquite.html">Acte I — L’inégalité comme ordre naturel</a></p>
-</div>
-<div class="timeline-text">
-<p>Aristote, Platon, Épicure. La hiérarchie comme évidence philosophique. Sappho interroge la valeur.</p>
-</div>
-</div>
-</div>
-<div class="timeline-item">
-<div class="timeline-dot">
-
-</div>
-<div class="timeline-card">
-<div class="timeline-epoch">
-<p>500 — 1400</p>
-</div>
-<div class="timeline-title">
-<p><a href="./actes/02_feodal.html">Acte II — L’inégalité sacrée</a></p>
-</div>
-<div class="timeline-text">
-<p>La richesse comme question morale. Dante, Villon, Ibn Khaldoun. La Peste comme niveleur.</p>
-</div>
-</div>
-</div>
-<div class="timeline-item">
-<div class="timeline-dot">
-
-</div>
-<div class="timeline-card">
-<div class="timeline-epoch">
-<p>1400 — 1800</p>
-</div>
-<div class="timeline-title">
-<p><a href="./actes/03_renaissance.html">Acte III — L’inégalité comme effet du progrès</a></p>
-</div>
-<div class="timeline-text">
-<p>Adam Smith, la division du travail. Sor Juana, Louise Labé. L’or des Amériques.</p>
-</div>
-</div>
-</div>
-<div class="timeline-item">
-<div class="timeline-dot">
-
-</div>
-<div class="timeline-card">
-<div class="timeline-epoch">
-<p>XIXe siècle</p>
-</div>
-<div class="timeline-title">
-<p><a href="./actes/04_industrie.html">Acte IV — L’inégalité conflictuelle</a></p>
-</div>
-<div class="timeline-text">
-<p>Ricardo, Marx. Exploitation structurelle. Desbordes-Valmore, Zola. Naissance du conflit social.</p>
-</div>
-</div>
-</div>
-<div class="timeline-item">
-<div class="timeline-dot">
-
-</div>
-<div class="timeline-card">
-<div class="timeline-epoch">
-<p>XXe siècle</p>
-</div>
-<div class="timeline-title">
-<p><a href="./actes/05_regulation.html">Acte V — L’inégalité régulée</a></p>
-</div>
-<div class="timeline-text">
-<p>Keynes, État-providence. Langston Hughes, Akhmatova. La parenthèse des Trente Glorieuses.</p>
-</div>
-</div>
-</div>
-<div class="timeline-item">
-<div class="timeline-dot">
-
-</div>
-<div class="timeline-card">
-<div class="timeline-epoch">
-<p>XXIe siècle</p>
-</div>
-<div class="timeline-title">
-<p><a href="./actes/06_contemporain.html">Acte VI — L’inégalité mesurée et débordante</a></p>
-</div>
-<div class="timeline-text">
-<p>Piketty, mondialisation. Ocean Vuong, Warsan Shire. Tout est mesuré, rien n’est stabilisé.</p>
-</div>
-</div>
-</div>
-</div>
-<hr>
-</section>
-<section id="le-journal-de-bord" class="level2">
-<h2 class="anchored" data-anchor-id="le-journal-de-bord">Le journal de bord</h2>
-<blockquote class="blockquote">
-<p><em>« Et si la narration autour d’un voyage temporel permettait de garder des archives du voyageur ? »</em></p>
-</blockquote>
-<p>Le <a href="./journal/carnet_test.html">journal de bord</a> accompagne chaque acte d’une entrée fictive — le regard d’un voyageur qui traverse le temps et note ce qu’il observe : les prix du marché, les corps des pauvres, les arguments des puissants. Poèmes, données brutes, questions sans réponse.</p>
-<p><a href="./journal/carnet_test.html" class="btn btn-primary">Ouvrir le journal →</a> <a href="./seances/index.html" class="btn btn-outline-secondary">Accéder aux séances →</a></p>
 
 
 <!-- -->
 
-</section>
 
 </main> <!-- /main -->
 <style>
@@ -1101,222 +1095,233 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Le voyage"</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Histoire économique des inégalités — de l'Antiquité au XXIe siècle"</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: false</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">    page-layout: full</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, include=FALSE}</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>::: {.lead}</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>*Comment les sociétés ont-elles justifié, mesuré et contesté les inégalités ?*</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>De la philosophie grecque aux algorithmes de 2026, six actes pour un seul fil rouge.</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## Le fil rouge global</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fil-rouge-gini, fig.cap="Gini mondial estimé, –350 av. J.-C. à 2022 · Sources : Milanovic (2011), WID.world"}</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>df_global <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>annee, <span class="sc">~</span>gini,  <span class="sc">~</span>acte,</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span><span class="dv">350</span>,   <span class="fl">0.42</span>,  <span class="st">"I — Antiquité"</span>,</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>   <span class="dv">500</span>,   <span class="fl">0.39</span>,  <span class="st">"I — Antiquité"</span>,</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>   <span class="dv">800</span>,   <span class="fl">0.41</span>,  <span class="st">"II — Moyen Âge"</span>,</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1350</span>,   <span class="fl">0.38</span>,  <span class="st">"II — Moyen Âge"</span>,  <span class="co"># Après la Peste</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1450</span>,   <span class="fl">0.44</span>,  <span class="st">"II — Moyen Âge"</span>,</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1600</span>,   <span class="fl">0.47</span>,  <span class="st">"III — Renaissance"</span>,</span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1750</span>,   <span class="fl">0.49</span>,  <span class="st">"III — Renaissance"</span>,</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1820</span>,   <span class="fl">0.50</span>,  <span class="st">"IV — XIXe"</span>,</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1870</span>,   <span class="fl">0.56</span>,  <span class="st">"IV — XIXe"</span>,</span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1910</span>,   <span class="fl">0.61</span>,  <span class="st">"IV — XIXe"</span>,</span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1929</span>,   <span class="fl">0.64</span>,  <span class="st">"V — XXe"</span>,</span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1945</span>,   <span class="fl">0.60</span>,  <span class="st">"V — XXe"</span>,</span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1975</span>,   <span class="fl">0.48</span>,  <span class="st">"V — XXe"</span>,</span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2000</span>,   <span class="fl">0.64</span>,  <span class="st">"VI — XXIe"</span>,</span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2022</span>,   <span class="fl">0.63</span>,  <span class="st">"VI — XXIe"</span></span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>couleurs_actes <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>  <span class="st">"I — Antiquité"</span>    <span class="ot">=</span> <span class="st">"#B8860B"</span>,</span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>  <span class="st">"II — Moyen Âge"</span>   <span class="ot">=</span> <span class="st">"#4A3728"</span>,</span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>  <span class="st">"III — Renaissance"</span><span class="ot">=</span> <span class="st">"#2D5A27"</span>,</span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>  <span class="st">"IV — XIXe"</span>        <span class="ot">=</span> <span class="st">"#4A2040"</span>,</span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>  <span class="st">"V — XXe"</span>          <span class="ot">=</span> <span class="st">"#1A3A5C"</span>,</span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>  <span class="st">"VI — XXIe"</span>        <span class="ot">=</span> <span class="st">"#8B1A1A"</span></span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df_global, <span class="fu">aes</span>(<span class="at">x =</span> annee, <span class="at">y =</span> gini, <span class="at">color =</span> acte,</span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>                            <span class="at">text =</span> <span class="fu">paste0</span>(</span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"&lt;b&gt;"</span>, acte, <span class="st">"&lt;/b&gt;&lt;br&gt;"</span>,</span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"Année : "</span>, <span class="fu">ifelse</span>(annee <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="fu">paste0</span>(<span class="fu">abs</span>(annee), <span class="st">" av. J.-C."</span>), annee), <span class="st">"&lt;br&gt;"</span>,</span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"Gini estimé : "</span>, gini</span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>                            ))) <span class="sc">+</span></span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">alpha =</span> .<span class="dv">85</span>) <span class="sc">+</span></span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> .<span class="dv">9</span>) <span class="sc">+</span></span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Annotation : choc de la Peste</span></span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="dv">1350</span>, <span class="at">xend =</span> <span class="dv">1350</span>, <span class="at">y =</span> .<span class="dv">3</span>, <span class="at">yend =</span> .<span class="dv">36</span>,</span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>           <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"#888"</span>, <span class="at">linewidth =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">1355</span>, <span class="at">y =</span> .<span class="dv">31</span>, <span class="at">label =</span> <span class="st">"Peste noire</span><span class="sc">\n</span><span class="st">→ niveleur"</span>,</span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>           <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="fl">2.8</span>, <span class="at">color =</span> <span class="st">"#666"</span>) <span class="sc">+</span></span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Annotation : Trente Glorieuses</span></span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"rect"</span>, <span class="at">xmin =</span> <span class="dv">1945</span>, <span class="at">xmax =</span> <span class="dv">1975</span>, <span class="at">ymin =</span> .<span class="dv">44</span>, <span class="at">ymax =</span> .<span class="dv">66</span>,</span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> <span class="st">"#1A3A5C"</span>, <span class="at">alpha =</span> .<span class="dv">07</span>) <span class="sc">+</span></span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">1960</span>, <span class="at">y =</span> .<span class="dv">44</span>, <span class="at">label =</span> <span class="st">"Trente</span><span class="sc">\n</span><span class="st">Glorieuses"</span>,</span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>           <span class="at">hjust =</span> .<span class="dv">5</span>, <span class="at">size =</span> <span class="fl">2.8</span>, <span class="at">color =</span> <span class="st">"#1A3A5C"</span>) <span class="sc">+</span></span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> couleurs_actes, <span class="at">name =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(</span>
-<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">350</span>, <span class="dv">0</span>, <span class="dv">500</span>, <span class="dv">1000</span>, <span class="dv">1350</span>, <span class="dv">1600</span>, <span class="dv">1800</span>, <span class="dv">1929</span>, <span class="dv">1975</span>, <span class="dv">2022</span>),</span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"350 av."</span>, <span class="st">"0"</span>, <span class="st">"500"</span>, <span class="st">"1000"</span>, <span class="st">"1350"</span>, <span class="st">"1600"</span>, <span class="st">"1800"</span>,</span>
-<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>               <span class="st">"1929"</span>, <span class="st">"1975"</span>, <span class="st">"2022"</span>)</span>
-<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(.<span class="dv">3</span>, .<span class="dv">72</span>),</span>
-<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">number_format</span>(<span class="at">accuracy =</span> .<span class="dv">01</span>)) <span class="sc">+</span></span>
-<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Indice de Gini"</span>,</span>
-<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Sources : Milanovic, Lindert &amp; Williamson (2011) · WID.world 2023 · estimations"</span>) <span class="sc">+</span></span>
-<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>, <span class="at">base_family =</span> <span class="st">"serif"</span>) <span class="sc">+</span></span>
-<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position  =</span> <span class="st">"bottom"</span>,</span>
-<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.text      =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">9</span>),</span>
-<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.caption     =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>, <span class="at">color =</span> <span class="st">"#888"</span>, <span class="at">hjust =</span> <span class="dv">0</span>)</span>
-<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>plotly<span class="sc">::</span><span class="fu">ggplotly</span>(p, <span class="at">tooltip =</span> <span class="st">"text"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>  plotly<span class="sc">::</span><span class="fu">layout</span>(<span class="at">legend =</span> <span class="fu">list</span>(<span class="at">orientation =</span> <span class="st">"h"</span>, <span class="at">y =</span> <span class="sc">-</span>.<span class="dv">2</span>))</span>
-<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>::: {.callout-note appearance="minimal"}</span>
-<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>**Lire ce graphique** — Le Gini varie de 0 (égalité parfaite) à 1 (inégalité totale). </span>
-<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>Survolez les points pour les détails. Les données antérieures à 1800 sont des estimations.</span>
-<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a><span class="fu">## La frise du voyage</span></span>
-<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>::: {.timeline}</span>
-<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>::: {.timeline-item}</span>
-<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>::: {.timeline-dot}</span>
-<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>::: {.timeline-card}</span>
-<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>::: {.timeline-epoch}</span>
-<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>— 350 av. J.-C.</span>
-<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a>::: {.timeline-title}</span>
-<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Acte I — L'inégalité comme ordre naturel</span><span class="co">](actes/01_antiquite.qmd)</span></span>
-<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a>::: {.timeline-text}</span>
-<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>Aristote, Platon, Épicure. La hiérarchie comme évidence philosophique. Sappho interroge la valeur.</span>
-<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a>::: {.timeline-item}</span>
-<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a>::: {.timeline-dot}</span>
-<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a>::: {.timeline-card}</span>
-<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a>::: {.timeline-epoch}</span>
-<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a>500 — 1400</span>
-<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a>::: {.timeline-title}</span>
-<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Acte II — L'inégalité sacrée</span><span class="co">](actes/02_feodal.qmd)</span></span>
-<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a>::: {.timeline-text}</span>
-<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a>La richesse comme question morale. Dante, Villon, Ibn Khaldoun. La Peste comme niveleur.</span>
-<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a>::: {.timeline-item}</span>
-<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a>::: {.timeline-dot}</span>
-<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a>::: {.timeline-card}</span>
-<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a>::: {.timeline-epoch}</span>
-<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a>1400 — 1800</span>
-<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a>::: {.timeline-title}</span>
-<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Acte III — L'inégalité comme effet du progrès</span><span class="co">](actes/03_renaissance.qmd)</span></span>
-<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a>::: {.timeline-text}</span>
-<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a>Adam Smith, la division du travail. Sor Juana, Louise Labé. L'or des Amériques.</span>
-<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a>::: {.timeline-item}</span>
-<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a>::: {.timeline-dot}</span>
-<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a>::: {.timeline-card}</span>
-<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a>::: {.timeline-epoch}</span>
-<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a>XIXe siècle</span>
-<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a>::: {.timeline-title}</span>
-<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Acte IV — L'inégalité conflictuelle</span><span class="co">](actes/04_industrie.qmd)</span></span>
-<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a>::: {.timeline-text}</span>
-<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a>Ricardo, Marx. Exploitation structurelle. Desbordes-Valmore, Zola. Naissance du conflit social.</span>
-<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a>::: {.timeline-item}</span>
-<span id="cb2-171"><a href="#cb2-171" aria-hidden="true" tabindex="-1"></a>::: {.timeline-dot}</span>
-<span id="cb2-172"><a href="#cb2-172" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-173"><a href="#cb2-173" aria-hidden="true" tabindex="-1"></a>::: {.timeline-card}</span>
-<span id="cb2-174"><a href="#cb2-174" aria-hidden="true" tabindex="-1"></a>::: {.timeline-epoch}</span>
-<span id="cb2-175"><a href="#cb2-175" aria-hidden="true" tabindex="-1"></a>XXe siècle</span>
-<span id="cb2-176"><a href="#cb2-176" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-177"><a href="#cb2-177" aria-hidden="true" tabindex="-1"></a>::: {.timeline-title}</span>
-<span id="cb2-178"><a href="#cb2-178" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Acte V — L'inégalité régulée</span><span class="co">](actes/05_regulation.qmd)</span></span>
-<span id="cb2-179"><a href="#cb2-179" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-180"><a href="#cb2-180" aria-hidden="true" tabindex="-1"></a>::: {.timeline-text}</span>
-<span id="cb2-181"><a href="#cb2-181" aria-hidden="true" tabindex="-1"></a>Keynes, État-providence. Langston Hughes, Akhmatova. La parenthèse des Trente Glorieuses.</span>
-<span id="cb2-182"><a href="#cb2-182" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-183"><a href="#cb2-183" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-184"><a href="#cb2-184" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-185"><a href="#cb2-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-186"><a href="#cb2-186" aria-hidden="true" tabindex="-1"></a>::: {.timeline-item}</span>
-<span id="cb2-187"><a href="#cb2-187" aria-hidden="true" tabindex="-1"></a>::: {.timeline-dot}</span>
-<span id="cb2-188"><a href="#cb2-188" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-189"><a href="#cb2-189" aria-hidden="true" tabindex="-1"></a>::: {.timeline-card}</span>
-<span id="cb2-190"><a href="#cb2-190" aria-hidden="true" tabindex="-1"></a>::: {.timeline-epoch}</span>
-<span id="cb2-191"><a href="#cb2-191" aria-hidden="true" tabindex="-1"></a>XXIe siècle</span>
-<span id="cb2-192"><a href="#cb2-192" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-193"><a href="#cb2-193" aria-hidden="true" tabindex="-1"></a>::: {.timeline-title}</span>
-<span id="cb2-194"><a href="#cb2-194" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Acte VI — L'inégalité mesurée et débordante</span><span class="co">](actes/06_contemporain.qmd)</span></span>
-<span id="cb2-195"><a href="#cb2-195" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-196"><a href="#cb2-196" aria-hidden="true" tabindex="-1"></a>::: {.timeline-text}</span>
-<span id="cb2-197"><a href="#cb2-197" aria-hidden="true" tabindex="-1"></a>Piketty, mondialisation. Ocean Vuong, Warsan Shire. Tout est mesuré, rien n'est stabilisé.</span>
-<span id="cb2-198"><a href="#cb2-198" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-199"><a href="#cb2-199" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-200"><a href="#cb2-200" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-201"><a href="#cb2-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-202"><a href="#cb2-202" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-203"><a href="#cb2-203" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-204"><a href="#cb2-204" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb2-205"><a href="#cb2-205" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-206"><a href="#cb2-206" aria-hidden="true" tabindex="-1"></a><span class="fu">## Le journal de bord</span></span>
-<span id="cb2-207"><a href="#cb2-207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-208"><a href="#cb2-208" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; *« Et si la narration autour d'un voyage temporel permettait de garder des archives du voyageur ? »*</span></span>
-<span id="cb2-209"><a href="#cb2-209" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-210"><a href="#cb2-210" aria-hidden="true" tabindex="-1"></a>Le <span class="co">[</span><span class="ot">journal de bord</span><span class="co">](journal/carnet_test.qmd)</span> accompagne chaque acte d'une entrée fictive — </span>
-<span id="cb2-211"><a href="#cb2-211" aria-hidden="true" tabindex="-1"></a>le regard d'un voyageur qui traverse le temps et note ce qu'il observe : </span>
-<span id="cb2-212"><a href="#cb2-212" aria-hidden="true" tabindex="-1"></a>les prix du marché, les corps des pauvres, les arguments des puissants.</span>
-<span id="cb2-213"><a href="#cb2-213" aria-hidden="true" tabindex="-1"></a>Poèmes, données brutes, questions sans réponse.</span>
-<span id="cb2-214"><a href="#cb2-214" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-215"><a href="#cb2-215" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Ouvrir le journal →</span><span class="co">](journal/carnet_test.qmd)</span>{.btn .btn-primary}</span>
-<span id="cb2-216"><a href="#cb2-216" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Accéder aux séances →</span><span class="co">](seances/index.qmd)</span>{.btn .btn-outline-secondary}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Inégalités"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: false</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">    page-layout: full</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;style&gt;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="in">.idx-root{</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="in">  --pri:#2A3240;--acc:#E8A830;--bord:#C8D4E0;--bg:#EFF2F6;--muted:#5A6A7A;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="in">  font-family:'EB Garamond',Georgia,serif;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="in">  max-width:860px;margin:0 auto;padding:2rem 1rem 4rem;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="in">/* Hero */</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="in">.idx-hero{text-align:center;padding:3rem 0 2.5rem;border-bottom:.5px solid var(--bord);margin-bottom:2.5rem}</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="in">.idx-eyebrow{font-family:sans-serif;font-size:.72rem;text-transform:uppercase;letter-spacing:.14em;color:var(--acc);margin-bottom:1rem}</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="in">.idx-title{font-size:clamp(2rem,5vw,3.2rem);font-weight:500;color:var(--pri);line-height:1.15;margin:0 0 1rem}</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="in">.idx-title em{font-style:normal;color:var(--acc)}</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="in">.idx-sub{font-size:1.08rem;color:var(--muted);line-height:1.65;max-width:540px;margin:0 auto 2rem}</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="in">.idx-cta{</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="in">  display:inline-flex;align-items:center;gap:.5rem;</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="in">  background:var(--pri);color:#EFF2F6;</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="in">  padding:.7rem 1.5rem;border-radius:8px;</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="in">  font-family:'EB Garamond',Georgia,serif;font-size:1rem;</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="in">  text-decoration:none;transition:background .15s;</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="in">.idx-cta:hover{background:#1C2435;color:#EFF2F6;text-decoration:none}</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="in">.idx-cta-arrow{font-size:1.1rem}</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="in">/* Sections */</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="in">.idx-section-label{</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="in">  font-family:sans-serif;font-size:.68rem;text-transform:uppercase;</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="in">  letter-spacing:.12em;color:var(--acc);margin:0 0 1rem;</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="in">/* Grille principale */</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="in">.idx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:2.5rem}</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="in">.idx-card{</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="in">  border:.5px solid var(--bord);border-radius:10px;</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="in">  background:white;padding:1.1rem 1.25rem;</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="in">  text-decoration:none;color:var(--pri);</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="in">  display:flex;flex-direction:column;gap:.35rem;</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="in">  transition:border-color .15s,box-shadow .15s;</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="in">  position:relative;overflow:hidden;</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="in">.idx-card:hover{border-color:var(--acc);box-shadow:0 3px 12px rgba(42,50,64,.08);text-decoration:none;color:var(--pri)}</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="in">.idx-card-icon{font-size:1.4rem;margin-bottom:.2rem;line-height:1}</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="in">.idx-card-title{font-size:1rem;font-weight:500;line-height:1.3;color:var(--pri)}</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="in">.idx-card-desc{font-size:.83rem;color:var(--muted);line-height:1.45}</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="in">.idx-card-tag{</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="in">  font-family:sans-serif;font-size:.62rem;text-transform:uppercase;</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="in">  letter-spacing:.07em;color:var(--acc);margin-top:.2rem;</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="in">.idx-card.featured{border-color:var(--acc);background:#FDFAF3}</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="in">.idx-card.featured::before{</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="in">  content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--acc);</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="in">/* Grille actes */</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="in">.idx-actes{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-bottom:2.5rem}</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="in">.idx-acte{</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="in">  border:.5px solid var(--bord);border-radius:8px;</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="in">  background:white;padding:.85rem 1rem;</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="in">  text-decoration:none;color:var(--pri);</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="in">  display:flex;align-items:flex-start;gap:.75rem;</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="in">  transition:border-color .15s,background .15s;</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="in">.idx-acte:hover{border-color:var(--acc);background:var(--bg);text-decoration:none;color:var(--pri)}</span></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="in">.idx-acte-num{</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="in">  font-family:sans-serif;font-size:.68rem;font-weight:600;</span></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="in">  color:white;background:var(--pri);</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="in">  width:22px;height:22px;border-radius:50%;</span></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="in">  display:flex;align-items:center;justify-content:center;</span></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a><span class="in">  flex-shrink:0;margin-top:1px;</span></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="in">.idx-acte-body{}</span></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="in">.idx-acte-epoch{font-family:sans-serif;font-size:.62rem;text-transform:uppercase;letter-spacing:.07em;color:var(--acc);margin-bottom:2px}</span></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="in">.idx-acte-title{font-size:.88rem;line-height:1.35;color:var(--pri)}</span></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="in">/* Séparateur */</span></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a><span class="in">.idx-sep{border:none;border-top:.5px solid var(--bord);margin:2rem 0}</span></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="in">/* Footer note */</span></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a><span class="in">.idx-footnote{font-family:sans-serif;font-size:.72rem;color:var(--muted);text-align:center;margin-top:2rem;line-height:1.6}</span></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="in">/* Animations */</span></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a><span class="in">@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}</span></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="in">.idx-hero{animation:fadeUp .5s ease both}</span></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="in">.idx-grid .idx-card:nth-child(1){animation:fadeUp .5s .1s ease both}</span></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="in">.idx-grid .idx-card:nth-child(2){animation:fadeUp .5s .15s ease both}</span></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="in">.idx-grid .idx-card:nth-child(3){animation:fadeUp .5s .2s ease both}</span></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="in">.idx-grid .idx-card:nth-child(4){animation:fadeUp .5s .25s ease both}</span></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/style&gt;</span></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="idx-root"&gt;</span></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="idx-hero"&gt;</span></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;div class="idx-eyebrow"&gt;Cours d'histoire économique · 10 heures&lt;/div&gt;</span></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;h1 class="idx-title"&gt;Les inégalités,&lt;br&gt;de &lt;em&gt;l'Antiquité&lt;/em&gt; à aujourd'hui&lt;/h1&gt;</span></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;p class="idx-sub"&gt;Comment les sociétés ont-elles justifié, mesuré et contesté les inégalités ?</span></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a><span class="in">    Six actes, vingt-cinq siècles, un fil rouge.&lt;/p&gt;</span></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;a class="idx-cta" href="avant_voyage.qmd"&gt;</span></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a><span class="in">      Commencer par le diagnostic</span></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;span class="idx-cta-arrow"&gt;→&lt;/span&gt;</span></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/a&gt;</span></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;!-- Entrées principales --&gt;</span></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="idx-section-label"&gt;Par où commencer&lt;/div&gt;</span></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="idx-grid"&gt;</span></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;a class="idx-card featured" href="avant_voyage.qmd"&gt;</span></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-card-icon"&gt;◈&lt;/div&gt;</span></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-card-title"&gt;Avant le voyage&lt;/div&gt;</span></span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-card-desc"&gt;Diagnostic d'entrée — connaissances, intuitions, positionnement. 8 questions, 10 min.&lt;/div&gt;</span></span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-card-tag"&gt;À faire en premier&lt;/div&gt;</span></span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/a&gt;</span></span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;a class="idx-card" href="journal/carnet_test.qmd"&gt;</span></span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-card-icon"&gt;✦&lt;/div&gt;</span></span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-card-title"&gt;Journal de bord&lt;/div&gt;</span></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-card-desc"&gt;Les entrées du voyageur Thomas — une par époque, entre données brutes et poésie.&lt;/div&gt;</span></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-card-tag"&gt;Narration&lt;/div&gt;</span></span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/a&gt;</span></span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;a class="idx-card" href="interactif/ma_progression.qmd"&gt;</span></span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-card-icon"&gt;◎&lt;/div&gt;</span></span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-card-title"&gt;Ma progression&lt;/div&gt;</span></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-card-desc"&gt;Ligne du temps vivante — actes parcourus, décisions prises, profil émergent.&lt;/div&gt;</span></span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-card-tag"&gt;Interactif&lt;/div&gt;</span></span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/a&gt;</span></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;a class="idx-card" href="interactif/epilogue.qmd"&gt;</span></span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-card-icon"&gt;❧&lt;/div&gt;</span></span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-card-title"&gt;Mon épilogue&lt;/div&gt;</span></span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-card-desc"&gt;Synthèse personnalisée générée après les 6 actes — tradition de pensée, tensions, lectures.&lt;/div&gt;</span></span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-card-tag"&gt;Débloqué après l'Acte VI&lt;/div&gt;</span></span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/a&gt;</span></span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;hr class="idx-sep"&gt;</span></span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;!-- Les 6 actes --&gt;</span></span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="idx-section-label"&gt;Les 6 actes du voyage&lt;/div&gt;</span></span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="idx-actes"&gt;</span></span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;a class="idx-acte" href="actes/01_antiquite.qmd"&gt;</span></span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-acte-num"&gt;I&lt;/div&gt;</span></span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-acte-body"&gt;</span></span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;div class="idx-acte-epoch"&gt;–350 av. J.-C. → 500&lt;/div&gt;</span></span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;div class="idx-acte-title"&gt;L'inégalité comme ordre naturel&lt;/div&gt;</span></span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;/div&gt;</span></span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/a&gt;</span></span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;a class="idx-acte" href="actes/02_feodal.qmd"&gt;</span></span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-acte-num"&gt;II&lt;/div&gt;</span></span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-acte-body"&gt;</span></span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;div class="idx-acte-epoch"&gt;500 → 1400&lt;/div&gt;</span></span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;div class="idx-acte-title"&gt;L'inégalité sacrée&lt;/div&gt;</span></span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;/div&gt;</span></span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/a&gt;</span></span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;a class="idx-acte" href="actes/03_renaissance.qmd"&gt;</span></span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-acte-num"&gt;III&lt;/div&gt;</span></span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-acte-body"&gt;</span></span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;div class="idx-acte-epoch"&gt;1400 → 1800&lt;/div&gt;</span></span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;div class="idx-acte-title"&gt;L'inégalité comme effet du progrès&lt;/div&gt;</span></span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;/div&gt;</span></span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/a&gt;</span></span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;a class="idx-acte" href="actes/04_industrie.qmd"&gt;</span></span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-acte-num"&gt;IV&lt;/div&gt;</span></span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-acte-body"&gt;</span></span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;div class="idx-acte-epoch"&gt;XIXe siècle&lt;/div&gt;</span></span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;div class="idx-acte-title"&gt;L'inégalité conflictuelle&lt;/div&gt;</span></span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;/div&gt;</span></span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/a&gt;</span></span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;a class="idx-acte" href="actes/05_regulation.qmd"&gt;</span></span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-acte-num"&gt;V&lt;/div&gt;</span></span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-acte-body"&gt;</span></span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;div class="idx-acte-epoch"&gt;XXe siècle&lt;/div&gt;</span></span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;div class="idx-acte-title"&gt;L'inégalité régulée&lt;/div&gt;</span></span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;/div&gt;</span></span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/a&gt;</span></span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;a class="idx-acte" href="actes/06_contemporain.qmd"&gt;</span></span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-acte-num"&gt;VI&lt;/div&gt;</span></span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-acte-body"&gt;</span></span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;div class="idx-acte-epoch"&gt;XXIe siècle&lt;/div&gt;</span></span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;div class="idx-acte-title"&gt;L'inégalité mesurée et débordante&lt;/div&gt;</span></span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;/div&gt;</span></span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/a&gt;</span></span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;hr class="idx-sep"&gt;</span></span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;!-- Ressources --&gt;</span></span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="idx-section-label"&gt;Ressources complémentaires&lt;/div&gt;</span></span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="idx-grid"&gt;</span></span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;a class="idx-card" href="interactif/qcm.qmd"&gt;</span></span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-card-icon"&gt;≡&lt;/div&gt;</span></span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-card-title"&gt;QCM — auto-évaluation&lt;/div&gt;</span></span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-card-desc"&gt;5 questions, une par époque. Corrigées immédiatement avec contexte historique.&lt;/div&gt;</span></span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-card-tag"&gt;Évaluation&lt;/div&gt;</span></span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/a&gt;</span></span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;a class="idx-card" href="interactif/carte_gini.qmd"&gt;</span></span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-card-icon"&gt;⊕&lt;/div&gt;</span></span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-card-title"&gt;Carte Gini mondiale&lt;/div&gt;</span></span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-card-desc"&gt;Inégalités par pays, données WID.world. Exploration interactive.&lt;/div&gt;</span></span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-card-tag"&gt;Données&lt;/div&gt;</span></span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/a&gt;</span></span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;a class="idx-card" href="seances/index.qmd"&gt;</span></span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-card-icon"&gt;◻&lt;/div&gt;</span></span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-card-title"&gt;Séances du cours&lt;/div&gt;</span></span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-card-desc"&gt;Structure pédagogique, objectifs, ressources par séance.&lt;/div&gt;</span></span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-card-tag"&gt;Enseignant&lt;/div&gt;</span></span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/a&gt;</span></span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;a class="idx-card" href="seances/biblio.qmd"&gt;</span></span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-card-icon"&gt;◇&lt;/div&gt;</span></span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-card-title"&gt;Bibliographie&lt;/div&gt;</span></span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-card-desc"&gt;Références académiques, littéraires et culturelles du cours.&lt;/div&gt;</span></span>
+<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="idx-card-tag"&gt;Lectures&lt;/div&gt;</span></span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/a&gt;</span></span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="idx-footnote"&gt;</span></span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a><span class="in">    Cours hybride 10H · Public international · Données WID.world · </span></span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a><span class="in">    Conçu avec l'assistance de Claude (Anthropic)</span></span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
