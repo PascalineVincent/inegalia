@@ -459,76 +459,58 @@ function renderDiag(d) {
     </div></div>`;
 }
 
-// Injecter les notes après chaque entrée Thomas
-// Appelé après le DOM complet — cherche les ancres ## Entrée I…VI
+// Injecter les notes dans chaque section Quarto
+// Quarto enveloppe chaque ## dans <section id="entrée-i-...">
 function injectNotes(d) {
-  const actes = [
-    { num: 1, ancre: 'entrée-i', labelDec: 'Acte I', href: '../actes/01_antiquite.html' },
-    { num: 2, ancre: 'entrée-ii', labelDec: 'Acte II', href: '../actes/02_feodal.html' },
-    { num: 3, ancre: 'entrée-iii', labelDec: 'Acte III', href: '../actes/03_renaissance.html' },
-    { num: 4, ancre: 'entrée-iv', labelDec: 'Acte IV', href: '../actes/04_industrie.html' },
-    { num: 5, ancre: 'entrée-v', labelDec: 'Acte V', href: '../actes/05_regulation.html' },
-    { num: 6, ancre: 'entrée-vi', labelDec: 'Acte VI', href: '../actes/06_contemporain.html' }
+  var actes = [
+    { num: 1, prefix: 'entr\u00e9e-i-',   labelDec: 'Acte I',   href: '../actes/01_antiquite.html' },
+    { num: 2, prefix: 'entr\u00e9e-ii-',  labelDec: 'Acte II',  href: '../actes/02_feodal.html' },
+    { num: 3, prefix: 'entr\u00e9e-iii-', labelDec: 'Acte III', href: '../actes/03_renaissance.html' },
+    { num: 4, prefix: 'entr\u00e9e-iv-',  labelDec: 'Acte IV',  href: '../actes/04_industrie.html' },
+    { num: 5, prefix: 'entr\u00e9e-v-',   labelDec: 'Acte V',   href: '../actes/05_regulation.html' },
+    { num: 6, prefix: 'entr\u00e9e-vi-',  labelDec: 'Acte VI',  href: '../actes/06_contemporain.html' }
   ];
 
   actes.forEach(function(a) {
-    // Trouver le séparateur <hr> après chaque section ## Entrée
-    const heading = document.getElementById(a.ancre);
-    if (!heading) return;
+    // Chercher la <section id="entrée-X-..."> générée par Quarto
+    var section = null;
+    document.querySelectorAll('section[id]').forEach(function(s) {
+      if (s.id.startsWith(a.prefix)) section = s;
+    });
+    if (!section) return;
 
-    // Trouver la fin de la section (prochain hr ou fin de page)
-    let target = heading.parentNode;
-    // Chercher le dernier élément de la section (avant le <hr> suivant)
-    let sibling = heading.nextElementSibling;
-    let lastEl = heading;
-    while (sibling && sibling.tagName !== 'HR') {
-      lastEl = sibling;
-      sibling = sibling.nextElementSibling;
-    }
+    var dec = d.dec['acte_' + a.num];
+    var gq  = d.gq['acte_'  + a.num];
+    var hasAny = dec || gq;
 
-    const dec = d.dec['acte_' + a.num];
-    const gq  = d.gq['acte_'  + a.num];
-    const hasAny = dec || gq;
-
-    const bloc = document.createElement('div');
+    var bloc = document.createElement('div');
     bloc.className = 'ma-note';
-    bloc.id = 'ma-note-' + a.num;
 
-    let inner = `<div class="ma-note-header">
-      <span class="ma-note-label">Ta page · ${a.labelDec}</span>`;
+    var inner = '<div class="ma-note-header">'
+      + '<span class="ma-note-label">Ta page \u00b7 ' + a.labelDec + '</span>';
 
     if (!hasAny) {
-      inner += `<a class="ma-note-lien" href="${a.href}">Commencer cet acte →</a></div>
-        <div class="ma-note-vide">Aucune trace pour cet acte — tes notes apparaîtront ici après ta visite.</div>`;
+      inner += '<a class="ma-note-lien" href="' + a.href + '">Commencer cet acte \u2192</a>'
+        + '</div>'
+        + '<div class="ma-note-vide">Aucune trace pour cet acte \u2014 tes notes appara\u00eetront ici apr\u00e8s ta visite.</div>';
     } else {
-      inner += `</div><div class="ma-note-body">`;
-
+      inner += '</div><div class="ma-note-body">';
       if (dec) {
-        inner += `<div class="ma-note-decision">
-          <strong>Posture choisie :</strong> ${dec.label}
-        </div>
-        <div class="ma-note-echo">${dec.echo}</div>`;
+        inner += '<div class="ma-note-decision"><strong>Posture choisie\u00a0:</strong> ' + dec.label + '</div>'
+          + '<div class="ma-note-echo">' + dec.echo + '</div>';
       }
-
       if (gq) {
-        inner += `<div style="margin-top:${dec ? '.85rem' : '0'}">
-          <div style="font-family:sans-serif;font-size:.67rem;text-transform:uppercase;letter-spacing:.08em;color:#E8A830;margin-bottom:.3rem">Ta note sur le graphique</div>
-          <div class="ma-note-texte">"${gq}"</div>
-        </div>`;
+        inner += '<div style="margin-top:' + (dec ? '.85rem' : '0') + '">'
+          + '<div style="font-family:sans-serif;font-size:.67rem;text-transform:uppercase;letter-spacing:.08em;color:#E8A830;margin-bottom:.3rem">Ta note sur le graphique</div>'
+          + '<div class="ma-note-texte">\u00ab\u00a0' + gq + '\u00a0\u00bb</div>'
+          + '</div>';
       }
-
-      inner += `</div>`;
+      inner += '</div>';
     }
 
-    inner += `</div>`;
     bloc.innerHTML = inner;
-
-    // Insérer après lastEl
-    if (lastEl.nextSibling) {
-      lastEl.parentNode.insertBefore(bloc, lastEl.nextSibling);
-    } else {
-      lastEl.parentNode.appendChild(bloc);
-    }
+    // Insérer à la fin de la section Quarto
+    section.appendChild(bloc);
   });
 }
 
@@ -554,12 +536,6 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>J’ai compté : sur dix personnes croisées, trois sont esclaves. Personne ne les compte dans les assemblées.</p>
 <p>Le philosophe que j’ai rencontré ce soir s’appelle Aristote. Il m’explique que l’esclave est un “instrument animé” — un outil qui parle. Quand je lui demande si l’outil souffre, il change de sujet.</p>
 <p><em>Note économique :</em> Le prix d’un esclave qualifié : 3 à 5 mines d’argent. Le salaire journalier d’un artisan libre : 1 drachme (1/100 mine). L’esclave se rembourse en 300 jours de travail. Après, c’est du profit pur.</p>
-<div class="carnet-sketch">
-<img src="../pics/croquis_antiquite.png" alt="Croquis de l'Agora d'Athènes">
-<p>
-<em>Croquis de l’Agora, avec esclaves en arrière-plan</em>
-</p>
-</div>
 <p><strong>Ce que j’emporte :</strong> La première question économique n’est pas “comment produit-on la richesse” mais “qui a le droit d’en bénéficier”.</p>
 </div>
 <hr>
@@ -572,12 +548,6 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <p>La Peste a tué un tiers de la ville en six mois. Les rues sentent le bûcher. Mais quelque chose d’étrange se passe sur les marchés : les survivants — artisans, paysans — négocient leurs salaires à la hausse.</p>
 <p>Le seigneur du coin est furieux. Il parle d’une ordonnance royale pour bloquer les salaires au niveau d’avant la Peste. La rareté de la main-d’œuvre donne du pouvoir aux travailleurs — et le pouvoir déteste ça.</p>
-<div class="carnet-sketch">
-<img src="../pics/peste_noire.png" alt="Scène de marché pendant la Peste Noire">
-<p>
-<em>Marché parisien en 1349 : moins de monde, plus de pouvoir aux survivants</em>
-</p>
-</div>
 <p><em>Les riches ont leurs tours, les pauvres leurs douleurs,</em> <em>Et la terre, elle, ne dit mot.</em></p>
 <p><em>Note économique :</em> Gini estimé en Europe, 1300 : 0,44. En 1370, après la Peste : 0,38. La catastrophe a été le plus grand niveleur social de l’histoire médiévale. Personne n’a choisi ce résultat.</p>
 <p><strong>Ce que j’emporte :</strong> Les inégalités peuvent baisser — mais rarement sans catastrophe ou sans lutte.</p>
@@ -591,12 +561,6 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>Journal de bord · Lyon, foire de la Saint-Jean, 1555</p>
 </div>
 <p>Lyon est la capitale économique du royaume. Les marchands italiens, allemands et flamands se croisent sur les quais. La soie circule, les lettres de change aussi — des bouts de papier qui valent des fortunes. La monnaie, c’est de la confiance matérialisée.</p>
-<div class="carnet-sketch">
-<img src="../pics/foires.png" alt="Foire de Lyon en 1555">
-<p>
-<em>Échanges de lettres de change sur les quais de Saône</em>
-</p>
-</div>
 <p>J’ai rencontré une femme poète, Louise Labé. Fille d’un cordier enrichi, elle a épousé un riche marchand. Elle écrit sur l’amour, mais aussi sur la valeur — ce qui vaut, ce qui dure, ce qui s’échange sans se vendre.</p>
 <p><em>Mon bien s’en va, et à jamais il dure.</em></p>
 <p><em>Note économique :</em> La foire de Lyon voit passer l’équivalent de 50 tonnes d’argent par an en lettres de change. Pendant ce temps, au Potosí, des milliers d’Indiens meurent pour extraire cet argent. Les deux faits ne se rencontrent jamais dans les chroniques.</p>
@@ -611,12 +575,6 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>Journal de bord · Manchester, mars 1848</p>
 </div>
 <p>Fumée, bruit de machines, enfants qui travaillent dès six ans. Les usines tournent 14 heures par jour. Les ouvriers rentrent chez eux dans des taudis où dix personnes partagent deux pièces.</p>
-<div class="carnet-sketch">
-<img src="../pics/usine.png" alt="Usine textile à Manchester en 1848">
-<p>
-<em>Intérieur d’une filature : 60% des ouvriers ont moins de 16 ans</em>
-</p>
-</div>
 <p>Un homme m’a donné un texte imprimé à la va-vite : <em>Le Manifeste du Parti communiste</em>. Il m’explique que le capitaliste vole deux heures de travail par jour à l’ouvrier — la “plus-value”. Je lui demande si ça peut changer. Il me dit : “Seulement si les ouvriers le décident ensemble.”</p>
 <p><em>Mon travail ? Un loyer. Ma peine ? Un sacrifice.</em></p>
 <p><em>Note économique :</em> Salaire hebdomadaire moyen à Manchester en 1848 : 7 shillings. Loyer d’une chambre insalubre : 2 shillings. Reste pour manger, se chauffer, vivre : 5 shillings pour 6 personnes.</p>
@@ -631,12 +589,6 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>Journal de bord · Wall Street, 24 octobre 1929</p>
 </div>
 <p>“Black Thursday.” En quelques heures, des fortunes ont disparu. Des hommes en costume pleurent sur les trottoirs. Mais les vrais perdants ne sont pas ici — ils sont dans les campagnes, dans les usines qui ferment, dans les files d’attente aux soupes populaires.</p>
-<div class="carnet-sketch">
-<img src="../pics/1929.png" alt="Krach boursier de 1929 à Wall Street">
-<p>
-<em>24 octobre 1929 : la foule devant la Bourse de New York</em>
-</p>
-</div>
 <p>J’ai lu Keynes ce soir dans ma chambre d’hôtel. Il dit que le marché ne se régule pas tout seul — qu’il faut que quelqu’un prenne le relais quand personne ne dépense. Cet “quelqu’un”, c’est l’État. Idée révolutionnaire en 1929.</p>
 <p><em>America never was America to me.</em></p>
 <p><em>Note économique :</em> Chômage aux États-Unis, 1933 : 25%. Dans les communautés noires : 50%. La crise ne frappe pas au hasard — elle suit les lignes préexistantes des inégalités.</p>
@@ -651,12 +603,6 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>Journal de bord · San Francisco, avril 2026</p>
 </div>
 <p>Deux mondes dans la même rue. D’un côté, les campus des GAFAM — espaces verts, cafétérias gratuites, salaires à six chiffres. De l’autre, les tentes des sans-abri alignées le long de la Highway 101.</p>
-<div class="carnet-sketch">
-<img src="../pics/favelas.png" alt="Contraste social à San Francisco en 2026">
-<p>
-<em>Illustration de la ségrégation urbaine</em>
-</p>
-</div>
 <p>Un livreur Uber m’explique son algorithme. Il travaille 10 heures par jour, gagne 1200 dollars par mois, n’a pas d’assurance maladie. Son patron, c’est une application. Son contremaître, une étoile de notation.</p>
 <p><em>le salaire de la beauté est toujours en retard.</em></p>
 <p><em>Note économique :</em> En 2026, les 1% les plus riches de Californie possèdent 43% de la richesse de l’État. L’espérance de vie varie de 15 ans entre les quartiers riches et pauvres de la même ville.</p>
@@ -1497,262 +1443,231 @@ document.addEventListener('DOMContentLoaded', function() {
 <span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/div&gt;&lt;/div&gt;`;</span></span>
 <span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
 <span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a><span class="in">// Injecter les notes après chaque entrée Thomas</span></span>
-<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a><span class="in">// Appelé après le DOM complet — cherche les ancres ## Entrée I…VI</span></span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a><span class="in">// Injecter les notes dans chaque section Quarto</span></span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a><span class="in">// Quarto enveloppe chaque ## dans &lt;section id="entrée-i-..."&gt;</span></span>
 <span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a><span class="in">function injectNotes(d) {</span></span>
-<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a><span class="in">  const actes = [</span></span>
-<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a><span class="in">    { num: 1, ancre: 'entrée-i', labelDec: 'Acte I', href: '../actes/01_antiquite.html' },</span></span>
-<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a><span class="in">    { num: 2, ancre: 'entrée-ii', labelDec: 'Acte II', href: '../actes/02_feodal.html' },</span></span>
-<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a><span class="in">    { num: 3, ancre: 'entrée-iii', labelDec: 'Acte III', href: '../actes/03_renaissance.html' },</span></span>
-<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a><span class="in">    { num: 4, ancre: 'entrée-iv', labelDec: 'Acte IV', href: '../actes/04_industrie.html' },</span></span>
-<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a><span class="in">    { num: 5, ancre: 'entrée-v', labelDec: 'Acte V', href: '../actes/05_regulation.html' },</span></span>
-<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a><span class="in">    { num: 6, ancre: 'entrée-vi', labelDec: 'Acte VI', href: '../actes/06_contemporain.html' }</span></span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a><span class="in">  var actes = [</span></span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a><span class="in">    { num: 1, prefix: 'entr\u00e9e-i-',   labelDec: 'Acte I',   href: '../actes/01_antiquite.html' },</span></span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a><span class="in">    { num: 2, prefix: 'entr\u00e9e-ii-',  labelDec: 'Acte II',  href: '../actes/02_feodal.html' },</span></span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a><span class="in">    { num: 3, prefix: 'entr\u00e9e-iii-', labelDec: 'Acte III', href: '../actes/03_renaissance.html' },</span></span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a><span class="in">    { num: 4, prefix: 'entr\u00e9e-iv-',  labelDec: 'Acte IV',  href: '../actes/04_industrie.html' },</span></span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a><span class="in">    { num: 5, prefix: 'entr\u00e9e-v-',   labelDec: 'Acte V',   href: '../actes/05_regulation.html' },</span></span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a><span class="in">    { num: 6, prefix: 'entr\u00e9e-vi-',  labelDec: 'Acte VI',  href: '../actes/06_contemporain.html' }</span></span>
 <span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a><span class="in">  ];</span></span>
 <span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a><span class="in">  actes.forEach(function(a) {</span></span>
-<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a><span class="in">    // Trouver le séparateur &lt;hr&gt; après chaque section ## Entrée</span></span>
-<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a><span class="in">    const heading = document.getElementById(a.ancre);</span></span>
-<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a><span class="in">    if (!heading) return;</span></span>
-<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a><span class="in">    // Trouver la fin de la section (prochain hr ou fin de page)</span></span>
-<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a><span class="in">    let target = heading.parentNode;</span></span>
-<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a><span class="in">    // Chercher le dernier élément de la section (avant le &lt;hr&gt; suivant)</span></span>
-<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a><span class="in">    let sibling = heading.nextElementSibling;</span></span>
-<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a><span class="in">    let lastEl = heading;</span></span>
-<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a><span class="in">    while (sibling &amp;&amp; sibling.tagName !== 'HR') {</span></span>
-<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a><span class="in">      lastEl = sibling;</span></span>
-<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a><span class="in">      sibling = sibling.nextElementSibling;</span></span>
-<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a><span class="in">    // Chercher la &lt;section id="entrée-X-..."&gt; générée par Quarto</span></span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a><span class="in">    var section = null;</span></span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a><span class="in">    document.querySelectorAll('section[id]').forEach(function(s) {</span></span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a><span class="in">      if (s.id.startsWith(a.prefix)) section = s;</span></span>
+<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a><span class="in">    });</span></span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a><span class="in">    if (!section) return;</span></span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a><span class="in">    var dec = d.dec['acte_' + a.num];</span></span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a><span class="in">    var gq  = d.gq['acte_'  + a.num];</span></span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a><span class="in">    var hasAny = dec || gq;</span></span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a><span class="in">    var bloc = document.createElement('div');</span></span>
+<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a><span class="in">    bloc.className = 'ma-note';</span></span>
 <span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a><span class="in">    const dec = d.dec['acte_' + a.num];</span></span>
-<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a><span class="in">    const gq  = d.gq['acte_'  + a.num];</span></span>
-<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a><span class="in">    const hasAny = dec || gq;</span></span>
-<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a><span class="in">    const bloc = document.createElement('div');</span></span>
-<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a><span class="in">    bloc.className = 'ma-note';</span></span>
-<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a><span class="in">    bloc.id = 'ma-note-' + a.num;</span></span>
-<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a><span class="in">    let inner = `&lt;div class="ma-note-header"&gt;</span></span>
-<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;span class="ma-note-label"&gt;Ta page · ${a.labelDec}&lt;/span&gt;`;</span></span>
-<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a><span class="in">    if (!hasAny) {</span></span>
-<span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a><span class="in">      inner += `&lt;a class="ma-note-lien" href="${a.href}"&gt;Commencer cet acte →&lt;/a&gt;&lt;/div&gt;</span></span>
-<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;div class="ma-note-vide"&gt;Aucune trace pour cet acte — tes notes apparaîtront ici après ta visite.&lt;/div&gt;`;</span></span>
-<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a><span class="in">    } else {</span></span>
-<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a><span class="in">      inner += `&lt;/div&gt;&lt;div class="ma-note-body"&gt;`;</span></span>
-<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a><span class="in">      if (dec) {</span></span>
-<span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a><span class="in">        inner += `&lt;div class="ma-note-decision"&gt;</span></span>
-<span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a><span class="in">          &lt;strong&gt;Posture choisie :&lt;/strong&gt; ${dec.label}</span></span>
-<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;/div&gt;</span></span>
-<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;div class="ma-note-echo"&gt;${dec.echo}&lt;/div&gt;`;</span></span>
-<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a><span class="in">      }</span></span>
-<span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a><span class="in">      if (gq) {</span></span>
-<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a><span class="in">        inner += `&lt;div style="margin-top:${dec ? '.85rem' : '0'}"&gt;</span></span>
-<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a><span class="in">          &lt;div style="font-family:sans-serif;font-size:.67rem;text-transform:uppercase;letter-spacing:.08em;color:#E8A830;margin-bottom:.3rem"&gt;Ta note sur le graphique&lt;/div&gt;</span></span>
-<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a><span class="in">          &lt;div class="ma-note-texte"&gt;"${gq}"&lt;/div&gt;</span></span>
-<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;/div&gt;`;</span></span>
-<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a><span class="in">      }</span></span>
-<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a><span class="in">      inner += `&lt;/div&gt;`;</span></span>
-<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
-<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a><span class="in">    inner += `&lt;/div&gt;`;</span></span>
-<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a><span class="in">    bloc.innerHTML = inner;</span></span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a><span class="in">    var inner = '&lt;div class="ma-note-header"&gt;'</span></span>
+<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a><span class="in">      + '&lt;span class="ma-note-label"&gt;Ta page \u00b7 ' + a.labelDec + '&lt;/span&gt;';</span></span>
+<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a><span class="in">    if (!hasAny) {</span></span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a><span class="in">      inner += '&lt;a class="ma-note-lien" href="' + a.href + '"&gt;Commencer cet acte \u2192&lt;/a&gt;'</span></span>
+<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a><span class="in">        + '&lt;/div&gt;'</span></span>
+<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a><span class="in">        + '&lt;div class="ma-note-vide"&gt;Aucune trace pour cet acte \u2014 tes notes appara\u00eetront ici apr\u00e8s ta visite.&lt;/div&gt;';</span></span>
+<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a><span class="in">    } else {</span></span>
+<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a><span class="in">      inner += '&lt;/div&gt;&lt;div class="ma-note-body"&gt;';</span></span>
+<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a><span class="in">      if (dec) {</span></span>
+<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a><span class="in">        inner += '&lt;div class="ma-note-decision"&gt;&lt;strong&gt;Posture choisie\u00a0:&lt;/strong&gt; ' + dec.label + '&lt;/div&gt;'</span></span>
+<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a><span class="in">          + '&lt;div class="ma-note-echo"&gt;' + dec.echo + '&lt;/div&gt;';</span></span>
+<span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a><span class="in">      }</span></span>
+<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a><span class="in">      if (gq) {</span></span>
+<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a><span class="in">        inner += '&lt;div style="margin-top:' + (dec ? '.85rem' : '0') + '"&gt;'</span></span>
+<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a><span class="in">          + '&lt;div style="font-family:sans-serif;font-size:.67rem;text-transform:uppercase;letter-spacing:.08em;color:#E8A830;margin-bottom:.3rem"&gt;Ta note sur le graphique&lt;/div&gt;'</span></span>
+<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a><span class="in">          + '&lt;div class="ma-note-texte"&gt;\u00ab\u00a0' + gq + '\u00a0\u00bb&lt;/div&gt;'</span></span>
+<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a><span class="in">          + '&lt;/div&gt;';</span></span>
+<span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a><span class="in">      }</span></span>
+<span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a><span class="in">      inner += '&lt;/div&gt;';</span></span>
+<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
+<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a><span class="in">    bloc.innerHTML = inner;</span></span>
+<span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a><span class="in">    // Insérer à la fin de la section Quarto</span></span>
+<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a><span class="in">    section.appendChild(bloc);</span></span>
+<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a><span class="in">  });</span></span>
+<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a><span class="in">document.addEventListener('DOMContentLoaded', function() {</span></span>
+<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a><span class="in">  const d = loadAll();</span></span>
+<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a><span class="in">  renderCompteur(d);</span></span>
+<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a><span class="in">  renderDiag(d);</span></span>
+<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a><span class="in">  injectNotes(d);</span></span>
+<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a><span class="in">});</span></span>
+<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/script&gt;</span></span>
+<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a><span class="in">    // Insérer après lastEl</span></span>
-<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a><span class="in">    if (lastEl.nextSibling) {</span></span>
-<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a><span class="in">      lastEl.parentNode.insertBefore(bloc, lastEl.nextSibling);</span></span>
-<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a><span class="in">    } else {</span></span>
-<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a><span class="in">      lastEl.parentNode.appendChild(bloc);</span></span>
-<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
-<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a><span class="in">  });</span></span>
-<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
-<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a><span class="in">document.addEventListener('DOMContentLoaded', function() {</span></span>
-<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a><span class="in">  const d = loadAll();</span></span>
-<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a><span class="in">  renderCompteur(d);</span></span>
-<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a><span class="in">  renderDiag(d);</span></span>
-<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a><span class="in">  injectNotes(d);</span></span>
-<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a><span class="in">});</span></span>
-<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/script&gt;</span></span>
-<span id="cb1-280"><a href="#cb1-280" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-281"><a href="#cb1-281" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-282"><a href="#cb1-282" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; *Le voyageur ne comprend pas tout ce qu'il voit. C'est pour ça qu'il écrit.*</span></span>
+<span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; *Le voyageur ne comprend pas tout ce qu'il voit. C'est pour ça qu'il écrit.*</span></span>
+<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a>Ce journal rassemble deux voix : celle de Thomas, le voyageur, et la tienne.</span>
+<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a>Les entrées en fond crème sont les siennes. Les encarts dorés sont les tiens —</span>
+<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a>décisions prises, notes sur les graphiques, traces de ton passage dans chaque acte.</span>
+<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a><span class="fu">## Entrée I — Athènes, –350 av. J.-C.</span></span>
+<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a>::: {.journal-entry}</span>
+<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a>::: {.journal-date}</span>
+<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a>Journal de bord · Agora d'Athènes, automne –350</span>
+<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a>Arrivé hier. La ville sent l'huile et le cuir. Sur l'agora, des hommes discutent de justice et d'échange juste — *to dikaion*. Certains portent des chaînes aux chevilles. On ne les voit pas dans les discussions.</span>
+<span id="cb1-280"><a href="#cb1-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-281"><a href="#cb1-281" aria-hidden="true" tabindex="-1"></a>J'ai compté : sur dix personnes croisées, trois sont esclaves.</span>
+<span id="cb1-282"><a href="#cb1-282" aria-hidden="true" tabindex="-1"></a>Personne ne les compte dans les assemblées.</span>
 <span id="cb1-283"><a href="#cb1-283" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-284"><a href="#cb1-284" aria-hidden="true" tabindex="-1"></a>Ce journal rassemble deux voix : celle de Thomas, le voyageur, et la tienne.</span>
-<span id="cb1-285"><a href="#cb1-285" aria-hidden="true" tabindex="-1"></a>Les entrées en fond crème sont les siennes. Les encarts dorés sont les tiens —</span>
-<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a>décisions prises, notes sur les graphiques, traces de ton passage dans chaque acte.</span>
-<span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a><span class="fu">## Entrée I — Athènes, –350 av. J.-C.</span></span>
-<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-292"><a href="#cb1-292" aria-hidden="true" tabindex="-1"></a>::: {.journal-entry}</span>
-<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a>::: {.journal-date}</span>
-<span id="cb1-294"><a href="#cb1-294" aria-hidden="true" tabindex="-1"></a>Journal de bord · Agora d'Athènes, automne –350</span>
-<span id="cb1-295"><a href="#cb1-295" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-296"><a href="#cb1-296" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a>Arrivé hier. La ville sent l'huile et le cuir. Sur l'agora, des hommes discutent de justice et d'échange juste — *to dikaion*. Certains portent des chaînes aux chevilles. On ne les voit pas dans les discussions.</span>
-<span id="cb1-298"><a href="#cb1-298" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a>J'ai compté : sur dix personnes croisées, trois sont esclaves.</span>
-<span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a>Personne ne les compte dans les assemblées.</span>
-<span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-302"><a href="#cb1-302" aria-hidden="true" tabindex="-1"></a>Le philosophe que j'ai rencontré ce soir s'appelle Aristote. Il m'explique que l'esclave est un "instrument animé" — un outil qui parle.</span>
-<span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a>Quand je lui demande si l'outil souffre, il change de sujet.</span>
-<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a>*Note économique :* Le prix d'un esclave qualifié : 3 à 5 mines d'argent.</span>
-<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a>Le salaire journalier d'un artisan libre : 1 drachme (1/100 mine).</span>
-<span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a>L'esclave se rembourse en 300 jours de travail. Après, c'est du profit pur.</span>
+<span id="cb1-284"><a href="#cb1-284" aria-hidden="true" tabindex="-1"></a>Le philosophe que j'ai rencontré ce soir s'appelle Aristote. Il m'explique que l'esclave est un "instrument animé" — un outil qui parle.</span>
+<span id="cb1-285"><a href="#cb1-285" aria-hidden="true" tabindex="-1"></a>Quand je lui demande si l'outil souffre, il change de sujet.</span>
+<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a>*Note économique :* Le prix d'un esclave qualifié : 3 à 5 mines d'argent.</span>
+<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a>Le salaire journalier d'un artisan libre : 1 drachme (1/100 mine).</span>
+<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a>L'esclave se rembourse en 300 jours de travail. Après, c'est du profit pur.</span>
+<span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a>**Ce que j'emporte :** La première question économique n'est pas "comment produit-on la richesse" mais "qui a le droit d'en bénéficier".</span>
+<span id="cb1-292"><a href="#cb1-292" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-294"><a href="#cb1-294" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-295"><a href="#cb1-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-296"><a href="#cb1-296" aria-hidden="true" tabindex="-1"></a><span class="fu">## Entrée II — Paris, hiver 1348</span></span>
+<span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-298"><a href="#cb1-298" aria-hidden="true" tabindex="-1"></a>::: {.journal-entry}</span>
+<span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a>::: {.journal-date}</span>
+<span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a>Journal de bord · Paris, janvier 1349</span>
+<span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-302"><a href="#cb1-302" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a>La Peste a tué un tiers de la ville en six mois. Les rues sentent le bûcher.</span>
+<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a>Mais quelque chose d'étrange se passe sur les marchés : les survivants — artisans, paysans — négocient leurs salaires à la hausse.</span>
+<span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a>Le seigneur du coin est furieux. Il parle d'une ordonnance royale pour bloquer les salaires au niveau d'avant la Peste.</span>
+<span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a>La rareté de la main-d'œuvre donne du pouvoir aux travailleurs — et le pouvoir déteste ça.</span>
 <span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"carnet-sketch"</span><span class="dt">&gt;</span></span>
-<span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"../pics/croquis_antiquite.png"</span><span class="ot"> alt</span><span class="op">=</span><span class="st">"Croquis de l'Agora d'Athènes"</span><span class="ot"> </span><span class="dt">/&gt;</span></span>
-<span id="cb1-311"><a href="#cb1-311" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">em</span><span class="dt">&gt;</span>Croquis de l'Agora, avec esclaves en arrière-plan<span class="dt">&lt;/</span><span class="kw">em</span><span class="dt">&gt;&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb1-312"><a href="#cb1-312" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb1-313"><a href="#cb1-313" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-314"><a href="#cb1-314" aria-hidden="true" tabindex="-1"></a>**Ce que j'emporte :** La première question économique n'est pas "comment produit-on la richesse" mais "qui a le droit d'en bénéficier".</span>
-<span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a>*Les riches ont leurs tours, les pauvres leurs douleurs,*</span>
+<span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a>*Et la terre, elle, ne dit mot.*</span>
+<span id="cb1-311"><a href="#cb1-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-312"><a href="#cb1-312" aria-hidden="true" tabindex="-1"></a>*Note économique :* Gini estimé en Europe, 1300 : 0,44.</span>
+<span id="cb1-313"><a href="#cb1-313" aria-hidden="true" tabindex="-1"></a>En 1370, après la Peste : 0,38. La catastrophe a été le plus grand niveleur social de l'histoire médiévale.</span>
+<span id="cb1-314"><a href="#cb1-314" aria-hidden="true" tabindex="-1"></a>Personne n'a choisi ce résultat.</span>
+<span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a>**Ce que j'emporte :** Les inégalités peuvent baisser — mais rarement sans catastrophe ou sans lutte.</span>
+<span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a><span class="fu">## Entrée II — Paris, hiver 1348</span></span>
+<span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a>::: {.journal-entry}</span>
-<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a>::: {.journal-date}</span>
-<span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a>Journal de bord · Paris, janvier 1349</span>
-<span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a>La Peste a tué un tiers de la ville en six mois. Les rues sentent le bûcher.</span>
-<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a>Mais quelque chose d'étrange se passe sur les marchés : les survivants — artisans, paysans — négocient leurs salaires à la hausse.</span>
-<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a>Le seigneur du coin est furieux. Il parle d'une ordonnance royale pour bloquer les salaires au niveau d'avant la Peste.</span>
-<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a>La rareté de la main-d'œuvre donne du pouvoir aux travailleurs — et le pouvoir déteste ça.</span>
-<span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a>*Les riches ont leurs tours, les pauvres leurs douleurs,*</span>
-<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a>*Et la terre, elle, ne dit mot.*</span>
+<span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a><span class="fu">## Entrée III — Lyon, 1555</span></span>
+<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a>::: {.journal-entry}</span>
+<span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a>::: {.journal-date}</span>
+<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a>Journal de bord · Lyon, foire de la Saint-Jean, 1555</span>
+<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a>Lyon est la capitale économique du royaume. Les marchands italiens, allemands et flamands se croisent sur les quais.</span>
+<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a>La soie circule, les lettres de change aussi — des bouts de papier qui valent des fortunes. La monnaie, c'est de la confiance matérialisée.</span>
+<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a>J'ai rencontré une femme poète, Louise Labé.</span>
+<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a>Fille d'un cordier enrichi, elle a épousé un riche marchand.</span>
+<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a>Elle écrit sur l'amour, mais aussi sur la valeur — ce qui vaut, ce qui dure, ce qui s'échange sans se vendre.</span>
+<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a>*Mon bien s'en va, et à jamais il dure.*</span>
 <span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a>*Note économique :* Gini estimé en Europe, 1300 : 0,44.</span>
-<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a>En 1370, après la Peste : 0,38. La catastrophe a été le plus grand niveleur social de l'histoire médiévale.</span>
-<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a>Personne n'a choisi ce résultat.</span>
+<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a>*Note économique :* La foire de Lyon voit passer l'équivalent de 50 tonnes d'argent par an en lettres de change.</span>
+<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a>Pendant ce temps, au Potosí, des milliers d'Indiens meurent pour extraire cet argent.</span>
+<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a>Les deux faits ne se rencontrent jamais dans les chroniques.</span>
 <span id="cb1-340"><a href="#cb1-340" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a>**Ce que j'emporte :** Les inégalités peuvent baisser — mais rarement sans catastrophe ou sans lutte.</span>
+<span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a>**Ce que j'emporte :** Le commerce crée de la richesse et de l'invisibilité simultanément.</span>
 <span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-343"><a href="#cb1-343" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-344"><a href="#cb1-344" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-346"><a href="#cb1-346" aria-hidden="true" tabindex="-1"></a><span class="fu">## Entrée III — Lyon, 1555</span></span>
+<span id="cb1-346"><a href="#cb1-346" aria-hidden="true" tabindex="-1"></a><span class="fu">## Entrée IV — Manchester, 1848</span></span>
 <span id="cb1-347"><a href="#cb1-347" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-348"><a href="#cb1-348" aria-hidden="true" tabindex="-1"></a>::: {.journal-entry}</span>
 <span id="cb1-349"><a href="#cb1-349" aria-hidden="true" tabindex="-1"></a>::: {.journal-date}</span>
-<span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a>Journal de bord · Lyon, foire de la Saint-Jean, 1555</span>
+<span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a>Journal de bord · Manchester, mars 1848</span>
 <span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a>Lyon est la capitale économique du royaume. Les marchands italiens, allemands et flamands se croisent sur les quais.</span>
-<span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a>La soie circule, les lettres de change aussi — des bouts de papier qui valent des fortunes. La monnaie, c'est de la confiance matérialisée.</span>
+<span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a>Fumée, bruit de machines, enfants qui travaillent dès six ans.</span>
+<span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a>Les usines tournent 14 heures par jour. Les ouvriers rentrent chez eux dans des taudis où dix personnes partagent deux pièces.</span>
 <span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a>J'ai rencontré une femme poète, Louise Labé.</span>
-<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a>Fille d'un cordier enrichi, elle a épousé un riche marchand.</span>
-<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a>Elle écrit sur l'amour, mais aussi sur la valeur — ce qui vaut, ce qui dure, ce qui s'échange sans se vendre.</span>
+<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a>Un homme m'a donné un texte imprimé à la va-vite : *Le Manifeste du Parti communiste*.</span>
+<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a>Il m'explique que le capitaliste vole deux heures de travail par jour à l'ouvrier — la "plus-value".</span>
+<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a>Je lui demande si ça peut changer. Il me dit : "Seulement si les ouvriers le décident ensemble."</span>
+<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a>*Mon travail ? Un loyer. Ma peine ? Un sacrifice.*</span>
 <span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a>*Mon bien s'en va, et à jamais il dure.*</span>
-<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a>*Note économique :* La foire de Lyon voit passer l'équivalent de 50 tonnes d'argent par an en lettres de change.</span>
-<span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a>Pendant ce temps, au Potosí, des milliers d'Indiens meurent pour extraire cet argent.</span>
-<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a>Les deux faits ne se rencontrent jamais dans les chroniques.</span>
-<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a>**Ce que j'emporte :** Le commerce crée de la richesse et de l'invisibilité simultanément.</span>
-<span id="cb1-369"><a href="#cb1-369" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a>*Note économique :* Salaire hebdomadaire moyen à Manchester en 1848 : 7 shillings.</span>
+<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a>Loyer d'une chambre insalubre : 2 shillings.</span>
+<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a>Reste pour manger, se chauffer, vivre : 5 shillings pour 6 personnes.</span>
+<span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a>**Ce que j'emporte :** L'économie industrielle a rendu les inégalités *visibles* et *scandaleuses* pour la première fois.</span>
+<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-369"><a href="#cb1-369" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb1-370"><a href="#cb1-370" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-371"><a href="#cb1-371" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-371"><a href="#cb1-371" aria-hidden="true" tabindex="-1"></a><span class="fu">## Entrée V — New York, octobre 1929</span></span>
 <span id="cb1-372"><a href="#cb1-372" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-373"><a href="#cb1-373" aria-hidden="true" tabindex="-1"></a><span class="fu">## Entrée IV — Manchester, 1848</span></span>
-<span id="cb1-374"><a href="#cb1-374" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-375"><a href="#cb1-375" aria-hidden="true" tabindex="-1"></a>::: {.journal-entry}</span>
-<span id="cb1-376"><a href="#cb1-376" aria-hidden="true" tabindex="-1"></a>::: {.journal-date}</span>
-<span id="cb1-377"><a href="#cb1-377" aria-hidden="true" tabindex="-1"></a>Journal de bord · Manchester, mars 1848</span>
-<span id="cb1-378"><a href="#cb1-378" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-379"><a href="#cb1-379" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-380"><a href="#cb1-380" aria-hidden="true" tabindex="-1"></a>Fumée, bruit de machines, enfants qui travaillent dès six ans.</span>
-<span id="cb1-381"><a href="#cb1-381" aria-hidden="true" tabindex="-1"></a>Les usines tournent 14 heures par jour. Les ouvriers rentrent chez eux dans des taudis où dix personnes partagent deux pièces.</span>
-<span id="cb1-382"><a href="#cb1-382" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-383"><a href="#cb1-383" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-384"><a href="#cb1-384" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-385"><a href="#cb1-385" aria-hidden="true" tabindex="-1"></a>Un homme m'a donné un texte imprimé à la va-vite : *Le Manifeste du Parti communiste*.</span>
-<span id="cb1-386"><a href="#cb1-386" aria-hidden="true" tabindex="-1"></a>Il m'explique que le capitaliste vole deux heures de travail par jour à l'ouvrier — la "plus-value".</span>
-<span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a>Je lui demande si ça peut changer. Il me dit : "Seulement si les ouvriers le décident ensemble."</span>
-<span id="cb1-388"><a href="#cb1-388" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-389"><a href="#cb1-389" aria-hidden="true" tabindex="-1"></a>*Mon travail ? Un loyer. Ma peine ? Un sacrifice.*</span>
-<span id="cb1-390"><a href="#cb1-390" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a>*Note économique :* Salaire hebdomadaire moyen à Manchester en 1848 : 7 shillings.</span>
-<span id="cb1-392"><a href="#cb1-392" aria-hidden="true" tabindex="-1"></a>Loyer d'une chambre insalubre : 2 shillings.</span>
-<span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a>Reste pour manger, se chauffer, vivre : 5 shillings pour 6 personnes.</span>
+<span id="cb1-373"><a href="#cb1-373" aria-hidden="true" tabindex="-1"></a>::: {.journal-entry}</span>
+<span id="cb1-374"><a href="#cb1-374" aria-hidden="true" tabindex="-1"></a>::: {.journal-date}</span>
+<span id="cb1-375"><a href="#cb1-375" aria-hidden="true" tabindex="-1"></a>Journal de bord · Wall Street, 24 octobre 1929</span>
+<span id="cb1-376"><a href="#cb1-376" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-377"><a href="#cb1-377" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-378"><a href="#cb1-378" aria-hidden="true" tabindex="-1"></a>"Black Thursday." En quelques heures, des fortunes ont disparu.</span>
+<span id="cb1-379"><a href="#cb1-379" aria-hidden="true" tabindex="-1"></a>Des hommes en costume pleurent sur les trottoirs.</span>
+<span id="cb1-380"><a href="#cb1-380" aria-hidden="true" tabindex="-1"></a>Mais les vrais perdants ne sont pas ici — ils sont dans les campagnes, dans les usines qui ferment, dans les files d'attente aux soupes populaires.</span>
+<span id="cb1-381"><a href="#cb1-381" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-382"><a href="#cb1-382" aria-hidden="true" tabindex="-1"></a>J'ai lu Keynes ce soir dans ma chambre d'hôtel.</span>
+<span id="cb1-383"><a href="#cb1-383" aria-hidden="true" tabindex="-1"></a>Il dit que le marché ne se régule pas tout seul — qu'il faut que quelqu'un prenne le relais quand personne ne dépense.</span>
+<span id="cb1-384"><a href="#cb1-384" aria-hidden="true" tabindex="-1"></a>Cet "quelqu'un", c'est l'État. Idée révolutionnaire en 1929.</span>
+<span id="cb1-385"><a href="#cb1-385" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-386"><a href="#cb1-386" aria-hidden="true" tabindex="-1"></a>*America never was America to me.*</span>
+<span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-388"><a href="#cb1-388" aria-hidden="true" tabindex="-1"></a>*Note économique :* Chômage aux États-Unis, 1933 : 25%.</span>
+<span id="cb1-389"><a href="#cb1-389" aria-hidden="true" tabindex="-1"></a>Dans les communautés noires : 50%.</span>
+<span id="cb1-390"><a href="#cb1-390" aria-hidden="true" tabindex="-1"></a>La crise ne frappe pas au hasard — elle suit les lignes préexistantes des inégalités.</span>
+<span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-392"><a href="#cb1-392" aria-hidden="true" tabindex="-1"></a>**Ce que j'emporte :** Une crise révèle toujours la carte des inégalités qu'elle n'a pas créées, seulement amplifiées.</span>
+<span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-394"><a href="#cb1-394" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-395"><a href="#cb1-395" aria-hidden="true" tabindex="-1"></a>**Ce que j'emporte :** L'économie industrielle a rendu les inégalités *visibles* et *scandaleuses* pour la première fois.</span>
-<span id="cb1-396"><a href="#cb1-396" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-397"><a href="#cb1-397" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-398"><a href="#cb1-398" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb1-399"><a href="#cb1-399" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-400"><a href="#cb1-400" aria-hidden="true" tabindex="-1"></a><span class="fu">## Entrée V — New York, octobre 1929</span></span>
-<span id="cb1-401"><a href="#cb1-401" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-402"><a href="#cb1-402" aria-hidden="true" tabindex="-1"></a>::: {.journal-entry}</span>
-<span id="cb1-403"><a href="#cb1-403" aria-hidden="true" tabindex="-1"></a>::: {.journal-date}</span>
-<span id="cb1-404"><a href="#cb1-404" aria-hidden="true" tabindex="-1"></a>Journal de bord · Wall Street, 24 octobre 1929</span>
-<span id="cb1-405"><a href="#cb1-405" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-395"><a href="#cb1-395" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-396"><a href="#cb1-396" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-397"><a href="#cb1-397" aria-hidden="true" tabindex="-1"></a><span class="fu">## Entrée VI — San Francisco, 2026</span></span>
+<span id="cb1-398"><a href="#cb1-398" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-399"><a href="#cb1-399" aria-hidden="true" tabindex="-1"></a>::: {.journal-entry}</span>
+<span id="cb1-400"><a href="#cb1-400" aria-hidden="true" tabindex="-1"></a>::: {.journal-date}</span>
+<span id="cb1-401"><a href="#cb1-401" aria-hidden="true" tabindex="-1"></a>Journal de bord · San Francisco, avril 2026</span>
+<span id="cb1-402"><a href="#cb1-402" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-403"><a href="#cb1-403" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-404"><a href="#cb1-404" aria-hidden="true" tabindex="-1"></a>Deux mondes dans la même rue.</span>
+<span id="cb1-405"><a href="#cb1-405" aria-hidden="true" tabindex="-1"></a>D'un côté, les campus des GAFAM — espaces verts, cafétérias gratuites, salaires à six chiffres. De l'autre, les tentes des sans-abri alignées le long de la Highway 101.</span>
 <span id="cb1-406"><a href="#cb1-406" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-407"><a href="#cb1-407" aria-hidden="true" tabindex="-1"></a>"Black Thursday." En quelques heures, des fortunes ont disparu.</span>
-<span id="cb1-408"><a href="#cb1-408" aria-hidden="true" tabindex="-1"></a>Des hommes en costume pleurent sur les trottoirs.</span>
-<span id="cb1-409"><a href="#cb1-409" aria-hidden="true" tabindex="-1"></a>Mais les vrais perdants ne sont pas ici — ils sont dans les campagnes, dans les usines qui ferment, dans les files d'attente aux soupes populaires.</span>
-<span id="cb1-410"><a href="#cb1-410" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-407"><a href="#cb1-407" aria-hidden="true" tabindex="-1"></a>Un livreur Uber m'explique son algorithme. Il travaille 10 heures par jour, gagne 1200 dollars par mois, n'a pas d'assurance maladie.</span>
+<span id="cb1-408"><a href="#cb1-408" aria-hidden="true" tabindex="-1"></a>Son patron, c'est une application. Son contremaître, une étoile de notation.</span>
+<span id="cb1-409"><a href="#cb1-409" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-410"><a href="#cb1-410" aria-hidden="true" tabindex="-1"></a>*le salaire de la beauté est toujours en retard.*</span>
 <span id="cb1-411"><a href="#cb1-411" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-412"><a href="#cb1-412" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-413"><a href="#cb1-413" aria-hidden="true" tabindex="-1"></a>J'ai lu Keynes ce soir dans ma chambre d'hôtel.</span>
-<span id="cb1-414"><a href="#cb1-414" aria-hidden="true" tabindex="-1"></a>Il dit que le marché ne se régule pas tout seul — qu'il faut que quelqu'un prenne le relais quand personne ne dépense.</span>
-<span id="cb1-415"><a href="#cb1-415" aria-hidden="true" tabindex="-1"></a>Cet "quelqu'un", c'est l'État. Idée révolutionnaire en 1929.</span>
-<span id="cb1-416"><a href="#cb1-416" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-417"><a href="#cb1-417" aria-hidden="true" tabindex="-1"></a>*America never was America to me.*</span>
+<span id="cb1-412"><a href="#cb1-412" aria-hidden="true" tabindex="-1"></a>*Note économique :* En 2026, les 1% les plus riches de Californie possèdent 43% de la richesse de l'État.</span>
+<span id="cb1-413"><a href="#cb1-413" aria-hidden="true" tabindex="-1"></a>L'espérance de vie varie de 15 ans entre les quartiers riches et pauvres de la même ville.</span>
+<span id="cb1-414"><a href="#cb1-414" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-415"><a href="#cb1-415" aria-hidden="true" tabindex="-1"></a>**Ce que j'emporte :** Tout est mesuré. Rien n'est résolu.</span>
+<span id="cb1-416"><a href="#cb1-416" aria-hidden="true" tabindex="-1"></a>La question n'est pas de savoir si on peut mesurer les inégalités — c'est de décider ce qu'on fait avec ce qu'on sait.</span>
+<span id="cb1-417"><a href="#cb1-417" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-418"><a href="#cb1-418" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-419"><a href="#cb1-419" aria-hidden="true" tabindex="-1"></a>*Note économique :* Chômage aux États-Unis, 1933 : 25%.</span>
-<span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a>Dans les communautés noires : 50%.</span>
-<span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a>La crise ne frappe pas au hasard — elle suit les lignes préexistantes des inégalités.</span>
-<span id="cb1-422"><a href="#cb1-422" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-423"><a href="#cb1-423" aria-hidden="true" tabindex="-1"></a>**Ce que j'emporte :** Une crise révèle toujours la carte des inégalités qu'elle n'a pas créées, seulement amplifiées.</span>
-<span id="cb1-424"><a href="#cb1-424" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-425"><a href="#cb1-425" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-426"><a href="#cb1-426" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb1-427"><a href="#cb1-427" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-428"><a href="#cb1-428" aria-hidden="true" tabindex="-1"></a><span class="fu">## Entrée VI — San Francisco, 2026</span></span>
-<span id="cb1-429"><a href="#cb1-429" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-430"><a href="#cb1-430" aria-hidden="true" tabindex="-1"></a>::: {.journal-entry}</span>
-<span id="cb1-431"><a href="#cb1-431" aria-hidden="true" tabindex="-1"></a>::: {.journal-date}</span>
-<span id="cb1-432"><a href="#cb1-432" aria-hidden="true" tabindex="-1"></a>Journal de bord · San Francisco, avril 2026</span>
-<span id="cb1-433"><a href="#cb1-433" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-434"><a href="#cb1-434" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-435"><a href="#cb1-435" aria-hidden="true" tabindex="-1"></a>Deux mondes dans la même rue.</span>
-<span id="cb1-436"><a href="#cb1-436" aria-hidden="true" tabindex="-1"></a>D'un côté, les campus des GAFAM — espaces verts, cafétérias gratuites, salaires à six chiffres. De l'autre, les tentes des sans-abri alignées le long de la Highway 101.</span>
-<span id="cb1-437"><a href="#cb1-437" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-438"><a href="#cb1-438" aria-hidden="true" tabindex="-1"></a>Un livreur Uber m'explique son algorithme. Il travaille 10 heures par jour, gagne 1200 dollars par mois, n'a pas d'assurance maladie.</span>
-<span id="cb1-439"><a href="#cb1-439" aria-hidden="true" tabindex="-1"></a>Son patron, c'est une application. Son contremaître, une étoile de notation.</span>
-<span id="cb1-440"><a href="#cb1-440" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-441"><a href="#cb1-441" aria-hidden="true" tabindex="-1"></a>*le salaire de la beauté est toujours en retard.*</span>
-<span id="cb1-442"><a href="#cb1-442" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-443"><a href="#cb1-443" aria-hidden="true" tabindex="-1"></a>*Note économique :* En 2026, les 1% les plus riches de Californie possèdent 43% de la richesse de l'État.</span>
-<span id="cb1-444"><a href="#cb1-444" aria-hidden="true" tabindex="-1"></a>L'espérance de vie varie de 15 ans entre les quartiers riches et pauvres de la même ville.</span>
-<span id="cb1-445"><a href="#cb1-445" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-446"><a href="#cb1-446" aria-hidden="true" tabindex="-1"></a>**Ce que j'emporte :** Tout est mesuré. Rien n'est résolu.</span>
-<span id="cb1-447"><a href="#cb1-447" aria-hidden="true" tabindex="-1"></a>La question n'est pas de savoir si on peut mesurer les inégalités — c'est de décider ce qu'on fait avec ce qu'on sait.</span>
-<span id="cb1-448"><a href="#cb1-448" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-449"><a href="#cb1-449" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-450"><a href="#cb1-450" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb1-451"><a href="#cb1-451" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-452"><a href="#cb1-452" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb1-453"><a href="#cb1-453" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pour l'exposé individuel</span></span>
-<span id="cb1-454"><a href="#cb1-454" aria-hidden="true" tabindex="-1"></a>Chaque entrée peut servir de point de départ. Choisis un moment, un lieu, une voix poétique — et construis ta propre entrée en liant un poème, une donnée économique, et ton positionnement personnel.</span>
-<span id="cb1-455"><a href="#cb1-455" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-419"><a href="#cb1-419" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb1-422"><a href="#cb1-422" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pour l'exposé individuel</span></span>
+<span id="cb1-423"><a href="#cb1-423" aria-hidden="true" tabindex="-1"></a>Chaque entrée peut servir de point de départ. Choisis un moment, un lieu, une voix poétique — et construis ta propre entrée en liant un poème, une donnée économique, et ton positionnement personnel.</span>
+<span id="cb1-424"><a href="#cb1-424" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
