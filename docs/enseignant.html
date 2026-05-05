@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.25">
@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Espace enseignant – Inégalités — Histoire économique</title>
+<title>Guide enseignant – Inégalités — Histoire économique</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,7 +65,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./images/favicon.png" rel="icon" type="image/png">
+<link href="./assets/favicon.ico" rel="icon">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -38,10 +73,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-baa430972099fb31141cd1bdcb1979d1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-37145c7085cc789a87389ce749f91e98.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-94b8f0ccdf62a3306dd81d708c49f9d4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -56,21 +91,25 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "Pas de résultats",
-    "search-matching-documents-text": "documents trouvés",
-    "search-copy-link-title": "Copier le lien vers la recherche",
-    "search-hide-matches-text": "Cacher les correspondances additionnelles",
-    "search-more-match-text": "correspondance de plus dans ce document",
-    "search-more-matches-text": "correspondances de plus dans ce document",
-    "search-clear-button-title": "Effacer",
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Annuler",
-    "search-submit-button-title": "Envoyer",
-    "search-label": "Recherche"
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=DM+Sans:wght@300;400;500&amp;family=DM+Mono:wght@400&amp;display=swap" rel="stylesheet">
 
 
+<link rel="stylesheet" href="assets/custom.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -80,18 +119,22 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <a href="avant_voyage.html" class="navbar-brand navbar-brand-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="avant_voyage.html">
     <span class="navbar-title">Inégalités — Histoire économique</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Recherche"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./interactif/quiz_diagnostic.html"> 
+<span class="menu-text">Diagnostic</span></a>
+  </li>  
   <li class="nav-item">
     <a class="nav-link" href="./avant_voyage.html"> 
 <span class="menu-text">Avant le voyage</span></a>
@@ -128,29 +171,37 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./journal/carnet_test.html"> 
-<span class="menu-text">Journal de bord</span></a>
+    <a class="nav-link" href="./journal/index.html"> 
+<span class="menu-text">Carnet de bord</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-interactif" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Interactif</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-activités" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Activités</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-interactif">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-activités">    
         <li>
-    <a class="dropdown-item" href="./interactif/qcm.html">
- <span class="dropdown-text">QCM — auto-évaluation</span></a>
+    <a class="dropdown-item" href="./interactif/quiz.html">
+ <span class="dropdown-text">🎯 Quiz par acte</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./interactif/carte_gini.html">
- <span class="dropdown-text">Carte — Gini mondial</span></a>
+    <a class="dropdown-item" href="./interactif/carte_gini.qmd">
+ <span class="dropdown-text">🗺️ Carte — Gini mondial</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./interactif/debats.html">
+ <span class="dropdown-text">⚖️ Débats</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./interactif/detective.html">
+ <span class="dropdown-text">🔍 Détective des inégalités</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./interactif/atelier_donnees.html">
+ <span class="dropdown-text">📊 Atelier données</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./interactif/ma_progression.html">
- <span class="dropdown-text">Ma progression</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./interactif/epilogue.html">
- <span class="dropdown-text">Épilogue</span></a>
+ <span class="dropdown-text">🏆 Ma progression</span></a>
   </li>  
     </ul>
   </li>
@@ -164,7 +215,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Séances</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./actes/fil_femmes.html">
+    <a class="dropdown-item" href="./fil_femmes.html">
  <span class="dropdown-text">Fil Femmes</span></a>
   </li>  
         <li>
@@ -172,7 +223,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Données</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./seances/biblio.html">
+    <a class="dropdown-item" href="./seances/biblio.qmd">
  <span class="dropdown-text">Bibliographie</span></a>
   </li>  
     </ul>
@@ -195,21 +246,34 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#pour-qui-pour-quoi" id="toc-pour-qui-pour-quoi" class="nav-link active" data-scroll-target="#pour-qui-pour-quoi">Pour qui, pour quoi</a></li>
+  <li><a href="#niveaux-et-adaptations" id="toc-niveaux-et-adaptations" class="nav-link" data-scroll-target="#niveaux-et-adaptations">Niveaux et adaptations</a></li>
+  <li><a href="#séances-en-présentiel-suggérées" id="toc-séances-en-présentiel-suggérées" class="nav-link" data-scroll-target="#séances-en-présentiel-suggérées">Séances en présentiel suggérées</a></li>
+  <li><a href="#évaluation" id="toc-évaluation" class="nav-link" data-scroll-target="#évaluation">Évaluation</a></li>
+  <li><a href="#adaptation-et-signalement-derreurs" id="toc-adaptation-et-signalement-derreurs" class="nav-link" data-scroll-target="#adaptation-et-signalement-derreurs">Adaptation et signalement d’erreurs</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Espace enseignant</h1>
+<div class="quarto-title-block"><div><h1 class="title">Guide enseignant</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<p class="subtitle lead">Usages pédagogiques · Adaptations · Évaluation</p>
 </div>
 
 
 
-<div class="quarto-title-meta column-page">
+<div class="quarto-title-meta">
 
     
   
@@ -222,687 +286,484 @@ ul.task-list li input[type="checkbox"] {
 
 
 <style>
-.ens-root{
-  --pri:#2A3240;--acc:#E8A830;--bord:#C8D4E0;--bg:#EFF2F6;
-  --vert:#1E6B4A;--rouge:#C0392B;--muted:#5A6A7A;
-  font-family:'EB Garamond',Georgia,serif;
-  max-width:900px;margin:0 auto;padding:1rem 1rem 4rem;
-}
-
-/* Login */
-.ens-login{
-  max-width:380px;margin:4rem auto;
-  border:.5px solid var(--bord);border-radius:12px;overflow:hidden;
-}
-.ens-login-header{background:var(--pri);padding:1.25rem 1.5rem}
-.ens-login-title{color:#EFF2F6;font-size:1.05rem;margin:0}
-.ens-login-sub{color:#C8D4E0;font-family:sans-serif;font-size:.75rem;margin-top:3px}
-.ens-login-body{padding:1.5rem;background:white}
-.ens-login-label{font-family:sans-serif;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);display:block;margin-bottom:.4rem}
-.ens-login-input{
-  width:100%;border:.5px solid var(--bord);border-radius:7px;
-  padding:.6rem .9rem;font-family:sans-serif;font-size:.9rem;
-  color:var(--pri);box-sizing:border-box;
-  transition:border-color .15s;
-}
-.ens-login-input:focus{outline:none;border-color:var(--acc)}
-.ens-login-btn{
-  width:100%;margin-top:.9rem;padding:.65rem;
-  background:var(--pri);color:#EFF2F6;border:none;border-radius:7px;
-  font-family:'EB Garamond',Georgia,serif;font-size:.95rem;cursor:pointer;
-  transition:background .15s;
-}
-.ens-login-btn:hover{background:#1C2435}
-.ens-login-error{
-  margin-top:.65rem;font-family:sans-serif;font-size:.78rem;
-  color:var(--rouge);text-align:center;display:none;
-}
-.ens-login-error.visible{display:block}
-.ens-login-hint{
-  font-family:sans-serif;font-size:.7rem;color:var(--muted);
-  text-align:center;margin-top:.75rem;line-height:1.5;
-}
-
-/* Dashboard */
-.ens-dash{display:none}
-.ens-dash.visible{display:block}
-
-/* Stats */
-.ens-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:1.75rem}
-.ens-stat{background:var(--bg);border-radius:8px;padding:.85rem 1rem;text-align:center}
-.ens-stat-n{font-size:1.6rem;font-weight:500;color:var(--pri)}
-.ens-stat-l{font-family:sans-serif;font-size:.68rem;color:var(--muted);margin-top:2px}
-
-/* Zone import */
-.ens-import{
-  border:1.5px dashed var(--bord);border-radius:10px;
-  padding:1.5rem;text-align:center;
-  background:white;margin-bottom:1.5rem;
-  transition:border-color .2s,background .2s;cursor:pointer;
-}
-.ens-import:hover,.ens-import.drag{border-color:var(--acc);background:#FDFAF3}
-.ens-import-icon{font-size:1.6rem;margin-bottom:.5rem;color:var(--muted)}
-.ens-import-txt{font-size:.92rem;color:var(--muted)}
-.ens-import-txt strong{color:var(--pri)}
-.ens-import-sub{font-family:sans-serif;font-size:.72rem;color:var(--muted);margin-top:.3rem}
-.ens-import-input{display:none}
-
-/* Barre d'actions */
-.ens-actions{display:flex;gap:.75rem;margin-bottom:1.5rem;flex-wrap:wrap;align-items:center}
-.ens-btn{
-  padding:.5rem 1.1rem;border-radius:7px;font-family:sans-serif;font-size:.8rem;
-  cursor:pointer;border:.5px solid var(--bord);background:white;color:var(--pri);
-  transition:background .15s,border-color .15s;
-}
-.ens-btn:hover{background:var(--bg);border-color:var(--acc)}
-.ens-btn.primary{background:var(--pri);color:#EFF2F6;border-color:var(--pri)}
-.ens-btn.primary:hover{background:#1C2435}
-.ens-btn.danger{color:var(--rouge);border-color:#F5C6C6}
-.ens-btn.danger:hover{background:#FDF0EE;border-color:var(--rouge)}
-.ens-search{
-  flex:1;min-width:180px;border:.5px solid var(--bord);border-radius:7px;
-  padding:.5rem .9rem;font-family:sans-serif;font-size:.8rem;color:var(--pri);
-}
-.ens-search:focus{outline:none;border-color:var(--acc)}
-
-/* Section label */
-.ens-section-label{
-  font-family:sans-serif;font-size:.68rem;text-transform:uppercase;
-  letter-spacing:.1em;color:var(--acc);margin:0 0 .75rem;
-}
-
-/* Tableau étudiants */
-.ens-table-wrap{border:.5px solid var(--bord);border-radius:10px;overflow:hidden;margin-bottom:2rem}
-.ens-table{width:100%;border-collapse:collapse;font-size:.85rem}
-.ens-table th{
-  background:var(--pri);color:#C8D4E0;
-  font-family:sans-serif;font-size:.67rem;text-transform:uppercase;
-  letter-spacing:.07em;padding:.6rem .9rem;text-align:left;font-weight:500;
-}
-.ens-table td{
-  padding:.65rem .9rem;border-top:.5px solid var(--bord);
-  color:var(--pri);vertical-align:middle;
-}
-.ens-table tr:hover td{background:var(--bg)}
-.ens-table .empty td{text-align:center;color:var(--muted);font-style:italic;padding:2rem}
-
-/* Badges score */
-.ens-badge{
-  display:inline-block;padding:2px 8px;border-radius:99px;
-  font-family:sans-serif;font-size:.68rem;font-weight:600;
-}
-.ens-badge.ok{background:#EAF4EE;color:#144D32}
-.ens-badge.mid{background:#FEF5E4;color:#7A4F00}
-.ens-badge.low{background:#FDF0EE;color:var(--rouge)}
-
-/* Profil pills */
-.ens-pill{
-  display:inline-block;padding:2px 7px;border-radius:99px;
-  font-family:sans-serif;font-size:.65rem;
-  background:var(--bg);color:var(--pri);margin:1px;
-}
-
-/* Detail drawer */
-.ens-detail{
-  border:.5px solid var(--bord);border-radius:10px;overflow:hidden;
-  margin-bottom:1.5rem;display:none;
-}
-.ens-detail.visible{display:block}
-.ens-detail-header{
-  background:var(--pri);color:#EFF2F6;padding:.75rem 1.25rem;
-  display:flex;justify-content:space-between;align-items:center;
-}
-.ens-detail-close{background:none;border:none;color:#C8D4E0;cursor:pointer;font-size:1.1rem;line-height:1}
-.ens-detail-body{padding:1.25rem;background:#F7F9FB}
-.ens-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.ens-detail-block{}
-.ens-detail-label{font-family:sans-serif;font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:var(--acc);margin-bottom:.3rem}
-.ens-detail-val{font-size:.88rem;color:var(--pri);line-height:1.5}
-.ens-detail-open{font-size:.85rem;font-style:italic;color:var(--muted);background:var(--bg);padding:.6rem .9rem;border-radius:6px;line-height:1.5}
-
-/* Séparateur */
-hr{border:none;border-top:.5px solid var(--bord);margin:1.5rem 0}
-
-/* Synthèse postures */
-.ens-chart-row{display:flex;align-items:center;gap:.75rem;margin-bottom:.5rem;font-size:.85rem}
-.ens-chart-label{min-width:110px;color:var(--pri)}
-.ens-chart-bar-wrap{flex:1;background:var(--bord);border-radius:99px;height:8px;overflow:hidden}
-.ens-chart-bar{height:100%;border-radius:99px;background:var(--acc);transition:width .5s ease}
-.ens-chart-val{font-family:sans-serif;font-size:.72rem;color:var(--muted);min-width:30px;text-align:right}
-
-@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-.ens-dash.visible{animation:fadeIn .3s ease}
+.ens-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:1.5rem 0; }
+.ens-card { border:1.5px solid #E2E8F0; border-radius:10px; padding:1.25rem; background:white; }
+.ens-card-icon { font-size:1.4rem; margin-bottom:.5rem; }
+.ens-card-title { font-family:'DM Sans',sans-serif; font-size:.85rem; font-weight:600; color:#1A1D23; margin-bottom:.35rem; }
+.ens-card-text { font-family:'EB Garamond',Georgia,serif; font-size:.92rem; color:#64748B; line-height:1.68; font-style:italic; }
+.ens-seance { border:1.5px solid #E2E8F0; border-radius:10px; overflow:hidden; margin:.75rem 0; }
+.ens-seance-header { background:#F8FAFC; padding:.65rem 1.1rem; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #E2E8F0; }
+.ens-seance-title { font-family:'DM Sans',sans-serif; font-size:.85rem; font-weight:600; color:#1A1D23; }
+.ens-seance-duration { font-family:'DM Mono',monospace; font-size:.68rem; color:#94A3B8; }
+.ens-seance-body { padding:.9rem 1.1rem; font-family:'EB Garamond',Georgia,serif; font-size:.93rem; color:#334155; line-height:1.7; }
+.ens-seance-body strong { font-family:'DM Sans',sans-serif; font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; color:#2563EB; font-weight:600; font-style:normal; display:block; margin-top:.6rem; margin-bottom:.2rem; }
+.ens-niveau { display:inline-flex; align-items:center; gap:.4rem; padding:.22rem .7rem; border-radius:100px; font-family:'DM Sans',sans-serif; font-size:.68rem; font-weight:500; }
+.ens-niveau.l1 { background:#ECFDF5; color:#059669; }
+.ens-niveau.l2 { background:#EFF6FF; color:#2563EB; }
+.ens-niveau.m1 { background:#FDF4FF; color:#9333EA; }
+@media(max-width:600px) { .ens-grid { grid-template-columns:1fr; } }
 </style>
-
-<div class="ens-root">
-
-<!-- LOGIN -->
-<div id="ens-login" class="ens-login">
-  <div class="ens-login-header">
-    <div class="ens-login-title">Espace enseignant</div>
-    <div class="ens-login-sub">Diagnostic · Résultats · Export consolidé</div>
+<section id="pour-qui-pour-quoi" class="level2">
+<h2 class="anchored" data-anchor-id="pour-qui-pour-quoi">Pour qui, pour quoi</h2>
+<p>Ce site s’adresse à des étudiants de <strong>licence 2 à master 1</strong> en économie, histoire, sciences sociales ou philosophie politique. Il peut être utilisé de trois façons.</p>
+<div class="ens-grid">
+  <div class="ens-card">
+    <div class="ens-card-icon">🖥️</div>
+    <div class="ens-card-title">Parcours autonome</div>
+    <div class="ens-card-text">L'étudiant suit les 6 actes à son rythme, fait les quiz, remplit le carnet. Le système XP et Thomas assurent la progression. Durée : 8 à 10h.</div>
   </div>
-  <div class="ens-login-body">
-    <label class="ens-login-label">Mot de passe</label>
-    <input class="ens-login-input" type="password" id="ens-pwd" placeholder="••••••••" autocomplete="current-password">
-    <button class="ens-login-btn" onclick="tryLogin()">Accéder →</button>
-    <div class="ens-login-error" id="ens-error">Mot de passe incorrect</div>
-    <div class="ens-login-hint">
-      
-    </div>
+  <div class="ens-card">
+    <div class="ens-card-icon">🏫</div>
+    <div class="ens-card-title">Hybride (présentiel + distanciel)</div>
+    <div class="ens-card-text">Les actes sont lus en autonomie. Le présentiel est consacré aux débats structurés et à la mise en commun des carnets. Voir séances suggérées ci-dessous.</div>
+  </div>
+  <div class="ens-card">
+    <div class="ens-card-icon">📋</div>
+    <div class="ens-card-title">Support de TD</div>
+    <div class="ens-card-text">Chaque acte peut être utilisé comme document de TD : graphique à commenter, quiz à faire en groupe, dilemme à débattre. Chaque acte est autonome.</div>
+  </div>
+  <div class="ens-card">
+    <div class="ens-card-icon">🎯</div>
+    <div class="ens-card-title">Évaluation formative</div>
+    <div class="ens-card-text">Le carnet de bord (12 entrées guidées) peut servir de portfolio d'évaluation. Exporter via la page Journal → copier dans un document.</div>
   </div>
 </div>
-
-<!-- DASHBOARD -->
-<div id="ens-dash" class="ens-dash">
-
-  <div class="ens-stats" id="ens-stats">
-    <div class="ens-stat"><div class="ens-stat-n" id="st-nb">0</div><div class="ens-stat-l">Étudiants importés</div></div>
-    <div class="ens-stat"><div class="ens-stat-n" id="st-score">—</div><div class="ens-stat-l">Score factuel moyen</div></div>
-    <div class="ens-stat"><div class="ens-stat-n" id="st-posture">—</div><div class="ens-stat-l">Posture dominante</div></div>
-    <div class="ens-stat"><div class="ens-stat-n" id="st-cause">—</div><div class="ens-stat-l">Cause citée en 1er</div></div>
-  </div>
-
-  <!-- Import -->
-  <div class="ens-section-label">Importer des fichiers étudiants</div>
-  <div class="ens-import" id="ens-dropzone" onclick="document.getElementById('ens-file-input').click()">
-    <div class="ens-import-icon">⊕</div>
-    <div class="ens-import-txt"><strong>Cliquer ou glisser</strong> les fichiers JSON étudiants</div>
-    <div class="ens-import-sub">Plusieurs fichiers acceptés simultanément · Format : diagnostic_inegalites_*.json</div>
-  </div>
-  <input type="file" id="ens-file-input" class="ens-import-input" accept=".json" multiple="">
-
-  <!-- Actions -->
-  <div class="ens-actions">
-    <input class="ens-search" type="text" id="ens-search" placeholder="Rechercher un étudiant…" oninput="filterTable()">
-    <button class="ens-btn primary" onclick="exportAll()">↓ Exporter tout (CSV)</button>
-    <button class="ens-btn primary" onclick="exportJSON()">↓ Exporter tout (JSON)</button>
-    <button class="ens-btn danger" onclick="clearAll()">Vider la liste</button>
-  </div>
-
-  <!-- Détail étudiant -->
-  <div class="ens-detail" id="ens-detail">
-    <div class="ens-detail-header">
-      <span id="ens-detail-title">Détail étudiant</span>
-      <button class="ens-detail-close" onclick="closeDetail()">✕</button>
-    </div>
-    <div class="ens-detail-body" id="ens-detail-body"></div>
-  </div>
-
-  <!-- Tableau -->
-  <div class="ens-section-label">Réponses individuelles</div>
-  <div class="ens-table-wrap">
-    
-<table class="ens-table caption-top">
+</section>
+<section id="niveaux-et-adaptations" class="level2">
+<h2 class="anchored" data-anchor-id="niveaux-et-adaptations">Niveaux et adaptations</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 55%">
+<col style="width: 20%">
+</colgroup>
 <thead>
 <tr class="header">
-<th data-quarto-table-cell-role="th">Fichier / étudiant</th>
-<th data-quarto-table-cell-role="th">Score factuel</th>
-<th data-quarto-table-cell-role="th">Posture</th>
-<th data-quarto-table-cell-role="th">Cause principale</th>
-<th data-quarto-table-cell-role="th">Vision monde</th>
-<th data-quarto-table-cell-role="th">Date</th>
-<th data-quarto-table-cell-role="th"></th>
+<th>Public</th>
+<th>Parcours recommandé</th>
+<th>Durée</th>
 </tr>
 </thead>
-<tbody id="ens-tbody">
+<tbody>
+<tr class="odd">
+<td><span class="ens-niveau l1">L1–L2 débutant</span></td>
+<td>Actes I–III + quiz global + 1 débat</td>
+<td>5–6h</td>
+</tr>
+<tr class="even">
+<td><span class="ens-niveau l2">L3 intermédiaire</span></td>
+<td>6 actes + détective + atelier données</td>
+<td>8–9h</td>
+</tr>
+<tr class="odd">
+<td><span class="ens-niveau m1">M1 avancé</span></td>
+<td>Parcours complet + carnet intégral + tous les débats</td>
+<td>12h+</td>
+</tr>
 </tbody>
 </table>
-
+<p>Pour les niveaux débutants, les actes I et II suffisent à poser les fondements (inégalité naturelle vs construite, rôle des chocs démographiques). Pour les niveaux avancés, les actes V et VI avec l’atelier données et les débats constituent un module autonome sur les inégalités contemporaines.</p>
+</section>
+<section id="séances-en-présentiel-suggérées" class="level2">
+<h2 class="anchored" data-anchor-id="séances-en-présentiel-suggérées">Séances en présentiel suggérées</h2>
+<div class="ens-seance">
+  <div class="ens-seance-header">
+    <span class="ens-seance-title">Séance 1 — Lancer le cours</span>
+    <span class="ens-seance-duration">1h30</span>
   </div>
-
-  <hr>
-
-  <!-- Synthèse postures -->
-  <div class="ens-section-label">Synthèse de la promotion</div>
-  <div id="ens-synthese"></div>
-
-  <button class="ens-btn danger" onclick="logout()" style="margin-top:1rem">Se déconnecter</button>
-
-</div>
+  <div class="ens-seance-body">
+    Faire le <strong>Quiz diagnostique</strong> collectivement (5 min, résultats anonymes agrégés au tableau). Présenter Thomas et le système XP. Lire ensemble le journal de l'Acte I (10 min). Débat oral : "L'inégalité est-elle naturelle ou construite ?" — sans cours préalable, pour révéler les représentations initiales.
+    <strong>Matériel</strong> Projecteur + quiz diagnostique ouvert sur chaque poste.
+  </div>
 </div>
 
-<script>
-(function(){
-  const PWD = 'inegalites2026'; // ← changer ici
-  const STORE_KEY = 'ens_diagnostics';
+<div class="ens-seance">
+  <div class="ens-seance-header">
+    <span class="ens-seance-title">Séance 2 — Données et méthode</span>
+    <span class="ens-seance-duration">1h30</span>
+  </div>
+  <div class="ens-seance-body">
+    Atelier données en binômes : chaque binôme analyse un graphique (Gini mondial, Kuznets, r &gt; g) et présente ses observations en 3 min. Mutualisation : quelles limites du Gini comme indicateur ? Prolongement : chercher le Gini de la France sur WID.world et comparer avec le graphique de l'Acte V.
+    <strong>Matériel</strong> Page Atelier données + accès à wid.world.
+  </div>
+</div>
 
-  // ── Auth ────────────────────────────────────────────────
-  window.tryLogin = function(){
-    const v = document.getElementById('ens-pwd').value;
-    const err = document.getElementById('ens-error');
-    if(v === PWD){
-      document.getElementById('ens-login').style.display = 'none';
-      document.getElementById('ens-dash').classList.add('visible');
-      renderAll();
-    } else {
-      err.classList.add('visible');
-      setTimeout(function(){ err.classList.remove('visible'); }, 2000);
-    }
-  };
-  document.getElementById('ens-pwd').addEventListener('keydown', function(e){
-    if(e.key === 'Enter') window.tryLogin();
-  });
+<div class="ens-seance">
+  <div class="ens-seance-header">
+    <span class="ens-seance-title">Séance 3 — Débat structuré</span>
+    <span class="ens-seance-duration">1h30</span>
+  </div>
+  <div class="ens-seance-body">
+    Utiliser le <a href="interactif/debats.html">Débat II</a> (efficacité vs équité) ou le <a href="interactif/debats.html">Débat III</a> (fiscalité du capital). Groupes de 4 : 2 défendent la position A, 2 la position B — même si ce n'est pas leur conviction. 15 min de préparation, 15 min de débat, 10 min de débrief. Les étudiants peuvent ensuite modifier leur position dans le carnet.
+    <strong>Matériel</strong> Page Débats structurés + tableau pour noter les arguments clés.
+  </div>
+</div>
 
-  window.logout = function(){
-    document.getElementById('ens-login').style.display = 'block';
-    document.getElementById('ens-dash').classList.remove('visible');
-    document.getElementById('ens-pwd').value = '';
-  };
-
-  // ── Storage ──────────────────────────────────────────────
-  function loadStore(){ try{ return JSON.parse(localStorage.getItem(STORE_KEY)||'[]'); }catch(e){ return []; } }
-  function saveStore(d){ localStorage.setItem(STORE_KEY, JSON.stringify(d)); }
-
-  // ── Import fichiers ───────────────────────────────────────
-  const fileInput = document.getElementById('ens-file-input');
-  const dropzone  = document.getElementById('ens-dropzone');
-
-  fileInput.addEventListener('change', function(){ handleFiles(Array.from(this.files)); this.value=''; });
-
-  dropzone.addEventListener('dragover', function(e){ e.preventDefault(); this.classList.add('drag'); });
-  dropzone.addEventListener('dragleave', function(){ this.classList.remove('drag'); });
-  dropzone.addEventListener('drop', function(e){
-    e.preventDefault(); this.classList.remove('drag');
-    handleFiles(Array.from(e.dataTransfer.files));
-  });
-
-  function handleFiles(files){
-    const store = loadStore();
-    let added = 0;
-    let pending = files.length;
-    files.forEach(function(file){
-      const reader = new FileReader();
-      reader.onload = function(e){
-        try{
-          const data = JSON.parse(e.target.result);
-          data._filename = file.name;
-          // Éviter doublons sur nom de fichier
-          const idx = store.findIndex(function(s){ return s._filename === file.name; });
-          if(idx >= 0) store[idx] = data; else store.push(data);
-          added++;
-        } catch(err){ console.warn('Fichier invalide:', file.name); }
-        pending--;
-        if(pending === 0){ saveStore(store); renderAll(); }
-      };
-      reader.readAsText(file);
-    });
-  }
-
-  // ── Render ───────────────────────────────────────────────
-  let filtered = [];
-
-  function renderAll(){
-    const store = loadStore();
-    filtered = store;
-    renderStats(store);
-    renderTable(store);
-    renderSynthese(store);
-  }
-
-  window.filterTable = function(){
-    const q = document.getElementById('ens-search').value.toLowerCase();
-    const store = loadStore();
-    filtered = q ? store.filter(function(d){
-      return (d._filename||'').toLowerCase().includes(q)
-        || (d.reponses?.q7_reference||'').toLowerCase().includes(q)
-        || (d.reponses?.q8_intention||'').toLowerCase().includes(q);
-    }) : store;
-    renderTable(filtered);
-  };
-
-  function renderStats(store){
-    document.getElementById('st-nb').textContent = store.length;
-    if(!store.length){ document.getElementById('st-score').textContent='—'; return; }
-
-    const scores = store.map(function(d){ return d.score_factuel||0; });
-    const avg = (scores.reduce(function(a,b){ return a+b; },0)/scores.length).toFixed(1);
-    document.getElementById('st-score').textContent = avg+'/3';
-
-    const postures = store.map(function(d){ return (d.profil_intuitions||[])[1]||''; });
-    document.getElementById('st-posture').textContent = mode(postures)||'—';
-
-    const causes = store.map(function(d){ return (d.profil_intuitions||[])[2]||''; });
-    document.getElementById('st-cause').textContent = mode(causes)||'—';
-  }
-
-  function mode(arr){
-    const counts = {};
-    arr.forEach(function(v){ if(v) counts[v]=(counts[v]||0)+1; });
-    return Object.entries(counts).sort(function(a,b){ return b[1]-a[1]; })[0]?.[0] || null;
-  }
-
-  function badge(score){
-    if(score>=3) return '<span class="ens-badge ok">'+score+'/3</span>';
-    if(score===2) return '<span class="ens-badge mid">'+score+'/3</span>';
-    return '<span class="ens-badge low">'+score+'/3</span>';
-  }
-
-  function renderTable(store){
-    const tbody = document.getElementById('ens-tbody');
-    if(!store.length){
-      tbody.innerHTML='<tr class="empty"><td colspan="7">Aucun fichier importé — glisse des JSON étudiants ci-dessus</td></tr>';
-      return;
-    }
-    tbody.innerHTML = store.map(function(d,i){
-      const p = d.profil_intuitions||['—','—','—'];
-      const fname = (d._filename||'étudiant').replace('diagnostic_inegalites_','').replace('.json','');
-      return `<tr>
-        <td style="font-family:sans-serif;font-size:.78rem">${fname}</td>
-        <td>${badge(d.score_factuel||0)}</td>
-        <td><span class="ens-pill">${p[1]||'—'}</span></td>
-        <td><span class="ens-pill">${p[2]||'—'}</span></td>
-        <td><span class="ens-pill">${p[0]||'—'}</span></td>
-        <td style="font-family:sans-serif;font-size:.75rem;color:var(--muted)">${d.completed||'—'}</td>
-        <td><button class="ens-btn" style="padding:3px 10px;font-size:.72rem" onclick="showDetail(${i})">Détail</button></td>
-      </tr>`;
-    }).join('');
-  }
-
-  window.showDetail = function(i){
-    const store = loadStore();
-    const d = store[i];
-    if(!d) return;
-    const p = d.profil_intuitions||['—','—','—'];
-    const r = d.reponses||{};
-    document.getElementById('ens-detail-title').textContent = d._filename||'Étudiant';
-    document.getElementById('ens-detail-body').innerHTML = `
-      <div class="ens-detail-grid">
-        <div class="ens-detail-block">
-          <div class="ens-detail-label">Score factuel</div>
-          <div class="ens-detail-val">${d.score_factuel||0} / 3</div>
-        </div>
-        <div class="ens-detail-block">
-          <div class="ens-detail-label">Date de complétion</div>
-          <div class="ens-detail-val">${d.completed||'—'}</div>
-        </div>
-        <div class="ens-detail-block">
-          <div class="ens-detail-label">Réponses factuelles</div>
-          <div class="ens-detail-val">
-            Gini : ${r.q2_connaissance||'—'}<br>
-            Aristote : ${r.q1_connaissance||'—'}<br>
-            Keynes : ${r.q3_connaissance||'—'}
-          </div>
-        </div>
-        <div class="ens-detail-block">
-          <div class="ens-detail-label">Profil d'intuitions</div>
-          <div class="ens-detail-val">
-            Vision : ${p[0]||'—'}<br>
-            Posture : ${p[1]||'—'}<br>
-            Cause : ${p[2]||'—'}
-          </div>
-        </div>
-      </div>
-      <hr style="margin:.9rem 0">
-      <div class="ens-detail-label" style="margin-bottom:.4rem">Référence culturelle citée</div>
-      <div class="ens-detail-open">${r.q7_reference||'—'}</div>
-      <div class="ens-detail-label" style="margin:.75rem 0 .4rem">Intention déclarée pour le cours</div>
-      <div class="ens-detail-open">${r.q8_intention||'—'}</div>`;
-    document.getElementById('ens-detail').classList.add('visible');
-    document.getElementById('ens-detail').scrollIntoView({behavior:'smooth',block:'nearest'});
-  };
-
-  window.closeDetail = function(){ document.getElementById('ens-detail').classList.remove('visible'); };
-
-  function renderSynthese(store){
-    const el = document.getElementById('ens-synthese');
-    if(!store.length){ el.innerHTML=''; return; }
-
-    const postures = ['Libérale','Réformiste','Critique','Culturaliste'];
-    const causes   = ['Méritocrate','Systémique','Institutionnaliste','Historique'];
-    const visions  = ['Pessimiste mondial','Nuancé','Optimiste mondial','Surpris'];
-
-    function dist(arr, labels){
-      const counts = {};
-      labels.forEach(function(l){ counts[l]=0; });
-      arr.forEach(function(v){ if(counts[v]!==undefined) counts[v]++; });
-      const total = arr.length||1;
-      return labels.map(function(l){
-        return`<div class="ens-chart-row">
-          <span class="ens-chart-label">${l}</span>
-          <div class="ens-chart-bar-wrap"><div class="ens-chart-bar" style="width:${Math.round(counts[l]/total*100)}%"></div></div>
-          <span class="ens-chart-val">${counts[l]}</span>
-        </div>`;
-      }).join('');
-    }
-
-    const p1 = store.map(function(d){ return (d.profil_intuitions||[])[1]||''; });
-    const p2 = store.map(function(d){ return (d.profil_intuitions||[])[2]||''; });
-    const p0 = store.map(function(d){ return (d.profil_intuitions||[])[0]||''; });
-
-    el.innerHTML = `
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem">
-        <div>
-          <div class="ens-section-label">Postures idéologiques</div>
-          ${dist(p1,postures)}
-        </div>
-        <div>
-          <div class="ens-section-label">Causes des inégalités</div>
-          ${dist(p2,causes)}
-        </div>
-        <div>
-          <div class="ens-section-label">Vision évolution mondiale</div>
-          ${dist(p0,visions)}
-        </div>
-      </div>`;
-  }
-
-  // ── Exports ──────────────────────────────────────────────
-  window.exportAll = function(){
-    const store = loadStore();
-    if(!store.length){ alert('Aucune donnée à exporter.'); return; }
-    const headers = ['fichier','score_factuel','posture','cause','vision','q1','q2','q3','q4','q5','q6','q7_reference','q8_intention','date'];
-    const rows = store.map(function(d){
-      const p = d.profil_intuitions||['','',''];
-      const r = d.reponses||{};
-      return [
-        d._filename||'',
-        d.score_factuel||0,
-        p[1]||'', p[2]||'', p[0]||'',
-        r.q1_connaissance||'', r.q2_connaissance||'', r.q3_connaissance||'',
-        r.q4_intuition||'', r.q5_posture||'', r.q6_cause||'',
-        (r.q7_reference||'').replace(/"/g,"'"),
-        (r.q8_intention||'').replace(/"/g,"'"),
-        d.completed||''
-      ].map(function(v){ return '"'+v+'"'; }).join(',');
-    });
-    const csv = [headers.join(',')].concat(rows).join('\n');
-    dl(csv,'diagnostics_promotion_'+today()+'.csv','text/csv');
-  };
-
-  window.exportJSON = function(){
-    const store = loadStore();
-    if(!store.length){ alert('Aucune donnée à exporter.'); return; }
-    dl(JSON.stringify(store,null,2),'diagnostics_promotion_'+today()+'.json','application/json');
-  };
-
-  window.clearAll = function(){
-    if(!confirm('Vider toute la liste importée ? (irréversible)')) return;
-    saveStore([]);
-    closeDetail();
-    renderAll();
-  };
-
-  function dl(content, name, type){
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(new Blob([content],{type}));
-    a.download = name;
-    a.click();
-  }
-
-  function today(){
-    return new Date().toISOString().slice(0,10);
-  }
-})();
-</script>
+<div class="ens-seance">
+  <div class="ens-seance-header">
+    <span class="ens-seance-title">Séance 4 — Restitution des carnets</span>
+    <span class="ens-seance-duration">1h</span>
+  </div>
+  <div class="ens-seance-body">
+    Chaque étudiant partage une entrée de carnet de son choix (2 min). Identifier les convergences et divergences de profils idéologiques (page Ma progression). Clore avec la question finale de l'Acte VI : "Que faire ?"
+    <strong>Matériel</strong> Export carnet (copier-coller) + page Ma progression pour le profil.
+  </div>
+</div>
+</section>
+<section id="évaluation" class="level2">
+<h2 class="anchored" data-anchor-id="évaluation">Évaluation</h2>
+<p>Le carnet de bord (12 entrées) constitue un <strong>portfolio d’évaluation formative</strong> naturel. Critères suggérés pour une notation :</p>
+<ul>
+<li><strong>Mobilisation des auteurs</strong> — les réponses citent-elles au moins un penseur du cours avec son argument précis ?</li>
+<li><strong>Usage des données</strong> — les affirmations sont-elles appuyées sur des ordres de grandeur ou des graphiques du cours ?</li>
+<li><strong>Prise de position argumentée</strong> — l’étudiant défend-il une position ou se contente-t-il de résumer ?</li>
+<li><strong>Évolution entre les actes</strong> — les réponses tardives montrent-elles une pensée plus nuancée que les premières ?</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Export du carnet</strong><br>
+La page <a href="journal/index.html">Journal de bord</a> permet à chaque étudiant d’exporter toutes ses entrées en un bloc texte copiable. Il peut le coller dans un document Word ou PDF pour le remettre.</p>
+</div>
+</div>
+</section>
+<section id="adaptation-et-signalement-derreurs" class="level2">
+<h2 class="anchored" data-anchor-id="adaptation-et-signalement-derreurs">Adaptation et signalement d’erreurs</h2>
+<p>Le code source du site est intégralement disponible dans le ZIP de déploiement. Chaque fichier <code>.qmd</code> peut être modifié pour adapter le contenu, ajouter des actes, changer les questions du carnet ou les questions du quiz.</p>
+<p>Pour signaler une erreur factuelle ou suggérer une amélioration, utiliser la page <a href="apropos.html">À propos</a>.</p>
 
 
+<!-- -->
+
+</section>
 
 </main> <!-- /main -->
-<style>
-#widget-decision,[data-acte]{--wd-pri:#2A3240;--wd-acc:#E8A830;--wd-bord:#C8D4E0;--wd-vert:#1E6B4A;--wd-texte:#2A3240;--wd-bg:#EFF2F6;--wd-muted:#5A6A7A;font-family:'EB Garamond',Georgia,serif;margin:2.5rem 0}
-.wd-card{border:.5px solid var(--wd-bord);border-radius:10px;background:white;overflow:hidden;box-shadow:0 1px 4px rgba(42,50,64,.06)}
-.wd-header{background:var(--wd-pri);color:#C8D4E0;padding:.75rem 1.25rem;display:flex;align-items:center;gap:.75rem}
-.wd-avatar{width:36px;height:36px;border-radius:50%;background:var(--wd-acc);display:flex;align-items:center;justify-content:center;font-size:15px;color:#2A3240;flex-shrink:0;font-weight:600}
-.wd-guide-name{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--wd-acc);font-family:sans-serif}
-.wd-parole{font-size:.9rem;font-style:italic;color:#C8D4E0;margin-top:2px}
-.wd-body{padding:1.25rem}
-.wd-lieu{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--wd-acc);font-family:sans-serif;margin-bottom:.5rem}
-.wd-dilemme{font-size:1rem;line-height:1.55;color:var(--wd-texte);margin-bottom:1.2rem;font-weight:500}
-.wd-opts{display:flex;flex-direction:column;gap:.5rem}
-.wd-opt{display:flex;align-items:flex-start;gap:.75rem;border:.5px solid var(--wd-bord);border-radius:8px;padding:.75rem 1rem;cursor:pointer;background:white;text-align:left;font-family:'EB Garamond',Georgia,serif;font-size:.92rem;color:var(--wd-texte);line-height:1.45;transition:border-color .15s,background .15s;width:100%}
-.wd-opt:hover:not(:disabled){background:var(--wd-bg);border-color:var(--wd-acc)}
-.wd-opt:disabled{cursor:default}
-.wd-opt-label{font-family:sans-serif;font-size:.67rem;text-transform:uppercase;letter-spacing:.07em;color:var(--wd-muted);flex-shrink:0;padding-top:2px;min-width:90px}
-.wd-opt.chosen{border-color:var(--wd-pri)!important;background:#EFF2F6!important}
-.wd-opt.chosen .wd-opt-label{color:var(--wd-pri)}
-.wd-echo{margin-top:1rem;border-left:3px solid var(--wd-vert);padding:.7rem 1rem;background:#EAF4EE;border-radius:0 6px 6px 0;font-size:.88rem;line-height:1.55;color:#144D32;display:none}
-.wd-echo.visible{display:block}
-.wd-echo-label{font-family:sans-serif;font-size:.67rem;text-transform:uppercase;letter-spacing:.08em;color:var(--wd-vert);margin-bottom:.35rem;font-weight:600}
-.wd-footer{border-top:.5px solid var(--wd-bord);padding:.65rem 1.25rem;display:flex;align-items:center;justify-content:space-between;font-family:sans-serif;font-size:.75rem;color:var(--wd-muted);background:#F7F9FB}
-.wd-status{display:flex;align-items:center;gap:.4rem}
-.wd-dot{width:7px;height:7px;border-radius:50%;background:var(--wd-bord);transition:background .3s}
-.wd-dot.done{background:var(--wd-vert)}
-.wd-change{background:none;border:none;color:var(--wd-pri);cursor:pointer;font-size:.75rem;font-family:sans-serif;text-decoration:underline;display:none}
-.wd-change.visible{display:inline}
-
-.wd-nav{display:flex;align-items:center;justify-content:space-between;margin:1.5rem 0 2rem;font-family:'EB Garamond',Georgia,serif;gap:1rem}
-.wd-nav-prev,.wd-nav-next{display:flex;align-items:center;gap:.5rem;padding:.6rem 1.1rem;border:.5px solid var(--wd-bord);border-radius:8px;background:white;color:var(--wd-texte);text-decoration:none;font-size:.9rem;transition:border-color .15s,background .15s;white-space:nowrap}
-.wd-nav-prev:hover,.wd-nav-next:hover{background:var(--wd-bg);border-color:var(--wd-acc);color:var(--wd-texte);text-decoration:none}
-.wd-nav-next{background:var(--wd-pri);color:#EFF2F6;border-color:var(--wd-pri)}
-.wd-nav-next:hover{background:#1C2435;border-color:#1C2435;color:#EFF2F6}
-.wd-nav-arrow{font-size:1rem;line-height:1}
-.wd-nav-label{display:flex;flex-direction:column;line-height:1.2}
-.wd-nav-label-hint{font-family:sans-serif;font-size:.65rem;text-transform:uppercase;letter-spacing:.07em;opacity:.65;margin-bottom:1px}
-.wd-nav-progress{font-family:sans-serif;font-size:.72rem;color:var(--wd-muted);text-align:center;flex-shrink:0}
-.wd-nav-pips{display:flex;gap:5px;justify-content:center;margin-top:4px}
-.wd-nav-pip{width:8px;height:8px;border-radius:50%;background:var(--wd-bord);transition:background .3s}
-.wd-nav-pip.done{background:var(--wd-vert)}
-.wd-nav-pip.current{background:var(--wd-acc)}
-</style>
-
+<!-- Moteur INEG v3 — XP, Thomas, Quiz, Carnet, Level-up modal -->
 <script>
-(function(){
-  const KEY='voyage_inegalites_decisions';
-  function load(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return{}}}
-  function save(acte,choice,label,echo){const a=load();a['acte_'+acte]={choice,label,echo,ts:Date.now()};localStorage.setItem(KEY,JSON.stringify(a))}
+window.INEG = (function() {
 
-  function init(root){
-    if(root.classList.contains('wd-root'))return;
-    const d=root.dataset;
-    const ex=load()['acte_'+d.acte];
-    root.classList.add('wd-root');
-    root.innerHTML=`
-      <div class="wd-card">
-        <div class="wd-header">
-          <div class="wd-avatar">✦</div>
-          <div>
-            <div class="wd-guide-name">${d.guide}</div>
-            <div class="wd-parole">${d.parole}</div>
-          </div>
-        </div>
-        <div class="wd-body">
-          <div class="wd-lieu">${d.titre}</div>
-          <div class="wd-dilemme">${d.dilemme}</div>
-          <div class="wd-opts">
-            <button class="wd-opt${ex&&ex.choice==='a'?' chosen':''}" data-choice="a"${ex?' disabled':''}>
-              <span class="wd-opt-label">${d.labelA}</span><span>${d.optA}</span>
-            </button>
-            <button class="wd-opt${ex&&ex.choice==='b'?' chosen':''}" data-choice="b"${ex?' disabled':''}>
-              <span class="wd-opt-label">${d.labelB}</span><span>${d.optB}</span>
-            </button>
-            <button class="wd-opt${ex&&ex.choice==='c'?' chosen':''}" data-choice="c"${ex?' disabled':''}>
-              <span class="wd-opt-label">${d.labelC}</span><span>${d.optC}</span>
-            </button>
-          </div>
-          <div class="wd-echo${ex?' visible':''}" id="wd-echo-${d.acte}">
-            <div class="wd-echo-label">Résonance historique</div>
-            <span id="wd-echo-text-${d.acte}">${ex?ex.echo:''}</span>
-          </div>
-        </div>
-        <div class="wd-footer">
-          <div class="wd-status">
-            <div class="wd-dot${ex?' done':''}" id="wd-dot-${d.acte}"></div>
-            <span id="wd-status-txt-${d.acte}">${ex?'Décision enregistrée dans le journal':'En attente de ta décision'}</span>
-          </div>
-          <button class="wd-change${ex?' visible':''}" id="wd-change-${d.acte}">Modifier</button>
-        </div>
-      </div>`;
+  const NIVEAUX = [
+    { seuil:0,   nom:'Apprenti voyageur',      emoji:'🎒', bg:'#1A1D23', msg:'Le voyage commence. Thomas sort sa carte et regarde l\'horizon.' },
+    { seuil:50,  nom:'Observateur curieux',     emoji:'🔭', bg:'#1E3A5F', msg:'Thomas sort son carnet. Ses yeux s\'habituent à voir ce que les autres ignorent.' },
+    { seuil:120, nom:'Chroniqueur des siècles', emoji:'📜', bg:'#1F3D2F', msg:'Thomas comprend les grandes structures. Son carnet se remplit de connexions inattendues.' },
+    { seuil:220, nom:'Analyste des inégalités', emoji:'⚖️', bg:'#3D1F1F', msg:'Thomas débat d\'égal à égal avec les penseurs. Ses arguments sont précis, ses données solides.' },
+    { seuil:350, nom:'Historien du voyage',     emoji:'🏛️', bg:'#2D1B6B', msg:'Thomas voit les 25 siècles d\'un seul regard. Il comprend pourquoi les inégalités persistent — et comment les réduire.' }
+  ];
 
-    root.querySelectorAll('.wd-opt').forEach(function(btn){
-      btn.addEventListener('click',function(){
-        const choice=this.dataset.choice;
-        const label=d['label'+choice.toUpperCase()];
-        const echo=d['echo'+choice.toUpperCase()];
-        save(d.acte,choice,label,echo);
-        root.querySelectorAll('.wd-opt').forEach(function(b){b.disabled=true;b.classList.remove('chosen')});
-        this.classList.add('chosen');
-        document.getElementById('wd-echo-text-'+d.acte).textContent=echo;
-        document.getElementById('wd-echo-'+d.acte).classList.add('visible');
-        document.getElementById('wd-dot-'+d.acte).classList.add('done');
-        document.getElementById('wd-status-txt-'+d.acte).textContent='Décision enregistrée dans le journal';
-        const cb=document.getElementById('wd-change-'+d.acte);
-        if(cb)cb.classList.add('visible');
+  const XP = {
+    quiz_bonne_reponse:8, quiz_complet:15, quiz_parfait:30,
+    carnet_entree:20, decision_prise:10, detective_resolu:25,
+    atelier_donnees:15, debat_note:12, diag_complete:20
+  };
+
+  function loadXP()      { try { return JSON.parse(localStorage.getItem('ineg_xp')||'null')||{total:0}; } catch(e){return{total:0};} }
+  function saveXP(d)     { localStorage.setItem('ineg_xp', JSON.stringify(d)); }
+  function loadCarnet()  { try { return JSON.parse(localStorage.getItem('ineg_carnet')||'{}'); } catch(e){return{};} }
+  function saveCarnet(d) { localStorage.setItem('ineg_carnet', JSON.stringify(d)); }
+  function loadDecisions(){ try { return JSON.parse(localStorage.getItem('ineg_decisions')||'{}'); } catch(e){return{};} }
+  function saveDecisions(d){ localStorage.setItem('ineg_decisions', JSON.stringify(d)); }
+  function loadQuiz()    { try { return JSON.parse(localStorage.getItem('ineg_quiz')||'{}'); } catch(e){return{};} }
+  function saveQuiz(d)   { localStorage.setItem('ineg_quiz', JSON.stringify(d)); }
+
+  function getNiveau(xp) {
+    let n = NIVEAUX[0];
+    for (const l of NIVEAUX) { if (xp >= l.seuil) n = l; else break; }
+    return n;
+  }
+  function getNextNiveau(xp) {
+    for (const l of NIVEAUX) { if (xp < l.seuil) return l; }
+    return null;
+  }
+  function getNiveauIdx(xp) { return NIVEAUX.indexOf(getNiveau(xp)); }
+
+  /* ── Level-up modal ── */
+  function showLevelUp(niv) {
+    let m = document.getElementById('levelup-modal');
+    if (!m) {
+      m = document.createElement('div');
+      m.id = 'levelup-modal';
+      m.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:10000;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s;';
+      m.innerHTML = `
+        <div id="levelup-box" style="background:#1A1D23;border-radius:16px;padding:2.5rem 2rem;max-width:380px;width:90%;text-align:center;transform:scale(.9);transition:transform .3s;box-shadow:0 20px 60px rgba(0,0,0,.5);">
+          <div id="lu-emoji" style="font-size:3.5rem;margin-bottom:.75rem;animation:luBounce .6s ease .2s both;"></div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:.65rem;text-transform:uppercase;letter-spacing:.14em;color:#60A5FA;margin-bottom:.4rem;">Niveau débloqué !</div>
+          <div id="lu-nom" style="font-family:'EB Garamond',Georgia,serif;font-size:1.6rem;color:#F8FAFC;margin-bottom:.75rem;"></div>
+          <div id="lu-msg" style="font-family:'EB Garamond',Georgia,serif;font-size:.98rem;line-height:1.72;color:#94A3B8;font-style:italic;margin-bottom:1.5rem;"></div>
+          <button onclick="document.getElementById('levelup-modal').style.opacity=0;setTimeout(()=>document.getElementById('levelup-modal').remove(),300)" 
+            style="background:#2563EB;color:white;border:none;padding:.6rem 1.5rem;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.88rem;cursor:pointer;font-weight:500;">Continuer →</button>
+        </div>`;
+      document.body.appendChild(m);
+    }
+    document.getElementById('lu-emoji').textContent = niv.emoji;
+    document.getElementById('lu-nom').textContent = niv.nom;
+    document.getElementById('lu-msg').textContent = niv.msg;
+    const box = document.getElementById('levelup-box');
+    requestAnimationFrame(() => {
+      m.style.opacity = '1';
+      box.style.transform = 'scale(1)';
+    });
+  }
+
+  /* ── XP gain + level-up check ── */
+  let notifTimer = null;
+  function gagne(source, customGain) {
+    const gain = XP[source] || customGain || 0;
+    if (!gain) return 0;
+    const data = loadXP();
+    const nivAvant = getNiveauIdx(data.total);
+    data.total += gain;
+    saveXP(data);
+    const nivApres = getNiveauIdx(data.total);
+    // Notification XP
+    let el = document.getElementById('xp-notif-global');
+    if (!el) { el = document.createElement('div'); el.id='xp-notif-global'; el.className='xp-gain-notif'; document.body.appendChild(el); }
+    const LABELS = {quiz_bonne_reponse:'Bonne réponse',quiz_complet:'Quiz terminé',quiz_parfait:'Quiz parfait !',carnet_entree:'Carnet rempli',decision_prise:'Décision prise',detective_resolu:'Enquête résolue',atelier_donnees:'Atelier complété',debat_note:'Débat noté',diag_complete:'Diagnostic complété'};
+    el.textContent = '+' + gain + ' XP — ' + (LABELS[source] || source);
+    el.classList.add('show');
+    clearTimeout(notifTimer);
+    notifTimer = setTimeout(() => el.classList.remove('show'), 2800);
+    // Level-up ?
+    if (nivApres > nivAvant) {
+      setTimeout(() => showLevelUp(NIVEAUX[nivApres]), 800);
+    }
+    actualiserSidebar();
+    actualiserAvatars();
+    return gain;
+  }
+
+  /* ── Sidebar Thomas ── */
+  function creerSidebar() {
+    if (document.getElementById('tsb')) return;
+    const sb = document.createElement('div');
+    sb.id = 'tsb';
+    sb.className = 'thomas-sidebar';
+    sb.title = 'Ma progression';
+    sb.onclick = () => {
+      const base = window.location.pathname.includes('/actes/') || window.location.pathname.includes('/interactif/') || window.location.pathname.includes('/journal/') ? '../' : './';
+      window.location.href = base + 'interactif/ma_progression.html';
+    };
+    sb.style.cursor = 'pointer';
+    sb.innerHTML = `
+      <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.4rem;">
+        <div id="tsb-avatar" style="font-size:1.1rem;width:28px;text-align:center;">🎒</div>
+        <div>
+          <div class="thomas-sidebar-level" id="tsb-level">Niveau 1</div>
+          <div class="thomas-sidebar-name" id="tsb-name">Apprenti voyageur</div>
+        </div>
+      </div>
+      <div class="thomas-sidebar-bar"><div class="thomas-sidebar-fill" id="tsb-fill" style="width:0%"></div></div>
+      <div style="font-family:'DM Mono',monospace;font-size:.6rem;color:rgba(203,213,225,.45);margin-top:3px;" id="tsb-xp">0 XP</div>`;
+    document.body.appendChild(sb);
+  }
+
+  function actualiserSidebar() {
+    if (!document.getElementById('tsb')) return;
+    const d = loadXP(); const niv = getNiveau(d.total); const next = getNextNiveau(d.total);
+    const idx = NIVEAUX.indexOf(niv);
+    const pct = next ? Math.round((d.total - niv.seuil) / (next.seuil - niv.seuil) * 100) : 100;
+    document.getElementById('tsb-avatar').textContent = niv.emoji;
+    document.getElementById('tsb-level').textContent = 'Niveau ' + (idx+1) + ' / ' + NIVEAUX.length;
+    document.getElementById('tsb-name').textContent = niv.nom;
+    document.getElementById('tsb-fill').style.width = pct + '%';
+    document.getElementById('tsb-xp').textContent = d.total + ' XP' + (next ? ' · encore ' + (next.seuil - d.total) + ' XP' : ' · Niveau max !');
+  }
+
+  function actualiserAvatars() {
+    const niv = getNiveau(loadXP().total);
+    document.querySelectorAll('.thomas-avatar').forEach(el => {
+      el.className = 'thomas-avatar niveau-' + (NIVEAUX.indexOf(niv)+1);
+      el.textContent = niv.emoji;
+    });
+  }
+
+  /* ── Quiz ── */
+  function initQuiz(containerId, questions, acteId) {
+    const wrap = document.getElementById(containerId);
+    if (!wrap) { console.warn('Quiz container not found:', containerId); return; }
+    const quizData = loadQuiz();
+    let cur = 0, score = 0, answered = false;
+    const key = 'acte_' + acteId;
+    const deja = quizData[key];
+
+    function dots() {
+      return questions.map((_,i) => `<div class="quiz-dot${i<cur?' done':i===cur?' active':''}"></div>`).join('');
+    }
+
+    function render() {
+      const prog = wrap.querySelector('.quiz-progress');
+      const body = wrap.querySelector('.quiz-body');
+      if (!prog || !body) return;
+
+      if (cur >= questions.length) {
+        const pct = Math.round(score / questions.length * 100);
+        const gainType = score === questions.length ? 'quiz_parfait' : score > 0 ? 'quiz_complet' : null;
+        if (gainType && !deja) {
+          gagne(gainType);
+          quizData[key] = { score, total: questions.length, ts: Date.now() };
+          saveQuiz(quizData);
+        }
+        const msgs = [
+          [0,39,'Thomas observe. Relis l\'acte pour consolider.'],
+          [40,59,'Bonne base ! Quelques détails t\'ont échappé.'],
+          [60,79,'Thomas est impressionné. Tu maîtrises l\'essentiel.'],
+          [80,100,'Remarquable. Thomas t\'invite au prochain acte.']
+        ];
+        const msg = (msgs.find(([a,b]) => pct >= a && pct <= b) || [0,0,''])[2];
+        prog.innerHTML = dots();
+        body.innerHTML = `<div class="quiz-result">
+          <div class="quiz-result-score">${score}<span style="font-size:1.5rem;color:#94A3B8;">/${questions.length}</span></div>
+          <div class="quiz-result-label">${pct}% de réussite</div>
+          <div class="quiz-result-msg">${msg}</div>
+          ${gainType ? `<div class="quiz-xp-award">+${XP[gainType]} XP gagnés</div>` : ''}
+          <button class="quiz-btn" onclick="location.reload()" style="margin-top:1.25rem;">↺ Recommencer</button>
+        </div>`;
+        return;
+      }
+
+      answered = false;
+      const q = questions[cur];
+      const opts = q.opts.map((o,i) =>
+        `<button class="quiz-opt" data-idx="${i}"><span class="quiz-opt-num">${String.fromCharCode(65+i)}</span><span>${o}</span></button>`
+      ).join('');
+
+      prog.innerHTML = dots();
+      body.innerHTML = `
+        <div class="quiz-epoch">${q.epoch||''}</div>
+        <div class="quiz-q">${q.q}</div>
+        <div class="quiz-opts">${opts}</div>
+        <div class="quiz-feedback" id="qfb-${containerId}"></div>
+        <div class="quiz-nav">
+          <span class="quiz-score-mini">${score} / ${cur} correct${score>1?'s':''}</span>
+          <button class="quiz-btn primary" id="qnxt-${containerId}" style="display:none" data-next="1">
+            ${cur < questions.length-1 ? 'Suivant →' : 'Voir le résultat →'}
+          </button>
+        </div>`;
+
+      // Attach listeners
+      body.querySelectorAll('.quiz-opt').forEach(btn => {
+        btn.addEventListener('click', function() {
+          if (answered) return;
+          answered = true;
+          const i = parseInt(this.dataset.idx);
+          const fb = document.getElementById('qfb-' + containerId);
+          body.querySelectorAll('.quiz-opt').forEach((b,j) => {
+            b.disabled = true;
+            if (j === q.ans) b.classList.add('correct');
+            else if (j === i) b.classList.add('wrong');
+          });
+          if (i === q.ans) {
+            score++;
+            gagne('quiz_bonne_reponse');
+            fb.className = 'quiz-feedback show ok';
+            fb.innerHTML = '✓ ' + q.expl + (q.ref ? `<div class="quiz-ref">→ ${q.ref}</div>` : '');
+          } else {
+            fb.className = 'quiz-feedback show ko';
+            fb.innerHTML = '✗ ' + q.expl + (q.ref ? `<div class="quiz-ref">→ ${q.ref}</div>` : '');
+          }
+          const nxt = document.getElementById('qnxt-' + containerId);
+          if (nxt) nxt.style.display = 'inline-flex';
+        });
+      });
+
+      const nxtBtn = document.getElementById('qnxt-' + containerId);
+      if (nxtBtn) nxtBtn.addEventListener('click', () => { cur++; render(); });
+
+      // Update XP badge
+      const badge = wrap.querySelector('.quiz-xp-badge');
+      if (badge) badge.textContent = '+' + XP.quiz_parfait + ' XP max';
+    }
+
+    render();
+  }
+
+  /* ── Carnet ── */
+  function initCarnet(id, acteId, questionId) {
+    const ta = document.getElementById('carnet-ta-' + id);
+    if (!ta) return;
+    const wc = document.getElementById('carnet-wc-' + id);
+    const badge = document.getElementById('carnet-saved-' + id);
+    const KEY = 'acte_' + acteId + '_q' + questionId;
+    const data = loadCarnet();
+    if (data[KEY]) ta.value = data[KEY].texte;
+    const upd = () => { if(wc) wc.textContent = ta.value.trim().split(/\s+/).filter(Boolean).length + ' mots'; };
+    ta.addEventListener('input', upd); upd();
+    window['saveCarnet_' + id] = function() {
+      const t = ta.value.trim(); if (!t) return;
+      const cd = loadCarnet(); const isNew = !cd[KEY];
+      cd[KEY] = { texte:t, ts:Date.now() }; saveCarnet(cd);
+      if (isNew) {
+        const xd = loadXP();
+        if (!xd.carnets) xd.carnets = {};
+        if (!xd.carnets[KEY]) { xd.carnets[KEY] = true; saveXP(xd); gagne('carnet_entree'); }
+      }
+      if (badge) { badge.classList.add('show'); setTimeout(() => badge.classList.remove('show'), 2500); }
+    };
+  }
+
+  /* ── Décision ── */
+  function initDecision(acteId, opts) {
+    const wrap = document.getElementById('decision-wrap-' + acteId);
+    if (!wrap) return;
+    const data = loadDecisions();
+    const saved = data['acte_' + acteId];
+
+    function apply(chosen) {
+      wrap.querySelectorAll('.decision-opt').forEach(b => {
+        b.disabled = !!chosen;
+        b.classList.toggle('chosen', !!(chosen && b.dataset.choice === chosen.choice));
+      });
+      const echo = wrap.querySelector('.decision-echo');
+      if (chosen && echo) { echo.querySelector('.decision-echo-text').textContent = chosen.echo; echo.classList.add('show'); }
+      const dot = wrap.querySelector('.decision-status-dot');
+      const stxt = wrap.querySelector('.decision-status-txt');
+      if (chosen) { if(dot) dot.classList.add('done'); if(stxt) stxt.textContent = 'Décision enregistrée'; }
+    }
+
+    if (saved) apply(saved);
+
+    wrap.querySelectorAll('.decision-opt').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const choice = this.dataset.choice; const opt = opts[choice]; if (!opt) return;
+        const entry = { choice, label:opt.label, echo:opt.echo, ts:Date.now() };
+        const dd = loadDecisions(); const isNew = !dd['acte_' + acteId];
+        dd['acte_' + acteId] = entry; saveDecisions(dd);
+        if (isNew) gagne('decision_prise');
+        apply(entry);
       });
     });
 
-    const cb=document.getElementById('wd-change-'+d.acte);
-    if(cb)cb.addEventListener('click',function(){
-      root.querySelectorAll('.wd-opt').forEach(function(b){b.disabled=false;b.classList.remove('chosen')});
-      document.getElementById('wd-echo-'+d.acte).classList.remove('visible');
-      document.getElementById('wd-dot-'+d.acte).classList.remove('done');
-      document.getElementById('wd-status-txt-'+d.acte).textContent='En attente de ta décision';
-      this.classList.remove('visible');
-      const a=load();delete a['acte_'+d.acte];localStorage.setItem(KEY,JSON.stringify(a));
+    const changeBtn = wrap.querySelector('.decision-change-btn');
+    if (changeBtn) changeBtn.addEventListener('click', () => {
+      const dd = loadDecisions(); delete dd['acte_' + acteId]; saveDecisions(dd);
+      wrap.querySelectorAll('.decision-opt').forEach(b => { b.disabled = false; b.classList.remove('chosen'); });
+      const echo = wrap.querySelector('.decision-echo'); if(echo) echo.classList.remove('show');
+      const dot = wrap.querySelector('.decision-status-dot'); if(dot) dot.classList.remove('done');
+      const stxt = wrap.querySelector('.decision-status-txt'); if(stxt) stxt.textContent = 'En attente de ta décision';
     });
   }
 
-  function initAll(){
-    document.querySelectorAll('[data-acte]').forEach(function(el){
-      if(el.dataset.acte)init(el);
-    });
-    injectNav();
-  }
+  /* ── Init ── */
+  document.addEventListener('DOMContentLoaded', () => {
+    creerSidebar();
+    actualiserSidebar();
+    actualiserAvatars();
+  });
 
-  const ACTES=[
-    {n:1,titre:'Antiquité',href:'01_antiquite.html'},
-    {n:2,titre:'Moyen Âge',href:'02_feodal.html'},
-    {n:3,titre:'Renaissance',href:'03_renaissance.html'},
-    {n:4,titre:'XIXe siècle',href:'04_industrie.html'},
-    {n:5,titre:'XXe siècle',href:'05_regulation.html'},
-    {n:6,titre:'XXIe siècle',href:'06_contemporain.html'}
-  ];
-
-  function injectNav(){
-    const widget=document.querySelector('[data-acte]');
-    if(!widget)return;
-    const acte=parseInt(widget.dataset.acte);
-    if(!acte||acte<1||acte>6)return;
-    const decisions=load();
-    const prev=acte>1?ACTES[acte-2]:null;
-    const next=acte<6?ACTES[acte]:null;
-    const isLast=acte===6;
-    const pips=ACTES.map(function(a){
-      const done=!!decisions['acte_'+a.n];
-      const current=a.n===acte;
-      return'<div class="wd-nav-pip'+(current?' current':done?' done':'')+'"></div>';
-    }).join('');
-    const prevBtn=prev
-      ?`<a class="wd-nav-prev" href="${prev.href}"><span class="wd-nav-arrow">←</span><span class="wd-nav-label"><span class="wd-nav-label-hint">Acte précédent</span>${prev.titre}</span></a>`
-      :`<a class="wd-nav-prev" href="../index.html"><span class="wd-nav-arrow">←</span><span class="wd-nav-label"><span class="wd-nav-label-hint">Retour</span>Le voyage</span></a>`;
-    const nextBtn=isLast
-      ?`<a class="wd-nav-next" href="../interactif/epilogue.html"><span class="wd-nav-label" style="text-align:right"><span class="wd-nav-label-hint">Fin du voyage</span>Mon épilogue →</span></a>`
-      :`<a class="wd-nav-next" href="${next.href}"><span class="wd-nav-label" style="text-align:right"><span class="wd-nav-label-hint">Acte suivant</span>${next.titre}</span><span class="wd-nav-arrow">→</span></a>`;
-    const nav=document.createElement('div');
-    nav.className='wd-nav';
-    nav.innerHTML=prevBtn+`<div class="wd-nav-progress"><div>Acte ${acte} / 6</div><div class="wd-nav-pips">${pips}</div></div>`+nextBtn;
-    widget.parentNode.insertBefore(nav,widget.nextSibling);
-  }
-
-  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initAll)}
-  else{initAll()}
+  return { gagne, loadXP, saveXP, loadCarnet, saveCarnet, loadDecisions, saveDecisions,
+           loadQuiz, saveQuiz, getNiveau, getNextNiveau, NIVEAUX, XP,
+           initQuiz, initCarnet, initDecision, actualiserSidebar, actualiserAvatars };
 })();
 </script>
+<style>
+@keyframes luBounce { 0%{transform:scale(0)}60%{transform:scale(1.15)}100%{transform:scale(1)} }
+</style>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -928,12 +789,12 @@ hr{border:none;border-top:.5px solid var(--bord);margin:1.5rem 0}
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copié");
+      button.setAttribute("title", "Copied!");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copié");
+        button.setAttribute("data-bs-title", "Copied!");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
@@ -974,6 +835,57 @@ hr{border:none;border-top:.5px solid var(--bord);margin:1.5rem 0}
       });
       clipboardModal.on('success', onCopySuccess);
     }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
         var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -990,6 +902,11 @@ hr{border:none;border-top:.5px solid var(--bord);margin:1.5rem 0}
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -1302,19 +1219,153 @@ hr{border:none;border-top:.5px solid var(--bord);margin:1.5rem 0}
       }
     }
   });
-  </script>
+  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Guide enseignant"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Usages pédagogiques · Adaptations · Évaluation"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">toc:</span><span class="co"> true</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;style&gt;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="in">.ens-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:1.5rem 0; }</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="in">.ens-card { border:1.5px solid #E2E8F0; border-radius:10px; padding:1.25rem; background:white; }</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="in">.ens-card-icon { font-size:1.4rem; margin-bottom:.5rem; }</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="in">.ens-card-title { font-family:'DM Sans',sans-serif; font-size:.85rem; font-weight:600; color:#1A1D23; margin-bottom:.35rem; }</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="in">.ens-card-text { font-family:'EB Garamond',Georgia,serif; font-size:.92rem; color:#64748B; line-height:1.68; font-style:italic; }</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="in">.ens-seance { border:1.5px solid #E2E8F0; border-radius:10px; overflow:hidden; margin:.75rem 0; }</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="in">.ens-seance-header { background:#F8FAFC; padding:.65rem 1.1rem; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #E2E8F0; }</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="in">.ens-seance-title { font-family:'DM Sans',sans-serif; font-size:.85rem; font-weight:600; color:#1A1D23; }</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="in">.ens-seance-duration { font-family:'DM Mono',monospace; font-size:.68rem; color:#94A3B8; }</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="in">.ens-seance-body { padding:.9rem 1.1rem; font-family:'EB Garamond',Georgia,serif; font-size:.93rem; color:#334155; line-height:1.7; }</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="in">.ens-seance-body strong { font-family:'DM Sans',sans-serif; font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; color:#2563EB; font-weight:600; font-style:normal; display:block; margin-top:.6rem; margin-bottom:.2rem; }</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="in">.ens-niveau { display:inline-flex; align-items:center; gap:.4rem; padding:.22rem .7rem; border-radius:100px; font-family:'DM Sans',sans-serif; font-size:.68rem; font-weight:500; }</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="in">.ens-niveau.l1 { background:#ECFDF5; color:#059669; }</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="in">.ens-niveau.l2 { background:#EFF6FF; color:#2563EB; }</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="in">.ens-niveau.m1 { background:#FDF4FF; color:#9333EA; }</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="in">@media(max-width:600px) { .ens-grid { grid-template-columns:1fr; } }</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/style&gt;</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pour qui, pour quoi</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>Ce site s'adresse à des étudiants de **licence 2 à master 1** en économie, histoire, sciences sociales ou philosophie politique. Il peut être utilisé de trois façons.</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="ens-grid"&gt;</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="ens-card"&gt;</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;div class="ens-card-icon"&gt;🖥️&lt;/div&gt;</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;div class="ens-card-title"&gt;Parcours autonome&lt;/div&gt;</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;div class="ens-card-text"&gt;L'étudiant suit les 6 actes à son rythme, fait les quiz, remplit le carnet. Le système XP et Thomas assurent la progression. Durée : 8 à 10h.&lt;/div&gt;</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="ens-card"&gt;</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;div class="ens-card-icon"&gt;🏫&lt;/div&gt;</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;div class="ens-card-title"&gt;Hybride (présentiel + distanciel)&lt;/div&gt;</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;div class="ens-card-text"&gt;Les actes sont lus en autonomie. Le présentiel est consacré aux débats structurés et à la mise en commun des carnets. Voir séances suggérées ci-dessous.&lt;/div&gt;</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="ens-card"&gt;</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;div class="ens-card-icon"&gt;📋&lt;/div&gt;</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;div class="ens-card-title"&gt;Support de TD&lt;/div&gt;</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;div class="ens-card-text"&gt;Chaque acte peut être utilisé comme document de TD : graphique à commenter, quiz à faire en groupe, dilemme à débattre. Chaque acte est autonome.&lt;/div&gt;</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="ens-card"&gt;</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;div class="ens-card-icon"&gt;🎯&lt;/div&gt;</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;div class="ens-card-title"&gt;Évaluation formative&lt;/div&gt;</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;div class="ens-card-text"&gt;Le carnet de bord (12 entrées guidées) peut servir de portfolio d'évaluation. Exporter via la page Journal → copier dans un document.&lt;/div&gt;</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## Niveaux et adaptations</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Public <span class="pp">|</span> Parcours recommandé <span class="pp">|</span> Durée <span class="pp">|</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="pp">|--------|-------------------|-------|</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"ens-niveau l1"</span><span class="dt">&gt;</span>L1–L2 débutant<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> <span class="pp">|</span> Actes I–III + quiz global + 1 débat <span class="pp">|</span> 5–6h <span class="pp">|</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"ens-niveau l2"</span><span class="dt">&gt;</span>L3 intermédiaire<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> <span class="pp">|</span> 6 actes + détective + atelier données <span class="pp">|</span> 8–9h <span class="pp">|</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"ens-niveau m1"</span><span class="dt">&gt;</span>M1 avancé<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> <span class="pp">|</span> Parcours complet + carnet intégral + tous les débats <span class="pp">|</span> 12h+ <span class="pp">|</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>Pour les niveaux débutants, les actes I et II suffisent à poser les fondements (inégalité naturelle vs construite, rôle des chocs démographiques). Pour les niveaux avancés, les actes V et VI avec l'atelier données et les débats constituent un module autonome sur les inégalités contemporaines.</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="fu">## Séances en présentiel suggérées</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="ens-seance"&gt;</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="ens-seance-header"&gt;</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;span class="ens-seance-title"&gt;Séance 1 — Lancer le cours&lt;/span&gt;</span></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;span class="ens-seance-duration"&gt;1h30&lt;/span&gt;</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="ens-seance-body"&gt;</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="in">    Faire le &lt;strong&gt;Quiz diagnostique&lt;/strong&gt; collectivement (5 min, résultats anonymes agrégés au tableau). Présenter Thomas et le système XP. Lire ensemble le journal de l'Acte I (10 min). Débat oral : "L'inégalité est-elle naturelle ou construite ?" — sans cours préalable, pour révéler les représentations initiales.</span></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;strong&gt;Matériel&lt;/strong&gt; Projecteur + quiz diagnostique ouvert sur chaque poste.</span></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="ens-seance"&gt;</span></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="ens-seance-header"&gt;</span></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;span class="ens-seance-title"&gt;Séance 2 — Données et méthode&lt;/span&gt;</span></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;span class="ens-seance-duration"&gt;1h30&lt;/span&gt;</span></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="ens-seance-body"&gt;</span></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="in">    Atelier données en binômes : chaque binôme analyse un graphique (Gini mondial, Kuznets, r &gt; g) et présente ses observations en 3 min. Mutualisation : quelles limites du Gini comme indicateur ? Prolongement : chercher le Gini de la France sur WID.world et comparer avec le graphique de l'Acte V.</span></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;strong&gt;Matériel&lt;/strong&gt; Page Atelier données + accès à wid.world.</span></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="ens-seance"&gt;</span></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="ens-seance-header"&gt;</span></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;span class="ens-seance-title"&gt;Séance 3 — Débat structuré&lt;/span&gt;</span></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;span class="ens-seance-duration"&gt;1h30&lt;/span&gt;</span></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="ens-seance-body"&gt;</span></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a><span class="in">    Utiliser le &lt;a href="interactif/debats.html"&gt;Débat II&lt;/a&gt; (efficacité vs équité) ou le &lt;a href="interactif/debats.html"&gt;Débat III&lt;/a&gt; (fiscalité du capital). Groupes de 4 : 2 défendent la position A, 2 la position B — même si ce n'est pas leur conviction. 15 min de préparation, 15 min de débat, 10 min de débrief. Les étudiants peuvent ensuite modifier leur position dans le carnet.</span></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;strong&gt;Matériel&lt;/strong&gt; Page Débats structurés + tableau pour noter les arguments clés.</span></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="ens-seance"&gt;</span></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="ens-seance-header"&gt;</span></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;span class="ens-seance-title"&gt;Séance 4 — Restitution des carnets&lt;/span&gt;</span></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;span class="ens-seance-duration"&gt;1h&lt;/span&gt;</span></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="ens-seance-body"&gt;</span></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="in">    Chaque étudiant partage une entrée de carnet de son choix (2 min). Identifier les convergences et divergences de profils idéologiques (page Ma progression). Clore avec la question finale de l'Acte VI : "Que faire ?"</span></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;strong&gt;Matériel&lt;/strong&gt; Export carnet (copier-coller) + page Ma progression pour le profil.</span></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="fu">## Évaluation</span></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>Le carnet de bord (12 entrées) constitue un **portfolio d'évaluation formative** naturel. Critères suggérés pour une notation :</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Mobilisation des auteurs** — les réponses citent-elles au moins un penseur du cours avec son argument précis ?</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Usage des données** — les affirmations sont-elles appuyées sur des ordres de grandeur ou des graphiques du cours ?</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Prise de position argumentée** — l'étudiant défend-il une position ou se contente-t-il de résumer ?</span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Évolution entre les actes** — les réponses tardives montrent-elles une pensée plus nuancée que les premières ?</span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a>**Export du carnet**  </span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a>La page <span class="co">[</span><span class="ot">Journal de bord</span><span class="co">](journal/index.html)</span> permet à chaque étudiant d'exporter toutes ses entrées en un bloc texte copiable. Il peut le coller dans un document Word ou PDF pour le remettre.</span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a><span class="fu">## Adaptation et signalement d'erreurs</span></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a>Le code source du site est intégralement disponible dans le ZIP de déploiement. Chaque fichier <span class="in">`.qmd`</span> peut être modifié pour adapter le contenu, ajouter des actes, changer les questions du carnet ou les questions du quiz.</span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a>Pour signaler une erreur factuelle ou suggérer une amélioration, utiliser la page <span class="co">[</span><span class="ot">À propos</span><span class="co">](apropos.html)</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Cours hybride 10H · Public international</p>
-</div>   
+      &nbsp;
+    </div>   
     <div class="nav-footer-center">
-<p>Conçu avec l’assistance de Claude (Anthropic) · <a href="./apropos.html">À propos</a></p>
+<p>Inégalités — Histoire économique · Quarto · CC BY-NC-SA 4.0</p>
 </div>
     <div class="nav-footer-right">
-<p>Données · <a href="https://wid.world">wid.world</a></p>
-</div>
+      &nbsp;
+    </div>
   </div>
 </footer>
 
