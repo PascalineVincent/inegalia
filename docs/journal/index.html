@@ -119,9 +119,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
     </a>
-    <a class="navbar-brand" href="index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Inégalités — Histoire économique</span>
     </a>
   </div>
@@ -430,6 +430,32 @@ function exportCarnet() {
 </section>
 
 </main> <!-- /main -->
+<!-- Fix navbar brand link to always point to index.html at site root -->
+<script>
+(function() {
+  function fixBrand() {
+    var brand = document.querySelector('.navbar-brand');
+    if (!brand) return;
+    // Determine depth from root based on pathname
+    var parts = window.location.pathname.replace(/\/+$/, '').split('/');
+    // Find how many folders deep we are from the site root (docs/)
+    // pages at root: depth 0 → index.html
+    // pages in actes/, interactif/, journal/, seances/: depth 1 → ../index.html
+    var depth = 0;
+    var knownDirs = ['actes','interactif','journal','seances'];
+    for (var i = 0; i < parts.length; i++) {
+      if (knownDirs.indexOf(parts[i]) !== -1) { depth = 1; break; }
+    }
+    var prefix = depth === 0 ? '' : '../';
+    brand.href = prefix + 'index.html';
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', fixBrand);
+  } else {
+    fixBrand();
+  }
+})();
+</script>
 <!-- Moteur INEG v3 — XP, Thomas, Quiz, Carnet, Level-up modal -->
 <script>
 window.INEG = (function() {
